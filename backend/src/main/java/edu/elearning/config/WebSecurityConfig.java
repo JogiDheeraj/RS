@@ -60,7 +60,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	// We can specify our authorization criteria inside this method.
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		System.out.println(restApiBasePath);
 		http
 		// starts authorizing configurations
 		.authorizeRequests()
