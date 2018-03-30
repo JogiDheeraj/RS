@@ -2,13 +2,13 @@ package edu.elearning.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import edu.elearning.service.AppUserDetailsService;
 
@@ -18,15 +18,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private AppUserDetailsService appUserDetailsService;
+	
+	@Value("/${rest.api.base.path}")
+	private String restApiBasePath;
 
 	private String[] whitlist = {
-			"/",
+			//static files
 			"/favicon.ico",
 			"/resources/**",
-			"/home",
-			"/api/account/register",
-			"/api/account/login",
-			"/api/logout"
+			"/assets/**",
+			"/*.js",
+			"/*.css",
+			//frontend URLs
+			"/",
+			"/login",
+			"/logout",
+			"/register",
+			//backend URLs
+			restApiBasePath + "/account/register",
+			restApiBasePath + "/account/login",
+			restApiBasePath + "/account/logout"
 	};
 
 	// This method is for overriding the default AuthenticationManagerBuilder.
@@ -49,30 +60,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	// We can specify our authorization criteria inside this method.
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		System.out.println("this is executed  add ******************************** Alabbas");
+		System.out.println(restApiBasePath);
 		http
-				// starts authorizing configurations
-				.authorizeRequests()
-				// ignoring the guest's URLs
-				.antMatchers(whitlist).permitAll()
-
-				// authenticate all remaining URLS
-				.anyRequest().authenticated().and()
-
-				//.formLogin().loginPage("/").permitAll().and()
-				/*
-				 * "/logout" will log the user out by invalidating the HTTP Session, cleaning up
-				 * any {link rememberMe()} authentication that was configured,
-				 */
-				.logout().permitAll().logoutRequestMatcher(new AntPathRequestMatcher("/api/logout", "POST")).and()
-				// enabling the basic authentication
-				.httpBasic().and()
-				// configuring the session on the server
-				.sessionManagement().sessionCreationPolicy(
-						SessionCreationPolicy.IF_REQUIRED
-				).and()
-				// disabling the CSRF - Cross Site Request Forgery
-				.csrf().disable();
+		// starts authorizing configurations
+		.authorizeRequests()
+		// ignoring the guest's URLs
+		.antMatchers(whitlist).permitAll()
+		// authenticate all remaining URLs
+		.antMatchers(restApiBasePath).authenticated()	
+		.anyRequest().authenticated()
+		.and()
+		// enabling the basic authentication
+		.httpBasic().and()
+		// configuring the session on the server
+		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED).and()
+		// disabling the CSRF - Cross Site Request Forgery
+		.csrf().disable();
 	}
 }
 

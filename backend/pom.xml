@@ -10,6 +10,7 @@
 	</parent>
 
 	<artifactId>backend</artifactId>
+	<packaging>war</packaging>
 	<name>E-learning backend</name>
 	<description>E-learning Project</description>
 
