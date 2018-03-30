@@ -1,4 +1,4 @@
-/* package edu.elearning.service;
+package edu.elearning.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,4 +21,4 @@ public class AppUserDetailsService implements UserDetailsService {
 	}
 
 }
-*/
+

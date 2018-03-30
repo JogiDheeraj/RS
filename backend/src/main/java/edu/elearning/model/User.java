@@ -8,17 +8,19 @@ import javax.validation.constraints.NotNull;
 import org.springframework.context.annotation.Scope;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
-//import org.springframework.security.core.GrantedAuthority;
-//import org.springframework.security.core.authority.SimpleGrantedAuthority;
-//import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Scope("session")
-public class User  {
-//implements UserDetails
+@Document(collection = "users")
+public class User implements UserDetails {
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -54,7 +56,6 @@ public class User  {
 	}
 
 	@JsonIgnore
-	//@Override
 	public boolean isCredentialsNonExpired() {
 		return true;
 	}
@@ -70,12 +71,11 @@ public class User  {
 	}
 
 	@JsonIgnore
-	//@Override
-	/*public Collection<? extends GrantedAuthority> getAuthorities() {
+	public Collection<? extends GrantedAuthority> getAuthorities() {
 		Collection<GrantedAuthority> authorities = new ArrayList<>();
 		authorities.add(new SimpleGrantedAuthority(role));
 		return authorities;
-	}*/
+	}
 
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", role=" + role + ",]";

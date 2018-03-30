@@ -1,4 +1,4 @@
-/* package edu.elearning.config;
+package edu.elearning.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
@@ -63,7 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				/*
 				 * "/logout" will log the user out by invalidating the HTTP Session, cleaning up
 				 * any {link rememberMe()} authentication that was configured,
-				 *
+				 */
 				.logout().permitAll().logoutRequestMatcher(new AntPathRequestMatcher("/api/logout", "POST")).and()
 				// enabling the basic authentication
 				.httpBasic().and()
@@ -76,4 +76,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 }
 
-*/
+
+
