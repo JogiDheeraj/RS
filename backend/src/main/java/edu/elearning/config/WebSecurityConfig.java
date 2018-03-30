@@ -19,7 +19,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private AppUserDetailsService appUserDetailsService;
 
-	private String[] whitlist = {};
+	private String[] whitlist = {
+			"/",
+			"/favicon.ico",
+			"/resources/**",
+			"/home",
+			"/api/account/register",
+			"/api/account/login",
+			"/api/logout"
+	};
 
 	// This method is for overriding the default AuthenticationManagerBuilder.
 	// We can specify how the user details are kept in the application.
@@ -46,15 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				// starts authorizing configurations
 				.authorizeRequests()
 				// ignoring the guest's URLs
-				.antMatchers(
-						"/",
-						"/favicon.ico",
-						"/resources/**",
-						"/home",
-						"/api/account/register",
-						"/api/account/login",
-						"/api/logout"
-				).permitAll()
+				.antMatchers(whitlist).permitAll()
 
 				// authenticate all remaining URLS
 				.anyRequest().authenticated().and()
