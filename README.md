@@ -69,3 +69,35 @@ Once the above command finishes, you can start the frontend using the `yarn star
 ## Hot reloading
 
 Both the front-end and back-end modules support hot reloading.
+
+
+# Hosting VM and Running Jenkins
+
+Home IP:	141.2.185.13
+VM IP:	10.0.1.1
+Direct:	telnet or ssh to linuxzoo.net
+SSH:	linuxzoo.net
+VM Web:	http://host-1-1.linuxzoo.net/
+JScript Telnet:	Network / Console
+Java Telnet:	Auto
+JavaScript SSH:	SSH
+JavaScript VNC:	VNC
+URI telnet:	linuxzoo.net
+Connect:	Username: root, Password: secure
+
+
+### SSH login 
+> ssh root@linuxzoo.net
+
+
+
+
+
+
+
+
+
+
+
+
+
