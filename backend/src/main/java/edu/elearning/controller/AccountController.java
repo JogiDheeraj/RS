@@ -26,11 +26,11 @@ public class AccountController {
 	// request method to create a new account by a guest
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ResponseEntity<?> createUser(@RequestBody User newUser) {
-		if (userService.find(newUser.getUsername()) != null) {
-			logger.error("username Already exist " + newUser.getUsername());
+		if (userService.findbyUserName(newUser.getUsername()) != null) {
+			logger.error("Username Already exist " + newUser.getUsername());
 
 			ResponseEntity<Object> responseEntity = new ResponseEntity<Object>(
-					new CustomErrorType("user with username " + newUser.getUsername() + "already exist "),
+					new CustomErrorType("User with username " + newUser.getUsername() + "already exist "),
 					HttpStatus.CONFLICT);
 			return responseEntity;
 		}
@@ -39,14 +39,15 @@ public class AccountController {
 		return new ResponseEntity<User>(userService.save(newUser), HttpStatus.CREATED);
 	}
 
-	// this is the login api/service
+	// this is the login /api/account/login
 	@RequestMapping("/login")
 	public Principal user(Principal principal) {
-		logger.info("user logged " + principal);
+		System.out.println("User logged " + principal);
+		logger.info("User logged " + principal);
 		return principal;
 	}
 
-	@GetMapping(path = "/ping")
+	@RequestMapping("/ping")
 	public ResponseEntity<Map<String, String>> ping() {
 		Map<String, String> map = new HashMap<>();
 		map.put("ping", "pong");

@@ -1,6 +1,6 @@
 /**
  * New typescript file
-
+ */
 
 import { Location } from "@angular/common";
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
@@ -8,10 +8,10 @@ import { RouterTestingModule } from "@angular/router/testing";
 import { Router } from "@angular/router";
 
 import { routing } from "./app.routing";
-import { AppComponent } from "./app.component";
-import { RegisterComponent } from './components/register/register.component';
-import { ProfileComponent } from './components/profile/profile.component';
-import { LoginComponent } from from './components/login/login.component';
+import { AppComponent } from "../components/application/app.component";
+import { RegisterComponent } from '../components/register/register.component';
+import { ProfileComponent } from '../components/profile/profile.component';
+import { LoginComponent } from '../components/login/login.component';
 
 describe('Router: App', () => {
 
@@ -37,7 +37,7 @@ describe('Router: App', () => {
   });
 
   it('fakeAsync works', fakeAsync(() => {
-    let promise = new Promise((resolve) => {
+    const promise = new Promise((resolve) => {
       setTimeout(resolve, 10)
     });
     let done = false;
@@ -59,4 +59,3 @@ describe('Router: App', () => {
   }));
 });
 
- */

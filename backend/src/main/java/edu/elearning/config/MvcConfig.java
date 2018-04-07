@@ -44,7 +44,7 @@ public class MvcConfig {
 		return new WebMvcConfigurerAdapter() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/restApiBasePath/**").allowedMethods("*").allowedOrigins("http://localhost:4200");
+				registry.addMapping(restApiBasePath + "/**").allowedMethods("*").allowedOrigins("http://localhost:4200");
 			}
 		};
 	}

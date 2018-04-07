@@ -24,7 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	private String[] whitlist = {
 			//static files
-			"/favicon.ico",
+			"/*.ico",
 			"/resources/**",
 			"/assets/**",
 			"/*.js",
@@ -35,9 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			"/logout",
 			"/register",
 			//backend URLs
-			restApiBasePath + "/account/register",
-			restApiBasePath + "/account/login",
-			restApiBasePath + "/account/logout"
+			restApiBasePath + "/account/**",
 	};
 
 	// This method is for overriding the default AuthenticationManagerBuilder.
@@ -61,16 +59,33 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-		// starts authorizing configurations
-		.authorizeRequests()
-		// ignoring the guest's URLs
-		.antMatchers(whitlist).permitAll()
-		// authenticate all remaining URLs
-		.antMatchers(restApiBasePath).authenticated()	
+			// enabling the basic authentication
+			.httpBasic()
+		.and()
+			// starts authorizing configurations
+			.authorizeRequests()
+			// ignoring the guest's URLs
+			.antMatchers(
+					//static files
+					"/*.ico",
+					"/resources/**",
+					"/assets/**",
+					"/*.js",
+					"/*.css",
+					//frontend URLs
+					"/",
+					"/login",
+					"/logout",
+					"/register",
+					//backend URLs
+					restApiBasePath + "/account/login",
+					restApiBasePath + "/account/register",
+					restApiBasePath + "/account/ping"
+				).permitAll()
+			// authenticate all remaining URLs
 		.anyRequest().authenticated()
 		.and()
-		// enabling the basic authentication
-		.httpBasic().and()
+		
 		// configuring the session on the server
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED).and()
 		// disabling the CSRF - Cross Site Request Forgery

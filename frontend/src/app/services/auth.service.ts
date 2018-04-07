@@ -19,7 +19,7 @@ export class AuthService {
     const options = new RequestOptions();
     options.headers = headers;
 
-    return this.http.get("/account/login", options)
+    return this.http.get("/api/account/login", options)
       .map((response: Response) => {
         // login successful if there's a jwt token in the response
         const user = response.json().principal;// the returned user object is a principal object
@@ -32,7 +32,7 @@ export class AuthService {
 
   public logOut() {
     // remove user from local storage to log user out
-    return this.http.post("logout", {})
+    return this.http.post("/api/account/logout", {})
       .map((response: Response) => {
         localStorage.removeItem('currentUser');
       });
