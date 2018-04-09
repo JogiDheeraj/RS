@@ -1,0 +1,19 @@
+<div class="articles">
+	<mat-card *ngFor="let article of articles" class="articles-card">
+	  <mat-card-header>
+	    <div mat-card-avatar class="articles-card-header">
+	    	{{article.date | timeStamp | date:'medium'}}
+	    </div>
+	  </mat-card-header>
+	  <img mat-card-image class="articles-card-image"
+	  	src="{{article.image}}" 
+	  	alt="Photo of a Shiba Inu"
+	  >
+	  <mat-card-content class="articles-card-content">
+	    <p>
+	      {{article.simpleText}}
+	    </p>
+	  </mat-card-content>
+	  
+	</mat-card>
+</div>

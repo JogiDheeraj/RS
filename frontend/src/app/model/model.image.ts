@@ -1,7 +1,8 @@
 /**
  * New typescript file
  */
-export interface Image {
+export class Image {
+  id:string;
   title: string;
   url: string;
 }

@@ -3,3 +3,12 @@
 mat-sidenav{
 	width: 100%;
 }
+
+mat-sidenav-container{
+	display: contents !important;
+}
+
+mat-sidenav-content{
+	overflow: -webkit-paged-x !important;
+	display: none !important;
+}

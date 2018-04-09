@@ -1,8 +1,10 @@
 
-<mat-toolbar role="header">
+<mat-toolbar>
   <mat-toolbar-row>
     
-    <span><img src="./assets/images/logo.png" style="height: 50px"></span>
+    <span>
+    	<img src="./assets/images/logo.png" style="height: 50px">
+    </span>
     
     <!-- The following menu items will be hidden on both SM and XS screen sizes -->
     
@@ -31,10 +33,20 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<!-- The following menu items will be Shown on both SM and XS screen sizes -->
-<mat-sidenav-container fxFlexFill class="example-container">
 
+<mat-sidenav-container fxFlexFill fxHide.gt-sm="true" >
+
+	<!-- The following menu items will be Shown on both SM and XS screen sizes -->
     <mat-sidenav #sidenav fxLayout="column">
+    	
+    	<span>
+    		<img src="./assets/images/logo.png" style="height: 50px">
+    	</span>
+    
+    	<button mat-button (click)="sidenav.toggle()">
+      		<mat-icon>close</mat-icon>
+        </button>
+        
         <button mat-button>الرئيسية</button>
 		<button mat-button>الحدمات السياحية</button>
 		<button mat-button>الحدمات السياحية</button>
@@ -44,9 +56,6 @@
 	    <button mat-button>المدونة</button>
 	    <button mat-button>من نحن</button>
 	    <button mat-button>اتصل بنا</button>
+	    
     </mat-sidenav>
-    
-    <mat-sidenav-content fxFlexFill>
-    	<router-outlet></router-outlet>
-    </mat-sidenav-content>
 </mat-sidenav-container>
