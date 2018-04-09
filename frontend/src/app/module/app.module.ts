@@ -13,6 +13,7 @@ import {RegisterComponent} from '../components/register/register.component';
 import {ProfileComponent} from '../components/profile/profile.component';
 import {CarouselComponent} from '../components/carousel/carousel.component';
 import {ArticleComponent} from '../components/article/article.component';
+import {MailListComponent} from '../components/mail-list/mail-list.component';
 
 import {AuthService} from "../services/auth.service";
 import {AccountService} from "../services/account.service";
@@ -34,7 +35,8 @@ import {routing} from "./app.routing";
     IndexComponent,
     CarouselComponent,
     ArticleComponent,
-    TimeStampPipe
+    TimeStampPipe,
+    MailListComponent
   ],
   imports: [
     BrowserModule,
