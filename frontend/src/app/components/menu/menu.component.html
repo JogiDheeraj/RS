@@ -23,12 +23,10 @@
     	<span class="align-center"></span>
     	<span class="example-spacer"></span>
     
-	    <button mat-raised-button color="primary" >دخول</button>
-	    <button mat-raised-button color="accent">تسجيل</button>
-	    <button mat-raised-button color="warn" >بحث</button>
+	    <button mat-raised-button color="primary" [routerLink]="['/login']">دخول</button>
+	    <button mat-raised-button color="accent" [routerLink]="['/register']">تسجيل</button>
+	    <button mat-raised-button color="warn" [routerLink]="['/search']">بحث</button>
     </div>
-    
-    
     
     <div fxShow="true" fxHide.gt-sm="true">
       <button mat-button aria-label="menu open close" (click)="sidenav.toggle()">

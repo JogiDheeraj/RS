@@ -4,23 +4,48 @@
    </mat-card-header>
    <mat-card-content>
    
-		<form name="form-signin" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
-			<div class="alert alert-danger" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
-			<span id="reauth-email" class="reauth-email"></span>
+		<form name="form-signin" 
+			(ngSubmit)="f.form.valid && login()" 
+			#f="ngForm" novalidate>
+			<div class="alert alert-danger" 
+				role="alert" 
+				*ngIf="errorMessage">
+				{{errorMessage}}
+			</div>
+			<span id="reauth-email" 
+				class="reauth-email">
+			</span>
 			<div class="form-group"
 				[ngClass]="{ 'has-error': f.submitted && !username.valid }">
-				<label for="username">Username</label> <input type="text"
-					class="form-control" id="username" name="username"
-					pattern="[^ @]*@[^ @]*" [(ngModel)]="user.username"
-					#username="ngModel" required />
-				<div *ngIf="f.submitted && !username.valid" class="help-block">an valid email is required</div>
+				<label for="username">User Name</label> 
+					<input type="text"
+						class="form-control" 
+						id="username" 
+						name="username"
+						pattern="[^ @]*@[^ @]*" 
+						[(ngModel)]="user.username"
+						#username="ngModel" required />
+				<div *ngIf="f.submitted && !username.valid" 
+					class="help-block">
+					An valid email is required
+				</div>
 			</div>
 			<div class="form-group"
-				[ngClass]="{ 'has-error': f.submitted && !password.valid }">
-				<label for="password">Password</label> <input type="password"
-					class="form-control" id="password" name="password" [(ngModel)]="user.password" #password="ngModel" required />
-				<div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+				 [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+				<label for="password">Password</label> 
+				<input 	type="password"
+						class="form-control" 
+						id="password" 
+						name="password" 
+						[(ngModel)]="user.password" 
+						#password="ngModel" 
+						required />
+				<div *ngIf="f.submitted && !password.valid" 
+					class="help-block">
+					Password is required
+				</div>
 			</div>
+			
 			<div id="remember" class="checkbox"></div>
 			<mat-card-actions>
 				<button mat-raised-button type="submit">Sign in</button>
@@ -28,11 +53,8 @@
 		</form>
      <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
    </mat-card-content>
-   
-     
-		<a [routerLink]="['/register']" class="btn btn-link">Create new
-			Account!</a>
-   
+    
+	<a [routerLink]="['/register']" class="btn btn-link">تسجيل حساب جديد</a>
  </mat-card>
 		
 
