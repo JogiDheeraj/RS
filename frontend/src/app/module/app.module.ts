@@ -4,6 +4,7 @@ import {Injectable} from '@angular/core';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from "@angular/http";
+import {UICarouselModule} from "ui-carousel";
 
 import {AppComponent} from '../components/application/app.component';
 import {MenuComponent} from '../components/menu/menu.component';
@@ -18,6 +19,7 @@ import {FooterComponent} from '../components/footer/footer.component';
 
 import {AuthService} from "../services/auth.service";
 import {AccountService} from "../services/account.service";
+import {WindowsProviders} from "../services/window.service";
 import {UrlPermission} from "../urlPermission/url.permission";
 
 import {TimeStampPipe} from '../pipes/timeStamp';
@@ -46,12 +48,14 @@ import {routing} from "./app.routing";
     CustomMaterialModule,
     HttpModule,
     FormsModule,
+    UICarouselModule,
     routing,
   ],
   providers: [
     AuthService,
     AccountService,
-    UrlPermission
+    UrlPermission,
+    WindowsProviders
   ],
   bootstrap: [AppComponent]
 })

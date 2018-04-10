@@ -1,7 +1,6 @@
-<div class="carousel">
-	<ul class="slides">
-		<li *ngFor="let image of images">
-			<h2>{{image.title}}</h2> <img src="{{image.url}}" alt="">
-		</li>
-	</ul>
-</div>
+
+<ui-carousel [infinite]="true" [fade]="true" [speed]="1000">
+    <ui-carousel-item *ngFor="let image of images">
+        <img ui-lazy-load="{{image.url}}" alt="{{image.title}}" draggable="false" >
+    </ui-carousel-item>
+</ui-carousel>
