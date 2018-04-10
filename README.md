@@ -1,8 +1,9 @@
-spring-boot-maven-angular-starter ![Build Status](https://travis-ci.org/shekhargulati/spring-boot-maven-angular-starter.svg?branch=master)
+spring-boot-maven-angular
 -----
 
 This is a multi-module Spring Boot Angular Maven starter app with good defaults.
-The frontend Angular app is built using [angular-cli](https://cli.angular.io/). The project packages Angular application code as a [WebJar](https://www.webjars.org/). This project is geared towards building monolithic applications. I have also written [a blog that explains step by step how to create this starter project](https://shekhargulati.com/2017/11/08/a-minimalist-guide-to-building-spring-boot-angular-5-applications/).
+The frontend Angular app is built using . The project packages Angular application code as a [WebJar](https://www.webjars.org/). 
+This project is geared towards building monolithic applications. 
 
 This project provides productive setup for building Spring Boot Angular applications. The application is divided into two Maven modules:
 
@@ -11,8 +12,8 @@ This project provides productive setup for building Spring Boot Angular applicat
 
 This project uses following versions:
 
-1. Spring Boot v1.5.9
-2. Angular v5.0.4
+1. Spring Boot v1.5.8
+2. Angular v5.0.0
 3. Node v8.9.0
 4. Yarn v1.3.2
 
@@ -22,7 +23,7 @@ You can build the package as a single artifact by running the `./mvnw clean inst
 Next, you can run the application by executing:
 
 ```bash
-$ java -jar backend/target/ngboot-app.jar
+$ java -jar backend/target/e-learning.jar
 ```
 
 The application will be accessible at `http://localhost:8080`.
@@ -69,35 +70,5 @@ Once the above command finishes, you can start the frontend using the `yarn star
 ## Hot reloading
 
 Both the front-end and back-end modules support hot reloading.
-
-
-# Hosting VM and Running Jenkins
-
-Home IP:	141.2.185.13
-VM IP:	10.0.1.1
-Direct:	telnet or ssh to linuxzoo.net
-SSH:	linuxzoo.net
-VM Web:	http://host-1-1.linuxzoo.net/
-JScript Telnet:	Network / Console
-Java Telnet:	Auto
-JavaScript SSH:	SSH
-JavaScript VNC:	VNC
-URI telnet:	linuxzoo.net
-Connect:	Username: root, Password: secure
-
-
-### SSH login 
-> ssh root@linuxzoo.net
-
-
-
-
-
-
-
-
-
-
-
 
 
