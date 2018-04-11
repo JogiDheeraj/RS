@@ -1,7 +1,9 @@
-.example-icon {
-  padding: 0 14px;
+.login .login-card {
+    margin: 60px 20%;
 }
 
-.example-spacer {
-  flex: 1 1 auto;
+@media only screen and (max-width: 800px) {
+	.login .login-card {
+    	margin: 30px 5px;
+	}
 }

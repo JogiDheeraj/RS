@@ -9,10 +9,12 @@ import {UICarouselModule} from "ui-carousel";
 import {AppComponent} from '../components/application/app.component';
 import {MenuComponent} from '../components/menu/menu.component';
 import {IndexComponent} from '../components/index/index.component';
+import {CarouselComponent} from '../components/carousel/carousel.component';
+import {PageHeaderComponent} from '../components/page-header/page-header.component';
 import {LoginComponent} from '../components/login/login.component';
 import {RegisterComponent} from '../components/register/register.component';
 import {ProfileComponent} from '../components/profile/profile.component';
-import {CarouselComponent} from '../components/carousel/carousel.component';
+
 import {ArticleComponent} from '../components/article/article.component';
 import {MailListComponent} from '../components/mail-list/mail-list.component';
 import {FooterComponent} from '../components/footer/footer.component';
@@ -35,6 +37,7 @@ import {routing} from "./app.routing";
     RegisterComponent,
     ProfileComponent,
     MenuComponent,
+    PageHeaderComponent,
     IndexComponent,
     CarouselComponent,
     ArticleComponent,

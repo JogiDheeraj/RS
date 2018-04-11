@@ -178,3 +178,33 @@ h2 {
 	background: #ff6600;
 	color: white;
 }
+
+.container{
+	display: block;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1170px;
+}
+
+@media only screen and (max-width: 1400px) {
+	.container {
+		width: 1000px;
+	}
+}
+
+@media only screen and (max-width: 1100px) {
+	.container {
+		width: 95%;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.container {
+		width: 95%;
+		display: block;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
