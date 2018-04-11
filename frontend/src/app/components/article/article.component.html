@@ -1,19 +1,26 @@
 <div class="articles">
-	<mat-card *ngFor="let article of articles" class="articles-card">
-	  <mat-card-header>
-	    <div mat-card-avatar class="articles-card-header">
-	    	{{article.date | timeStamp | date:'medium'}}
-	    </div>
-	  </mat-card-header>
-	  <img mat-card-image class="articles-card-image"
-	  	src="{{article.image}}" 
-	  	alt="Photo of a Shiba Inu"
-	  >
-	  <mat-card-content class="articles-card-content">
-	    <p>
-	      {{article.simpleText}}
-	    </p>
-	  </mat-card-content>
-	  
-	</mat-card>
+	<div class="article" *ngFor="let article of articles">
+		<mat-card mat-whiteframe="8" (click)="goToArticle(article)" class="article-card">
+		  <mat-card-header class="article-card-header" >
+		  	<div class="mat-card-header-text">
+		  		{{article.date | timeStamp | date:'medium'}}
+		  	</div>
+		  </mat-card-header>
+		  <div mat-card-image class="article-card-image">
+			  <img src="{{article.image}}" alt="{{article.title}}">
+		  </div>
+		  <mat-card-content class="article-card-content">
+		  	<h2>
+		  		{{article.title}}
+		  	</h2>
+		  	<span>
+		  		<mat-icon>location on</mat-icon>
+		  		{{article.location}}
+		  	</span>
+		    <p>
+		      {{article.simpleText}}
+		    </p>
+		  </mat-card-content>
+		</mat-card>
+	</div>
 </div>

@@ -1,26 +1,25 @@
-ui-carousel{
-    display: block;
-    margin: 0 auto;
-    height: 70vh !important;
-    width: 100%;
+ui-carousel {
+	display: block;
+	margin: 0 auto;
+	height: 70vh !important;
+	width: 100%;
 }
 
-ui-carousel img{
+ui-carousel img {
 	width: 100%
 }
 
 @media only screen and (max-width: 1400px) {
-    ui-carousel{
-        height: 50vh !important;
-    }
+	ui-carousel {
+		height: 50vh !important;
+	}
 }
 
 @media only screen and (max-width: 800px) {
-    ui-carousel{
-        height: 35vh !important;
-    }
-    
-    ui-carousel img{
+	ui-carousel {
+		height: 35vh !important;
+	}
+	ui-carousel img {
 		height: 100%;
 	}
 }

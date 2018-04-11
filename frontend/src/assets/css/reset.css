@@ -1,65 +1,59 @@
-@font-face{
-	font-family:'cairo';
+@font-face {
+	font-family: 'cairo';
 	src: url('//www.fontstatic.com/fonts/cairo/cairo.eot?#iefix');
-	src: local('القاهرة'), local('cairo'),url('//www.fontstatic.com/fonts/cairo/cairo.woff') format('woff');
+	src: local('القاهرة'), local('cairo'),
+		url('//www.fontstatic.com/fonts/cairo/cairo.woff') format('woff');
 }
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    font-family: 'cairo' !important;
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
+	em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
+	b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
+	details, embed, figure, figcaption, footer, header, menu, nav, output,
+	ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	vertical-align: baseline;
+	font-family: 'cairo' !important;
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, menu, nav, section {
-    display: block;
-    font-family: 'cairo' !important;
+article, aside, details, figcaption, figure, footer, header, menu, nav,
+	section {
+	display: block;
+	font-family: 'cairo' !important;
 }
 
 html, body {
-    height: 100%;
-    font-family: 'cairo' !important;
+	height: 100%;
+	font-family: 'cairo' !important;
 }
 
 body {
-    line-height: 1;
-    font-family: 'cairo' !important;
+	line-height: 1;
+	font-family: 'cairo' !important;
 }
 
 ol, ul {
-    list-style: none;
+	list-style: none;
 }
 
 blockquote, q {
-    quotes: none;
+	quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: none;
+blockquote:before, blockquote:after, q:before, q:after {
+	content: none;
 }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 * {
-    transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
 }

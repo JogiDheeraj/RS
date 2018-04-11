@@ -1,18 +1,128 @@
 .articles {
-	padding : 10px;
+	padding: 10px;
 	margin: auto;
 	display: block;
 	overflow: auto;
 }
 
-.articles-card {
-	max-width: 20%;
+.articles .article {
+	max-width: 25%;
 	float: right;
-	margin: 10px 10px 10px 10px;
 }
 
-.articles-card-header {
-	background-image:
-		url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-	background-size: cover;
+.articles .article .article-card {
+	height: 430px;
+	margin: 10px 10px 10px 10px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	overflow: hidden;
+}
+
+.articles .article .article-card:hover {
+	box-shadow: 0 0 50px rgba(0, 0, 0, .3);
+}
+
+.articles .article .article-card .article-card-header {
+	position: absolute;
+	top: 10px;
+	border-radius: 50%;
+	background-color: #ff4081;
+	width: 60px;
+	height: 60px;
+	overflow: hidden;
+	border-radius: 50%;
+	z-index: 1;
+}
+
+.articles .article .article-card .article-card-header .mat-card-header-text
+	{
+	height: auto;
+	font-weight: 700;
+	color: #fff;
+	margin: 11px -5px;
+}
+
+.articles .article .article-card .article-card-image {
+	height: 245px;
+	overflow: hidden;
+	background-color: #000;
+	-webkit-transition: height 0.5s;
+	transition: height 0.5s;
+}
+
+.articles .article .article-card .article-card-image img {
+	width: 100%;
+	opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+	transition: opacity 0.5s, -webkit-transform 0.5s;
+	transition: opacity 0.5s, transform 0.5s;
+	transition: opacity 0.5s, transform 0.5s, -webkit-transform 0.5s;
+}
+
+.articles .article .article-card:hover .article-card-image {
+	height: 130px;
+}
+
+.articles .article .article-card:hover .article-card-image img {
+	opacity: .6;
+	-webkit-transform: scale(1.2);
+	transform: scale(1.2);
+}
+
+.articles .article .article-card .article-card-content h2 {
+	margin: 0;
+    padding: 0 0 15px 0;
+    color: #000;
+    font-size: 18px;
+    line-height: 1.5;
+    height: 50px;
+}
+
+.articles .article .article-card .article-card-content span{
+	margin-top: 10px;
+    padding: 0 0 10px 0;
+    font-size: 14px;
+    color: coral;
+}
+
+.articles .article .article-card .article-card-content p {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 56px;
+    margin: 0;
+    padding: 0;
+    color: #666C74;
+    line-height: 27px;
+    opacity: 0;
+    -webkit-transform: translateY(45px);
+    transform: translateY(45px);
+    -webkit-transition: opacity 0.3s,-webkit-transform 0.3s;
+    transition: opacity 0.3s,-webkit-transform 0.3s;
+    transition: opacity 0.3s,transform 0.3s;
+    transition: opacity 0.3s,transform 0.3s,-webkit-transform 0.3s;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+.articles .article .article-card:hover .article-card-content p{
+	opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+@media only screen and (max-width: 800px) {
+	.articles .article {
+		max-width: 50%;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.articles .article {
+		max-width: 100%;
+	}
 }
