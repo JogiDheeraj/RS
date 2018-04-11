@@ -62,9 +62,9 @@
 		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/about']">من نحن</a>
 		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/contact']">اتصل بنا</a>
 		        
-		    <button mat-raised-button color="primary" [routerLink]="['/login']" (click)="sidenav.toggle()">دخول</button>
-		    <button mat-raised-button color="accent" [routerLink]="['/register']" (click)="sidenav.toggle()">تسجيل</button>
-		    <button mat-raised-button color="warn" [routerLink]="['/search']" (click)="sidenav.toggle()">بحث</button>
+		    <a mat-raised-button class="btn" color="primary" [routerLink]="['/login']" (click)="sidenav.toggle()">دخول</a>
+		    <a mat-raised-button class="btn" color="accent" [routerLink]="['/register']" (click)="sidenav.toggle()">تسجيل</a>
+		    <a mat-raised-button class="btn" color="warn" [routerLink]="['/search']" (click)="sidenav.toggle()">بحث</a>
 	    </mat-sidenav>
 	</mat-sidenav-container>
 </div>

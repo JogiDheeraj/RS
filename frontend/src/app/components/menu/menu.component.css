@@ -6,6 +6,7 @@
 
 .slidebare mat-toolbar {
 	padding: 10px;
+	transition: all 0.5s ease-in-out;
 }
 
 .slidebare .mat-drawer-transition .mat-drawer-backdrop {
@@ -17,7 +18,6 @@
 .slidebare mat-sidenav-container {
 	display: contents !important;
 	z-index: 10000 !important;
-	transition: all 0.8s ease-in-out;
 }
 
 .slidebare mat-sidenav {
@@ -25,7 +25,6 @@
 	position: fixed;
 	padding: 10px;
 	z-index: 10000 !important;
-	transition: all 0.8s ease-in-out;
 }
 
 .slidebare a{
@@ -39,14 +38,14 @@
 	background-color: #c8c7c7;
 }
 
-.slidebare mat-sidenav button{
+.slidebare mat-sidenav .btn{
+	border: none;
 	margin-bottom: 5px;
 }
 
 .slidebare mat-sidenav-content {
 	overflow: -webkit-paged-x !important;
 	display: none !important;
-	transition: all 0.8s ease-in-out;
 }
 
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
