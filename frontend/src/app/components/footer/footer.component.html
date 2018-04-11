@@ -1,26 +1,47 @@
 <div class="footer">
+	<div class="row">
 	
-	<div class="column">
-		<img alt="footer logo" src="./assets/images/logo.png">
-		<div class="">
+		<div class="col">
+			<ul class="list-unstyled">
+				<li><img alt="footer logo" src="./assets/images/logo.png"></li>
+				<li>
+					<div class="footer-social"> 
+						<a href="#" target="_blank" class="fa fa-facebook"> </a>  
+						<a href="#" target="_blank" class="fa fa-twitter"> </a>  
+						<a href="#" target="_blank" class="fa fa-google-plus"> </a>  
+						<a href="#" target="_blank" class="fa fa-instagram"> </a>  
+						<a href="#" target="_blank" class="fa fa-whatsapp"> </a>  
+					</div>
+				</li>
+				<li><mat-icon>copyright</mat-icon>   جميع الحقوق محفوطة </li>
+			</ul>
 		</div>
-		<p> @ جميع الحقوق محفوطة </p>
-	</div>
-	
-	<div class="column">
-	
-	</div>
-	
-	<div class="column">
-	
-	</div>
-	
-	<div class="column">
-		<ul class="list-unstyled">
-           <li><mat-icon>location</mat-icon> العنوان : المملكة العربية السعودية ، الرياض، الملز, مقابل معهد الإدارة, عماير بن لادن</li>
-           <li><mat-icon>phone</mat-icon> الجوال : 0568613346</li>
-           <li><mat-icon>phone</mat-icon> التلفون : 0112815123</li>
-        </ul>
-	</div>
+		
+		<div class="col">
+			<ul class="list-unstyled">
+				<li><mat-icon>location_on</mat-icon> العنوان : المملكة العربية
+					السعودية ، الرياض، الملز, مقابل معهد الإدارة, عماير بن لادن</li>
+				<li><mat-icon>phone</mat-icon> الجوال : 0568613346</li>
+				<li><mat-icon>phone</mat-icon> التلفون : 0112815123</li>
+			</ul>
+		</div>
 
+		<div class="col">
+			<a mat-button [routerLink]="['/home']">الرئيسية</a>
+			<a mat-button [routerLink]="['/blog']">المدونة</a>
+		    <a mat-button [routerLink]="['/about']">من نحن</a>
+		    <a mat-button [routerLink]="['/contact']">اتصل بنا</a>
+		</div>
+
+		<div class="col">
+			<a mat-button [routerLink]="['/section']">الحدمات السياحية</a>
+			<a mat-button [routerLink]="['/section']">الحدمات السياحية</a>
+			<a mat-button [routerLink]="['/section']">الحدمات السياحية</a>
+		    <a mat-button [routerLink]="['/section']">الحدمات السياحية</a>
+		    <a mat-button [routerLink]="['/section']">دليل الشركات</a>
+		</div>
+
+		
+	
+	</div>
 </div>

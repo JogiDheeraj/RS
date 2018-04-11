@@ -37,8 +37,6 @@
 	border: 0;
 	border-top: 1px solid #eee;
 	width: 50%;
-	-webkit-animation-name: fadeInDown;
-	animation-name: fadeInDown;
 }
 
 .index .row .header .line {
@@ -47,6 +45,7 @@
 	width: 20%;
 	margin: auto;
 	margin-top: -23px;
+	transition: all 0.5s ease-in-out;
 }
 
 .index .row .header:hover .line {
