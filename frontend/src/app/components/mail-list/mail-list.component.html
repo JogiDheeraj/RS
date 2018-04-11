@@ -1,21 +1,22 @@
 <div class="mail-list">
-
-	<div class="mail-list-title">
-		<mat-icon>mail outline</mat-icon>
-		<h2>القائمة البريدية</h2>
-		<p>إشترك معنا بالقائمة البريدية للحصول على اخر الاضافات</p>
+	<div class="row">
+		<div class="col">
+			<mat-icon class="mail-outline">mail outline</mat-icon>
+		</div>
+		<div class="col">
+			<h2>القائمة البريدية</h2>
+			<p>إشترك معنا بالقائمة البريدية للحصول على اخر الاضافات</p>
+		</div>
+		<div class="col">
+			<form class="mail-list-form">
+				<fieldset class="mail-list-form-full-width">
+					<input type="email" placeholder="أدخل بريدك الإلكتروني">
+					<button mat-button>
+						<mat-icon matPrefix>done</mat-icon>
+						إشتراك
+					</button>
+				</fieldset>
+			</form>
+		</div>
 	</div>
-
-	<form class="mail-list-form">
-
-		<mat-form-field> 
-			<input type="email" matInput placeholder="أدخل بريدك الإلكتروني">
-			<button matSuffix>
-				<span mat-button>done</span>
-				<!-- matPrefix -->
-				إشتراك
-			</button>
-		</mat-form-field>
-
-	</form>
 </div>
