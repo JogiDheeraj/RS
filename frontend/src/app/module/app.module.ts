@@ -7,7 +7,7 @@ import {HttpModule} from "@angular/http";
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {UICarouselModule} from "ui-carousel";
+import {NgxCarouselModule} from 'ngx-carousel';
 
 import {AppComponent} from '../components/application/app.component';
 import {MenuComponent} from '../components/menu/menu.component';
@@ -67,7 +67,7 @@ export function createTranslateLoader(http: HttpClient) {
       }
     }),
     FormsModule,
-    UICarouselModule,
+    NgxCarouselModule,
     routing,
   ],
   providers: [

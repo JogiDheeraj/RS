@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 
 @Component({
@@ -6,7 +6,7 @@ import {TranslateService} from '@ngx-translate/core';
   templateUrl: './lang-selector.component.html',
   styleUrls: ['./lang-selector.component.css']
 })
-export class LangSelectorComponent implements OnInit {
+export class LangSelectorComponent {
 
   constructor(private translate: TranslateService) {
     translate.addLangs(['en', 'ar', 'tr']);
@@ -15,8 +15,6 @@ export class LangSelectorComponent implements OnInit {
     const browserLang = translate.getBrowserLang();
     translate.use(browserLang.match(/en|ar|tr/) ? browserLang : 'ar');
   }
-
-  ngOnInit() {
-  }
-
+  
+  
 }

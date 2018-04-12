@@ -1,4 +1,13 @@
 {
+	"menu": {
+		"home":"الرئيسية",
+		"blog": "المدونة",
+		"about": "من نحن",
+		"contact": "اتصل بنا",
+		"login": "دخول",
+		"register" : "تسجيل",
+		"search": "بحث"
+	},
 	"lang-selector": {
 		"select": "اختر اللغة",
 		"ar": "العربية",

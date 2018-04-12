@@ -1,4 +1,13 @@
 {
+	"menu": {
+		"home":"Home",
+		"blog": "Blog",
+		"about": "About Us",
+		"contact": "Contact",
+		"login": "Login",
+		"register" : "Register",
+		"search": "Search"
+	},
 	"lang-selector": {
 		"select": "Select Language",
 		"ar": "Arabic",
