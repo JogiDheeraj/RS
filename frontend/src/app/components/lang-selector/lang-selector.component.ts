@@ -8,7 +8,7 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class LangSelectorComponent implements OnInit {
 
-  constructor(private translate: TranslateService) {
+  constructor(public translate: TranslateService) {
     translate.addLangs(['en', 'ar', 'tr']);
     translate.setDefaultLang('ar');
 

@@ -13,10 +13,12 @@ import {Router} from "@angular/router";
 })
 
 export class LoginComponent implements OnInit {
-  user: User = new User();
-  errorMessage: string;
+   user: User = new User();
+   errorMessage: string;
+   showSpinner = false;
+  
   constructor(private authService: AuthService, private router: Router) {}
-
+  
   ngOnInit() {}
 
   login() {
