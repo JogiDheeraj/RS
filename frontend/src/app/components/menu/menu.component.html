@@ -25,6 +25,8 @@
 		    <button mat-raised-button [routerLink]="['/login']" color="primary">دخول</button>
 		    <button mat-raised-button [routerLink]="['/register']" color="accent">تسجيل</button>
 		    <button mat-raised-button [routerLink]="['/search']" color="warn">بحث</button>
+		    
+		    <app-lang-selector></app-lang-selector>
 	    </div>
 	    
 	    <div fxShow="true" fxHide.gt-sm="true">
@@ -42,9 +44,7 @@
 		<!-- The following menu items will be Shown on both SM and XS screen sizes -->
 	    <mat-sidenav #sidenav fxLayout="column">
 	    	
-	    	<span>
-	    		<img src="./assets/images/logo.png" style="height: 50px;">
-	    	</span>
+	    	<app-lang-selector></app-lang-selector>
 	    
 	    	<button mat-button class="close-menu-btn" aria-label="menu open close" (click)="sidenav.toggle()">
 	      		<mat-icon aria-hidden="true">close</mat-icon>

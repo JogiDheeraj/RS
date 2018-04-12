@@ -1,0 +1,11 @@
+<button mat-button [matMenuTriggerFor]="menu">
+	<mat-icon matPrifix>language</mat-icon>
+	{{ 'lang-selector.select' | translate }} 
+	({{translate.currentLang}})
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item *ngFor="let language of translate.getLangs()" 
+  	(click)="translate.use(language)" >
+  	{{ 'lang-selector.' + language | translate}}
+  </button>
+</mat-menu>

@@ -4,6 +4,9 @@ import {Injectable} from '@angular/core';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from "@angular/http";
+import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {UICarouselModule} from "ui-carousel";
 
 import {AppComponent} from '../components/application/app.component';
@@ -14,7 +17,7 @@ import {PageHeaderComponent} from '../components/page-header/page-header.compone
 import {LoginComponent} from '../components/login/login.component';
 import {RegisterComponent} from '../components/register/register.component';
 import {ProfileComponent} from '../components/profile/profile.component';
-
+import {LangSelectorComponent} from '../components/lang-selector/lang-selector.component';
 import {ArticleComponent} from '../components/article/article.component';
 import {MailListComponent} from '../components/mail-list/mail-list.component';
 import {FooterComponent} from '../components/footer/footer.component';
@@ -29,6 +32,10 @@ import {TimeStampPipe} from '../pipes/timeStamp';
 import {CustomMaterialModule} from "./material.module";
 import {routing} from "./app.routing";
 
+// The function responsible of loading the Translation files
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -43,13 +50,22 @@ import {routing} from "./app.routing";
     ArticleComponent,
     TimeStampPipe,
     MailListComponent,
-    FooterComponent
+    FooterComponent,
+    LangSelectorComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     CustomMaterialModule,
     HttpModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient],
+      }
+    }),
     FormsModule,
     UICarouselModule,
     routing,
@@ -63,3 +79,4 @@ import {routing} from "./app.routing";
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+

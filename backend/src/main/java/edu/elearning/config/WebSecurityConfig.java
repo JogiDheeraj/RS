@@ -22,22 +22,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Value("/${rest.api.base.path}")
 	private String restApiBasePath;
 
-	private String[] whitlist = {
-			//static files
-			"/*.ico",
-			"/resources/**",
-			"/assets/**",
-			"/*.js",
-			"/*.css",
-			//frontend URLs
-			"/",
-			"/login",
-			"/logout",
-			"/register",
-			//backend URLs
-			restApiBasePath + "/account/**",
-	};
-
 	// This method is for overriding the default AuthenticationManagerBuilder.
 	// We can specify how the user details are kept in the application.
 	// It may be in a database, LDAP or in memory.
