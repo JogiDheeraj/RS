@@ -16,6 +16,7 @@ After the build SUCCEED the a JAR file will be created in `target` directory.
 
 ## Running unit tests
 
+
 Run `yarn test` to execute the unit tests via [Karma](https://karma-runner.github.io) with out watch or code coverage.
 Run `yarn test-watch` to execute the unit tests with watch and code coverage.
 
