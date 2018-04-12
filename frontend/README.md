@@ -10,6 +10,7 @@ The app will automatically reload if you change any of the source files.
 
 ## Build
 
+
 Run `mvn install` to build the project. 
 The build artifacts will be stored in the `dist/META-INF/resources` directory. 
 After the build SUCCEED the a JAR file will be created in `target` directory.
