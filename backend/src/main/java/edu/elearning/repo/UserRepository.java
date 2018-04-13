@@ -9,5 +9,8 @@ public interface UserRepository extends MongoRepository<User, String> {
 
 	@Query("{username:'?0'}")
 	User findOneByUsername(String userName);
+	
+	@Query("{email:'?0'}")
+	User findOneByEmail(String userEmail);
 
 }

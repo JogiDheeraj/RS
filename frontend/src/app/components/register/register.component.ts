@@ -9,22 +9,32 @@ import {Router} from "@angular/router";
   styleUrls: ['./register.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class RegisterComponent implements OnInit {
-  user: User = new User();
-  errorMessage: string;
 
-  constructor(public accountService: AccountService, public router: Router) {
+export class RegisterComponent implements OnInit {
+
+  user: User = new User();
+  serverErrorMessage: string;
+  showSpinner = false;
+
+  constructor(
+    public accountService: AccountService,
+    public router: Router
+  ) {
   }
 
   ngOnInit() {}
 
   register() {
-    this.accountService.createAccount(this.user).subscribe(data => {
-      this.router.navigate(['/login']);
-    }, err => {
-      console.log(err);
-      this.errorMessage = "Username already exist";
-    }
-    )
+    this.showSpinner = true;
+    this.accountService.createAccount(this.user)
+      .subscribe(data => {
+        this.showSpinner = false;
+        this.router.navigate(['/login']);
+      }, err => {
+        console.log(err);
+        this.showSpinner = false;
+        this.serverErrorMessage = err;
+      }
+      )
   }
 }

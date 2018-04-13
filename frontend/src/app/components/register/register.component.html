@@ -1,26 +1,18 @@
-
 <div class="register">
 	<div class="container">
 		<mat-card class="login-card">
 		   <mat-card-header>
-		     <mat-card-title ><h2> تسجيل مستخدم جديد </h2></mat-card-title>
+		     <mat-card-title ><h2>{{'register.title'|translate}}</h2></mat-card-title>
 		   </mat-card-header>
 		   <mat-card-content>
 				
-				<form name="form" 
-					(ngSubmit)="f.form.valid && register()" 
-					#f="ngForm"	novalidate>
-					<div class="alert alert-danger" 
-						role="alert" 
-						*ngIf="errorMessage">
-						{{errorMessage}}
+				<form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+					
+					<div class="alert alert-danger" role="alert" *ngIf="serverErrorMessage">
+						{{serverErrorMessage}}
 					</div>
 					
-					<span id="reauth-email" 
-						class="reauth-email">
-					</span>
-					
-					<fieldset [ngClass]="{ 'has-error': f.submitted && !firstName.valid }">
+					<fieldset [ngClass]="{'has-error': f.submitted && !firstName.valid}">
 						<input type="text"
 							class="form-control"
 							placeholder="الاسم بالكامل" 
@@ -34,7 +26,7 @@
 						</div>
 					</fieldset>
 					
-					<fieldset [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+					<fieldset [ngClass]="{ 'has-error': f.submitted && !username.valid}">
 						<input type="text"
 							class="form-control"
 							placeholder="اسم المستخدم" 
@@ -72,6 +64,8 @@
 						<button mat-raised-button type="submit">انشاء حساب</button>
 						<button mat-raised-button [routerLink]="['/login']"	type="button">إلغاء</button>
 					</fieldset>
+					
+					<mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
 				</form>
 				<!-- /form -->
 		

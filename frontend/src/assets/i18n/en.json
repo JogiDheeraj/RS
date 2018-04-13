@@ -13,5 +13,15 @@
 		"ar": "Arabic",
 		"en": "English",
 		"tr": "Turkish"
+	},
+	"login":{
+		"title" :"Login",
+		"username":"User Name",
+		"validUsername":"An valid email is required",
+		"password":"Password",
+		"validPassword":"Password is required",
+		"submit":"Login",
+		"forget": "Forget Password",
+		"registerNow":"Are you new user? Rigester now"
 	}
 }
