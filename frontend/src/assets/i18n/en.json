@@ -36,5 +36,11 @@
 		"emailRequire": "Email is required.",
 		"validEmail": "A valid email address is required.",
 		"firstNameRequire": "First name is required"
+	},
+	"mail-list": {
+		"title": "Mail list",
+		"content": "join us to mail list to get new feature",
+		"enterEmail": "Enter your email",
+		"join": "join"
 	}
 }
