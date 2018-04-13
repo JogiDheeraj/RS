@@ -1,11 +1,11 @@
 {
 	"menu": {
-		"home":"Home",
+		"home": "Home",
 		"blog": "Blog",
 		"about": "About Us",
 		"contact": "Contact",
 		"login": "Login",
-		"register" : "Register",
+		"register": "Register",
 		"search": "Search"
 	},
 	"lang-selector": {
@@ -14,14 +14,27 @@
 		"en": "English",
 		"tr": "Turkish"
 	},
-	"login":{
-		"title" :"Login",
-		"username":"User Name",
-		"validUsername":"An valid email is required",
-		"password":"Password",
-		"validPassword":"Password is required",
-		"submit":"Login",
+	"login": {
+		"title": "Login",
+		"username": "User Name",
+		"validUsername": "An valid email is required",
+		"password": "Password",
+		"validPassword": "Password is required",
+		"submit": "Login",
 		"forget": "Forget Password",
-		"registerNow":"Are you new user? Rigester now"
+		"registerNow": "Are you new user? Rigester now"
+	},
+	"register": {
+		"title": "Register new user",
+		"firstName": "first name",
+		"username": "Username",
+		"password": "Password",
+		"requirePassword": "Password is required",
+		"validPassword": "Password must be at least 4 letters",
+		"create": "Create",
+		"cancel": "Cancel",
+		"emailRequire": "Email is required.",
+		"validEmail": "A valid email address is required.",
+		"firstNameRequire": "First name is required"
 	}
 }

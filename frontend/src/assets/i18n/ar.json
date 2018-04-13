@@ -1,11 +1,11 @@
 {
 	"menu": {
-		"home":"الرئيسية",
+		"home": "الرئيسية",
 		"blog": "المدونة",
 		"about": "من نحن",
 		"contact": "اتصل بنا",
 		"login": "دخول",
-		"register" : "تسجيل",
+		"register": "تسجيل",
 		"search": "بحث"
 	},
 	"lang-selector": {
@@ -14,18 +14,28 @@
 		"en": "الانكليزية",
 		"tr": "التركية"
 	},
-	"login":{
-		"title" :"تسجيل الدخول",
-		"username":"اسم المستخدم",
-		"validUsername":"An valid email is required",
-		"password":" كلمة لمرور",
-		"validPassword":"Password is required",
-		"submit":"تسجيل الدخول",
+	"login": {
+		"title": "تسجيل الدخول",
+		"username": "اسم المستخدم",
+		"validUsername": "An valid email is required",
+		"password": " كلمة لمرور",
+		"validPassword": "Password is required",
+		"submit": "تسجيل الدخول",
 		"forget": " هل نسيت كلمة المرور ؟",
-		"registerNow":"هل انت مستخدم جديد ؟ ، امتلك حسابك الان  "
+		"registerNow": "هل انت مستخدم جديد ؟ ، امتلك حسابك الان  "
 	},
-	"register":{
-		"title" :" تسجيل مستخدم جديد ",
-		"": ""		
+	"register": {
+		"title": " تسجيل مستخدم جديد ",
+		"firstName": "الاسم بالكامل",
+		"username": "اسم المستخدم",
+		"password":"كلمة المرور",
+		"requirePassword":"كلمة السر مطلوبة",
+		"validPassword":"كلمة السر تتكون من اربع محارف على الأقل",
+		"create":"إنشاء حساب",
+		"cancel":"إلغاء",
+		"emailRequire":"الايميل مطلوب",
+		"validEmail":"الرجاء ادخال بريد الكتروني صحيح",
+		"firstNameRequire":"الاسم الأول  مطلوب"
+		
 	}
 }

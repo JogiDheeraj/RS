@@ -15,21 +15,21 @@
 					<fieldset [ngClass]="{'has-error': f.submitted && !firstName.valid}">
 						<input type="text"
 							class="form-control"
-							placeholder="الاسم بالكامل" 
+							placeholder="{{'register.firstName'|translate}}" 
 							name="firstName" 
 							id="firstName"
 							[(ngModel)]="user.firstName" 
 							#firstName="ngModel" required 
 						/>
 						<div *ngIf="f.submitted && !firstName.valid" class="help-block">
-							The full Name is required
+							{{'register.firstNameRequire'|translate}}
 						</div>
 					</fieldset>
 					
-					<fieldset [ngClass]="{ 'has-error': f.submitted && !username.valid}">
+					<fieldset [ngClass]="{'has-error': f.submitted && !username.valid}">
 						<input type="text"
 							class="form-control"
-							placeholder="اسم المستخدم" 
+							placeholder="{{'register.username' | translate}}"
 							name="username" 
 							id="username"
 							pattern="[^ @]*@[^ @]*" 
@@ -38,15 +38,15 @@
 							required 
 						/>
 						<div *ngIf="f.submitted && !username.valid" class="help-block">
-							<div *ngIf="username.errors.required">Email is required.</div>
-							<div *ngIf="username.errors.pattern">A valid email address is required</div>
+							<div *ngIf="username.errors.required">{{'register.emailRequire'|translate}}</div>
+							<div *ngIf="username.errors.pattern">{{'register.validEmail'|translate}}</div>
 						</div>
 					</fieldset>
 					
-					<fieldset [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+					<fieldset [ngClass]="{'has-error': f.submitted && !password.valid}">
 						<input type="password"
 							class="form-control" 
-							placeholder="كلمة المرور"
+							placeholder="{{'register.password'|translate}}"
 							name="password" 
 							id="password"
 							[(ngModel)]="user.password" 
@@ -55,14 +55,14 @@
 							minlength="4" 
 						/>
 						<div *ngIf="f.submitted && !password.valid" class="help-block">
-							<div *ngIf="password.errors.required">كلمة السر مطلوبة</div>
-							<div *ngIf="password.errors.minlength">كلمة السر تتكون من اربع محارف على الأقل</div>
+							<div *ngIf="password.errors.required">{{'register.requirePassword'|translate}}</div>
+							<div *ngIf="password.errors.minlength">{{'register.validPassword'|translate}}</div>
 						</div>
 					</fieldset>
 					
 					<fieldset class="control">
-						<button mat-raised-button type="submit">انشاء حساب</button>
-						<button mat-raised-button [routerLink]="['/login']"	type="button">إلغاء</button>
+						<button mat-raised-button type="submit">{{'register.create'|translate}}</button>
+						<button mat-raised-button [routerLink]="['/login']"	type="button">{{'register.cancel'|translate}}</button>
 					</fieldset>
 					
 					<mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
