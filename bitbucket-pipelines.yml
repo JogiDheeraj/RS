@@ -6,7 +6,8 @@
 image: maven:3.3.9
 
 pipelines:
-  default:
+  branches:
+    master:
     - step:
         caches:
           - maven
