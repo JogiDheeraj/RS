@@ -42,5 +42,10 @@
 		"content": "join us to mail list to get new feature",
 		"enterEmail": "Enter your email",
 		"join": "join"
+	},
+	"page-header":{
+	"title":"Companies guid",
+	"content":"Main",
+	"logIn":" Log in"
 	}
 }
