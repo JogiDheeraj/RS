@@ -1,8 +1,31 @@
 {
+	"menu": {
+		"home":"الرئيسية",
+		"blog": "المدونة",
+		"about": "من نحن",
+		"contact": "اتصل بنا",
+		"login": "دخول",
+		"register" : "تسجيل",
+		"search": "بحث"
+	},
 	"lang-selector": {
 		"select": "اختر اللغة",
 		"ar": "العربية",
 		"en": "الانكليزية",
 		"tr": "التركية"
+	},
+	"login":{
+		"title" :"تسجيل الدخول",
+		"username":"اسم المستخدم",
+		"validUsername":"An valid email is required",
+		"password":" كلمة لمرور",
+		"validPassword":"Password is required",
+		"submit":"تسجيل الدخول",
+		"forget": " هل نسيت كلمة المرور ؟",
+		"registerNow":"هل انت مستخدم جديد ؟ ، امتلك حسابك الان  "
+	},
+	"register":{
+		"title" :" تسجيل مستخدم جديد ",
+		"": ""		
 	}
 }

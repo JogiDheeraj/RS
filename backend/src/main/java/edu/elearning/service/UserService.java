@@ -19,6 +19,10 @@ public class UserService {
 	public User findbyUserName(String userName) {
 		return userRepository.findOneByUsername(userName);
 	}
+	
+	public User findbyUserEmail(String userEmail) {
+		return userRepository.findOneByEmail(userEmail);
+	}
 
 	public User find(String id) {
 		return userRepository.findOne(id);

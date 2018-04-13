@@ -1,8 +1,27 @@
 {
+	"menu": {
+		"home":"Home",
+		"blog": "Blog",
+		"about": "About Us",
+		"contact": "Contact",
+		"login": "Login",
+		"register" : "Register",
+		"search": "Search"
+	},
 	"lang-selector": {
 		"select": "Select Language",
 		"ar": "Arabic",
 		"en": "English",
 		"tr": "Turkish"
+	},
+	"login":{
+		"title" :"Login",
+		"username":"User Name",
+		"validUsername":"An valid email is required",
+		"password":"Password",
+		"validPassword":"Password is required",
+		"submit":"Login",
+		"forget": "Forget Password",
+		"registerNow":"Are you new user? Rigester now"
 	}
 }

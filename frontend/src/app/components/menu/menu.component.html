@@ -10,7 +10,7 @@
 	    
 	    <div fxShow="true" fxHide.lt-md="true">
 	    
-			<a mat-button [routerLink]="['/home']">الرئيسية</a>
+			<a mat-button [routerLink]="['/home']">{{ 'menu.home' | translate }}</a>
 			
 			<a mat-button class="sections-link" [routerLink]="['/section']">الحدمات السياحية</a>
 			<a mat-button class="sections-link" [routerLink]="['/section']">الحدمات السياحية</a>
@@ -18,13 +18,13 @@
 		    <a mat-button class="sections-link" [routerLink]="['/section']">الحدمات السياحية</a>
 		    <a mat-button class="sections-link" [routerLink]="['/section']">دليل الشركات</a>
 		    
-		    <a mat-button [routerLink]="['/blog']">المدونة</a>
-		    <a mat-button [routerLink]="['/about']">من نحن</a>
-		    <a mat-button [routerLink]="['/contact']">اتصل بنا</a>
+		    <a mat-button [routerLink]="['/blog']">{{ 'menu.blog' | translate }}</a>
+		    <a mat-button [routerLink]="['/about']">{{ 'menu.about' | translate }}</a>
+		    <a mat-button [routerLink]="['/contact']">{{ 'menu.contact' | translate }}</a>
 	    
-		    <button mat-raised-button [routerLink]="['/login']" color="primary">دخول</button>
-		    <button mat-raised-button [routerLink]="['/register']" color="accent">تسجيل</button>
-		    <button mat-raised-button [routerLink]="['/search']" color="warn">بحث</button>
+		    <button mat-raised-button [routerLink]="['/login']" color="primary">{{ 'menu.login' | translate }}</button>
+		    <button mat-raised-button [routerLink]="['/register']" color="accent">{{ 'menu.register' | translate }}</button>
+		    <button mat-raised-button [routerLink]="['/search']" color="warn">{{ 'menu.search' | translate }}</button>
 		    
 		    <app-lang-selector></app-lang-selector>
 	    </div>
@@ -50,7 +50,7 @@
 	      		<mat-icon aria-hidden="true">close</mat-icon>
 	        </button>
 	        
-	        <a mat-button (click)="sidenav.toggle()" [routerLink]="['/home']">الرئيسية</a>
+	        <a mat-button (click)="sidenav.toggle()" [routerLink]="['/home']">{{ 'menu.home' | translate }}</a>
 	        
 			<a mat-button (click)="sidenav.toggle()" [routerLink]="['/section']">الحدمات السياحية</a>
 			<a mat-button (click)="sidenav.toggle()" [routerLink]="['/section']">الحدمات السياحية</a>
@@ -58,13 +58,13 @@
 		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/section']">الحدمات السياحية</a>
 		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/section']">دليل الشركات</a>
 		    
-		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/blog']">المدونة</a>
-		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/about']">من نحن</a>
-		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/contact']">اتصل بنا</a>
+		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/blog']">{{ 'menu.blog' | translate }}</a>
+		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/about']">{{ 'menu.about' | translate }}</a>
+		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/contact']">{{ 'menu.contact' | translate }}</a>
 		        
-		    <a mat-raised-button class="btn" color="primary" [routerLink]="['/login']" (click)="sidenav.toggle()">دخول</a>
-		    <a mat-raised-button class="btn" color="accent" [routerLink]="['/register']" (click)="sidenav.toggle()">تسجيل</a>
-		    <a mat-raised-button class="btn" color="warn" [routerLink]="['/search']" (click)="sidenav.toggle()">بحث</a>
+		    <a mat-raised-button class="btn" color="primary" [routerLink]="['/login']" (click)="sidenav.toggle()">{{ 'menu.login' | translate }}</a>
+		    <a mat-raised-button class="btn" color="accent" [routerLink]="['/register']" (click)="sidenav.toggle()">{{ 'menu.register' | translate }}</a>
+		    <a mat-raised-button class="btn" color="warn" [routerLink]="['/search']" (click)="sidenav.toggle()">{{ 'menu.search' | translate }}</a>
 	    </mat-sidenav>
 	</mat-sidenav-container>
 </div>

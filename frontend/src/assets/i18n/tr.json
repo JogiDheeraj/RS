@@ -1,8 +1,27 @@
 {
+	"menu": {
+		"home":"Anasayfa",
+		"blog": "Blog",
+		"about": "About Us",
+		"contact": "Contact",
+		"login": "Login",
+		"register" : "Register",
+		"search": "Search"
+	},
 	"lang-selector": {
 		"select": "Select Language",
 		"ar": "Arabic",
 		"en": "English",
 		"tr": "Turkish"
+	},
+	"login":{
+		"title" :"تسجيل الدخول",
+		"username":"اسم المستخدم",
+		"validUsername":"An valid email is required",
+		"password":" كلمة لمرور",
+		"validPassword":"Password is required",
+		"submit":"تسجيل الدخول",
+		"forget": " هل نسيت كلمة المرور ؟",
+		"registerNow":"هل انت مستخدم جديد ؟ ، امتلك حسابك الان  "
 	}
 }

@@ -1,17 +1,13 @@
-/**
- * New typescript file
- */
+import {Location} from "@angular/common";
+import {TestBed, fakeAsync, tick} from '@angular/core/testing';
+import {RouterTestingModule} from "@angular/router/testing";
+import {Router} from "@angular/router";
 
-import { Location } from "@angular/common";
-import { TestBed, fakeAsync, tick } from '@angular/core/testing';
-import { RouterTestingModule } from "@angular/router/testing";
-import { Router } from "@angular/router";
-
-import { routing } from "./app.routing";
-import { AppComponent } from "../components/application/app.component";
-import { RegisterComponent } from '../components/register/register.component';
-import { ProfileComponent } from '../components/profile/profile.component';
-import { LoginComponent } from '../components/login/login.component';
+import {routing} from "./app.routing";
+import {AppComponent} from "../components/application/app.component";
+import {RegisterComponent} from '../components/register/register.component';
+import {ProfileComponent} from '../components/profile/profile.component';
+import {LoginComponent} from '../components/login/login.component';
 
 describe('Router: App', () => {
 

@@ -1,6 +1,15 @@
+<div style="direction: ltr;">
+<ngx-carousel class="banner" [inputs]="carouselBanner" (carouselLoad)="carouselBannerLoad()">
+	<ngx-item NgxCarouselItem *ngFor="let tile of carouselBannerItems; let i = index;">
+		<div class="bannerStyle" [style.background]="'url(' + tile.url + ')'">
+            <div class="box">	
+            	<h1>{{tile.title}} </h1> 
+            </div>
+        </div>
+	</ngx-item>
+	    
+	<button NgxCarouselPrev class='leftRs'>&lt;</button>
+	<button NgxCarouselNext class='rightRs'>&gt;</button>    
+</ngx-carousel>
+</div>
 
-<ui-carousel [infinite]="true" [fade]="true" [speed]="1000">
-    <ui-carousel-item *ngFor="let image of images">
-        <img ui-lazy-load="{{image.url}}" alt="{{image.title}}" draggable="false" >
-    </ui-carousel-item>
-</ui-carousel>

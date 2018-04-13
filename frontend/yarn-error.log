@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js update @ngx-translate/core@9.1.1
+  C:\Program Files\nodejs\node.exe C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js upgreade @ngx-translate/http-loader@2.0.1
 
 PATH: 
   C:/Program Files/Java/jre1.8.0_121/bin/server;C:/Program Files/Java/jre1.8.0_121/bin;C:/Program Files/Java/jre1.8.0_121/lib/amd64;C:\Program Files\Java\jdk1.8.0_121\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\wamp\bin\php\php7.0.10;C:\ProgramData\ComposerSetup\bin;C:\Users\weeam\Desktop\Case Study - PHP\vendor\bin;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\CodeBlocks\MinGW\bin;E:\hadoop-2.6.2\bin;E:\hadoop-2.6.2\sbin;E:\hadoop-2.6.2\share\hadoop\common\*;E:\hadoop-2.6.2\share\hadoop\hdfs;E:\hadoop-2.6.2\share\hadoop\hdfs\lib\*;E:\hadoop-2.6.2\share\hadoop\hdfs\*;E:\hadoop-2.6.2\share\hadoop\yarn\lib\*;E:\hadoop-2.6.2\share\hadoop\yarn\*;E:\hadoop-2.6.2\share\hadoop\mapreduce\lib\*;E:\hadoop-2.6.2\share\hadoop\mapreduce\*;E:\hadoop-2.6.2\share\hadoop\common\lib\*;C:\HashiCorp\Vagrant\bin;C:\Program Files\PuTTY\;C:\Program Files\Apatch\maven\bin;C:\Program Files\MongoDB\Server\3.4\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\nodejs\;C:\Users\weeam\AppData\Local\Microsoft\WindowsApps;C:\Users\weeam\AppData\Roaming\Composer\vendor\bin;C:\Users\weeam\AppData\Roaming\npm;C:\Users\weeam\Desktop;
@@ -41,13 +41,14 @@ npm manifest:
       "@angular/platform-browser": "^5.2.0",
       "@angular/platform-browser-dynamic": "^5.2.0",
       "@angular/router": "^5.2.0",
-      "@ngx-translate/core": "^10.0.1",
+      "@ngx-translate/core": "9.1.1",
+      "@ngx-translate/http-loader": "^3.0.1",
       "classlist.js": "^1.1.20150312",
       "core-js": "^2.4.1",
       "hammerjs": "^2.0.8",
+      "ngx-carousel": "^1.3.5",
       "npm": "^5.8.0",
       "rxjs": "^5.5.6",
-      "ui-carousel": "^0.2.0",
       "zone.js": "^0.8.19"
     },
     "devDependencies": {
@@ -278,9 +279,13 @@ Lockfile:
       tree-kill "^1.0.0"
       webpack-sources "^1.1.0"
   
-  "@ngx-translate/core@^10.0.1":
-    version "10.0.1"
-    resolved "https://registry.yarnpkg.com/@ngx-translate/core/-/core-10.0.1.tgz#9f3a3ed077e847dd0d2951a664da6ee348a06d22"
+  "@ngx-translate/core@9.1.1":
+    version "9.1.1"
+    resolved "https://registry.yarnpkg.com/@ngx-translate/core/-/core-9.1.1.tgz#ae103928836b8a9e069fd2e2e76fa2198cc7e628"
+  
+  "@ngx-translate/http-loader@^3.0.1":
+    version "3.0.1"
+    resolved "https://registry.yarnpkg.com/@ngx-translate/http-loader/-/http-loader-3.0.1.tgz#20b0f98bc6c25321129d3e3302ab3cc489c0a42a"
     dependencies:
       tslib "^1.9.0"
   
@@ -5131,6 +5136,10 @@ Lockfile:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   
+  ngx-carousel@^1.3.5:
+    version "1.3.5"
+    resolved "https://registry.yarnpkg.com/ngx-carousel/-/ngx-carousel-1.3.5.tgz#445deed378ba0fe36bba278d3c84f5b37d7ca5ff"
+  
   no-case@^2.2.0:
     version "2.3.2"
     resolved "https://registry.yarnpkg.com/no-case/-/no-case-2.3.2.tgz#60b813396be39b3f1288a4c1ed5d1e7d28b464ac"
@@ -7997,10 +8006,6 @@ Lockfile:
       webpack-sources "^1.1.0"
       worker-farm "^1.5.2"
   
-  ui-carousel@^0.2.0:
-    version "0.2.0"
-    resolved "https://registry.yarnpkg.com/ui-carousel/-/ui-carousel-0.2.0.tgz#ee93dfaeb7d5f7353b8d7ec215e9fab6ce16ae33"
-  
   uid-number@0.0.6, uid-number@^0.0.6:
     version "0.0.6"
     resolved "https://registry.yarnpkg.com/uid-number/-/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
@@ -8687,7 +8692,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.20.tgz#a218c48db09464b19ff6fc8f0d4bb5b1046e185d"
 
 Trace: 
-  Error: Command "update" not found.
+  Error: Command "upgreade" not found.
       at new MessageError (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
       at C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:87307:17
       at Generator.next (<anonymous>)

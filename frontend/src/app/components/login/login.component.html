@@ -2,53 +2,39 @@
 	<div class="container">
 		<mat-card class="login-card">
 		   <mat-card-header>
-		     <mat-card-title><h2>تسجيل الدخول</h2></mat-card-title>
+		     <mat-card-title><h2>{{'login.title' | translate}}</h2></mat-card-title>
 		   </mat-card-header>
 		   <mat-card-content>
 		   
-				<form name="form-signin" 
-					(ngSubmit)="f.form.valid && login()" 
-					#f="ngForm" novalidate>
+				<form name="form-signin" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
 					
-					<div class="alert alert-danger" 
-						role="alert" 
-						*ngIf="errorMessage">
-						{{errorMessage}}
+					<div class="alert alert-danger" role="alert" *ngIf="serverErrorMessage">
+						{{serverErrorMessage}}
 					</div>
 					
-					<span id="reauth-email" 
-						class="reauth-email">
-					</span>
-					
-					<fieldset
-						[ngClass]="{ 'has-error': f.submitted && !username.valid }">
-							<input type="text"
-								class="form-control" 
-								placeholder="اسم المستخدم"
-								id="username" 
-								name="username"
-								pattern="[^ @]*@[^ @]*" 
-								[(ngModel)]="user.username"
-								#username="ngModel" required />
-						<div *ngIf="f.submitted && !username.valid" 
-							class="help-block">
-							An valid email is required
+					<fieldset class="input-username" [ngClass]="{'has-error': f.submitted && !username.valid}">
+						<input type="text"
+							placeholder="{{'login.username' | translate}}"
+							id="username" 
+							name="username" 
+							[(ngModel)]="user.username"
+							#username="ngModel" 
+							required />
+						<div *ngIf="f.submitted && !username.valid" class="help-block">
+							{{'login.validUsername' | translate}}
 						</div>
 					</fieldset>
 					
-					<fieldset
-						 [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-						<input 	type="password"
-								class="form-control" 
-								placeholder="كلمة لمرور"
-								id="password" 
-								name="password" 
-								[(ngModel)]="user.password" 
-								#password="ngModel" 
-								required />
-						<div *ngIf="f.submitted && !password.valid" 
-							class="help-block">
-							Password is required
+					<fieldset class="input-password" [ngClass]="{'has-error': f.submitted && !password.valid}">
+						<input type="password"
+							placeholder="{{'login.password' | translate}}"
+							id="password" 
+							name="password" 
+							[(ngModel)]="user.password" 
+							#password="ngModel" 
+							required />
+						<div *ngIf="f.submitted && !password.valid" class="help-block">
+							{{'login.validPassword' | translate}}
 						</div>
 					</fieldset>
 					
@@ -57,16 +43,18 @@
 					</fieldset>
 					
 					<fieldset class="control">
-						<button mat-raised-button type="submit">تسجيل الدخول</button>
+						<button mat-raised-button type="submit">
+							{{'login.submit' | translate}}
+						</button>
 					</fieldset>
 					
+					<mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
 				</form>
-		     	<mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
 		     	
 		     	<hr/>
-		     	<a [routerLink]="['/register']" class=" btn btn-link"> هل نسيت كلمة المرور ؟  </a>
+		     	<a [routerLink]="['/register']" >{{'login.forget' | translate}}</a>
 		     	<br/>
-		     	<a [routerLink]="['/register']" class=" btn btn-link"> هل انت مستخدم جديد ؟ ، امتلك حسابك الان  </a>
+		     	<a [routerLink]="['/register']" >{{'login.registerNow' | translate}}</a>
 			</mat-card-content>
 			 
 		</mat-card>

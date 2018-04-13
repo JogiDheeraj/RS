@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -25,18 +26,39 @@ public class User implements UserDetails {
 
 	@Id
 	private String id;
-
+	
+	@Field
 	@NotNull(message = "username_empty")
 	@Indexed(unique = true)
 	private String username;
-
+	
+	@Field
+	@NotNull(message = "password_empty")
+	@Indexed(unique = true)
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
-
+	
+	@Field
 	private String role;
+	
+	@Field
 	private String firstName;
+	
+	@Field
 	private String lastName;
+	
+	@Field
+	@NotNull(message = "email_empty")
 	private String email;
+	
+	@Field
+	private boolean enabled = false;
+	
+	@Field
+	private boolean accountNonLocked = false;
+	
+	@Field
+	private boolean accountNonExpired = false;
 
 	public User() {
 
@@ -48,26 +70,6 @@ public class User implements UserDetails {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-	}
-
-	@JsonIgnore
-	public boolean isEnabled() {
-		return true;
-	}
-
-	@JsonIgnore
-	public boolean isCredentialsNonExpired() {
-		return true;
-	}
-
-	@JsonIgnore
-	public boolean isAccountNonLocked() {
-		return true;
-	}
-
-	@JsonIgnore
-	public boolean isAccountNonExpired() {
-		return true;
 	}
 
 	@JsonIgnore
@@ -137,4 +139,35 @@ public class User implements UserDetails {
 		this.email = email;
 	}
 
+	public void setEnabled(boolean enabled)
+	{
+		this.enabled = enabled;
+	}
+
+	public void setAccountNonLocked(boolean accountNonLocked)
+	{
+		this.accountNonLocked = accountNonLocked;
+	}
+
+	public void setAccountNonExpired(boolean accountNonExpired)
+	{
+		this.accountNonExpired = accountNonExpired;
+	}
+	
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	public boolean isAccountNonLocked() {
+		return accountNonLocked;
+	}
+
+	public boolean isAccountNonExpired() {
+		return accountNonExpired;
+	}
+	
 }

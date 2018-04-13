@@ -1,5 +1,7 @@
 package edu.elearning.model;
 
 public enum Role {
-	USER
+	USER,
+	EDITOR,
+	ADMIN
 }
