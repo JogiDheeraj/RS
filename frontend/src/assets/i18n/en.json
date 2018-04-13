@@ -41,11 +41,21 @@
 		"title": "Mail list",
 		"content": "join us to mail list to get new feature",
 		"enterEmail": "Enter your email",
-		"join": "join"
+		"join": "Join"
 	},
-	"page-header":{
-	"title":"Companies guid",
-	"content":"Main",
-	"logIn":" Log in"
+	"page-header": {
+		"title": "Companies guid",
+		"content": "Main",
+		"logIn": " Log in"
+	},
+	"footer": {
+		"title": "All rights resieved",
+		"address": "Address:",
+		"mobile": "Mobile:",
+		"phone": "Phone:",
+		"main": "Main",
+		"blog": "Blog",
+		"aboutUs": "About us",
+		"contactUs": "Contact us"
 	}
 }
