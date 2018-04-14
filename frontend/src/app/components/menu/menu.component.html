@@ -10,17 +10,17 @@
 	    
 	    <div fxShow="true" fxHide.lt-md="true">
 	    
-			<a mat-button [routerLink]="['/home']">{{ 'menu.home' | translate }}</a>
+			<a mat-button [routerLink]="['/home']" routerLinkActive="active">{{ 'menu.home' | translate }}</a>
 			
-			<a mat-button class="sections-link" [routerLink]="['/section']">الحدمات السياحية</a>
-			<a mat-button class="sections-link" [routerLink]="['/section']">الحدمات السياحية</a>
-			<a mat-button class="sections-link" [routerLink]="['/section']">الحدمات السياحية</a>
-		    <a mat-button class="sections-link" [routerLink]="['/section']">الحدمات السياحية</a>
-		    <a mat-button class="sections-link" [routerLink]="['/section']">دليل الشركات</a>
+			<a mat-button class="sections-link" [routerLink]="['/section', 'test1']" routerLinkActive="active">الحدمات السياحية</a>
+			<a mat-button class="sections-link" [routerLink]="['/section', 'test1']" routerLinkActive="active">الحدمات السياحية</a>
+			<a mat-button class="sections-link" [routerLink]="['/section', 'test1']" routerLinkActive="active">الحدمات السياحية</a>
+		    <a mat-button class="sections-link" [routerLink]="['/section', 'test1']" routerLinkActive="active">الحدمات السياحية</a>
+		    <a mat-button class="sections-link" [routerLink]="['/section', 'test1']" routerLinkActive="active">دليل الشركات</a>
 		    
-		    <a mat-button [routerLink]="['/blog']">{{ 'menu.blog' | translate }}</a>
-		    <a mat-button [routerLink]="['/about']">{{ 'menu.about' | translate }}</a>
-		    <a mat-button [routerLink]="['/contact']">{{ 'menu.contact' | translate }}</a>
+		    <a mat-button [routerLink]="['/blog']" routerLinkActive="active">{{ 'menu.blog' | translate }}</a>
+		    <a mat-button [routerLink]="['/about']" routerLinkActive="active">{{ 'menu.about' | translate }}</a>
+		    <a mat-button [routerLink]="['/contact']" routerLinkActive="active">{{ 'menu.contact' | translate }}</a>
 	    
 		    <button mat-raised-button color="primary"
 		    	[routerLink]="['/login']" 
@@ -33,8 +33,7 @@
 		    	{{ 'menu.register' | translate }}
 		    </button>
 		    <button mat-raised-button color="warn"
-		    	[routerLink]="['/search']" 
-		    	*ngIf="!authService.isAuthentecated()">
+		    	[routerLink]="['/search']">
 		    	{{ 'menu.search' | translate }}
 		    </button>
 		    
@@ -62,17 +61,17 @@
 	      		<mat-icon aria-hidden="true">close</mat-icon>
 	        </button>
 	        
-	        <a mat-button (click)="sidenav.toggle()" [routerLink]="['/home']">{{ 'menu.home' | translate }}</a>
+	        <a mat-button (click)="sidenav.toggle()" [routerLink]="['/home']" routerLinkActive="active">{{ 'menu.home' | translate }}</a>
 	        
-			<a mat-button (click)="sidenav.toggle()" [routerLink]="['/section']">الحدمات السياحية</a>
-			<a mat-button (click)="sidenav.toggle()" [routerLink]="['/section']">الحدمات السياحية</a>
-			<a mat-button (click)="sidenav.toggle()" [routerLink]="['/section']">الحدمات السياحية</a>
-		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/section']">الحدمات السياحية</a>
-		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/section']">دليل الشركات</a>
+			<a mat-button (click)="sidenav.toggle()" [routerLink]="['/section', 'test1']" routerLinkActive="active">الحدمات السياحية</a>
+			<a mat-button (click)="sidenav.toggle()" [routerLink]="['/section', 'test1']" routerLinkActive="active">الحدمات السياحية</a>
+			<a mat-button (click)="sidenav.toggle()" [routerLink]="['/section', 'test1']" routerLinkActive="active">الحدمات السياحية</a>
+		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/section', 'test1']" routerLinkActive="active">الحدمات السياحية</a>
+		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/section', 'test1']" routerLinkActive="active">دليل الشركات</a>
 		    
-		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/blog']">{{ 'menu.blog' | translate }}</a>
-		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/about']">{{ 'menu.about' | translate }}</a>
-		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/contact']">{{ 'menu.contact' | translate }}</a>
+		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/blog']" routerLinkActive="active">{{ 'menu.blog' | translate }}</a>
+		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/about']" routerLinkActive="active">{{ 'menu.about' | translate }}</a>
+		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/contact']" routerLinkActive="active">{{ 'menu.contact' | translate }}</a>
 		        
 		    <a mat-raised-button class="btn" color="primary" 
 		    	*ngIf="!authService.isAuthentecated()" 
@@ -86,8 +85,7 @@
 		    	(click)="sidenav.toggle()">
 		    	{{ 'menu.register' | translate }}
 		    </a>
-		    <a mat-raised-button class="btn" color="warn" 
-		    	*ngIf="!authService.isAuthentecated()" 
+		    <a mat-raised-button class="btn" color="warn"
 		    	[routerLink]="['/search']" 
 		    	(click)="sidenav.toggle()">
 		    	{{ 'menu.search' | translate }}

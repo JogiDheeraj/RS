@@ -23,6 +23,11 @@ import {MailListComponent} from '../components/mail-list/mail-list.component';
 import {FooterComponent} from '../components/footer/footer.component';
 import {AccountComponent} from "../components/account/account.component";
 import {AccountIndexComponent} from "../components/account-index/account-index.component";
+import {SearchComponent} from "../components/search/search.component";
+import {SectionComponent} from '../components/section/section.component';
+import {AboutComponent} from '../components/about/about.component';
+import {ContactComponent} from '../components/contact/contact.component';
+import {BlogComponent} from '../components/blog/blog.component';
 
 import {AuthService} from "../services/auth.service";
 import {AccountService} from "../services/account.service";
@@ -68,7 +73,12 @@ export class XhrInterceptor implements HttpInterceptor {
     FooterComponent,
     LangSelectorComponent,
     AccountComponent,
-    AccountIndexComponent
+    AccountIndexComponent,
+    SearchComponent,
+    SectionComponent,
+    AboutComponent,
+    ContactComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,
