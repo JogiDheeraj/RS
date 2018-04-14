@@ -55,10 +55,10 @@ public class User implements UserDetails {
 	private boolean enabled = false;
 	
 	@Field
-	private boolean accountNonLocked = false;
+	private boolean accountNonLocked = true;
 	
 	@Field
-	private boolean accountNonExpired = false;
+	private boolean accountNonExpired = true;
 
 	public User() {
 
@@ -139,18 +139,15 @@ public class User implements UserDetails {
 		this.email = email;
 	}
 
-	public void setEnabled(boolean enabled)
-	{
+	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 
-	public void setAccountNonLocked(boolean accountNonLocked)
-	{
+	public void setAccountNonLocked(boolean accountNonLocked) {
 		this.accountNonLocked = accountNonLocked;
 	}
 
-	public void setAccountNonExpired(boolean accountNonExpired)
-	{
+	public void setAccountNonExpired(boolean accountNonExpired) {
 		this.accountNonExpired = accountNonExpired;
 	}
 	
