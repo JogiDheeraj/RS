@@ -31,9 +31,28 @@
 							class="form-control"
 							placeholder="{{'register.username' | translate}}"
 							name="username" 
-							id="username"
-							pattern="[^ @]*@[^ @]*" 
+							id="username" 
 							[(ngModel)]="user.username"
+							#username="ngModel" 
+							minlength="5" 
+							maxlength="8"
+							required 
+						/>
+						<div *ngIf="f.submitted && !username.valid" class="help-block">
+							<div *ngIf="username.errors.required">{{'register.usernameRequire'|translate}}</div>
+							<div *ngIf="username.errors.minlength">{{'register.usernamelength'|translate}}</div>
+							<div *ngIf="username.errors.maxlength">{{'register.usernamelength'|translate}}</div>
+						</div>
+					</fieldset>
+					
+					<fieldset [ngClass]="{'has-error': f.submitted && !email.valid}">
+						<input type="text"
+							class="form-control"
+							placeholder="{{'register.email' | translate}}"
+							name="email" 
+							id="email"
+							pattern="[^ @]*@[^ @]*" 
+							[(ngModel)]="user.email"
 							#username="ngModel" 
 							required 
 						/>
@@ -57,6 +76,24 @@
 						<div *ngIf="f.submitted && !password.valid" class="help-block">
 							<div *ngIf="password.errors.required">{{'register.requirePassword'|translate}}</div>
 							<div *ngIf="password.errors.minlength">{{'register.validPassword'|translate}}</div>
+						</div>
+					</fieldset>
+					
+					<fieldset [ngClass]="{'has-error': f.submitted && !passwordConfirm.valid}">
+						<input type="password"
+							class="form-control" 
+							placeholder="{{'register.passwordConfirm'|translate}}"
+							name="passwordConfirm" 
+							id="passwordConfirm" 
+							[ngModel]="user.confirmPassword"
+							required
+							appEqualValidator="password"
+							minlength="4" 
+						/>
+						<div *ngIf="f.submitted && !password.valid" class="help-block">
+							<div *ngIf="passwordConfirm.errors.required">{{'register.requirePassword'|translate}}</div>
+							<div *ngIf="passwordConfirm.errors.minlength">{{'register.validPassword'|translate}}</div>
+							<div *ngIf="passwordConfirm.errors.appEqualValidator">{{'register.validPassword'|translate}}</div>
 						</div>
 					</fieldset>
 					

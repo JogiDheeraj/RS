@@ -27,6 +27,7 @@ import {AccountService} from "../services/account.service";
 import {WindowsProviders} from "../services/window.service";
 import {UrlPermission} from "../urlPermission/url.permission";
 
+import {EqualValidatorDirective} from '../directives/equal-validator.directive';
 import {TimeStampPipe} from '../pipes/timeStamp';
 
 import {CustomMaterialModule} from "./material.module";
@@ -51,7 +52,8 @@ export function createTranslateLoader(http: HttpClient) {
     TimeStampPipe,
     MailListComponent,
     FooterComponent,
-    LangSelectorComponent
+    LangSelectorComponent,
+    EqualValidatorDirective
   ],
   imports: [
     BrowserModule,
