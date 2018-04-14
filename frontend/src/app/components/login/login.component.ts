@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-
-import {User} from "../../model/model.user";
-import {AuthService} from "../../services/auth.service";
 import {Router, ActivatedRoute} from "@angular/router";
+
+import {AuthService} from "../../services/auth.service";
+import {User} from "../../model/model.user";
 
 
 @Component({

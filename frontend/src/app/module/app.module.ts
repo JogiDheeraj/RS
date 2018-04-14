@@ -3,7 +3,10 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {Injectable, NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {HttpRequest, HttpHandler, HTTP_INTERCEPTORS, HttpInterceptor, HttpClientModule, HttpClient} from '@angular/common/http';
+import {
+  HttpRequest, HttpHandler, HTTP_INTERCEPTORS,
+  HttpInterceptor, HttpClientModule, HttpClient
+} from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 //external dependency import
@@ -16,13 +19,13 @@ import {CarouselComponent} from '../components/carousel/carousel.component';
 import {PageHeaderComponent} from '../components/page-header/page-header.component';
 import {LoginComponent} from '../components/login/login.component';
 import {RegisterComponent} from '../components/register/register.component';
-import {ProfileComponent} from '../components/profile/profile.component';
+import {ProfileComponent} from '../managment/profile/profile.component';
 import {LangSelectorComponent} from '../components/lang-selector/lang-selector.component';
 import {ArticleComponent} from '../components/article/article.component';
 import {MailListComponent} from '../components/mail-list/mail-list.component';
 import {FooterComponent} from '../components/footer/footer.component';
-import {AccountComponent} from "../components/account/account.component";
-import {AccountIndexComponent} from "../components/account-index/account-index.component";
+import {AccountComponent} from "../managment/account/account.component";
+import {AccountIndexComponent} from "../managment/account-index/account-index.component";
 import {SearchComponent} from "../components/search/search.component";
 import {SectionComponent} from '../components/section/section.component';
 import {AboutComponent} from '../components/about/about.component';

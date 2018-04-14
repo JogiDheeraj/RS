@@ -3,7 +3,6 @@ import {Injectable} from '@angular/core';
 
 import {Section} from '../model/model.section';
 
-
 const sections:Array<Section> = [
   {id: "sadsd324234", name: "العقارات", seoName: "العقارات", description: "وصف", articleCount: 50, image: "",  content: "يبس سيب سيب سيب سيب"},
   {id: "sadsd324234", name: "الخدمات التجارية", seoName: "الخدمات_التجارية", description: "وصف", articleCount: 50, image: "",  content: "يبس سيب سيب سيب سيب"},

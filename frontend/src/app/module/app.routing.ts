@@ -2,16 +2,16 @@ import {AboutComponent} from '../components/about/about.component';
 import {Routes, RouterModule} from '@angular/router';
 import {LoginComponent} from "../components/login/login.component";
 import {RegisterComponent} from "../components/register/register.component";
-import {ProfileComponent} from "../components/profile/profile.component";
 import {IndexComponent} from '../components/index/index.component';
-import {UrlPermission} from "../urlPermission/url.permission";
-import {AccountComponent} from "../components/account/account.component";
-import {AccountIndexComponent} from "../components/account-index/account-index.component";
 import {BlogComponent} from '../components/blog/blog.component';
 import {ContactComponent} from '../components/contact/contact.component';
 import {SearchComponent} from "../components/search/search.component";
 import {SectionComponent} from '../components/section/section.component';
+import {ProfileComponent} from "../managment/profile/profile.component";
+import {AccountComponent} from "../managment/account/account.component";
+import {AccountIndexComponent} from "../managment/account-index/account-index.component";
 
+import {UrlPermission} from "../urlPermission/url.permission";
 
 const appRoutes: Routes = [
   {path: 'home', component: IndexComponent},
