@@ -19,18 +19,19 @@ import {CarouselComponent} from '../components/carousel/carousel.component';
 import {PageHeaderComponent} from '../components/page-header/page-header.component';
 import {LoginComponent} from '../components/login/login.component';
 import {RegisterComponent} from '../components/register/register.component';
-import {ProfileComponent} from '../managment/profile/profile.component';
 import {LangSelectorComponent} from '../components/lang-selector/lang-selector.component';
 import {ArticleComponent} from '../components/article/article.component';
 import {MailListComponent} from '../components/mail-list/mail-list.component';
 import {FooterComponent} from '../components/footer/footer.component';
-import {AccountComponent} from "../managment/account/account.component";
-import {AccountIndexComponent} from "../managment/account-index/account-index.component";
 import {SearchComponent} from "../components/search/search.component";
 import {SectionComponent} from '../components/section/section.component';
 import {AboutComponent} from '../components/about/about.component';
 import {ContactComponent} from '../components/contact/contact.component';
 import {BlogComponent} from '../components/blog/blog.component';
+import {AccountComponent} from "../managment/account/account.component";
+import {AccountIndexComponent} from "../managment/account-index/account-index.component";
+import {AccountMenuComponent} from '../managment/account-menu/account-menu.component';
+import {ProfileComponent} from '../managment/profile/profile.component';
 //application Service import
 import {AuthService} from "../services/auth.service";
 import {AccountService} from "../services/account.service";
@@ -83,7 +84,8 @@ export class XhrInterceptor implements HttpInterceptor {
     SectionComponent,
     AboutComponent,
     ContactComponent,
-    BlogComponent
+    BlogComponent,
+    AccountMenuComponent
   ],
   imports: [
     BrowserModule,
