@@ -1,8 +1,8 @@
-import {AboutComponent} from '../components/about/about.component';
 import {Routes, RouterModule} from '@angular/router';
+import {IndexComponent} from '../components/index/index.component';
+import {AboutComponent} from '../components/about/about.component';
 import {LoginComponent} from "../components/login/login.component";
 import {RegisterComponent} from "../components/register/register.component";
-import {IndexComponent} from '../components/index/index.component';
 import {BlogComponent} from '../components/blog/blog.component';
 import {ContactComponent} from '../components/contact/contact.component';
 import {SearchComponent} from "../components/search/search.component";
