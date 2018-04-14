@@ -3,10 +3,10 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {Injectable} from '@angular/core';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {HttpModule} from "@angular/http";
-import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {HttpRequest, HttpHandler, HTTP_INTERCEPTORS, HttpInterceptor, HttpClientModule, HttpClient} from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
 import {NgxCarouselModule} from 'ngx-carousel';
 
 import {AppComponent} from '../components/application/app.component';
@@ -32,9 +32,22 @@ import {TimeStampPipe} from '../pipes/timeStamp';
 import {CustomMaterialModule} from "./material.module";
 import {routing} from "./app.routing";
 
+
+
 // The function responsible of loading the Translation files
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
+@Injectable()
+export class XhrInterceptor implements HttpInterceptor {
+
+  intercept(req: HttpRequest<any>, next: HttpHandler) {
+    const xhr = req.clone({
+      headers: req.headers.set('X-Requested-With', 'XMLHttpRequest')
+    });
+    return next.handle(xhr);
+  }
 }
 
 @NgModule({
@@ -57,7 +70,6 @@ export function createTranslateLoader(http: HttpClient) {
     BrowserModule,
     BrowserAnimationsModule,
     CustomMaterialModule,
-    HttpModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -74,7 +86,8 @@ export function createTranslateLoader(http: HttpClient) {
     AuthService,
     AccountService,
     UrlPermission,
-    WindowsProviders
+    WindowsProviders,
+    {provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })

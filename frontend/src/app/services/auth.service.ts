@@ -1,41 +1,56 @@
 import {Injectable} from '@angular/core';
-import {Http, Headers, RequestOptions, Response} from '@angular/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 import {User} from "../model/model.user";
-import 'rxjs/add/operator/map';
+import {Router} from '@angular/router';
+
 
 @Injectable()
 export class AuthService {
-  constructor(public http: Http) {}
 
-  public logIn(user: User) {
+  authenticated = false;
 
-    const headers = new Headers();
-    headers.append('Accept', 'application/json')
-    // creating base64 encoded String from user name and password
-    const base64Credential: string = btoa(user.username + ':' + user.password);
-    headers.append("Authorization", "Basic " + base64Credential);
+  private user: User;
 
-    const options = new RequestOptions();
-    options.headers = headers;
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) {}
 
-    return this.http.get("/api/account/login", options)
-      .map((response: Response) => {
-        // login successful if there's a jwt token in the response
-        const user = response.json().principal;// the returned user object is a principal object
-        if (user) {
-          // store user details  in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify(user));
+  public logIn(user: User, callback) {
+
+    const headers = new HttpHeaders(user ? {
+      authorization: 'Basic ' + btoa(user.username + ':' + user.password)
+    } : {});
+
+    this.http.get("/api/account/login", {headers: headers})
+      .subscribe(response => {
+        this.user = response['principal'];
+        console.log(this.user);
+        if (this.user) {
+          return callback && callback();
+        } else {
+          callback('UserNotFound');
         }
+      }, error => {
+        callback(error);
       });
   }
 
   public logOut() {
-    // remove user from local storage to log user out
-    return this.http.post("/api/account/logout", {})
-      .map((response: Response) => {
+    this.http.post('/api/account/logout', {})
+      .subscribe(() => {
+        this.authenticated = false;
         localStorage.removeItem('currentUser');
+        this.router.navigateByUrl('/login');
       });
   }
 
+  public isAuthentecated() {
+    return this.authenticated;
+  }
+
+  public getUser() {
+    return this.user;
+  }
 }

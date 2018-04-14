@@ -55,10 +55,10 @@ public class User implements UserDetails {
 	private boolean enabled = false;
 	
 	@Field
-	private boolean accountNonLocked = false;
+	private boolean accountNonLocked = true;
 	
 	@Field
-	private boolean accountNonExpired = false;
+	private boolean accountNonExpired = true;
 
 	public User() {
 

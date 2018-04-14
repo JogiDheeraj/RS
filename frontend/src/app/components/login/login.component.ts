@@ -26,14 +26,14 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.showSpinner = true;
-    this.authService.logIn(this.user)
-      .subscribe(data => {
-        this.showSpinner = true;
+    this.authService.logIn(this.user, (error) => {
+      this.showSpinner = true;
+      if (error) {
+        console.log(error);
+        this.serverErrorMessage = error.message;
+      } else {
         this.router.navigate(['/profile']);
-      }, err => {
-        this.showSpinner = true;
-        this.serverErrorMessage = err;
       }
-      );
+    });
   }
 }

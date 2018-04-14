@@ -5,4 +5,11 @@ export class User {
   firstName: string;
   lastName: string;
   email: string;
+  role: Role;
+}
+
+enum Role {
+    ADMIN,
+    EDITOR,
+    USER,
 }
