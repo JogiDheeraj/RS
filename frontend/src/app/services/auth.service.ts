@@ -23,7 +23,7 @@ export class AuthService {
       .subscribe(response => {
         const user = response['principal'];
         if (user) {
-          localStorage.setItem('currentUser', user);
+          localStorage.setItem('currentUser', JSON.stringify(user));
           return callback && callback();
         } else {
           callback('UserNotFound');

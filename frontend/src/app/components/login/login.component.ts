@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         console.log(error);
         this.serverErrorMessage = error.message;
       } else {
-        this.router.navigate([this.returnUrl ? this.returnUrl : '/profile']);
+        this.router.navigate([this.returnUrl ? this.returnUrl : '/account/home']);
       }
     });
   }
