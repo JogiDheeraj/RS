@@ -14,7 +14,6 @@
 					
 					<fieldset [ngClass]="{'has-error': f.submitted && !firstName.valid}">
 						<input type="text"
-							class="form-control"
 							placeholder="{{'register.firstName'|translate}}" 
 							name="firstName" 
 							id="firstName"
@@ -28,7 +27,6 @@
 					
 					<fieldset [ngClass]="{'has-error': f.submitted && !username.valid}">
 						<input type="text"
-							class="form-control"
 							placeholder="{{'register.username' | translate}}"
 							name="username" 
 							id="username" 
@@ -46,30 +44,30 @@
 					</fieldset>
 					
 					<fieldset [ngClass]="{'has-error': f.submitted && !email.valid}">
-						<input type="text"
-							class="form-control"
+						<input type="email"
 							placeholder="{{'register.email' | translate}}"
 							name="email" 
 							id="email"
-							pattern="[^ @]*@[^ @]*" 
 							[(ngModel)]="user.email"
-							#username="ngModel" 
+							#email="ngModel" 
+							pattern="[^ @]*@[^ @]*" 
 							required 
 						/>
-						<div *ngIf="f.submitted && !username.valid" class="help-block">
-							<div *ngIf="username.errors.required">{{'register.emailRequire'|translate}}</div>
-							<div *ngIf="username.errors.pattern">{{'register.validEmail'|translate}}</div>
+						<div *ngIf="f.submitted && !email.valid" class="help-block">
+							<div *ngIf="email.errors.required">{{'register.emailRequire'|translate}}</div>
+							<div *ngIf="email.errors.pattern">{{'register.validEmail'|translate}}</div>
 						</div>
 					</fieldset>
 					
 					<fieldset [ngClass]="{'has-error': f.submitted && !password.valid}">
 						<input type="password"
-							class="form-control" 
 							placeholder="{{'register.password'|translate}}"
 							name="password" 
 							id="password"
 							[(ngModel)]="user.password" 
 							#password="ngModel" 
+							appEqualValidator="passwordConfirm"
+							reverse="true"
 							required
 							minlength="4" 
 						/>
@@ -80,20 +78,20 @@
 					</fieldset>
 					
 					<fieldset [ngClass]="{'has-error': f.submitted && !passwordConfirm.valid}">
-						<input type="password"
-							class="form-control" 
+						<input type="password" 
 							placeholder="{{'register.passwordConfirm'|translate}}"
 							name="passwordConfirm" 
 							id="passwordConfirm" 
 							[ngModel]="user.confirmPassword"
-							required
+							#passwordConfirm="ngModel"
 							appEqualValidator="password"
+							required
 							minlength="4" 
 						/>
 						<div *ngIf="f.submitted && !password.valid" class="help-block">
 							<div *ngIf="passwordConfirm.errors.required">{{'register.requirePassword'|translate}}</div>
 							<div *ngIf="passwordConfirm.errors.minlength">{{'register.validPassword'|translate}}</div>
-							<div *ngIf="passwordConfirm.errors.appEqualValidator">{{'register.validPassword'|translate}}</div>
+							<div *ngIf="!passwordConfirm.errors.appEqualValidator">{{'register.validPasswordConfirm'|translate}}</div>
 						</div>
 					</fieldset>
 					
