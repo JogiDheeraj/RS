@@ -139,18 +139,15 @@ public class User implements UserDetails {
 		this.email = email;
 	}
 
-	public void setEnabled(boolean enabled)
-	{
+	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 
-	public void setAccountNonLocked(boolean accountNonLocked)
-	{
+	public void setAccountNonLocked(boolean accountNonLocked) {
 		this.accountNonLocked = accountNonLocked;
 	}
 
-	public void setAccountNonExpired(boolean accountNonExpired)
-	{
+	public void setAccountNonExpired(boolean accountNonExpired) {
 		this.accountNonExpired = accountNonExpired;
 	}
 	

@@ -20,7 +20,7 @@ export class MenuComponent implements OnInit {
   constructor(
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window,
-    private authService: AuthService,
+    public authService: AuthService,
     private sectionService: SectionService
   ) {}
 

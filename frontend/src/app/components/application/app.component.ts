@@ -13,4 +13,5 @@ export class AppComponent {
   public showPageHeader() {
     return this.router.url.includes('home') || this.router.url.includes('account');
   }
+  
 }
