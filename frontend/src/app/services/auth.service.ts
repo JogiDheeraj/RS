@@ -1,16 +1,12 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
-import {User} from "../model/model.user";
+import {User, Role} from "../model/model.user";
 import {Router} from '@angular/router';
 
 
 @Injectable()
 export class AuthService {
-
-  authenticated = false;
-
-  private user: User;
 
   constructor(
     private http: HttpClient,
@@ -25,9 +21,9 @@ export class AuthService {
 
     this.http.get("/api/account/login", {headers: headers})
       .subscribe(response => {
-        this.user = response['principal'];
-        console.log(this.user);
-        if (this.user) {
+        const user = response['principal'];
+        if (user) {
+          localStorage.setItem('currentUser', user);
           return callback && callback();
         } else {
           callback('UserNotFound');
@@ -40,17 +36,22 @@ export class AuthService {
   public logOut() {
     this.http.post('/api/account/logout', {})
       .subscribe(() => {
-        this.authenticated = false;
         localStorage.removeItem('currentUser');
         this.router.navigateByUrl('/login');
       });
   }
 
-  public isAuthentecated() {
-    return this.authenticated;
+  public isAuthentecated():boolean {
+    return JSON.parse(localStorage.getItem('currentUser')) ? true : false;
   }
 
-  public getUser() {
-    return this.user;
+  public getUser(): User {
+    const user: User = JSON.parse(localStorage.getItem('currentUser'));
+    return user ? user : null;
+  }
+  
+  public getRole(): Role{
+    const user: User = JSON.parse(localStorage.getItem('currentUser'));
+    return  user ? user.role : null;
   }
 }

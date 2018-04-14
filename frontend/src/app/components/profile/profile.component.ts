@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {Router} from "@angular/router";
-import {AuthService} from "../../services/auth.service";
+
 import {User} from "../../model/model.user";
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -16,16 +16,11 @@ export class ProfileComponent implements OnInit {
   currentUser: User;
 
   constructor(
-    public authService: AuthService,
-    public router: Router
+    public authService: AuthService
   ) {
     this.currentUser = authService.getUser();
   }
 
   ngOnInit() {
-  }
-
-  logOut() {
-    this.authService.logOut();
   }
 }

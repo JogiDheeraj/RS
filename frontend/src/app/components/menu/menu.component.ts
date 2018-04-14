@@ -1,6 +1,7 @@
 import {Component, HostListener, Inject, OnInit} from "@angular/core";
 import {DOCUMENT} from '@angular/platform-browser';
 
+import {AuthService} from '../../services/auth.service';
 import {WINDOW} from "../../services/window.service";
 
 @Component({
@@ -15,7 +16,8 @@ export class MenuComponent implements OnInit {
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    @Inject(WINDOW) private window
+    @Inject(WINDOW) private window,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {}

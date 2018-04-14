@@ -8,7 +8,7 @@ export class User {
   role: Role;
 }
 
-enum Role {
+export enum Role {
     ADMIN,
     EDITOR,
     USER,

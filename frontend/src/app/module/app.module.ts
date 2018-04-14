@@ -21,6 +21,8 @@ import {LangSelectorComponent} from '../components/lang-selector/lang-selector.c
 import {ArticleComponent} from '../components/article/article.component';
 import {MailListComponent} from '../components/mail-list/mail-list.component';
 import {FooterComponent} from '../components/footer/footer.component';
+import {AccountComponent} from "../components/account/account.component";
+import {AccountIndexComponent} from "../components/account-index/account-index.component";
 
 import {AuthService} from "../services/auth.service";
 import {AccountService} from "../services/account.service";
@@ -64,7 +66,9 @@ export class XhrInterceptor implements HttpInterceptor {
     TimeStampPipe,
     MailListComponent,
     FooterComponent,
-    LangSelectorComponent
+    LangSelectorComponent,
+    AccountComponent,
+    AccountIndexComponent
   ],
   imports: [
     BrowserModule,

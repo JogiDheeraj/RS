@@ -22,9 +22,21 @@
 		    <a mat-button [routerLink]="['/about']">{{ 'menu.about' | translate }}</a>
 		    <a mat-button [routerLink]="['/contact']">{{ 'menu.contact' | translate }}</a>
 	    
-		    <button mat-raised-button [routerLink]="['/login']" color="primary">{{ 'menu.login' | translate }}</button>
-		    <button mat-raised-button [routerLink]="['/register']" color="accent">{{ 'menu.register' | translate }}</button>
-		    <button mat-raised-button [routerLink]="['/search']" color="warn">{{ 'menu.search' | translate }}</button>
+		    <button mat-raised-button color="primary"
+		    	[routerLink]="['/login']" 
+		    	*ngIf="!authService.isAuthentecated()">
+		    	{{ 'menu.login' | translate }}
+		    </button>
+		    <button mat-raised-button color="accent"
+		    	[routerLink]="['/register']"
+		    	*ngIf="!authService.isAuthentecated()">
+		    	{{ 'menu.register' | translate }}
+		    </button>
+		    <button mat-raised-button color="warn"
+		    	[routerLink]="['/search']" 
+		    	*ngIf="!authService.isAuthentecated()">
+		    	{{ 'menu.search' | translate }}
+		    </button>
 		    
 		    <app-lang-selector></app-lang-selector>
 	    </div>
@@ -62,9 +74,24 @@
 		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/about']">{{ 'menu.about' | translate }}</a>
 		    <a mat-button (click)="sidenav.toggle()" [routerLink]="['/contact']">{{ 'menu.contact' | translate }}</a>
 		        
-		    <a mat-raised-button class="btn" color="primary" [routerLink]="['/login']" (click)="sidenav.toggle()">{{ 'menu.login' | translate }}</a>
-		    <a mat-raised-button class="btn" color="accent" [routerLink]="['/register']" (click)="sidenav.toggle()">{{ 'menu.register' | translate }}</a>
-		    <a mat-raised-button class="btn" color="warn" [routerLink]="['/search']" (click)="sidenav.toggle()">{{ 'menu.search' | translate }}</a>
+		    <a mat-raised-button class="btn" color="primary" 
+		    	*ngIf="!authService.isAuthentecated()" 
+		    	[routerLink]="['/login']" 
+		    	(click)="sidenav.toggle()">
+		    	{{ 'menu.login' | translate }}
+		    </a>
+		    <a mat-raised-button class="btn" color="accent" 
+		    	*ngIf="!authService.isAuthentecated()" 
+		    	[routerLink]="['/register']" 
+		    	(click)="sidenav.toggle()">
+		    	{{ 'menu.register' | translate }}
+		    </a>
+		    <a mat-raised-button class="btn" color="warn" 
+		    	*ngIf="!authService.isAuthentecated()" 
+		    	[routerLink]="['/search']" 
+		    	(click)="sidenav.toggle()">
+		    	{{ 'menu.search' | translate }}
+		    </a>
 	    </mat-sidenav>
 	</mat-sidenav-container>
 </div>
