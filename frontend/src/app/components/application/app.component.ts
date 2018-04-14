@@ -5,7 +5,12 @@ import {Router} from '@angular/router';
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
+
 export class AppComponent {
 
-  constructor(public router: Router) {}
+  constructor(private router: Router) {}
+  
+  public showPageHeader() {
+    return this.router.url.includes('home') || this.router.url.includes('account');
+  }
 }

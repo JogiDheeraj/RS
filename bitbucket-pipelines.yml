@@ -7,7 +7,7 @@ image: maven:3.3.9
 
 pipelines:
   branches:
-    master:
+    deploy:
     - step:
         caches:
           - maven

@@ -41,10 +41,10 @@ public class AccountController {
 
 	// this is the login /api/account/login
 	@RequestMapping("/login")
-	public Principal user(Principal principal) {
-		System.out.println("User logged " + principal);
-		logger.info("User logged " + principal);
-		return principal;
+	public Principal user(Principal user) {
+		System.out.println("User logged " + user);
+		logger.info("User logged " + user);
+		return user;
 	}
 
 	@RequestMapping("/ping")

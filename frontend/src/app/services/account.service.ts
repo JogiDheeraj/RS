@@ -1,15 +1,15 @@
 import {Injectable} from '@angular/core';
-import {Http} from "@angular/http";
+import {HttpClient} from '@angular/common/http';
 
 import {User} from "../model/model.user";
 import {AppComponent} from "../components/application/app.component";
 
+
 @Injectable()
 export class AccountService {
-  constructor(public http: Http) {}
+  constructor(public http: HttpClient) {}
 
   createAccount(user: User) {
-    return this.http.post('/api/account/register', user)
-      .map(resp => resp.json());
+    return this.http.post('/api/account/register', user);
   }
 }

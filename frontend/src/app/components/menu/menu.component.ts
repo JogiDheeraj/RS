@@ -1,9 +1,9 @@
-/**
- * New typescript file
- */
+import { Section } from '../../model/model.section';
 import {Component, HostListener, Inject, OnInit} from "@angular/core";
 import {DOCUMENT} from '@angular/platform-browser';
 
+import {AuthService} from '../../services/auth.service';
+import {SectionService} from '../../services/section.service';
 import {WINDOW} from "../../services/window.service";
 
 @Component({
@@ -15,13 +15,18 @@ import {WINDOW} from "../../services/window.service";
 export class MenuComponent implements OnInit {
 
   public navIsFixed = false;
+  public sections:Array<Section>;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    @Inject(WINDOW) private window
+    @Inject(WINDOW) private window,
+    private authService: AuthService,
+    private sectionService: SectionService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.sections = this.sectionService.getMeanSections();
+  }
 
   @HostListener("window:scroll", [])
   onWindowScroll() {
