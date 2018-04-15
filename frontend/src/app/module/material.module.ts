@@ -12,6 +12,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatSidenavModule,
     MatGridListModule,
     MatExpansionModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ],
   exports: [
     FlexLayoutModule,
@@ -41,7 +43,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     FlexLayoutModule,
     MatGridListModule,
     MatExpansionModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ],
 })
 export class CustomMaterialModule {}

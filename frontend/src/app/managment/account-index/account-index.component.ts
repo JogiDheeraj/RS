@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-
+import {PageEvent} from '@angular/material';
 
 const ELEMENT_DATA: Element[] = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
@@ -22,6 +22,12 @@ const ELEMENT_DATA: Element[] = [
   {position: 18, name: 'Argon', weight: 39.948, symbol: 'Ar'},
   {position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K'},
   {position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'},
+  {position: 21, name: 'Phosphorus', weight: 30.9738, symbol: 'P'},
+  {position: 22, name: 'Sulfur', weight: 32.065, symbol: 'S'},
+  {position: 23, name: 'Chlorine', weight: 35.453, symbol: 'Cl'},
+  {position: 24, name: 'Argon', weight: 39.948, symbol: 'Ar'},
+  {position: 25, name: 'Potassium', weight: 39.0983, symbol: 'K'},
+  {position: 26, name: 'Calcium', weight: 40.078, symbol: 'Ca'},
 ];
 
 @Component({
@@ -30,11 +36,25 @@ const ELEMENT_DATA: Element[] = [
   styleUrls: ['./account-index.component.css']
 })
 export class AccountIndexComponent implements OnInit {
+  
   displayedColumns = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  
+  dataSource = ELEMENT_DATA.slice(0,10);
+  
+  length = ELEMENT_DATA.length;
+  pageSize = 10;
+  pageSizeOptions = [5, 10, 25, 100];
+  
   constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+  
+  changePage(pageEvent: PageEvent){
+    
+    this.dataSource = ELEMENT_DATA.slice(
+      pageEvent.pageSize * pageEvent.pageIndex , 
+      pageEvent.pageSize  * (pageEvent.pageIndex + 1)
+    );
   }
 
 }
