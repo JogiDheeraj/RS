@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
+import {User} from '../../model/model.user';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-account-menu',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountMenuComponent implements OnInit {
 
-  constructor() { }
+  user: User;
+
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
+    this.user = this.authService.getUser();
   }
 
 }

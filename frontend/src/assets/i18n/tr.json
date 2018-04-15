@@ -8,7 +8,7 @@
 		"register" : "Register",
 		"search": "Search"
 	},
-	"lang-selector": {
+	"language-selector": {
 		"select": "Select Language",
 		"ar": "Arabic",
 		"en": "English",

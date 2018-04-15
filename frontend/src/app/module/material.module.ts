@@ -7,6 +7,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {FlexLayoutModule} from "@angular/flex-layout";
+import {MatListModule} from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   imports: [
@@ -20,7 +22,9 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     MatIconModule,
     MatProgressSpinnerModule,
     MatSidenavModule,
-    MatGridListModule
+    MatGridListModule,
+    MatListModule,
+    MatExpansionModule
   ],
   exports: [
     FlexLayoutModule,
@@ -34,7 +38,9 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     MatProgressSpinnerModule,
     MatSidenavModule,
     FlexLayoutModule,
-    MatGridListModule
+    MatGridListModule,
+    MatListModule,
+    MatExpansionModule
   ],
 })
 export class CustomMaterialModule {}

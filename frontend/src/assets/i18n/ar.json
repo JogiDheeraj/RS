@@ -8,7 +8,7 @@
 		"register": "تسجيل",
 		"search": "بحث"
 	},
-	"lang-selector": {
+	"language-selector": {
 		"select": "اختر اللغة",
 		"ar": "العربية",
 		"en": "الانكليزية",
@@ -57,5 +57,18 @@
 		"blog": "المدونة",
 		"aboutUs": "من نحن",
 		"contactUs": "اتصل بنا"
+	},
+	"account-menu":{
+		"home":"الرئيسية",
+		"m-users": "المستخدمين والصلاحيات",
+		"m-sections":"الأقسام",
+		"m-settings":"الاعدادات",
+		"myAd":"اعلاناتي",
+		"newAd":"اضافة اعلان جديد",
+		"helo":"مرحبا ،  ",
+		"profile":" حسابي",
+		"password":" كلمة المرور",
+		"reboot":"تحديث البيانات",
+		"logout":" تسجيل خروج"
 	}
 }
