@@ -32,6 +32,8 @@ import {AccountComponent} from "../managment/account/account.component";
 import {AccountHeaderComponent} from "../managment/account-header/account-header.component";
 import {AccountIndexComponent} from "../managment/account-index/account-index.component";
 import {AccountMenuComponent} from '../managment/account-menu/account-menu.component';
+import {MyAdvComponent} from '../managment/my-adv/my-adv.component';
+import {NewAdvComponent} from '../managment/new-adv/new-adv.component';
 import {ProfileComponent} from '../managment/profile/profile.component';
 import {SectionsComponent} from '../managment/sections/sections.component';
 import {SecurityComponent} from '../managment/security/security.component';
@@ -46,10 +48,12 @@ import {SectionService} from '../services/section.service';
 import {TimeStampPipe} from '../pipes/timeStamp';
 //application Modules import
 import {CustomMaterialModule} from "./material.module";
+import {RoutingModule} from './app.routing';
 
 //application specials import
 import {UrlPermission} from "../urlPermission/url.permission";
-import {RoutingModule} from './app.routing';
+import {TranslatePaginatorIntl} from './translate-paginator-intl';
+import {MatPaginatorIntl} from '@angular/material/paginator';
 
 
 // The function responsible of loading the Translation files
@@ -96,7 +100,9 @@ export class XhrInterceptor implements HttpInterceptor {
     SectionsComponent,
     SecurityComponent,
     SettingsComponent,
-    UsersComponent
+    UsersComponent,
+    MyAdvComponent,
+    NewAdvComponent
   ],
   imports: [
     BrowserModule,
@@ -117,6 +123,7 @@ export class XhrInterceptor implements HttpInterceptor {
   providers: [
     AuthService,
     {provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true},
+    {provide: MatPaginatorIntl, useValue: TranslatePaginatorIntl() },
     AccountService,
     UrlPermission,
     WindowsProviders,
