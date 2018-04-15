@@ -29,9 +29,14 @@ import {AboutComponent} from '../components/about/about.component';
 import {ContactComponent} from '../components/contact/contact.component';
 import {BlogComponent} from '../components/blog/blog.component';
 import {AccountComponent} from "../managment/account/account.component";
+import {AccountHeaderComponent} from "../managment/account-header/account-header.component";
 import {AccountIndexComponent} from "../managment/account-index/account-index.component";
 import {AccountMenuComponent} from '../managment/account-menu/account-menu.component';
 import {ProfileComponent} from '../managment/profile/profile.component';
+import {SectionsComponent} from '../managment/sections/sections.component';
+import {SecurityComponent} from '../managment/security/security.component';
+import {SettingsComponent} from '../managment/settings/settings.component';
+import {UsersComponent} from '../managment/users/users.component';
 //application Service import
 import {AuthService} from "../services/auth.service";
 import {AccountService} from "../services/account.service";
@@ -41,9 +46,10 @@ import {SectionService} from '../services/section.service';
 import {TimeStampPipe} from '../pipes/timeStamp';
 //application Modules import
 import {CustomMaterialModule} from "./material.module";
-import {routing} from "./app.routing";
+
 //application specials import
 import {UrlPermission} from "../urlPermission/url.permission";
+import {RoutingModule} from './app.routing';
 
 
 // The function responsible of loading the Translation files
@@ -78,14 +84,19 @@ export class XhrInterceptor implements HttpInterceptor {
     MailListComponent,
     FooterComponent,
     LangSelectorComponent,
-    AccountComponent,
-    AccountIndexComponent,
     SearchComponent,
     SectionComponent,
     AboutComponent,
     ContactComponent,
     BlogComponent,
-    AccountMenuComponent
+    AccountComponent,
+    AccountIndexComponent,
+    AccountMenuComponent,
+    AccountHeaderComponent,
+    SectionsComponent,
+    SecurityComponent,
+    SettingsComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -101,7 +112,7 @@ export class XhrInterceptor implements HttpInterceptor {
     }),
     FormsModule,
     NgxCarouselModule,
-    routing,
+    RoutingModule,
   ],
   providers: [
     AuthService,

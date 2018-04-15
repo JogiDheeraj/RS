@@ -34,12 +34,12 @@
 		{{'account-menu.home' | translate}}
 	</button>
 
-	<button mat-button [routerLink]="['/account/users']" 
+	<button mat-button [routerLink]="['/manage/users']" 
 		routerLinkActive="active">
 		{{'account-menu.m-users' | translate}}
 	</button>
 
-	<button mat-button [routerLink]="['/account/sections']" 
+	<button mat-button [routerLink]="['/manage/sections']" 
 		routerLinkActive="active">
 		{{'account-menu.m-sections' | translate}}
 	</button>
@@ -53,8 +53,10 @@
 			routerLinkActive="active">
 			العقارات
 		</button>
-		<button mat-menu-item [routerLink]="['/account/section/my']" routerLinkActive="active">الخدمات التجارية</button>
-		<button mat-menu-item [routerLink]="['/account/section/my']" routerLinkActive="active">الخدمات التعليمية</button>
+		<button mat-menu-item [routerLink]="['/account/section/my']" 
+			routerLinkActive="active">الخدمات التجارية</button>
+		<button mat-menu-item [routerLink]="['/account/section/my']" 
+			routerLinkActive="active">الخدمات التعليمية</button>
 	</mat-menu>
 			  	
 	<button mat-button [matMenuTriggerFor]="newAd">
@@ -62,12 +64,15 @@
 		<mat-icon matSufix>more_vert</mat-icon>
 	</button>
 	<mat-menu #newAd="matMenu">
-		<button mat-menu-item [routerLink]="['/account/section/new']" routerLinkActive="active">العقارات</button>
-		<button mat-menu-item [routerLink]="['/account/section/new']" routerLinkActive="active">الخدمات التجارية</button>
-		<button mat-menu-item [routerLink]="['/account/section/new']" routerLinkActive="active">الخدمات التعليمية</button>
+		<button mat-menu-item [routerLink]="['/account/section/new']" 
+			routerLinkActive="active">العقارات</button>
+		<button mat-menu-item [routerLink]="['/account/section/new']" 
+			routerLinkActive="active">الخدمات التجارية</button>
+		<button mat-menu-item [routerLink]="['/account/section/new']" 
+			routerLinkActive="active">الخدمات التعليمية</button>
 	</mat-menu>
 
-	<button mat-button [routerLink]="['/account/settings']" 
+	<button mat-button [routerLink]="['/manage/settings']" 
 		routerLinkActive="active">
 		{{'account-menu.m-settings' | translate}}
 	</button>
