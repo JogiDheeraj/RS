@@ -17,5 +17,12 @@ export class AccountMenuComponent implements OnInit {
   ngOnInit() {
     this.user = this.authService.getUser();
   }
-
+  
+  public logOut(){
+    this.authService.logOut();
+  }
+  
+  public reload(){
+    
+  }
 }

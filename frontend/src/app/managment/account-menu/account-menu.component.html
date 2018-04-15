@@ -49,9 +49,12 @@
 		<mat-icon matSufix>more_vert</mat-icon>
 	</button>
 	<mat-menu #myAd="matMenu">
-		<button mat-menu-item>العقارات</button>
-		<button mat-menu-item>الخدمات التجارية</button>
-		<button mat-menu-item>الخدمات التعليمية</button>
+		<button mat-menu-item [routerLink]="['/account/section/my']" 
+			routerLinkActive="active">
+			العقارات
+		</button>
+		<button mat-menu-item [routerLink]="['/account/section/my']" routerLinkActive="active">الخدمات التجارية</button>
+		<button mat-menu-item [routerLink]="['/account/section/my']" routerLinkActive="active">الخدمات التعليمية</button>
 	</mat-menu>
 			  	
 	<button mat-button [matMenuTriggerFor]="newAd">
@@ -59,9 +62,9 @@
 		<mat-icon matSufix>more_vert</mat-icon>
 	</button>
 	<mat-menu #newAd="matMenu">
-		<button mat-menu-item>العقارات</button>
-		<button mat-menu-item>الخدمات التجارية</button>
-		<button mat-menu-item>الخدمات التعليمية</button>
+		<button mat-menu-item [routerLink]="['/account/section/new']" routerLinkActive="active">العقارات</button>
+		<button mat-menu-item [routerLink]="['/account/section/new']" routerLinkActive="active">الخدمات التجارية</button>
+		<button mat-menu-item [routerLink]="['/account/section/new']" routerLinkActive="active">الخدمات التعليمية</button>
 	</mat-menu>
 
 	<button mat-button [routerLink]="['/account/settings']" 
@@ -74,19 +77,22 @@
 		<mat-icon matSufix>more_vert</mat-icon>
 	</button>
 	<mat-menu #userMenu="matMenu">
-		<button mat-menu-item>
-			<mat-icon matPrefix>face</mat-icon>
+		<button mat-menu-item [routerLink]="['/account/profile']" 
+			routerLinkActive="active">
+			<mat-icon matPrefix >face</mat-icon>
 			{{'account-menu.profile' |translate}}
 		</button>
-		<button mat-menu-item>
+		<button mat-menu-item [routerLink]="['/account/security']"
+			routerLinkActive="active">
 			<mat-icon matPrefix>security</mat-icon>
 			{{'account-menu.password'|translate}}
 		</button>
-		<button mat-menu-item>
+		<button mat-menu-item (click)="reload()"
+			routerLinkActive="active">
 			<mat-icon matPrefix>autorenew</mat-icon>
 			{{'account-menu.reboot'|translate}}
 		</button>
-		<button mat-menu-item>
+		<button mat-menu-item (click)="logOut()">
 			<mat-icon matPrefix>power_settings_new</mat-icon>
 			{{'account-menu.logout' |translate}}
 		</button>
