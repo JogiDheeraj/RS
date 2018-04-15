@@ -1,22 +1,100 @@
-<div class="">
-<mat-toolbar> 
-	<mat-toolbar-row> 
+<div class="account-menu">
 	
-		<a mat-button [routerLink]="['/account/home']" 
-			routerLinkActive="active">
-			{{ 'menu.home' | translate }}
-		</a>
+	<!-- The following menu items will be hidden on both SM and XS screen sizes -->
+	<mat-toolbar fxShow="true" fxHide.lt-md="true">
+		<mat-toolbar-row>
 		
-		<button mat-button [matMenuTriggerFor]="menu">أعلانات</button>
-		<mat-menu #menu="matMenu">
-		  <button mat-menu-item>العقارات</button>
-		  <button mat-menu-item>الخدمات التجارية</button>
-		  <button mat-menu-item>الخدمات التعليمية</button>
-		  <button mat-menu-item>الخدمات الصحية</button>
-		  <button mat-menu-item>الخدمات السياحية</button>
-		  <button mat-menu-item>متفرقات</button>
-		</mat-menu>
-			
-	</mat-toolbar-row> 
-</mat-toolbar>
+			<ng-container *ngTemplateOutlet="accountMenuItemsTemplate"> 
+				
+			</ng-container>
+				
+		</mat-toolbar-row> 
+	</mat-toolbar>
+	
+	<!-- The following menu items will be shown on both SM and XS screen sizes -->
+	<mat-accordion fxFlexFill fxHide.gt-sm="true">
+		<mat-expansion-panel>
+			<mat-expansion-panel-header>
+		      	<mat-panel-title>
+		        	Controll Meun
+		      	</mat-panel-title>
+		    </mat-expansion-panel-header>
+		    
+		    <ng-container *ngTemplateOutlet="accountMenuItemsTemplate"> 
+				
+			</ng-container>
+				  	
+		  </mat-expansion-panel>
+	</mat-accordion>
 </div>
+
+<ng-template #accountMenuItemsTemplate>
+	<button mat-button [routerLink]="['/account/home']" 
+		routerLinkActive="active">
+		{{'account-menu.home' | translate}}
+	</button>
+
+	<button mat-button [routerLink]="['/account/users']" 
+		routerLinkActive="active">
+		{{'account-menu.m-users' | translate}}
+	</button>
+
+	<button mat-button [routerLink]="['/account/sections']" 
+		routerLinkActive="active">
+		{{'account-menu.m-sections' | translate}}
+	</button>
+
+	<button mat-button [matMenuTriggerFor]="myAd">
+		{{'account-menu.myAd' | translate}}
+		<mat-icon matSufix>more_vert</mat-icon>
+	</button>
+	<mat-menu #myAd="matMenu">
+		<button mat-menu-item [routerLink]="['/account/section/my']" 
+			routerLinkActive="active">
+			العقارات
+		</button>
+		<button mat-menu-item [routerLink]="['/account/section/my']" routerLinkActive="active">الخدمات التجارية</button>
+		<button mat-menu-item [routerLink]="['/account/section/my']" routerLinkActive="active">الخدمات التعليمية</button>
+	</mat-menu>
+			  	
+	<button mat-button [matMenuTriggerFor]="newAd">
+		{{'account-menu.newAd' | translate}}
+		<mat-icon matSufix>more_vert</mat-icon>
+	</button>
+	<mat-menu #newAd="matMenu">
+		<button mat-menu-item [routerLink]="['/account/section/new']" routerLinkActive="active">العقارات</button>
+		<button mat-menu-item [routerLink]="['/account/section/new']" routerLinkActive="active">الخدمات التجارية</button>
+		<button mat-menu-item [routerLink]="['/account/section/new']" routerLinkActive="active">الخدمات التعليمية</button>
+	</mat-menu>
+
+	<button mat-button [routerLink]="['/account/settings']" 
+		routerLinkActive="active">
+		{{'account-menu.m-settings' | translate}}
+	</button>
+			  	
+	<button mat-button [matMenuTriggerFor]="userMenu">
+		{{'account-menu.helo' | translate}}{{user.firstName + user.lastname}}
+		<mat-icon matSufix>more_vert</mat-icon>
+	</button>
+	<mat-menu #userMenu="matMenu">
+		<button mat-menu-item [routerLink]="['/account/profile']" 
+			routerLinkActive="active">
+			<mat-icon matPrefix >face</mat-icon>
+			{{'account-menu.profile' |translate}}
+		</button>
+		<button mat-menu-item [routerLink]="['/account/security']"
+			routerLinkActive="active">
+			<mat-icon matPrefix>security</mat-icon>
+			{{'account-menu.password'|translate}}
+		</button>
+		<button mat-menu-item (click)="reload()"
+			routerLinkActive="active">
+			<mat-icon matPrefix>autorenew</mat-icon>
+			{{'account-menu.reboot'|translate}}
+		</button>
+		<button mat-menu-item (click)="logOut()">
+			<mat-icon matPrefix>power_settings_new</mat-icon>
+			{{'account-menu.logout' |translate}}
+		</button>
+	</mat-menu>
+</ng-template>

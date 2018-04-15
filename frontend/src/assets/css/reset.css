@@ -42,6 +42,10 @@ ol, ul {
 	list-style: none;
 }
 
+button, select{
+	font-family: 'cairo' !important;
+}
+
 blockquote, q {
 	quotes: none;
 }

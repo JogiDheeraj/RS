@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import edu.elearning.service.AppUserDetailsService;
 
@@ -70,6 +71,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			// authenticate all remaining URLs
 		.anyRequest().authenticated()
 		.and()
+		
+		/* "/logout" will log the user out by invalidating the HTTP Session,
+	       * cleaning up any {link rememberMe()} authentication that was configured, */
+		.logout().permitAll()
+		.logoutRequestMatcher(new AntPathRequestMatcher(restApiBasePath + "/account/logout", "POST"))
+	    .and()
 		
 		// configuring the session on the server
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED).and()

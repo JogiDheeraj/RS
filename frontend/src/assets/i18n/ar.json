@@ -8,7 +8,7 @@
 		"register": "تسجيل",
 		"search": "بحث"
 	},
-	"lang-selector": {
+	"language-selector": {
 		"select": "اختر اللغة",
 		"ar": "العربية",
 		"en": "الانكليزية",
@@ -70,8 +70,21 @@
 		"emailRequire": "الايميل مطلوب",
 		"validEmail": "الرجاء ادخال بريد الكتروني صحيح",
 		"fullNameRequire": "الاسم الأول  مطلوب",
-		"mobileRequire":"رقم الجوال مطلوب",
-		"subjectRequire":"الموضوع مطلوب",
-		"noteRequire":"نص الرسالة مطلوب"
+		"mobileRequire": "رقم الجوال مطلوب",
+		"subjectRequire": "الموضوع مطلوب",
+		"noteRequire": "نص الرسالة مطلوب"
+	},
+	"account-menu": {
+		"home": "الرئيسية",
+		"m-users": "المستخدمين والصلاحيات",
+		"m-sections": "الأقسام",
+		"m-settings": "الاعدادات",
+		"myAd": "اعلاناتي",
+		"newAd": "اضافة اعلان جديد",
+		"helo": "مرحبا ،  ",
+		"profile": " حسابي",
+		"password": " كلمة المرور",
+		"reboot": "تحديث البيانات",
+		"logout": " تسجيل خروج"
 	}
 }

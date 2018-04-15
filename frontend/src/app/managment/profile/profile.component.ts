@@ -15,16 +15,10 @@ export class ProfileComponent implements OnInit {
 
   currentUser: User;
 
-  constructor(
-    public authService: AuthService
-  ) {
-    this.currentUser = authService.getUser();
-  }
+  constructor(public authService: AuthService) {}
 
   ngOnInit() {
+    this.currentUser = this.authService.getUser();
   }
   
-  logOut(){
-    
-  }
 }
