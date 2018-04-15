@@ -57,5 +57,21 @@
 		"blog": "Blog",
 		"aboutUs": "About us",
 		"contactUs": "Contact us"
+	},
+	"contactUs": {
+		"title": "Contact us",
+		"fullName": "Full name",
+		"email": "Email",
+		"mobile": "Mobile",
+		"subject": "Subject",
+		"note": "Write your message here",
+		"send": "Send",
+		"cancel": "Cancel",
+		"emailRequire": "Email is required.",
+		"validEmail": "A valid email address is required.",
+		"fullNameRequire": "First name is required",
+		"mobileRequire": "Mobile number is required",
+		"subjectRequire": "Subject is required",
+		"noteRequire":"Message is required"
 	}
 }

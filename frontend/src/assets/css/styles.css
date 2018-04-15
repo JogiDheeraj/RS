@@ -1,6 +1,6 @@
 fieldset{
 	display: block;
-	overflow: auto;
+	overflow: unset;
 	position: relative;
 }
 
@@ -11,7 +11,8 @@ fieldset.control{
 	padding-right: 3px;
 }
 
-input {
+input, 
+textarea {
 	display: block;
     height: 45px;
     padding-top: 5px;
@@ -25,7 +26,15 @@ input {
     color: rgb(255, 64, 129);
 }
 
-input::placeholder {
+textarea{
+	height: auto;
+    overflow: -webkit-paged-y;
+    min-height: 100px;
+    padding-top: 15px;
+}
+
+input::placeholder, 
+textarea::placeholder {
 	-webkit-transform: translateY(0px);
 	transform: translateY(0px);
 	-webkit-transition: .5s;
@@ -35,14 +44,20 @@ input::placeholder {
 
 input:hover, 
 input:focus, 
-input:active:focus {
+input:active:focus,
+textarea:hover,
+textarea:focus,
+textarea:active:focus {
 	outline: none;
 	border-bottom: 1px solid rgb(255, 64, 129);
 }
 
 input:hover::placeholder, 
 input:focus::placeholder, 
-input:active:focus::placeholder{
+input:active:focus::placeholder,
+textarea:hover::placeholder,
+textarea:focus::placeholder,
+textarea:active:focus::placeholder{
 	position: relative;
 	-webkit-transform: translateY(-20px);
 	transform: translateY(-20px);

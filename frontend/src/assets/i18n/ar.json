@@ -57,5 +57,21 @@
 		"blog": "المدونة",
 		"aboutUs": "من نحن",
 		"contactUs": "اتصل بنا"
+	},
+	"contactUs": {
+		"title": "اتصل  بنا",
+		"fullName": "الاسم بالكامل",
+		"email": "اليريد الالكنروني",
+		"mobile": "رقم الجوال",
+		"subject": "الموضوع",
+		"note": "نص الرسالة",
+		"send": "ارسال",
+		"cancel": "الغاء",
+		"emailRequire": "الايميل مطلوب",
+		"validEmail": "الرجاء ادخال بريد الكتروني صحيح",
+		"fullNameRequire": "الاسم الأول  مطلوب",
+		"mobileRequire":"رقم الجوال مطلوب",
+		"subjectRequire":"الموضوع مطلوب",
+		"noteRequire":"نص الرسالة مطلوب"
 	}
 }
