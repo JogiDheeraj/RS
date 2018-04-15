@@ -58,17 +58,33 @@
 		"aboutUs": "من نحن",
 		"contactUs": "اتصل بنا"
 	},
-	"account-menu":{
-		"home":"الرئيسية",
+	"contactUs": {
+		"title": "اتصل  بنا",
+		"fullName": "الاسم بالكامل",
+		"email": "اليريد الالكنروني",
+		"mobile": "رقم الجوال",
+		"subject": "الموضوع",
+		"note": "نص الرسالة",
+		"send": "ارسال",
+		"cancel": "الغاء",
+		"emailRequire": "الايميل مطلوب",
+		"validEmail": "الرجاء ادخال بريد الكتروني صحيح",
+		"fullNameRequire": "الاسم الأول  مطلوب",
+		"mobileRequire": "رقم الجوال مطلوب",
+		"subjectRequire": "الموضوع مطلوب",
+		"noteRequire": "نص الرسالة مطلوب"
+	},
+	"account-menu": {
+		"home": "الرئيسية",
 		"m-users": "المستخدمين والصلاحيات",
-		"m-sections":"الأقسام",
-		"m-settings":"الاعدادات",
-		"myAd":"اعلاناتي",
-		"newAd":"اضافة اعلان جديد",
-		"helo":"مرحبا ،  ",
-		"profile":" حسابي",
-		"password":" كلمة المرور",
-		"reboot":"تحديث البيانات",
-		"logout":" تسجيل خروج"
+		"m-sections": "الأقسام",
+		"m-settings": "الاعدادات",
+		"myAd": "اعلاناتي",
+		"newAd": "اضافة اعلان جديد",
+		"helo": "مرحبا ،  ",
+		"profile": " حسابي",
+		"password": " كلمة المرور",
+		"reboot": "تحديث البيانات",
+		"logout": " تسجيل خروج"
 	}
 }
