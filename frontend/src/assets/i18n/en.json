@@ -73,5 +73,19 @@
 		"mobileRequire": "Mobile number is required",
 		"subjectRequire": "Subject is required",
 		"noteRequire":"Message is required"
+	},
+	"account-menu": {
+		"home": "Home",
+		"controlMenu":"Control Meun",
+		"m-users": "Users & Permissions",
+		"m-sections": "Sections",
+		"m-settings": "Settings",
+		"myAd": "My Advertisements",
+		"newAd": "New Advertisement",
+		"helo": "Hello ،  ",
+		"profile": "Profile",
+		"password": "Password",
+		"reboot": "Refrsh",
+		"logout": "Logout"
 	}
 }
