@@ -1,3 +1,21 @@
-<p>
-  section works!
-</p>
+<div class="sections">
+	<div class="section" *ngFor="let sec of sections">
+		<mat-card mat-whiteframe="8" (click)="goToArticle(article)" class="section-card">
+		  <mat-card-header class="section-card-header" >
+		  	<div class="mat-card-header-text">
+		  		<h2>
+		  			{{sec.name}}
+		  		</h2>
+		  	</div>
+		  </mat-card-header>
+		  <div mat-card-image class="section-card-image">
+			  <img class="section-card-image" src="{{sec.image}}" alt="{{sec.description}}">
+		  </div>
+		  <mat-card-content class="section-card-content">
+		    <div>
+		        عدد المقالات:{{sec.articleCount}}
+		    </div>
+		  </mat-card-content>
+		</mat-card>
+	</div>
+</div>

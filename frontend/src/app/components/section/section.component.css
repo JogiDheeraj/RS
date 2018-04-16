@@ -1,0 +1,34 @@
+.sections{
+	padding:10px;
+	margin:auto;
+	display:block;
+	overflow:auto
+}
+.sections .section {
+	max-width: 33%;
+	float: right;
+}
+.sections .section .section-card {
+	height: 350px;
+	margin: 10px 10px 10px 10px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	overflow: hidden;
+	position: relative;
+    text-align: center;
+    color: white;
+}
+.section-card-image:hover {
+	bgcolor:blak;
+	src:null;
+}
+.section-card-header{
+	position: absolute;
+    top: 8px;
+    right:3px;
+}
+.section-card-content{
+	position: absolute;
+    top: 25px;
+    right:0px;
+}
