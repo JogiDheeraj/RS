@@ -1,3 +1,80 @@
-<p>
-  contact works!
-</p>
+<div class="contactus">
+	<div class="container">
+		<mat-card class="contactus-card">
+			<mat-card-header>
+				<mat-card-title><h2>{{'contactUs.title'|translate}}</h2></mat-card-title>
+			</mat-card-header>
+			<mat-card-content>
+				<form name="form" (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
+					<fieldset [ngClass]="{'has-error': f.submitted && !fullName.valid}">
+						<input type="text"
+							placeholder="{{'contactUs.fullName'|translate}}"
+							name="fullName"
+							id="fullName"
+							[(ngModel)]="contact.fullName"
+							#fullName=ngModel
+							required />
+						<div *ngIf="f.submitted && !fullName.valid" class="help-block">
+							{{'contactUs.fullNameRequire'|translate}}
+						</div>
+					</fieldset>
+					<fieldset [ngClass]="{'has-error': f.submitted && !email.valid}">
+						<input type="email"
+							placeholder="{{'contactUs.email'|translate}}"
+							name="email"
+							id="email"
+							[(ngModel)]="contact.email"
+							#email=ngModel
+							pattern="[^ @]*@[^ @]*"
+							required />
+						<div *ngIf="f.submitted && !email.valid" class="help-block">
+							<div *ngIf="email.errors.required">{{'contactUs.emailRequire'|translate}}</div>
+							<div *ngIf="email.errors.pattern">{{'contactUs.validEmail'|translate}}</div>
+						</div>
+					</fieldset>
+					<fieldset [ngClass]="{'has-error':f.submitted &&!mobile.valid}">
+						<input type="number"
+							placeholder="{{'contactUs.mobile'|translate}}" 
+							name="mobile"
+							id="mobile"
+							[(ngModel)]="contact.mobile"
+							#mobile=ngModel
+							required />
+						<div *ngIf="f.submitted && !email.valid" class="help-block">
+							{{'contactUs.mobileRequire'|translate}}
+						</div>
+					</fieldset>
+					<fieldset [ngClass]="{'has-error':f.submitted && !subject.valid}">
+						<input type="text"
+							placeholder="{{'contactUs.subject'|translate}}"
+							name="subject"
+							id="subject"
+							[(ngModel)]="contact.subject"
+							#subject=ngModel
+							required />
+						<div *ngIf="f.submitted && !subject.valid" class="help-block">
+							{{'contactUs.subjectRequire'|translate}}
+						</div>
+					</fieldset>
+					<fieldset [ngClass]="{'hass-error':f.submitted && !note.valid}">
+						<textarea rows="" cols="" 
+							placeholder="{{'contactUs.note'|translate}}"
+							name="note"
+							id="note"
+							[(ngModel)]="contact.note"
+							#note=ngModel
+							required>
+						</textarea>
+						<div *ngIf="f.submitted && !note.valid" class="help-block">
+							{{'contactUs.noteRequire'|translate}}
+						</div>
+					</fieldset>
+					<fieldset class="control">
+						<button mat-raised-button type="submit">{{'contactUs.send'|translate}}</button>
+						<button mat-raised-button type="button">{{'contactUs.cancel'|translate}}</button>
+					</fieldset>
+				</form>
+			</mat-card-content>
+		</mat-card>
+	</div>
+</div>

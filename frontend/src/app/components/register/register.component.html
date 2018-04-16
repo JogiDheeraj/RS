@@ -14,7 +14,6 @@
 					
 					<fieldset [ngClass]="{'has-error': f.submitted && !firstName.valid}">
 						<input type="text"
-							class="form-control"
 							placeholder="{{'register.firstName'|translate}}" 
 							name="firstName" 
 							id="firstName"
@@ -28,7 +27,6 @@
 					
 					<fieldset [ngClass]="{'has-error': f.submitted && !username.valid}">
 						<input type="text"
-							class="form-control"
 							placeholder="{{'register.username' | translate}}"
 							name="username" 
 							id="username"
@@ -44,8 +42,7 @@
 					</fieldset>
 					
 					<fieldset [ngClass]="{'has-error': f.submitted && !password.valid}">
-						<input type="password"
-							class="form-control" 
+						<input type="password" 
 							placeholder="{{'register.password'|translate}}"
 							name="password" 
 							id="password"

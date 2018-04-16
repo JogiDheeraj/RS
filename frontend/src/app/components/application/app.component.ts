@@ -11,7 +11,9 @@ export class AppComponent {
   constructor(private router: Router) {}
   
   public showPageHeader() {
-    return this.router.url.includes('home') || this.router.url.includes('account');
+    return this.router.url.includes('home') 
+      || this.router.url.includes('account')
+      || this.router.url.includes('manage');
   }
   
 }
