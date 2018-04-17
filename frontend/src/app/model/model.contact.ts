@@ -4,5 +4,4 @@ export class Contact{
   mobile:number;
   subject:string;
   note:string;
-  
 }
