@@ -1,9 +1,12 @@
 package edu.elearning.model;
 
+import java.util.List;
+
 import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
@@ -31,6 +34,9 @@ public class Section {
 
 	@NotNull(message = "content_empty")
 	private String content;
+	
+	@DBRef(lazy = true)
+	private List<Article> articles;
 
 	public String getId() {
 		return id;
@@ -88,4 +94,20 @@ public class Section {
 		this.content = content;
 	}
 
+	public String getParentId() {
+		return parentId;
+	}
+
+	public void setParentId(String parentId) {
+		this.parentId = parentId;
+	}
+
+	public List<Article> getArticles() {
+		return articles;
+	}
+
+	public void setArticles(List<Article> articles) {
+		this.articles = articles;
+	}
+	
 }

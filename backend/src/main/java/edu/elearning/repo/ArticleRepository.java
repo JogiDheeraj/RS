@@ -9,4 +9,5 @@ public interface ArticleRepository extends MongoRepository<Article, String> {
 	
 	@Query("{seoName:'?0'}")
 	Article findOneBySeoName(String seoName);
+	
 }

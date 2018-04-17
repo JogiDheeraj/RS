@@ -6,6 +6,7 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
@@ -19,8 +20,16 @@ public class Article {
 
 	@Indexed(unique = true)
 	private String seoName;
-
-	private Date date;
+	
+	private Date createDate;
+	
+	@DBRef
+	private User creater;
+	
+	private Date lastUpdate;
+	
+	@DBRef
+	private User lastUpdater;
 
 	private String location;
 
@@ -47,12 +56,28 @@ public class Article {
 		this.title = title;
 	}
 
-	public Date getDate() {
-		return date;
+	public String getSeoName() {
+		return seoName;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setSeoName(String seoName) {
+		this.seoName = seoName;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	public Date getLastUpdate() {
+		return lastUpdate;
+	}
+
+	public void setLastUpdate(Date lastUpdate) {
+		this.lastUpdate = lastUpdate;
 	}
 
 	public String getLocation() {
@@ -87,4 +112,20 @@ public class Article {
 		this.image = image;
 	}
 
+	public User getCreater() {
+		return creater;
+	}
+
+	public void setCreater(User creater) {
+		this.creater = creater;
+	}
+
+	public User getLastUpdater() {
+		return lastUpdater;
+	}
+
+	public void setLastUpdater(User lastUpdater) {
+		this.lastUpdater = lastUpdater;
+	}
+	
 }
