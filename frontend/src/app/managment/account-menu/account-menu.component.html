@@ -13,10 +13,10 @@
 	
 	<!-- The following menu items will be shown on both SM and XS screen sizes -->
 	<mat-accordion fxFlexFill fxHide.gt-sm="true">
-		<mat-expansion-panel>
+		<mat-expansion-panel class="account-menu-sm">
 			<mat-expansion-panel-header>
 		      	<mat-panel-title>
-		        	Controll Meun
+		        	{{'account-menu.controlMenu' | translate}}
 		      	</mat-panel-title>
 		    </mat-expansion-panel-header>
 		    
@@ -46,7 +46,6 @@
 
 	<button mat-button [matMenuTriggerFor]="myAd">
 		{{'account-menu.myAd' | translate}}
-		<mat-icon matSufix>more_vert</mat-icon>
 	</button>
 	<mat-menu #myAd="matMenu">
 		<button mat-menu-item [routerLink]="['/account/section/my']" 
@@ -61,7 +60,6 @@
 			  	
 	<button mat-button [matMenuTriggerFor]="newAd">
 		{{'account-menu.newAd' | translate}}
-		<mat-icon matSufix>more_vert</mat-icon>
 	</button>
 	<mat-menu #newAd="matMenu">
 		<button mat-menu-item [routerLink]="['/account/section/new']" 
@@ -76,29 +74,30 @@
 		routerLinkActive="active">
 		{{'account-menu.m-settings' | translate}}
 	</button>
-			  	
+			
+	<span class="fill-remaining-space"></span>
+	 	
 	<button mat-button [matMenuTriggerFor]="userMenu">
 		{{'account-menu.helo' | translate}}{{user.firstName + user.lastname}}
-		<mat-icon matSufix>more_vert</mat-icon>
 	</button>
 	<mat-menu #userMenu="matMenu">
 		<button mat-menu-item [routerLink]="['/account/profile']" 
 			routerLinkActive="active">
-			<mat-icon matPrefix >face</mat-icon>
+			<mat-icon matSuffix>face</mat-icon>
 			{{'account-menu.profile' |translate}}
 		</button>
 		<button mat-menu-item [routerLink]="['/account/security']"
 			routerLinkActive="active">
-			<mat-icon matPrefix>security</mat-icon>
+			<mat-icon matSuffix>security</mat-icon>
 			{{'account-menu.password'|translate}}
 		</button>
 		<button mat-menu-item (click)="reload()"
 			routerLinkActive="active">
-			<mat-icon matPrefix>autorenew</mat-icon>
+			<mat-icon matSuffix>autorenew</mat-icon>
 			{{'account-menu.reboot'|translate}}
 		</button>
 		<button mat-menu-item (click)="logOut()">
-			<mat-icon matPrefix>power_settings_new</mat-icon>
+			<mat-icon matSuffix>power_settings_new</mat-icon>
 			{{'account-menu.logout' |translate}}
 		</button>
 	</mat-menu>

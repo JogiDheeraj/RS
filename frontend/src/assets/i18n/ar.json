@@ -76,6 +76,7 @@
 	},
 	"account-menu": {
 		"home": "الرئيسية",
+		"controlMenu":"قائمة التحكم",
 		"m-users": "المستخدمين والصلاحيات",
 		"m-sections": "الأقسام",
 		"m-settings": "الاعدادات",

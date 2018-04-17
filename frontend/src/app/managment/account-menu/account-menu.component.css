@@ -1,0 +1,18 @@
+.account-menu{
+    background-color: #f44336;
+}
+
+.account-menu .account-menu-sm mat-expansion-panel-header{
+    background-color: #f44336;
+}
+
+.account-menu .account-menu-sm button{
+	width: 100%;
+	border-bottom: 3px solid #b3acaca6;
+}
+
+.account-menu .fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}

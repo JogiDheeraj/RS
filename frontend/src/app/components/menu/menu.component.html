@@ -1,4 +1,4 @@
-<div class="slidebare" [class.sticky]="navIsFixed">
+<div class="navbare" [class.sticky]="navIsFixed">
 	<mat-toolbar>
 	  	<mat-toolbar-row>
 	    
@@ -21,7 +21,7 @@
 		    <div fxShow="true" fxHide.gt-sm="true">
 			     <button mat-button class="open-menu-btn" 
 			      		aria-label="menu open close" (click)="sidenav.toggle()">
-			      		<mat-icon aria-hidden="true">list</mat-icon>
+			      		<mat-icon aria-hidden="true">menu</mat-icon>
 			     </button>
 			</div>
 	    
@@ -55,7 +55,8 @@
 		{{ 'menu.home' | translate }}
 	</a>
 	        
-	<a mat-button (click)="sidenav.close()" [routerLink]="['/section', section.seoName]"
+	<a mat-button class="sections-link" 
+		(click)="sidenav.close()" [routerLink]="['/section', section.seoName]"
 		*ngFor="let section of sections" routerLinkActive="active">
 		{{section.name}}
 	</a>
