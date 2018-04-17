@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.repository.Query;
 
 import edu.elearning.model.Section;
 
-public interface SectionRepository extends MongoRepository<Section, String>{
+public interface SectionRepository extends MongoRepository<Section, String> {
 
 	@Query("{seoName:'?0'}")
 	Section findOneBySeoName(String seoName);
