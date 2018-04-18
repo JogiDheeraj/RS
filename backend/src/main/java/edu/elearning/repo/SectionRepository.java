@@ -13,5 +13,5 @@ public interface SectionRepository extends MongoRepository<Section, String> {
 	Section findOneBySeoName(String seoName);
 	
 	@Query("{parentId:'?0'}")
-	List<Section> findOneByParentId(String parentId);
+	List<Section> findParentId(String parentId);
 }

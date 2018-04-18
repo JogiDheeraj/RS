@@ -2,7 +2,7 @@ package edu.elearning.util;
 
 public class JsonResponseBody {
 
-	private String errorMessage;
+	private String message;
 	private String status = null;
 	private Object result = null;
 
@@ -11,11 +11,15 @@ public class JsonResponseBody {
 	}
 	
 	public JsonResponseBody(String errorMessage) {
-		this.errorMessage = errorMessage;
+		this.message = errorMessage;
 	}
 
-	public String getErrorMessage() {
-		return errorMessage;
+	public String getMessage() {
+		return message;
+	}
+	
+	public void setMessage(String message) {
+		this.message = message;
 	}
 	
 	public Object getResult() {

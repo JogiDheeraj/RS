@@ -7,7 +7,6 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -46,7 +45,7 @@ public class ArticleController {
 	public Article getById(
 			@PathVariable("id") String id
 	) {
-		Article article = articleRepository.findOneBySeoName(id);
+		Article article = articleRepository.findOne(id);
 		return article;
 	}
 	
@@ -54,24 +53,22 @@ public class ArticleController {
 	public Article getBySeoName(
 			@PathVariable("seoName") String seoName
 	) {
-		Article article = articleRepository.findOneBySeoName(seoName);
-		return article;
+		return articleRepository.findOneBySeoName(seoName);
 	}
 	
-	@RequestMapping(value = "/delete/{id}", method= RequestMethod.DELETE)
-	public String delete(
-			@PathVariable("sectionid") String sectionid,
-			@PathVariable("id") String id,
-			final RedirectAttributes redirectAttributes
+	@RequestMapping(value = "/{id}", method= RequestMethod.DELETE)
+	public JsonResponseBody delete(
+			@PathVariable("id") String id
 	) {
 		articleRepository.delete(id);
-		redirectAttributes.addFlashAttribute("message", "article_deleted");
-		return "redirect:/sections/"+ sectionid+ "/articles";
+		JsonResponseBody response = new JsonResponseBody();
+		response.setStatus(HttpResponceStatus.SUCCESS);
+		response.setMessage("article_deleted");
+		return response;
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/save", method = RequestMethod.PUT)
-	@Secured({"ADMIN"})
+	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public JsonResponseBody save(
 			Principal principal,
 			@Valid @RequestBody Article article,
@@ -91,7 +88,8 @@ public class ArticleController {
 		User user = (User) principal;
 		article.setLastUpdater(user);
 		articleRepository.save(article);
-		
+		response.setStatus(HttpResponceStatus.SUCCESS);
+		response.setMessage("article_saved");
 		return response;
 	}
 	
