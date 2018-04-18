@@ -1,7 +1,8 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Router} from "@angular/router";
+
 import {User} from "../../model/model.user";
 import {AccountService} from "../../services/account.service";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -37,4 +38,5 @@ export class RegisterComponent implements OnInit {
       }
       )
   }
+  
 }

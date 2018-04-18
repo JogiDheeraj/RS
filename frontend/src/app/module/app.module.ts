@@ -48,12 +48,14 @@ import {SectionService} from '../services/section.service';
 import {TimeStampPipe} from '../pipes/timeStamp';
 //application Modules import
 import {CustomMaterialModule} from "./material.module";
-import {RoutingModule} from './app.routing';
+//application Directives import
+import {EqualValidatorDirective} from '../directives/equal-validator.directive';
 
 //application specials import
 import {UrlPermission} from "../urlPermission/url.permission";
 import {TranslatePaginatorIntl} from './translate-paginator-intl';
 import {MatPaginatorIntl} from '@angular/material/paginator';
+import {RoutingModule} from './app.routing';
 
 
 // The function responsible of loading the Translation files
@@ -88,6 +90,9 @@ export class XhrInterceptor implements HttpInterceptor {
     MailListComponent,
     FooterComponent,
     LangSelectorComponent,
+    EqualValidatorDirective,
+    AccountComponent,
+    AccountIndexComponent,
     SearchComponent,
     SectionComponent,
     AboutComponent,
