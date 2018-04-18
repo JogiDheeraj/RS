@@ -11,23 +11,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import edu.elearning.model.CompositeKey;
 import edu.elearning.model.Section;
 import edu.elearning.repo.SectionRepository;
 import edu.elearning.util.HttpResponceStatus;
 import edu.elearning.util.JsonResponseBody;
 
-@RestController
 @RequestMapping("/sections")
-public class SectionController {
+public class SectionController extends AppController {
 	
 	@Autowired 
 	private SectionRepository sectionRepository;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public List<Section> index(){
+	public List<Section> index() {
 		return sectionRepository.findParentId("index");
 	}
 	
@@ -38,9 +37,9 @@ public class SectionController {
 		return sectionRepository.findOneBySeoName(seoName);
 	}
 	
-	@RequestMapping(value = "/{id}", method= RequestMethod.DELETE)
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public JsonResponseBody delete(
-			@PathVariable("id") String id
+			@PathVariable("id") CompositeKey id
 	) {
 		sectionRepository.delete(id);
 		JsonResponseBody response = new JsonResponseBody();
@@ -58,8 +57,7 @@ public class SectionController {
 	) {
 		JsonResponseBody response = new JsonResponseBody();
 		
-		if(validationResult.hasErrors())
-		{
+		if (validationResult.hasErrors()) {
 			response.setStatus(HttpResponceStatus.FAIL);
 			response.setResult(validationResult.getAllErrors());
 			return response;
@@ -75,7 +73,7 @@ public class SectionController {
 	@RequestMapping(value = "/subsectins/{id}", method = RequestMethod.GET)
 	public List<Section> getSubSections(
 			@PathVariable("id") String id
-	){
+	) {
 		return sectionRepository.findParentId(id);
 	}
 	

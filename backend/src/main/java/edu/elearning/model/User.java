@@ -5,10 +5,8 @@ import java.util.Collection;
 
 import javax.validation.constraints.NotNull;
 
-import org.springframework.context.annotation.Scope;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,14 +16,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
-@Scope("session")
-@Document(collection = "users")
+
 public class User implements UserDetails {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String id;
+	private CompositeKey id;
 	
 	@Field
 	@NotNull(message = "username_empty")
@@ -107,11 +104,11 @@ public class User implements UserDetails {
 		this.password = password;
 	}
 
-	public String getId() {
+	public CompositeKey getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(CompositeKey id) {
 		this.id = id;
 	}
 

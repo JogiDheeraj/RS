@@ -3,6 +3,7 @@ package edu.elearning.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.elearning.model.CompositeKey;
 import edu.elearning.model.User;
 import edu.elearning.repo.UserRepository;
 
@@ -24,7 +25,7 @@ public class UserService {
 		return userRepository.findOneByEmail(userEmail);
 	}
 
-	public User find(String id) {
+	public User find(CompositeKey id) {
 		return userRepository.findOne(id);
 	}
 }

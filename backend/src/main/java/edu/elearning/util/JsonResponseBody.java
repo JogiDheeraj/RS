@@ -6,14 +6,6 @@ public class JsonResponseBody {
 	private String status = null;
 	private Object result = null;
 
-	public JsonResponseBody(){
-		
-	}
-	
-	public JsonResponseBody(String errorMessage) {
-		this.message = errorMessage;
-	}
-
 	public String getMessage() {
 		return message;
 	}

@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.elearning.model.Article;
+import edu.elearning.model.CompositeKey;
 import edu.elearning.model.User;
 import edu.elearning.repo.ArticleRepository;
 import edu.elearning.repo.SectionRepository;
@@ -24,9 +24,8 @@ import edu.elearning.util.HttpResponceStatus;
 import edu.elearning.util.JsonResponseBody;
 
 
-@RestController
 @RequestMapping("/sections/{sectionid}/articles")
-public class ArticleController {
+public class ArticleController extends AppController {
 	
 	@Autowired 
 	private SectionRepository sectionRepository;
@@ -36,14 +35,14 @@ public class ArticleController {
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public List<Article> index(
-			@PathVariable("sectionid") String sectionid
+			@PathVariable("sectionid") CompositeKey sectionid
 	) {
 		return sectionRepository.findOne(sectionid).getArticles();
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public Article getById(
-			@PathVariable("id") String id
+			@PathVariable("id") CompositeKey id
 	) {
 		Article article = articleRepository.findOne(id);
 		return article;
@@ -56,9 +55,9 @@ public class ArticleController {
 		return articleRepository.findOneBySeoName(seoName);
 	}
 	
-	@RequestMapping(value = "/{id}", method= RequestMethod.DELETE)
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public JsonResponseBody delete(
-			@PathVariable("id") String id
+			@PathVariable("id") CompositeKey id
 	) {
 		articleRepository.delete(id);
 		JsonResponseBody response = new JsonResponseBody();
@@ -77,8 +76,7 @@ public class ArticleController {
 	) {
 		JsonResponseBody response = new JsonResponseBody();
 		
-		if(validationResult.hasErrors())
-		{
+		if (validationResult.hasErrors()) {
 			response.setStatus(HttpResponceStatus.FAIL);
 			response.setResult(validationResult.getAllErrors());
 			return response;
