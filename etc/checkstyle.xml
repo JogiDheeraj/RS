@@ -65,10 +65,10 @@
 		<!-- Checks for Size Violations. -->
 		<!-- See http://checkstyle.sf.net/config_sizes.html -->
 		<module name="LineLength">
-			<property name="max" value="200" />
+			<property name="max" value="150" />
 		</module>
 		<module name="MethodLength">
-			<property name="max" value="200" />
+			<property name="max" value="70" />
 		</module>
 
 
