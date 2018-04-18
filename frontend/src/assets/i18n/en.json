@@ -8,7 +8,7 @@
 		"register": "Register",
 		"search": "Search"
 	},
-	"lang-selector": {
+	"language-selector": {
 		"select": "Select Language",
 		"ar": "Arabic",
 		"en": "English",
@@ -57,5 +57,35 @@
 		"blog": "Blog",
 		"aboutUs": "About us",
 		"contactUs": "Contact us"
+	},
+	"contactUs": {
+		"title": "Contact us",
+		"fullName": "Full name",
+		"email": "Email",
+		"mobile": "Mobile",
+		"subject": "Subject",
+		"note": "Write your message here",
+		"send": "Send",
+		"cancel": "Cancel",
+		"emailRequire": "Email is required.",
+		"validEmail": "A valid email address is required.",
+		"fullNameRequire": "First name is required",
+		"mobileRequire": "Mobile number is required",
+		"subjectRequire": "Subject is required",
+		"noteRequire":"Message is required"
+	},
+	"account-menu": {
+		"home": "Home",
+		"controlMenu":"Control Meun",
+		"m-users": "Users & Permissions",
+		"m-sections": "Sections",
+		"m-settings": "Settings",
+		"myAd": "My Advertisements",
+		"newAd": "New Advertisement",
+		"helo": "Hello ،  ",
+		"profile": "Profile",
+		"password": "Password",
+		"reboot": "Refrsh",
+		"logout": "Logout"
 	}
 }

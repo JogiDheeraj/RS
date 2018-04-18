@@ -1,56 +1,61 @@
 package edu.elearning.controller;
 
 import java.security.Principal;
-import java.util.HashMap;
-import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.elearning.model.User;
 import edu.elearning.service.UserService;
-import edu.elearning.util.CustomErrorType;
+import edu.elearning.util.HttpResponceStatus;
+import edu.elearning.util.JsonResponseBody;
 
-@RestController
 @RequestMapping("/account")
-public class AccountController {
-	public static final Logger logger = LoggerFactory.getLogger(AccountController.class);
+public class AccountController extends AppController {
 
 	@Autowired
 	private UserService userService;
 
 	// request method to create a new account by a guest
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public ResponseEntity<?> createUser(@RequestBody User newUser) {
-		if (userService.findbyUserName(newUser.getUsername()) != null) {
-			logger.error("Username Already exist " + newUser.getUsername());
+	public JsonResponseBody createUser(
+			@Valid @RequestBody User user, 
+			Errors validationResult,
+			final RedirectAttributes redirectAttributes
+	) {
 
-			ResponseEntity<Object> responseEntity = new ResponseEntity<Object>(
-					new CustomErrorType("User with username " + newUser.getUsername() + "already exist "),
-					HttpStatus.CONFLICT);
-			return responseEntity;
+		JsonResponseBody response = new JsonResponseBody();
+
+		if (validationResult.hasErrors()) {
+			response.setStatus(HttpResponceStatus.FAIL);
+			response.setResult(validationResult.getAllErrors());
+			return response;
 		}
-		newUser.setRole("USER");
 
-		return new ResponseEntity<User>(userService.save(newUser), HttpStatus.CREATED);
+		if (userService.findbyUserName(user.getUsername()) != null
+				|| userService.findbyUserEmail(user.getEmail()) != null) {
+			logger.error("Username Already exist " + user.getUsername());
+			response.setStatus(HttpResponceStatus.FAIL);
+			response.setMessage("username_exist");
+			return response;
+		}
+
+		user.setRole("USER");
+		userService.save(user);
+		response.setStatus(HttpResponceStatus.SUCCESS);
+		response.setMessage("username_created");
+		return response;
 	}
 
-	// this is the login /api/account/login
+	// this is the login
 	@RequestMapping("/login")
-	public Principal user(Principal user) {
-		System.out.println("User logged " + user);
-		logger.info("User logged " + user);
+	public Principal login(Principal user) {
 		return user;
-	}
-
-	@RequestMapping("/ping")
-	public ResponseEntity<Map<String, String>> ping() {
-		Map<String, String> map = new HashMap<>();
-		map.put("ping", "pong");
-		return new ResponseEntity<>(map, HttpStatus.OK);
 	}
 }

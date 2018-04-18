@@ -4,17 +4,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import edu.elearning.service.AppUserDetailsService;
 
 @Configurable
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
@@ -70,6 +73,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			// authenticate all remaining URLs
 		.anyRequest().authenticated()
 		.and()
+		
+		/* "/logout" will log the user out by invalidating the HTTP Session,
+	       * cleaning up any {link rememberMe()} authentication that was configured, */
+		.logout().permitAll()
+		.logoutRequestMatcher(new AntPathRequestMatcher(restApiBasePath + "/account/logout", "POST"))
+	    .and()
 		
 		// configuring the session on the server
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED).and()

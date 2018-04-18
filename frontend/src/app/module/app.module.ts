@@ -29,9 +29,16 @@ import {AboutComponent} from '../components/about/about.component';
 import {ContactComponent} from '../components/contact/contact.component';
 import {BlogComponent} from '../components/blog/blog.component';
 import {AccountComponent} from "../managment/account/account.component";
+import {AccountHeaderComponent} from "../managment/account-header/account-header.component";
 import {AccountIndexComponent} from "../managment/account-index/account-index.component";
 import {AccountMenuComponent} from '../managment/account-menu/account-menu.component';
+import {MyAdvComponent} from '../managment/my-adv/my-adv.component';
+import {NewAdvComponent} from '../managment/new-adv/new-adv.component';
 import {ProfileComponent} from '../managment/profile/profile.component';
+import {SectionsComponent} from '../managment/sections/sections.component';
+import {SecurityComponent} from '../managment/security/security.component';
+import {SettingsComponent} from '../managment/settings/settings.component';
+import {UsersComponent} from '../managment/users/users.component';
 //application Service import
 import {AuthService} from "../services/auth.service";
 import {AccountService} from "../services/account.service";
@@ -41,11 +48,14 @@ import {SectionService} from '../services/section.service';
 import {TimeStampPipe} from '../pipes/timeStamp';
 //application Modules import
 import {CustomMaterialModule} from "./material.module";
-import {routing} from "./app.routing";
 //application Directives import
 import {EqualValidatorDirective} from '../directives/equal-validator.directive';
+
 //application specials import
 import {UrlPermission} from "../urlPermission/url.permission";
+import {TranslatePaginatorIntl} from './translate-paginator-intl';
+import {MatPaginatorIntl} from '@angular/material/paginator';
+import {RoutingModule} from './app.routing';
 
 
 // The function responsible of loading the Translation files
@@ -88,7 +98,16 @@ export class XhrInterceptor implements HttpInterceptor {
     AboutComponent,
     ContactComponent,
     BlogComponent,
-    AccountMenuComponent
+    AccountComponent,
+    AccountIndexComponent,
+    AccountMenuComponent,
+    AccountHeaderComponent,
+    SectionsComponent,
+    SecurityComponent,
+    SettingsComponent,
+    UsersComponent,
+    MyAdvComponent,
+    NewAdvComponent
   ],
   imports: [
     BrowserModule,
@@ -104,11 +123,12 @@ export class XhrInterceptor implements HttpInterceptor {
     }),
     FormsModule,
     NgxCarouselModule,
-    routing,
+    RoutingModule,
   ],
   providers: [
     AuthService,
     {provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true},
+    {provide: MatPaginatorIntl, useValue: TranslatePaginatorIntl() },
     AccountService,
     UrlPermission,
     WindowsProviders,

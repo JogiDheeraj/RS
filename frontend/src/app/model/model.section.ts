@@ -1,5 +1,6 @@
 export class Section {
   id: string;
+  parentId: string;
   name: string;
   seoName: string;
   description: string;
