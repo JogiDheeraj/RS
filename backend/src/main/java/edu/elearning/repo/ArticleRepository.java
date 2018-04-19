@@ -4,7 +4,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
 import edu.elearning.model.Article;
-import edu.elearning.model.CompositeKey;
+import edu.elearning.util.CompositeKey;
 
 public interface ArticleRepository extends MongoRepository<Article, CompositeKey> {
 	

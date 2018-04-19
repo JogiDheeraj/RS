@@ -1,29 +1,32 @@
-package edu.elearning.model;
+package edu.elearning.util;
 
 import java.io.Serializable;
 
+import org.springframework.data.mongodb.core.index.CompoundIndex;
+
+@CompoundIndex(def = "{'UUID':1, 'siteVariant':1}", name = "compound_index")
 public class CompositeKey implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-	private String id;
+	
+	private String UUID;
 	
 	private String siteVariant;
 
-	public CompositeKey(String id, String siteVariant) {
-		this.id = id;
+	public CompositeKey(String UUID, String siteVariant) {
+		this.UUID = UUID;
 		this.siteVariant = siteVariant;
 	}
 	
 	@SuppressWarnings("unused")
 	private CompositeKey() { }
 
-	public String getId() {
-		return id;
+	public String getUUID() {
+		return UUID;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setUUID(String id) {
+		this.UUID = id;
 	}
 
 	public String getSiteVariant() {

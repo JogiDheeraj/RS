@@ -4,16 +4,12 @@ import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
-public class Section {
-
-	@Id
-	private CompositeKey id;
+@Document(collection="sections")
+public class Section extends BaseModel{
 
 	@NotNull(message = "parentId_empty")
 	private String parentId;
@@ -37,14 +33,6 @@ public class Section {
 
 	@DBRef(lazy = true)
 	private List<Article> articles;
-
-	public CompositeKey getId() {
-		return id;
-	}
-
-	public void setId(CompositeKey id) {
-		this.id = id;
-	}
 
 	public String getName() {
 		return name;

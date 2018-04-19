@@ -5,8 +5,8 @@ import java.util.Collection;
 
 import javax.validation.constraints.NotNull;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,13 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
-
-public class User implements UserDetails {
+@Document(collection="users")
+public class User extends BaseModel implements UserDetails{
 
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	private CompositeKey id;
 	
 	@Field
 	@NotNull(message = "username_empty")
@@ -77,7 +74,7 @@ public class User implements UserDetails {
 	}
 
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", role=" + role + ",]";
+		return "User [id=" + this.getIdKey() + ", username=" + username + ", password=" + password + ", role=" + role + ",]";
 	}
 
 	public String getPassword() {
@@ -102,14 +99,6 @@ public class User implements UserDetails {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public CompositeKey getId() {
-		return id;
-	}
-
-	public void setId(CompositeKey id) {
-		this.id = id;
 	}
 
 	public String getFirstName() {

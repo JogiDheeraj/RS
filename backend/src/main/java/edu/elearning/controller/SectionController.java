@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import edu.elearning.model.CompositeKey;
 import edu.elearning.model.Section;
 import edu.elearning.repo.SectionRepository;
+import edu.elearning.util.CompositeKey;
 import edu.elearning.util.HttpResponceStatus;
 import edu.elearning.util.JsonResponseBody;
 
