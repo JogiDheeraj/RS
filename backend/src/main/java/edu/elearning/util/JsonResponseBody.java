@@ -2,20 +2,16 @@ package edu.elearning.util;
 
 public class JsonResponseBody {
 
-	private String errorMessage;
+	private String message;
 	private String status = null;
 	private Object result = null;
 
-	public JsonResponseBody(){
-		
+	public String getMessage() {
+		return message;
 	}
 	
-	public JsonResponseBody(String errorMessage) {
-		this.errorMessage = errorMessage;
-	}
-
-	public String getErrorMessage() {
-		return errorMessage;
+	public void setMessage(String message) {
+		this.message = message;
 	}
 	
 	public Object getResult() {

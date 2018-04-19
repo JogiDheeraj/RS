@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Article {
 
 	@Id
-	private String id;
+	private CompositeKey id;
 
 	@NotNull(message = "title_empty")
 	private String title;
@@ -40,11 +40,11 @@ public class Article {
 
 	private String image;
 
-	public String getId() {
+	public CompositeKey getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(CompositeKey id) {
 		this.id = id;
 	}
 

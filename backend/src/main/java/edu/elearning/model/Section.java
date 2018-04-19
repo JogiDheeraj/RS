@@ -13,14 +13,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Section {
 
 	@Id
-	private String id;
-	
+	private CompositeKey id;
+
 	@NotNull(message = "parentId_empty")
 	private String parentId;
 
 	@NotNull(message = "name_empty")
 	private String name;
-	
+
 	@Indexed(unique = true)
 	private String seoName;
 
@@ -34,15 +34,15 @@ public class Section {
 
 	@NotNull(message = "content_empty")
 	private String content;
-	
+
 	@DBRef(lazy = true)
 	private List<Article> articles;
 
-	public String getId() {
+	public CompositeKey getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(CompositeKey id) {
 		this.id = id;
 	}
 
@@ -109,5 +109,6 @@ public class Section {
 	public void setArticles(List<Article> articles) {
 		this.articles = articles;
 	}
-	
+
 }
+

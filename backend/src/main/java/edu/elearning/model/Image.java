@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Image {
 	
 	@Id
-	private String id;
+	private CompositeKey id;
 	
 	@NotNull(message = "title_empty")
 	private String title;
@@ -17,11 +17,11 @@ public class Image {
 	@NotNull(message = "url_empty")
 	private String url;
 
-	public String getId() {
+	public CompositeKey getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(CompositeKey id) {
 		this.id = id;
 	}
 

@@ -26,8 +26,8 @@
 	},
 	"register": {
 		"title": "Register new user",
-		"firstName": "first name",
-		"username": "Username",
+		"firstName": "First name",
+		"username": "User name",
 		"password": "Password",
 		"requirePassword": "Password is required",
 		"validPassword": "Password must be at least 4 letters",
