@@ -11,7 +11,7 @@
 }
 
 .sections .section .section-card {
-	height: 350px;
+	height: 250px;
 	margin: 10px 10px 10px 10px;
 	padding-top: 60px;
 	padding-bottom: 0px;
@@ -75,6 +75,7 @@
 .sections .section .section-card:hover .section-card-hidden {
 	opacity: 1;
 	margin-top: 15px;
+	color: #ffff;
 }
 
 .sections .section .section-card:hover img {

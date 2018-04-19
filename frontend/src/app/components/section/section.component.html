@@ -1,21 +1,23 @@
 <div class="sections">
-	<div class="section" *ngFor="let section of sections">
-		<mat-card mat-whiteframe="8" class="section-card"> 
-			<img src="{{section.image}}" alt="{{section.name}}"/>
-			<mat-card-content class="section-card-content">
-				<div class="section-card-header">
-					<h3>
-						<mat-icon class ="section-card-header-icon" matPrefix>bookmark border</mat-icon>
-						{{section.name}}
-					</h3>
-				</div>
-				<div class="section-card-text">
-					عدد المقالات:{{section.articleCount}}
-				</div>
-				<button class="section-card-hidden">
-					عرض المقالات
-				</button>
-			</mat-card-content> 
-		</mat-card>
+	<div class="container">
+		<div class="section" *ngFor="let section of sections">
+			<mat-card mat-whiteframe="8" class="section-card"> 
+				<img src="{{section.image}}" alt="{{section.name}}"/>
+				<mat-card-content class="section-card-content">
+					<div class="section-card-header">
+						<h3>
+							<mat-icon class ="section-card-header-icon" matPrefix>bookmark border</mat-icon>
+							{{section.name}}
+						</h3>
+					</div>
+					<div class="section-card-text">
+						{{'section.numOfArticle'|translate}}:{{section.articleCount}}
+					</div>
+					<button class="section-card-hidden">
+						{{'section.showArticle'|translate}}
+					</button>
+				</mat-card-content> 
+			</mat-card>
+		</div>
 	</div>
 </div>
