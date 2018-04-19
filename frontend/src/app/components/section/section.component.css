@@ -1,0 +1,100 @@
+.sections {
+	padding: 10px;
+	margin: auto;
+	display: block;
+	overflow: auto
+}
+
+.sections .section {
+	width: 33%;
+	float: right;
+}
+
+.sections .section .section-card {
+	height: 250px;
+	margin: 10px 10px 10px 10px;
+	padding-top: 60px;
+	padding-bottom: 0px;
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+	color: white;
+	padding-bottom: 0px;
+	background-color: #1a1a1a !important;
+	transition: all 0.35s ease;
+}
+
+.sections .section .section-card img {
+	position: absolute;
+	transform: scale(1.1);
+	top: 0;
+	right: 0;
+	transition: all 0.35s ease;
+	opacity: 1;
+}
+
+.sections .section .section-card .section-card-content {
+	position: absolute;
+	width: 88%;
+}
+
+.sections .section .section-card .section-card-header {
+	background-color: #000000c2;
+	padding: 7px 15px;
+	text-align: right;
+}
+
+.sections .section .section-card .section-card-header h3 {
+	font-size: 20px;
+}
+
+.sections .section .section-card .section-card-header .section-card-header-icon
+	{
+	vertical-align: bottom;
+}
+
+.sections .section .section-card .section-card-text {
+	background-color: #000000c2;
+	margin-top: 10px;
+	text-align: right;
+	padding: 7px 15px;
+}
+
+.sections .section .section-card .section-card-hidden {
+	opacity: 0;
+	background-color: #000000c2;
+	width: 150px;
+	margin-top: 35px;
+	cursor: pointer; 
+	padding : 7px 15px;
+	border: 1px solid #fff;
+	transition: all 0.35s ease;
+	padding: 7px 15px;
+}
+
+.sections .section .section-card:hover .section-card-hidden {
+	opacity: 1;
+	margin-top: 15px;
+	color: #ffff;
+}
+
+.sections .section .section-card:hover img {
+	transform: scale(1.0);
+	opacity: 0;
+}
+
+@media only screen and (max-width: 800px) {
+	.sections .section {
+		width: 50%;
+	}
+	
+	.sections .section .section-card .section-card-hidden{
+		opacity: 1;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.sections .section {
+		width: 100%;
+	}
+}
