@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
-@Document(collection="users")
-public class User extends BaseModel implements UserDetails{
+@Document(collection = "users")
+public class User extends BaseModel implements UserDetails {
 
 	private static final long serialVersionUID = 1L;
 	

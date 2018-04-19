@@ -42,7 +42,7 @@ public class MongoDBConfig {
 	
 	@Bean
 	public CustomConversions customConversions() {
-		List<Converter<?,?>> converters = new ArrayList<Converter<?,?>>();
+		List<Converter<?, ?>> converters = new ArrayList<Converter<?, ?>>();
 	    converters.add(new CompositeKeyReaderConverter());
 	    converters.add(new CompositeKeyWriterConverter());
 	    return new CustomConversions(converters);

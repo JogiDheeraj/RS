@@ -17,7 +17,7 @@ public class CompositeKeyWriterConverter implements Converter<CompositeKey, DBOb
 	public DBObject convert(CompositeKey source) {
 		System.out.println("i am called to write the object id");
 		DBObject dbo = new BasicDBObject(FIELDS);
-		dbo.put("UUID", source.getUUID());
+		dbo.put("UUID", source.getUuid());
 		dbo.put("siteVariant", source.getSiteVariant());
 		return dbo;
 	}

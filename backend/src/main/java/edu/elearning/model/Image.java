@@ -4,8 +4,8 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="images")
-public class Image extends BaseModel{
+@Document(collection = "images")
+public class Image extends BaseModel {
 	
 	@NotNull(message = "title_empty")
 	private String title;

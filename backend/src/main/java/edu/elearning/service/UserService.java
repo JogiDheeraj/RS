@@ -8,7 +8,7 @@ import edu.elearning.repo.UserRepository;
 import edu.elearning.util.CompositeKey;
 
 @Service
-public class UserService extends UUIDService{
+public class UserService extends UUIDService {
 
 	@Autowired
 	private UserRepository userRepository;

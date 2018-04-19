@@ -8,8 +8,8 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="sections")
-public class Section extends BaseModel{
+@Document(collection = "sections")
+public class Section extends BaseModel {
 
 	@NotNull(message = "parentId_empty")
 	private String parentId;

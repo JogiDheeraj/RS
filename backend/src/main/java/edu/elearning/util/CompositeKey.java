@@ -9,24 +9,24 @@ public class CompositeKey implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private String UUID;
+	private String uuid;
 	
 	private String siteVariant;
 
-	public CompositeKey(String UUID, String siteVariant) {
-		this.UUID = UUID;
+	public CompositeKey(String uuid, String siteVariant) {
+		this.uuid = uuid;
 		this.siteVariant = siteVariant;
 	}
 	
 	@SuppressWarnings("unused")
 	private CompositeKey() { }
 
-	public String getUUID() {
-		return UUID;
+	public String getUuid() {
+		return uuid;
 	}
 
-	public void setUUID(String id) {
-		this.UUID = id;
+	public void setUuid(String id) {
+		this.uuid = id;
 	}
 
 	public String getSiteVariant() {

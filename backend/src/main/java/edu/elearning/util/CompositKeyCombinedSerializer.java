@@ -29,7 +29,7 @@ public class CompositKeyCombinedSerializer {
 			try {
 				jsonGenerator.writeStartObject();
 				jsonGenerator.writeFieldName("id");
-				jsonGenerator.writeString(key.getUUID().toString());
+				jsonGenerator.writeString(key.getUuid().toString());
 				jsonGenerator.writeEndObject();
 			} catch (Exception e) {
 				e.printStackTrace();

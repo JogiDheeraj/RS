@@ -19,7 +19,7 @@ public abstract class UUIDService {
 	}
 
 	protected boolean isNew(BaseModel entity) {
-		return entity.getIdKey() == null || entity.getIdKey().getUUID().isEmpty();
+		return entity.getIdKey() == null || entity.getIdKey().getUuid().isEmpty();
 	}
 
 }

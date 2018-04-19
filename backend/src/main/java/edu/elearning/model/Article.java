@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="articles")
+@Document(collection = "articles")
 public class Article extends BaseModel {
 
 	@NotNull(message = "title_empty")
