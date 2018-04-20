@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js upgreade @ngx-translate/http-loader@2.0.1
+  C:\Program Files\nodejs\node.exe C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js build
 
 PATH: 
   C:/Program Files/Java/jre1.8.0_121/bin/server;C:/Program Files/Java/jre1.8.0_121/bin;C:/Program Files/Java/jre1.8.0_121/lib/amd64;C:\Program Files\Java\jdk1.8.0_121\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\wamp\bin\php\php7.0.10;C:\ProgramData\ComposerSetup\bin;C:\Users\weeam\Desktop\Case Study - PHP\vendor\bin;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\CodeBlocks\MinGW\bin;E:\hadoop-2.6.2\bin;E:\hadoop-2.6.2\sbin;E:\hadoop-2.6.2\share\hadoop\common\*;E:\hadoop-2.6.2\share\hadoop\hdfs;E:\hadoop-2.6.2\share\hadoop\hdfs\lib\*;E:\hadoop-2.6.2\share\hadoop\hdfs\*;E:\hadoop-2.6.2\share\hadoop\yarn\lib\*;E:\hadoop-2.6.2\share\hadoop\yarn\*;E:\hadoop-2.6.2\share\hadoop\mapreduce\lib\*;E:\hadoop-2.6.2\share\hadoop\mapreduce\*;E:\hadoop-2.6.2\share\hadoop\common\lib\*;C:\HashiCorp\Vagrant\bin;C:\Program Files\PuTTY\;C:\Program Files\Apatch\maven\bin;C:\Program Files\MongoDB\Server\3.4\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\nodejs\;C:\Users\weeam\AppData\Local\Microsoft\WindowsApps;C:\Users\weeam\AppData\Roaming\Composer\vendor\bin;C:\Users\weeam\AppData\Roaming\npm;C:\Users\weeam\Desktop;
@@ -42,7 +42,7 @@ npm manifest:
       "@angular/platform-browser-dynamic": "^5.2.0",
       "@angular/router": "^5.2.0",
       "@ngx-translate/core": "9.1.1",
-      "@ngx-translate/http-loader": "^3.0.1",
+      "@ngx-translate/http-loader": "2.0.1",
       "classlist.js": "^1.1.20150312",
       "core-js": "^2.4.1",
       "hammerjs": "^2.0.8",
@@ -283,11 +283,9 @@ Lockfile:
     version "9.1.1"
     resolved "https://registry.yarnpkg.com/@ngx-translate/core/-/core-9.1.1.tgz#ae103928836b8a9e069fd2e2e76fa2198cc7e628"
   
-  "@ngx-translate/http-loader@^3.0.1":
-    version "3.0.1"
-    resolved "https://registry.yarnpkg.com/@ngx-translate/http-loader/-/http-loader-3.0.1.tgz#20b0f98bc6c25321129d3e3302ab3cc489c0a42a"
-    dependencies:
-      tslib "^1.9.0"
+  "@ngx-translate/http-loader@2.0.1":
+    version "2.0.1"
+    resolved "https://registry.yarnpkg.com/@ngx-translate/http-loader/-/http-loader-2.0.1.tgz#aa67788e64bfa8652691a77b022b3b4031209113"
   
   "@schematics/angular@0.3.2":
     version "0.3.2"
@@ -7876,7 +7874,7 @@ Lockfile:
       source-map "^0.6.0"
       source-map-support "^0.5.0"
   
-  tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
+  tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1:
     version "1.9.0"
     resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.0.tgz#e37a86fda8cbbaf23a057f473c9f4dc64e5fc2e8"
   
@@ -8692,14 +8690,17 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.20.tgz#a218c48db09464b19ff6fc8f0d4bb5b1046e185d"
 
 Trace: 
-  Error: Command "upgreade" not found.
-      at new MessageError (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
-      at C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:87307:17
-      at Generator.next (<anonymous>)
-      at step (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:98:30)
-      at C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:116:14
-      at new Promise (<anonymous>)
-      at new F (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:23451:28)
-      at C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:95:12
-      at runCommand (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:87312:22)
-      at Object.<anonymous> (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:87412:14)
+  Error: Command failed.
+  Exit code: 1
+  Command: C:\WINDOWS\system32\cmd.exe
+  Arguments: /d /s /c ng build -prod
+  Directory: C:\Users\weeam\workspace\e-learning\frontend
+  Output:
+  
+      at ProcessTermError.MessageError (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
+      at new ProcessTermError (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:226:113)
+      at ChildProcess.<anonymous> (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:30281:17)
+      at emitTwo (events.js:126:13)
+      at ChildProcess.emit (events.js:214:7)
+      at maybeClose (internal/child_process.js:925:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
