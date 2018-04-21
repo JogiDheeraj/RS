@@ -2,28 +2,16 @@ package edu.elearning.model;
 
 import javax.validation.constraints.NotNull;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
-public class Image {
-	
-	@Id
-	private CompositeKey id;
+@Document(collection = "images")
+public class Image extends BaseModel {
 	
 	@NotNull(message = "title_empty")
 	private String title;
 	
 	@NotNull(message = "url_empty")
 	private String url;
-
-	public CompositeKey getId() {
-		return id;
-	}
-
-	public void setId(CompositeKey id) {
-		this.id = id;
-	}
 
 	public String getTitle() {
 		return title;

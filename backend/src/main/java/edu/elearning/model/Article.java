@@ -4,16 +4,12 @@ import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
-public class Article {
-
-	@Id
-	private CompositeKey id;
+@Document(collection = "articles")
+public class Article extends BaseModel {
 
 	@NotNull(message = "title_empty")
 	private String title;
@@ -39,14 +35,6 @@ public class Article {
 	private String content;
 
 	private String image;
-
-	public CompositeKey getId() {
-		return id;
-	}
-
-	public void setId(CompositeKey id) {
-		this.id = id;
-	}
 
 	public String getTitle() {
 		return title;

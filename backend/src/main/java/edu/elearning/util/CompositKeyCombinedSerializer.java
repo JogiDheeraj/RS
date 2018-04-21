@@ -15,43 +15,41 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
-import edu.elearning.model.CompositeKey;
-
 @JsonComponent
 public class CompositKeyCombinedSerializer {
-	
-	
-	
-	public static class CompositKeyJsonSerializer
-    	extends JsonSerializer<CompositeKey> {
+
+	public static class CompositKeyJsonSerializer extends JsonSerializer<CompositeKey> {
 
 		@Override
 		public void serialize(
 				CompositeKey key, 
 				JsonGenerator jsonGenerator, 
 				SerializerProvider serializerProvider
-		) throws IOException, JsonProcessingException {
-			jsonGenerator.writeStartObject();
-			jsonGenerator.writeString(key.getId());
-			jsonGenerator.writeEndObject();
+		) {
+			try {
+				jsonGenerator.writeStartObject();
+				jsonGenerator.writeFieldName("id");
+				jsonGenerator.writeString(key.getUuid());
+				jsonGenerator.writeEndObject();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} 
 		}
-		
 	}
 
-	public static class CompositKeyJsonDeserializer 
-		extends JsonDeserializer<CompositeKey> {
-		
+	public static class CompositKeyJsonDeserializer extends JsonDeserializer<CompositeKey> {
+
 		@Autowired
 		private HttpServletRequest request;
-		
+
 		@Override
 		public CompositeKey deserialize(
 				JsonParser paramJsonParser, 
 				DeserializationContext deserializationContext
-		) throws IOException, JsonProcessingException {
+		) throws JsonProcessingException, IOException {
 			String str = paramJsonParser.getText().trim();
-			System.out.println("try to crete id from string : " + str);
-			System.out.println("try to crete id from Host : " +  this.request.getHeader("Host"));
+			System.out.println("try to create id from string : " + str);
+			System.out.println("try to create id from Host : " + this.request.getHeader("Host"));
 			return new CompositeKey(str, this.request.getHeader("Host"));
 		}
 	}

@@ -18,8 +18,8 @@
 							name="firstName" 
 							id="firstName"
 							[(ngModel)]="user.firstName" 
-							#firstName="ngModel" required 
-						/>
+							#firstName="ngModel"
+							required />
 						<div *ngIf="f.submitted && !firstName.valid" class="help-block">
 							{{'register.firstNameRequire'|translate}}
 						</div>
@@ -34,8 +34,7 @@
 							#username="ngModel" 
 							minlength="5" 
 							maxlength="8"
-							required 
-						/>
+							required />
 						<div *ngIf="f.submitted && !username.valid" class="help-block">
 							<div *ngIf="username.errors.required">{{'register.usernameRequire'|translate}}</div>
 							<div *ngIf="username.errors.minlength">{{'register.usernamelength'|translate}}</div>
@@ -46,12 +45,12 @@
 					<fieldset [ngClass]="{'has-error': f.submitted && !email.valid}">
 						<input type="email"
 							placeholder="{{'register.email' | translate}}"
-							name="email" 
+							name="email"
 							id="email"
 							[(ngModel)]="user.email"
-							#email="ngModel" 
-							pattern="[^ @]*@[^ @]*" 
-							required 
+							#email="ngModel"
+							pattern="[^ @]*@[^ @]*"
+							required
 						/>
 						<div *ngIf="f.submitted && !email.valid" class="help-block">
 							<div *ngIf="email.errors.required">{{'register.emailRequire'|translate}}</div>
@@ -60,18 +59,16 @@
 					</fieldset>
 					
 					<fieldset [ngClass]="{'has-error': f.submitted && !password.valid}">
-
 						<input type="password" 
 							placeholder="{{'register.password'|translate}}"
 							name="password" 
 							id="password"
-							[(ngModel)]="user.password" 
-							#password="ngModel" 
+							[(ngModel)]="user.password"
+							#password="ngModel"
 							appEqualValidator="passwordConfirm"
 							reverse="true"
 							required
-							minlength="4" 
-						/>
+							minlength="4" />
 						<div *ngIf="f.submitted && !password.valid" class="help-block">
 							<div *ngIf="password.errors.required">{{'register.requirePassword'|translate}}</div>
 							<div *ngIf="password.errors.minlength">{{'register.validPassword'|translate}}</div>
@@ -79,16 +76,15 @@
 					</fieldset>
 					
 					<fieldset [ngClass]="{'has-error': f.submitted && !passwordConfirm.valid}">
-						<input type="password" 
+						<input type="password"
 							placeholder="{{'register.passwordConfirm'|translate}}"
-							name="passwordConfirm" 
-							id="passwordConfirm" 
-							[ngModel]="user.confirmPassword"
+							name="passwordConfirm"
+							id="passwordConfirm"
+							[(ngModel)]="user.passwordConfirm"
 							#passwordConfirm="ngModel"
 							appEqualValidator="password"
 							required
-							minlength="4" 
-						/>
+							minlength="4" />
 						<div *ngIf="f.submitted && !password.valid" class="help-block">
 							<div *ngIf="passwordConfirm.errors.required">{{'register.requirePassword'|translate}}</div>
 							<div *ngIf="passwordConfirm.errors.minlength">{{'register.validPassword'|translate}}</div>
@@ -109,8 +105,3 @@
 		</mat-card>
 	</div>
 </div>
-
-
-
-
-

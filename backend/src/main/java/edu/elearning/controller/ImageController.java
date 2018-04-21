@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import edu.elearning.model.CompositeKey;
 import edu.elearning.model.Image;
 import edu.elearning.repo.ImageRepository;
+import edu.elearning.util.CompositeKey;
 import edu.elearning.util.HttpResponceStatus;
 import edu.elearning.util.JsonResponseBody;
 
@@ -58,7 +58,7 @@ public class ImageController extends AppController {
 		
 		if (
 			imageRepository.count() > 7 && 
-			imageRepository.findOne(image.getId()) == null
+			imageRepository.findOne(image.getIdKey()) == null
 		) {
 			response.setStatus(HttpResponceStatus.FAIL);
 			response.setMessage("image_number_error");
