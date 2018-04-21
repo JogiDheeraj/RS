@@ -16,6 +16,7 @@ export class MenuComponent implements OnInit {
 
   public navIsFixed = false;
   public sections:Array<Section>;
+  error:string;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -25,7 +26,11 @@ export class MenuComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.sections = this.sectionService.getMeanSections();
+     this.sectionService.getSections("")
+       .subscribe(
+        data => this.sections = data,
+        error => this.error = error
+      );
   }
 
   @HostListener("window:scroll", [])

@@ -1,5 +1,6 @@
 package edu.elearning.config;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.http.HttpMethod;
 
 import edu.elearning.service.AppUserDetailsService;
 
@@ -68,8 +70,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 					//backend URLs
 					restApiBasePath + "/account/login",
 					restApiBasePath + "/account/register",
-					restApiBasePath + "/account/ping"
+					restApiBasePath + "/section"
 				).permitAll()
+			.antMatchers(HttpMethod.GET, restApiBasePath + "/**").permitAll()
 			// authenticate all remaining URLs
 		.anyRequest().authenticated()
 		.and()

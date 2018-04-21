@@ -1,7 +1,5 @@
 package edu.elearning.controller;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,37 +9,45 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.elearning.model.Section;
-import edu.elearning.repo.SectionRepository;
+import edu.elearning.service.SectionService;
 import edu.elearning.util.CompositeKey;
 import edu.elearning.util.HttpResponceStatus;
 import edu.elearning.util.JsonResponseBody;
 
+@RestController
 @RequestMapping("/sections")
-public class SectionController extends AppController {
+public class SectionController {
 	
 	@Autowired 
-	private SectionRepository sectionRepository;
+	private SectionService sectionService;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public List<Section> index() {
-		return sectionRepository.findParentId("index");
+	public JsonResponseBody index() {
+		JsonResponseBody response = new JsonResponseBody();
+		response.setStatus(HttpResponceStatus.SUCCESS);
+		response.setResult(sectionService.findParentId("index"));
+		return response;
 	}
 	
 	@RequestMapping(value = "/{seoName}", method = RequestMethod.GET)
-	public Section getBySeoName(
+	public JsonResponseBody getBySeoName(
 			@PathVariable("seoName") String seoName
 	) {
-		return sectionRepository.findOneBySeoName(seoName);
+		JsonResponseBody response = new JsonResponseBody();
+		response.setStatus(HttpResponceStatus.SUCCESS);
+		response.setResult(sectionService.findOneBySeoName(seoName));
+		return response;
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public JsonResponseBody delete(
 			@PathVariable("id") CompositeKey id
 	) {
-		sectionRepository.delete(id);
+		sectionService.delete(id);
 		JsonResponseBody response = new JsonResponseBody();
 		response.setStatus(HttpResponceStatus.SUCCESS);
 		response.setMessage("section_deleted");
@@ -63,7 +69,7 @@ public class SectionController extends AppController {
 			return response;
 		}
 		
-		sectionRepository.save(section);
+		sectionService.save(section);
 		
 		response.setStatus(HttpResponceStatus.SUCCESS);
 		response.setMessage("section_saved");
@@ -71,10 +77,13 @@ public class SectionController extends AppController {
 	}
 	
 	@RequestMapping(value = "/subsectins/{id}", method = RequestMethod.GET)
-	public List<Section> getSubSections(
+	public JsonResponseBody getSubSections(
 			@PathVariable("id") String id
 	) {
-		return sectionRepository.findParentId(id);
+		JsonResponseBody response = new JsonResponseBody();
+		response.setStatus(HttpResponceStatus.SUCCESS);
+		response.setResult(sectionService.findParentId(id));
+		return response;
 	}
 	
 }

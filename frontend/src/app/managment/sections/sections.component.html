@@ -2,26 +2,33 @@
 	<div class="container">
 		<mat-card class="card-account-section">
 			<mat-card-content>
+			
 				<mat-table #table [dataSource]="dataSource">
 					<ng-container matColumnDef="position">
 						<mat-header-cell *matHeaderCellDef>.NO</mat-header-cell>
 						<mat-cell *matCellDef='let section'>{{section.position}}</mat-cell>						
 					</ng-container>
+					
 					<ng-container matColumnDef="name">
 						<mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
 						<mat-cell *matCellDef='let section'>{{section.name}}</mat-cell>						
 					</ng-container>
+					
 					<ng-container matColumnDef="articleis">
 						<mat-header-cell *matHeaderCellDef>Articleis</mat-header-cell>
 						<mat-cell *matCellDef='let section'>{{section.articleis}}</mat-cell>						
 					</ng-container>
+					
 					<ng-container matColumnDef="specification">
 						<mat-header-cell *matHeaderCellDef>Specification</mat-header-cell>
 						<mat-cell *matCellDef='let section'>{{section.specification}}</mat-cell>						
 					</ng-container>
+					
 					<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 				    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+				    
 				</mat-table>
+				
 				<mat-paginator 
 			  		[length]="length" 
 			  		[pageSize]="pageSize" 

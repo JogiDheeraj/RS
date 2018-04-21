@@ -2,7 +2,6 @@ package edu.elearning.controller;
 
 import java.security.Principal;
 import java.util.Date;
-import java.util.List;
 
 import javax.validation.Valid;
 
@@ -13,53 +12,64 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.elearning.model.Article;
 import edu.elearning.model.User;
-import edu.elearning.repo.ArticleRepository;
-import edu.elearning.repo.SectionRepository;
+import edu.elearning.service.ArticleService;
+import edu.elearning.service.SectionService;
 import edu.elearning.util.CompositeKey;
 import edu.elearning.util.HttpResponceStatus;
 import edu.elearning.util.JsonResponseBody;
 
-
+@RestController
 @RequestMapping("/sections/{sectionid}/articles")
-public class ArticleController extends AppController {
+public class ArticleController {
 	
 	@Autowired 
-	private SectionRepository sectionRepository;
+	private SectionService sectionService;
 	
 	@Autowired
-	private ArticleRepository articleRepository;
+	private ArticleService articleService;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public List<Article> index(
+	public JsonResponseBody index(
 			@PathVariable("sectionid") CompositeKey sectionid
 	) {
-		return sectionRepository.findOne(sectionid).getArticles();
+		JsonResponseBody response = new JsonResponseBody();
+		response.setStatus(HttpResponceStatus.SUCCESS);
+		response.setResult(sectionService.findOne(sectionid).getArticles());
+		return response;
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Article getById(
+	public JsonResponseBody getById(
 			@PathVariable("id") CompositeKey id
 	) {
-		Article article = articleRepository.findOne(id);
-		return article;
+		Article article = articleService.findOne(id);
+		JsonResponseBody response = new JsonResponseBody();
+		response.setStatus(HttpResponceStatus.SUCCESS);
+		response.setResult(article);
+		return response;
 	}
 	
 	@RequestMapping(value = "/{seoName}", method = RequestMethod.GET)
-	public Article getBySeoName(
+	public JsonResponseBody getBySeoName(
 			@PathVariable("seoName") String seoName
 	) {
-		return articleRepository.findOneBySeoName(seoName);
+		Article article = articleService.findOneBySeoName(seoName);
+		JsonResponseBody response = new JsonResponseBody();
+		response.setStatus(HttpResponceStatus.SUCCESS);
+		response.setResult(article);
+		return response;
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public JsonResponseBody delete(
 			@PathVariable("id") CompositeKey id
 	) {
-		articleRepository.delete(id);
+		articleService.delete(id);
 		JsonResponseBody response = new JsonResponseBody();
 		response.setStatus(HttpResponceStatus.SUCCESS);
 		response.setMessage("article_deleted");
@@ -85,7 +95,7 @@ public class ArticleController extends AppController {
 		article.setLastUpdate(new Date());
 		User user = (User) principal;
 		article.setLastUpdater(user);
-		articleRepository.save(article);
+		articleService.save(article);
 		response.setStatus(HttpResponceStatus.SUCCESS);
 		response.setMessage("article_saved");
 		return response;
