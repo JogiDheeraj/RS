@@ -13,7 +13,7 @@ public class CompositeKeyReaderConverter implements Converter<DBObject, Composit
 	@Override
 	public CompositeKey convert(DBObject source) {
 		System.out.println("i am called to read the object id");
-		String id = (String) source.get("UUID");
+		String id = (String) source.get("uuid");
 		String siteVariant = (String) source.get("siteVariant");
 		CompositeKey compositeId = new CompositeKey(id, siteVariant);
 		return compositeId;
