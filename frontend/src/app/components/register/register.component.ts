@@ -16,13 +16,11 @@ export class RegisterComponent implements OnInit {
   user: User = new User();
   serverErrorMessage: string;
   showSpinner = false;
-  confirm: string;
 
   constructor(
     public accountService: AccountService,
     public router: Router
-  ) {
-  }
+  ) { }
 
   ngOnInit() {}
 

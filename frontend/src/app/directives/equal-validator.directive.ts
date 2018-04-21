@@ -9,7 +9,8 @@ import {Validator, AbstractControl, NG_VALIDATORS} from '@angular/forms';
 })
 
 export class EqualValidatorDirective implements Validator {
-  constructor( @Attribute('appEqualValidator') public appEqualValidator: string,
+  constructor( 
+    @Attribute('appEqualValidator') public appEqualValidator: string,
     @Attribute('reverse') public reverse: string) {
   }
 
@@ -34,6 +35,7 @@ export class EqualValidatorDirective implements Validator {
 
     // value equal and reverse
     if (e && v === e.value && this.isReverse) {
+      console.log(e);
       delete e.errors['appEqualValidator'];
       if (!Object.keys(e.errors).length) {e.setErrors(null);}
     }
