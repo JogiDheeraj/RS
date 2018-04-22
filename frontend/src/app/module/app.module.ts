@@ -3,10 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {Injectable, NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {
-  HttpRequest, HttpHandler, HTTP_INTERCEPTORS,
-  HttpInterceptor, HttpClientModule, HttpClient
-} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule, HttpClient} from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 //external dependency import
@@ -56,6 +53,7 @@ import {UrlPermission} from "../urlPermission/url.permission";
 import {TranslatePaginatorIntl} from './translate-paginator-intl';
 import {MatPaginatorIntl} from '@angular/material/paginator';
 import {RoutingModule} from './app.routing';
+import {HttpPrivateInterceptor} from './http-private.interceptor';
 
 
 // The function responsible of loading the Translation files
@@ -63,17 +61,6 @@ export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
-//Intercept the Spring Login X-Requested-With:XMLHttpRequest login form
-@Injectable()
-export class XhrInterceptor implements HttpInterceptor {
-
-  intercept(req: HttpRequest<any>, next: HttpHandler) {
-    const xhr = req.clone({
-      headers: req.headers.set('X-Requested-With', 'XMLHttpRequest')
-    });
-    return next.handle(xhr);
-  }
-}
 
 @NgModule({
   declarations: [
@@ -127,11 +114,11 @@ export class XhrInterceptor implements HttpInterceptor {
   ],
   providers: [
     AuthService,
-    {provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true},
-    {provide: MatPaginatorIntl, useValue: TranslatePaginatorIntl() },
-    AccountService,
+    {provide: HTTP_INTERCEPTORS, useClass: HttpPrivateInterceptor, multi: true},
+    {provide: MatPaginatorIntl, useValue: TranslatePaginatorIntl()},
     UrlPermission,
     WindowsProviders,
+    AccountService,
     SectionService
   ],
   bootstrap: [AppComponent]

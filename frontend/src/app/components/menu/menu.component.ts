@@ -28,7 +28,9 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
      this.sectionService.getSections("")
        .subscribe(
-        data => this.sections = data,
+        data => {
+          this.sections = data["result"];
+        },
         error => this.error = error
       );
   }

@@ -23,19 +23,24 @@ export class SectionsComponent implements OnInit {
   constructor(private sectionService: SectionService) {}
 
   ngOnInit() {
-    this.sectionService.getSections("")
-      .subscribe(
-        data => {
-          this.sections = data;
-        },
-        error => this.error = error
-      );
+    this.loodPage();
   }
 
-  changePage(pageEvent: PageEvent) {
+  public changePage(pageEvent: PageEvent) {
 //    this.dataSource = SECTION_DATA.slice(
 //      pageEvent.pageSize * pageEvent.pageIndex,
 //      pageEvent.pageSize * (pageEvent.pageIndex + 1)
 //    )
+  }
+  
+  private loodPage(){
+    this.sectionService.getSections("")
+      .subscribe(
+        data => {
+          this.sections = data["result"];
+          this.length = data[""]
+        },
+        error => this.error = error
+      );
   }
 }

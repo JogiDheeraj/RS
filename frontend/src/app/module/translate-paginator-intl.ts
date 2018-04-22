@@ -22,6 +22,8 @@ export function TranslatePaginatorIntl() {
   paginatorIntl.itemsPerPageLabel = 'عنصر في الصفحة:';
   paginatorIntl.nextPageLabel = 'الصفحة التالية';
   paginatorIntl.previousPageLabel = 'الصفحة السابقة';
+  paginatorIntl.firstPageLabel = 'الصفحة الاولى';
+  paginatorIntl.lastPageLabel = 'الصفحة الأخيرة';
   paginatorIntl.getRangeLabel = dutchRangeLabel;
 
   return paginatorIntl;
