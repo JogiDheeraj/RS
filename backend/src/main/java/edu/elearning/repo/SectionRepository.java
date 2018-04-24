@@ -1,18 +1,21 @@
 package edu.elearning.repo;
 
-import java.util.List;
-
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.Query;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import edu.elearning.model.Section;
 import edu.elearning.util.CompositeKey;
 
-public interface SectionRepository extends MongoRepository<Section, CompositeKey> {
+public interface SectionRepository extends PagingAndSortingRepository<Section, CompositeKey> {
 
 	@Query("{seoName:'?0'}")
 	Section findOneBySeoName(String seoName);
-	
+
 	@Query("{parentId:'?0'}")
-	List<Section> findParentId(String parentId);
+	Page<Section> findParentId(String parentId, Pageable pageable);
+
+	@Query(value = "{parentId:'?0'}", count = true)
+	int count(String parentId);
 }

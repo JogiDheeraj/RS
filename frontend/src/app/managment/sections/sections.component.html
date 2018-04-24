@@ -3,7 +3,7 @@
 		<mat-card class="card-account-section">
 			<mat-card-content>
 			
-				<mat-table #table [dataSource]="dataSource">
+				<mat-table #table [dataSource]="sections">
 					<ng-container matColumnDef="position">
 						<mat-header-cell *matHeaderCellDef>.NO</mat-header-cell>
 						<mat-cell *matCellDef='let section'>{{section.position}}</mat-cell>						

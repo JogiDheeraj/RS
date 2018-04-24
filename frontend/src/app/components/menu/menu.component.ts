@@ -26,10 +26,10 @@ export class MenuComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-     this.sectionService.getSections("")
+     this.sectionService.getSections(null,null,null)
        .subscribe(
-        data => {
-          this.sections = data["result"];
+        result => {
+          this.sections = result["content"];
         },
         error => this.error = error
       );

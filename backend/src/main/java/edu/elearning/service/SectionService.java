@@ -1,8 +1,8 @@
 package edu.elearning.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import edu.elearning.model.Section;
@@ -22,8 +22,8 @@ public class SectionService extends UUIDService {
 		sectionRepository.save(section);
 	}
 
-	public List<Section> findParentId(String parentId) {
-		return sectionRepository.findParentId(parentId);
+	public Page<Section> findParentId(String parentId, int pageIndex, int pageSize) {
+		return sectionRepository.findParentId(parentId, new PageRequest(pageIndex, pageSize));
 	}
 
 	public Section findOneBySeoName(String seoName) {
@@ -36,6 +36,10 @@ public class SectionService extends UUIDService {
 
 	public Section findOne(CompositeKey sectionid) {
 		return sectionRepository.findOne(sectionid);
+	}
+
+	public int count(String parentId) {
+		return sectionRepository.count(parentId);
 	}
 
 }

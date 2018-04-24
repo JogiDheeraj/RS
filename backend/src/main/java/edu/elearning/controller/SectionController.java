@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -26,10 +27,13 @@ public class SectionController {
 	private SectionService sectionService;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public JsonResponseBody index() {
+	public JsonResponseBody index(
+			@RequestParam("pageIndex") int pageIndex,
+			@RequestParam("pageSize") int pageSize
+	) {
 		JsonResponseBody response = new JsonResponseBody();
 		response.setStatus(HttpResponceStatus.SUCCESS);
-		response.setResult(sectionService.findParentId("index"));
+		response.setResult(sectionService.findParentId("index", pageIndex, pageSize));
 		return response;
 	}
 	
@@ -76,13 +80,15 @@ public class SectionController {
 		return response;
 	}
 	
-	@RequestMapping(value = "/subsectins/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}/subsectins", method = RequestMethod.GET)
 	public JsonResponseBody getSubSections(
-			@PathVariable("id") String id
+			@PathVariable("id") String id,
+			@RequestParam("pageIndex") int pageIndex,
+			@RequestParam("pageSize") int pageSize
 	) {
 		JsonResponseBody response = new JsonResponseBody();
 		response.setStatus(HttpResponceStatus.SUCCESS);
-		response.setResult(sectionService.findParentId(id));
+		response.setResult(sectionService.findParentId(id, pageIndex, pageSize));
 		return response;
 	}
 	
