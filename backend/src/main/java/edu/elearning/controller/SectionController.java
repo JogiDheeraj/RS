@@ -3,6 +3,7 @@ package edu.elearning.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,24 +28,18 @@ public class SectionController {
 	private SectionService sectionService;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public JsonResponseBody index(
+	public Page<Section> index(
 			@RequestParam("pageIndex") int pageIndex,
 			@RequestParam("pageSize") int pageSize
 	) {
-		JsonResponseBody response = new JsonResponseBody();
-		response.setStatus(HttpResponceStatus.SUCCESS);
-		response.setResult(sectionService.findParentId("index", pageIndex, pageSize));
-		return response;
+		return sectionService.findParentId("index", pageIndex, pageSize);
 	}
 	
 	@RequestMapping(value = "/{seoName}", method = RequestMethod.GET)
-	public JsonResponseBody getBySeoName(
+	public Section getBySeoName(
 			@PathVariable("seoName") String seoName
 	) {
-		JsonResponseBody response = new JsonResponseBody();
-		response.setStatus(HttpResponceStatus.SUCCESS);
-		response.setResult(sectionService.findOneBySeoName(seoName));
-		return response;
+		return sectionService.findOneBySeoName(seoName);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
@@ -81,15 +76,12 @@ public class SectionController {
 	}
 	
 	@RequestMapping(value = "/{id}/subsectins", method = RequestMethod.GET)
-	public JsonResponseBody getSubSections(
+	public Page<Section> getSubSections(
 			@PathVariable("id") String id,
 			@RequestParam("pageIndex") int pageIndex,
 			@RequestParam("pageSize") int pageSize
 	) {
-		JsonResponseBody response = new JsonResponseBody();
-		response.setStatus(HttpResponceStatus.SUCCESS);
-		response.setResult(sectionService.findParentId(id, pageIndex, pageSize));
-		return response;
+		return sectionService.findParentId(id, pageIndex, pageSize);
 	}
 	
 }

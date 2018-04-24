@@ -92,4 +92,12 @@ fieldset.input-password:before {
 	content: "\f13e";
 }
 
+.managed-table{
+	font-family: 'cairo' !important;
+}
+
+.managed-table button{
+	width: 50px;
+}
+
 

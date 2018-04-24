@@ -20,11 +20,7 @@ export class SectionService {
     if (parentId) {
       this.url += parentId;
     }
-    return this.http.get(this.url, {params: params}).map(res => {
-      console.log(res);
-      return res["result"];
-    });
-
+    return this.http.get(this.url, {params: params});
   }
 
   public getSectionBySeoName(seoName: string) {
@@ -39,9 +35,7 @@ export class SectionService {
     let params = new HttpParams();
     params = params.set('pageIndex', pageIndex ? pageIndex.toString() : this.defaultPageIndex);
     params = params.append('pageSize', pageSize ? pageSize.toString() : this.defaultpageSize);
-    return this.http.get(this.url + "/" + id + '/subsectins/', {params: params}).map(res => {
-      return res["result"];
-    });
+    return this.http.get(this.url + "/" + id + '/subsectins/', {params: params});
   }
 
   public save(section: Section) {

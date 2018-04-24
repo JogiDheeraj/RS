@@ -12,7 +12,7 @@ import {Section} from '../../model/model.section';
 })
 export class SectionsComponent implements OnInit {
 
-  displayedColumns = ['position', 'name', 'articleis', 'specification'];
+  displayedColumns = ['id', 'name', 'description', 'articleCount', 'options'];
 
   sections:Array<Section>;
   length = 0;
