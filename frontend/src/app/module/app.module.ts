@@ -36,6 +36,7 @@ import {SectionsComponent} from '../managment/sections/sections.component';
 import {SecurityComponent} from '../managment/security/security.component';
 import {SettingsComponent} from '../managment/settings/settings.component';
 import {UsersComponent} from '../managment/users/users.component';
+import {ConfirmDialogComponent} from '../managment/confirm-dialog/confirm-dialog.component';
 //application Service import
 import {AuthService} from "../services/auth.service";
 import {AccountService} from "../services/account.service";
@@ -54,6 +55,7 @@ import {TranslatePaginatorIntl} from './translate-paginator-intl';
 import {MatPaginatorIntl} from '@angular/material/paginator';
 import {RoutingModule} from './app.routing';
 import {HttpPrivateInterceptor} from './http-private.interceptor';
+import { MatDialogModule } from '@angular/material';
 
 
 // The function responsible of loading the Translation files
@@ -94,13 +96,18 @@ export function createTranslateLoader(http: HttpClient) {
     SettingsComponent,
     UsersComponent,
     MyAdvComponent,
-    NewAdvComponent
+    NewAdvComponent,
+    ConfirmDialogComponent
+  ],
+  entryComponents: [
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     CustomMaterialModule,
     HttpClientModule,
+    MatDialogModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
