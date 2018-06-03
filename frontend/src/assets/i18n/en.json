@@ -6,7 +6,8 @@
 		"contact": "Contact",
 		"login": "Login",
 		"register": "Register",
-		"search": "Search"
+		"search": "Search",
+		"account": "Control Panel"
 	},
 	"language-selector": {
 		"select": "Select Language",

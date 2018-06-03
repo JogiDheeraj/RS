@@ -8,10 +8,22 @@ import {Router} from '@angular/router';
 @Injectable()
 export class AuthService {
 
+  authenticated = false;
+
   constructor(
     private http: HttpClient,
     private router: Router
-  ) {}
+  ) {
+    this.http.get("/api/account/login/status").subscribe(response => {
+      if (response && response['principal']) {
+        localStorage.setItem('currentUser', JSON.stringify(response['principal']));
+        this.authenticated = true;
+      } else {
+        localStorage.removeItem('currentUser');
+        this.authenticated = false;
+      }
+    });
+  }
 
   public logIn(user: User, callback) {
 
@@ -21,11 +33,12 @@ export class AuthService {
 
     this.http.get("/api/account/login", {headers: headers})
       .subscribe(response => {
-        const user = response['principal'];
-        if (user) {
-          localStorage.setItem('currentUser', JSON.stringify(user));
+        if (response && response['principal']) {
+          localStorage.setItem('currentUser', JSON.stringify(response['principal']));
+          this.authenticated = true;
           return callback && callback();
         } else {
+          this.authenticated = false;
           callback('UserNotFound');
         }
       }, error => {
@@ -41,17 +54,17 @@ export class AuthService {
       });
   }
 
-  public isAuthentecated():boolean {
-    return JSON.parse(localStorage.getItem('currentUser')) ? true : false;
+  public isAuthentecated(): boolean {
+    return this.authenticated;
   }
 
   public getUser(): User {
     const user: User = JSON.parse(localStorage.getItem('currentUser'));
     return user ? user : null;
   }
-  
-  public getRole(): Role{
+
+  public getRole(): Role {
     const user: User = JSON.parse(localStorage.getItem('currentUser'));
-    return  user ? user.role : null;
+    return user ? user.role : null;
   }
 }
