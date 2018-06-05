@@ -6,7 +6,7 @@
 
 .navbare mat-toolbar {
 	padding: 10px;
-	transition: all 0.5s ease-in-out;
+	transition: all 1s ease-in-out;
 }
 
 .navbare .mat-drawer-transition .mat-drawer-backdrop {

@@ -77,8 +77,12 @@
 			
 	<span class="fill-remaining-space"></span>
 	 	
-	<button mat-button [matMenuTriggerFor]="userMenu">
-		{{'account-menu.helo' | translate}}{{user.firstName + user.lastname}}
+	<button mat-button *ngIf="(user | async)" [matMenuTriggerFor]="userMenu">
+		{{'account-menu.helo' | translate}}  
+		{{(user | async).firstName}} 
+		<span *ngIf="(user | async).lastname">
+			{{(user | async).lastname}}
+		</span> 
 	</button>
 	<mat-menu #userMenu="matMenu">
 		<button mat-menu-item [routerLink]="['/account/profile']" 

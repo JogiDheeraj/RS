@@ -1,9 +1,15 @@
 .account-menu{
-    background-color: #f44336;
+    background-color: #1973c4;
+}
+
+.account-menu mat-toolbar,
+.account-menu mat-panel-title,
+.account-menu mat-expansion-panel-header ::after{
+	color: rgba(255, 254, 254, 0.87) !important;
 }
 
 .account-menu .account-menu-sm mat-expansion-panel-header{
-    background-color: #f44336;
+    background-color: #1973c4;
 }
 
 .account-menu .account-menu-sm button{

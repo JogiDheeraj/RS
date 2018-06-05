@@ -1,8 +1,9 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {NgRedux, select} from '@angular-redux/store';
+import {Observable} from 'rxjs/Observable';
 
 import {User} from "../../model/model.user";
-import { AuthService } from '../../services/auth.service';
-
+import {IAppState} from '../../model/redux.store';
 
 @Component({
   selector: 'app-profile',
@@ -10,15 +11,9 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./profile.component.css'],
   encapsulation: ViewEncapsulation.None
 })
+export class ProfileComponent {
 
-export class ProfileComponent implements OnInit {
+  @select() readonly currentUser: Observable<User>;
 
-  currentUser: User;
-
-  constructor(public authService: AuthService) {}
-
-  ngOnInit() {
-    this.currentUser = this.authService.getUser();
-  }
-  
+  constructor(private ngRedux: NgRedux<IAppState>) { }
 }
