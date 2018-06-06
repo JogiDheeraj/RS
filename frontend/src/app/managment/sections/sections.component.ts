@@ -7,8 +7,6 @@ import {Section} from '../../model/model.section';
 import {EditDialogComponent} from '../edit-dialog/edit-dialog.component';
 import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
 
-
-
 @Component({
   selector: 'app-sections',
   templateUrl: './sections.component.html',
@@ -48,18 +46,18 @@ export class SectionsComponent implements OnInit {
       }
     });
   }
+  
   public edit_section(section: Section) {
-
     const dialogRef = this.dialog.open(EditDialogComponent, {
       width: '700px',
       height: '600px',
-      data: {name: section.name, seoName: section.seoName, description: section.description, articleCount: section.articleCount}
+      data: section
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(result)
     })
-
   }
+  
   public changePage(pageEvent: PageEvent) {
     this.loodPage(null, pageEvent.pageIndex, pageEvent.pageSize);
   }
