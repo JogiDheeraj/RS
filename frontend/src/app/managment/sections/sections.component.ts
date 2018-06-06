@@ -46,7 +46,17 @@ export class SectionsComponent implements OnInit {
       }
     });
   }
-  
+    public newSection() {
+       
+       const dialogRef = this.dialog.open(EditDialogComponent, {
+       width: '700px',
+       height: '600px',
+       data:new Section()
+     });
+     dialogRef.afterClosed().subscribe(result => {
+      this.sectionService.save(new Section());
+    })
+  }
   public edit_section(section: Section) {
     const dialogRef = this.dialog.open(EditDialogComponent, {
       width: '700px',
@@ -54,7 +64,7 @@ export class SectionsComponent implements OnInit {
       data: section
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
+      this.sectionService.save(section);
     })
   }
   

@@ -1,8 +1,9 @@
 <div class="account-sections">
 	<div class="container">
+		
 		<mat-card class="card-account-sections">
 			<mat-card-content>
-			
+				<a class="warn" (click)="newSection()"><mat-icon>add_circle_outline</mat-icon></a>
 				<mat-table class="managed-table" #table [dataSource]="sections">
 					
 					<ng-container matColumnDef="name">
