@@ -11,4 +11,6 @@ public interface ArticleRepository extends MongoRepository<Article, CompositeKey
 	@Query("{seoName:'?0'}")
 	Article findOneBySeoName(String seoName);
 	
+	@Query(value = "{idKey : ?0}", delete = true) 
+	void delete(CompositeKey id);
 }

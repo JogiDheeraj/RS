@@ -76,23 +76,22 @@
 		{{ 'menu.contact' | translate }}
 	</a>
 		     
-		       
 	<button mat-raised-button class="btn" color="primary"
-		*ngIf="authService.isAuthentecated()"
+		*ngIf="(isAuthentecated | async)"
 		[routerLink]="['/account/home']"
 		(click)="sidenav.close()">
 		{{ 'menu.account' | translate }}
 	</button>
 		    
 	<button mat-raised-button class="btn" color="primary" 
-		*ngIf="!authService.isAuthentecated()" 
+		*ngIf="!(isAuthentecated | async)" 
 		[routerLink]="['/login']"
 		(click)="sidenav.close()">
 		{{ 'menu.login' | translate }}
 	</button>
 		    
 	<button mat-raised-button class="btn" color="accent" 
-		*ngIf="!authService.isAuthentecated()" 
+		*ngIf="!(isAuthentecated | async)" 
 		[routerLink]="['/register']"
 		(click)="sidenav.close()">
 		{{ 'menu.register' | translate }}

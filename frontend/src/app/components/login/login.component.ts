@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) {}
-
+  
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
         this.returnUrl = params.order;
@@ -33,9 +33,8 @@ export class LoginComponent implements OnInit {
   login() {
     this.showSpinner = true;
     this.authService.logIn(this.user, (error) => {
-      this.showSpinner = true;
+      this.showSpinner = false;
       if (error) {
-        console.log(error);
         this.serverErrorMessage = error.message;
       } else {
         this.router.navigate([this.returnUrl ? this.returnUrl : '/account/home']);

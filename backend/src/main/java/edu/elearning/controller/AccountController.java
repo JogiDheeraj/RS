@@ -62,4 +62,9 @@ public class AccountController {
 	public Principal login(Principal user) {
 		return user;
 	}
+	
+	@RequestMapping("/login/status")
+	public Principal loginStatus(Principal user) {
+		return user;
+	}
 }

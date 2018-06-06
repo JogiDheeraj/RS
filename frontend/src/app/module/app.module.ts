@@ -8,6 +8,8 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 //external dependency import
 import {NgxCarouselModule} from 'ngx-carousel';
+import {NgRedux, NgReduxModule} from '@angular-redux/store';
+
 //application components import
 import {AppComponent} from '../components/application/app.component';
 import {MenuComponent} from '../components/menu/menu.component';
@@ -37,6 +39,8 @@ import {SecurityComponent} from '../managment/security/security.component';
 import {SettingsComponent} from '../managment/settings/settings.component';
 import {UsersComponent} from '../managment/users/users.component';
 import {EditDialogComponent} from '../managment/edit-dialog/edit-dialog.component';
+import {ConfirmDialogComponent} from '../managment/confirm-dialog/confirm-dialog.component';
+
 //application Service import
 import {AuthService} from "../services/auth.service";
 import {AccountService} from "../services/account.service";
@@ -48,13 +52,16 @@ import {TimeStampPipe} from '../pipes/timeStamp';
 import {CustomMaterialModule} from "./material.module";
 //application Directives import
 import {EqualValidatorDirective} from '../directives/equal-validator.directive';
+import {IAppState, rootReducer, INITIAL_STATE} from '../model/redux.store';
 
 //application specials import
 import {UrlPermission} from "../urlPermission/url.permission";
+import {AppActions} from './app.actions';
 import {TranslatePaginatorIntl} from './translate-paginator-intl';
 import {MatPaginatorIntl} from '@angular/material/paginator';
 import {RoutingModule} from './app.routing';
 import {HttpPrivateInterceptor} from './http-private.interceptor';
+import {MatDialogModule} from '@angular/material';
 
 
 // The function responsible of loading the Translation files
@@ -96,16 +103,19 @@ export function createTranslateLoader(http: HttpClient) {
     UsersComponent,
     MyAdvComponent,
     NewAdvComponent,
-    EditDialogComponent
+    EditDialogComponent,
+    ConfirmDialogComponent
   ],
   entryComponents: [
-    EditDialogComponent
+    EditDialogComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     CustomMaterialModule,
     HttpClientModule,
+    MatDialogModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -116,11 +126,13 @@ export function createTranslateLoader(http: HttpClient) {
     FormsModule,
     NgxCarouselModule,
     RoutingModule,
+    NgReduxModule
   ],
   providers: [
-    AuthService,
     {provide: HTTP_INTERCEPTORS, useClass: HttpPrivateInterceptor, multi: true},
     {provide: MatPaginatorIntl, useValue: TranslatePaginatorIntl()},
+    AuthService,
+    AppActions,
     UrlPermission,
     WindowsProviders,
     AccountService,
@@ -128,5 +140,14 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+
+export class AppModule {
+  //initialize the Redux main Store Object
+  constructor(
+    private auth: AuthService,
+    private ngRedux: NgRedux<IAppState>
+  ) {
+    ngRedux.configureStore(rootReducer, INITIAL_STATE);
+  }
+}
 

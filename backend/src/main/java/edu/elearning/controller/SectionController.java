@@ -1,5 +1,6 @@
 package edu.elearning.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +31,13 @@ public class SectionController {
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public Page<Section> index(
 			@RequestParam("pageIndex") int pageIndex,
-			@RequestParam("pageSize") int pageSize
+			@RequestParam("pageSize") int pageSize,
+			HttpServletRequest request
 	) {
-		return sectionService.findParentId("index", pageIndex, pageSize);
+		return sectionService.findParentId(
+				new CompositeKey("index", request.getHeader("Host")),
+				pageIndex, 
+				pageSize);
 	}
 	
 	@RequestMapping(value = "/{seoName}", method = RequestMethod.GET)
@@ -77,7 +82,7 @@ public class SectionController {
 	
 	@RequestMapping(value = "/{id}/subsectins", method = RequestMethod.GET)
 	public Page<Section> getSubSections(
-			@PathVariable("id") String id,
+			@PathVariable("id") CompositeKey id,
 			@RequestParam("pageIndex") int pageIndex,
 			@RequestParam("pageSize") int pageSize
 	) {
