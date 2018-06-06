@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgxCarousel} from 'ngx-carousel';
 
 // Import the Image interface
-import {Image} from '../../model/model.image';
+import {Image} from '../../../model/model.image';
 
 @Component({
   selector: 'app-carousel',

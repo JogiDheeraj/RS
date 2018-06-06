@@ -1,6 +1,6 @@
 <div class="navbare" [class.sticky]="navIsFixed">
 	<mat-toolbar>
-	  	<mat-toolbar-row>
+	  	<mat-toolbar-row class="container">
 	    
 		    <span>
 		    	<img src="./assets/images/logo.png" style="height: 50px">
@@ -52,29 +52,34 @@
 <ng-template #menuItemsTemplate>
 	<a mat-button (click)="sidenav.close()" [routerLink]="['/home']" 
 		routerLinkActive="active">
+		<mat-icon>home</mat-icon>
 		{{ 'menu.home' | translate }}
 	</a>
 	        
 	<a mat-button class="sections-link" 
 		(click)="sidenav.close()" [routerLink]="['/section', section.seoName]"
 		*ngFor="let section of sections" routerLinkActive="active">
+		<mat-icon>business</mat-icon>
 		{{section.name}}
 	</a>
 			
 	<a mat-button (click)="sidenav.close()" [routerLink]="['/blog']"
 		routerLinkActive="active">
+		<mat-icon>bubble_chart</mat-icon>
 		{{ 'menu.blog' | translate }}
 	</a>
 		    
-	<a mat-button (click)="sidenav.close()" [routerLink]="['/about']"
-		routerLinkActive="active">
-		{{ 'menu.about' | translate }}
-	</a>
+<!-- 	<a mat-button (click)="sidenav.close()" [routerLink]="['/about']" -->
+<!-- 		routerLinkActive="active"> -->
+<!-- 		{{ 'menu.about' | translate }} -->
+<!-- 	</a> -->
 		    
-	<a mat-button (click)="sidenav.close()" [routerLink]="['/contact']"
-		routerLinkActive="active">
-		{{ 'menu.contact' | translate }}
-	</a>
+<!-- 	<a mat-button (click)="sidenav.close()" [routerLink]="['/contact']" -->
+<!-- 		routerLinkActive="active"> -->
+<!-- 		{{ 'menu.contact' | translate }} -->
+<!-- 	</a> -->
+	
+	<app-quik-search></app-quik-search>
 		     
 	<button mat-raised-button class="btn" color="primary"
 		*ngIf="(isAuthentecated | async)"
@@ -87,21 +92,22 @@
 		*ngIf="!(isAuthentecated | async)" 
 		[routerLink]="['/login']"
 		(click)="sidenav.close()">
+		<mat-icon>rowing</mat-icon>
 		{{ 'menu.login' | translate }}
 	</button>
 		    
-	<button mat-raised-button class="btn" color="accent" 
+	<button mat-raised-button  
 		*ngIf="!(isAuthentecated | async)" 
 		[routerLink]="['/register']"
 		(click)="sidenav.close()">
 		{{ 'menu.register' | translate }}
 	</button>
 		    
-	<button mat-raised-button class="btn" color="warn"
-		[routerLink]="['/search']"
-		(click)="sidenav.close()">
-		{{ 'menu.search' | translate }}
-	</button>
+<!-- 	<button mat-raised-button class="btn" color="warn" -->
+<!-- 		[routerLink]="['/search']" -->
+<!-- 		(click)="sidenav.close()"> -->
+<!-- 		{{ 'menu.search' | translate }} -->
+<!-- 	</button> -->
 	
 </ng-template>
 

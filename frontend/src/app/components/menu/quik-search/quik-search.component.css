@@ -1,0 +1,31 @@
+
+.quik-search{
+	display: inline-block;
+	width: 320px;
+}
+
+.quik-search input{
+	height: 38px;
+	border-bottom: 2px solid #09c;
+}
+
+.quik-search input:hover, 
+.quik-search input:focus, 
+.quik-search input:active:focus{
+	border-bottom: 2px solid rgb(255, 64, 129);
+}
+
+.quik-search input::placeholder{
+	-webkit-transform: none;
+	transform: none;
+	-webkit-transition: .5s;
+	transition: .5s;
+	color: #09c;
+}
+
+.quik-search input:hover::placeholder, 
+.quik-search input:focus::placeholder, 
+.quik-search input:active:focus::placeholder{
+	position: relative;
+	color: rgb(255, 64, 129);
+}
