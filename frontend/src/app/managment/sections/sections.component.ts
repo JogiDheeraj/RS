@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {PageEvent} from '@angular/material';
+import {PageEvent, MatDialog} from '@angular/material';
 
 import {SectionService} from '../../services/section.service';
 import {Section} from '../../model/model.section';
+import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
 
 
 @Component({
@@ -13,19 +14,32 @@ import {Section} from '../../model/model.section';
 export class SectionsComponent implements OnInit {
 
   displayedColumns = ['id', 'name', 'description', 'articleCount', 'options'];
-
+ 
   sections:Array<Section>;
   length = 0;
   pageSize = 10;
   pageSizeOptions = [5, 10, 25, 100];
   error:string;
-
-  constructor(private sectionService: SectionService) {}
-
+  constructor(
+    private sectionService: SectionService,
+    public  editDialog:MatDialog
+  ) {}
+  
   ngOnInit() {
     this.loodPage(null, 0,10);
   }
-
+  public edit_section (section:Section){
+        
+        const dialogRef=this.editDialog.open(EditDialogComponent,{
+          width:'700px',
+          height:'600px',
+          data:{name:section.name,seoName:section.seoName,description:section.description,articleCount:section.articleCount}
+      });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result)
+    })
+    
+}
   public changePage(pageEvent: PageEvent) {
     this.loodPage(null, pageEvent.pageIndex, pageEvent.pageSize);
   }

@@ -1,14 +1,14 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js build
+  C:\Program Files\nodejs\node.exe C:\Users\khaled\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js start
 
 PATH: 
-  C:/Program Files/Java/jre1.8.0_121/bin/server;C:/Program Files/Java/jre1.8.0_121/bin;C:/Program Files/Java/jre1.8.0_121/lib/amd64;C:\Program Files\Java\jdk1.8.0_121\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\wamp\bin\php\php7.0.10;C:\ProgramData\ComposerSetup\bin;C:\Users\weeam\Desktop\Case Study - PHP\vendor\bin;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\CodeBlocks\MinGW\bin;E:\hadoop-2.6.2\bin;E:\hadoop-2.6.2\sbin;E:\hadoop-2.6.2\share\hadoop\common\*;E:\hadoop-2.6.2\share\hadoop\hdfs;E:\hadoop-2.6.2\share\hadoop\hdfs\lib\*;E:\hadoop-2.6.2\share\hadoop\hdfs\*;E:\hadoop-2.6.2\share\hadoop\yarn\lib\*;E:\hadoop-2.6.2\share\hadoop\yarn\*;E:\hadoop-2.6.2\share\hadoop\mapreduce\lib\*;E:\hadoop-2.6.2\share\hadoop\mapreduce\*;E:\hadoop-2.6.2\share\hadoop\common\lib\*;C:\HashiCorp\Vagrant\bin;C:\Program Files\PuTTY\;C:\Program Files\Apatch\maven\bin;C:\Program Files\MongoDB\Server\3.4\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\nodejs\;C:\Users\weeam\AppData\Local\Microsoft\WindowsApps;C:\Users\weeam\AppData\Roaming\Composer\vendor\bin;C:\Users\weeam\AppData\Roaming\npm;C:\Users\weeam\Desktop;
+  C:/Program Files/Java/jdk1.8.0_161/bin/../jre/bin/server;C:/Program Files/Java/jdk1.8.0_161/bin/../jre/bin;C:/Program Files/Java/jdk1.8.0_161/bin/../jre/lib/amd64;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_161\bin;C:\Program Files\nodejs\;C:\Users\khaled\AppData\Local\Microsoft\WindowsApps;C:\Users\khaled\AppData\Roaming\npm;C:\Users\khaled\Desktop;
 
 Yarn version: 
   1.5.1
 
 Node version: 
-  8.9.4
+  8.11.1
 
 Platform: 
   win32 x64
@@ -8691,15 +8691,15 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 1
+  Exit code: 3221225786
   Command: C:\WINDOWS\system32\cmd.exe
-  Arguments: /d /s /c ng build -prod
-  Directory: C:\Users\weeam\workspace\e-learning\frontend
+  Arguments: /d /s /c ng serve --proxy-config proxy.conf.json
+  Directory: C:\Users\khaled\workspace\elearning\frontend
   Output:
   
-      at ProcessTermError.MessageError (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
-      at new ProcessTermError (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:226:113)
-      at ChildProcess.<anonymous> (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:30281:17)
+      at ProcessTermError.MessageError (C:\Users\khaled\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
+      at new ProcessTermError (C:\Users\khaled\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:226:113)
+      at ChildProcess.<anonymous> (C:\Users\khaled\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:30281:17)
       at emitTwo (events.js:126:13)
       at ChildProcess.emit (events.js:214:7)
       at maybeClose (internal/child_process.js:925:16)

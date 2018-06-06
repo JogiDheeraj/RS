@@ -36,6 +36,7 @@ import {SectionsComponent} from '../managment/sections/sections.component';
 import {SecurityComponent} from '../managment/security/security.component';
 import {SettingsComponent} from '../managment/settings/settings.component';
 import {UsersComponent} from '../managment/users/users.component';
+import {EditDialogComponent} from '../managment/edit-dialog/edit-dialog.component';
 //application Service import
 import {AuthService} from "../services/auth.service";
 import {AccountService} from "../services/account.service";
@@ -94,7 +95,11 @@ export function createTranslateLoader(http: HttpClient) {
     SettingsComponent,
     UsersComponent,
     MyAdvComponent,
-    NewAdvComponent
+    NewAdvComponent,
+    EditDialogComponent
+  ],
+  entryComponents: [
+    EditDialogComponent
   ],
   imports: [
     BrowserModule,

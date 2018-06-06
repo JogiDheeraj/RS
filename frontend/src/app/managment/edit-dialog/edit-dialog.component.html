@@ -1,0 +1,73 @@
+<form name="form" (ngSubmit)="f.form.valid && submitform()" #f="ngForm" novalidate >
+	<h2 mat-dialog-title>Change section</h2>
+	<p class="error" *ngIf="error">{{'error'}}</p>
+	<mat-dialog-content >
+					<fieldset [ngClass]="{'has-error': f.submitted && !name.valid}">
+						<input type="text"
+							placeholder="{{'section.name'|translate}}"
+							name="name"
+							id="name"
+							[(ngModel)]="data.name"
+							#name=ngModel
+							required />
+						<div *ngIf="f.submitted && !name.valid" class="help-block">	
+							{{'section.NameRequire'|translate}}						
+						</div>
+					</fieldset>
+				    <fieldset [ngClass]="{'has-error': f.submitted && !seoName.valid}">
+						<input type="text"
+							placeholder="{{'section.seoName'|translate}}"
+							name="seoName"
+							id="seoName"
+							[(ngModel)]="data.seoName"
+							#seoName=ngModel
+							required />
+						<div *ngIf="f.submitted && !seoName.valid" class="help-block">		
+							{{'section.seoName'|translate}}						
+						</div>
+					</fieldset>
+					<fieldset [ngClass]="{'has-error': f.submitted && !description.valid}">
+						<input type="text"
+							placeholder="{{'section.description'|translate}}"
+							name="description"
+							id="description"
+							[(ngModel)]="data.description"
+							#description=ngModel
+							required />
+						<div *ngIf="f.submitted && !description.valid" class="help-block">		
+							{{'section.description'|translate}}						
+						</div>
+					</fieldset>
+					<fieldset [ngClass]="{'has-error': f.submitted && !articleCount.valid}">
+						<input type="text"
+							placeholder="{{'section.articleCount'|translate}}"
+							name="articleCount"
+							id="articleCount"
+							[(ngModel)]="data.articleCount"
+							#articleCount=ngModel
+							required />
+						<div *ngIf="f.submitted && !articleCount.valid" class="help-block">		
+							{{'section.articleCount'|translate}}							
+						</div>
+					</fieldset>
+					<fieldset [ngClass]="{'has-error': f.submitted && !image.valid}">
+						<input type="text"
+							placeholder="{{'section.image'|translate}}"
+							name="image"
+							id="image"
+							[(ngModel)]="section.image"
+							#image=ngModel
+							required />
+						<div *ngIf="f.submitted && !image.valid" class="help-block">				
+							{{'section.image'|translate}}				
+						</div>
+					</fieldset>
+</mat-dialog-content>
+<mat-dialog-actions>
+	<fieldset class="control">
+  		<button mat-raised-button type="submit">{{'contactUs.send'|translate}}</button>
+  		<!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+  		<button mat-button [mat-dialog-close]="false">Cancel</button>
+  	</fieldset>
+</mat-dialog-actions>
+</form>
