@@ -5,7 +5,7 @@
 	<!-- Jumbotron Header -->
 	<header class="jumbotron my-4">
 		<h1 class="display-3">
-			<strong>{{currentUser.firstName}}</strong>, Welcome to your app
+			<strong>{{(currentUser | async).firstName}}</strong>, Welcome to your app
 		</h1>
 		<p class="lead">welcome to your profile</p>
 		<div class="row"></div>

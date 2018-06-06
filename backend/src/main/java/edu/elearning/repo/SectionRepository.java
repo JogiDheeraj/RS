@@ -19,6 +19,6 @@ public interface SectionRepository extends PagingAndSortingRepository<Section, C
 	@Query(value = "{parentId:'?0'}", count = true)
 	int count(CompositeKey parentId);
 	
-	@Query(value="{idKey : ?0}", delete = true) 
+	@Query(value = "{idKey : ?0}", delete = true) 
 	void delete(CompositeKey id);
 }
