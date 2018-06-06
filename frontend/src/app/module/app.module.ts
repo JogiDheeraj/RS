@@ -11,14 +11,14 @@ import {NgxCarouselModule} from 'ngx-carousel';
 import {NgRedux, NgReduxModule} from '@angular-redux/store';
 
 //application components import
-import {AppComponent} from '../components/application/app.component';
+import {AppComponent} from '../components/app.component';
 import {MenuComponent} from '../components/menu/menu.component';
 import {IndexComponent} from '../components/index/index.component';
-import {CarouselComponent} from '../components/carousel/carousel.component';
+import {CarouselComponent} from '../components/index/carousel/carousel.component';
 import {PageHeaderComponent} from '../components/page-header/page-header.component';
 import {LoginComponent} from '../components/login/login.component';
 import {RegisterComponent} from '../components/register/register.component';
-import {LangSelectorComponent} from '../components/lang-selector/lang-selector.component';
+import {LangSelectorComponent} from '../components/menu/lang-selector/lang-selector.component';
 import {ArticleComponent} from '../components/article/article.component';
 import {MailListComponent} from '../components/mail-list/mail-list.component';
 import {FooterComponent} from '../components/footer/footer.component';
@@ -27,6 +27,7 @@ import {SectionComponent} from '../components/section/section.component';
 import {AboutComponent} from '../components/about/about.component';
 import {ContactComponent} from '../components/contact/contact.component';
 import {BlogComponent} from '../components/blog/blog.component';
+import {QuikSearchComponent} from '../components/menu/quik-search/quik-search.component';
 import {AccountComponent} from "../managment/account/account.component";
 import {AccountHeaderComponent} from "../managment/account-header/account-header.component";
 import {AccountIndexComponent} from "../managment/account-index/account-index.component";
@@ -104,7 +105,8 @@ export function createTranslateLoader(http: HttpClient) {
     MyAdvComponent,
     NewAdvComponent,
     EditDialogComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    QuikSearchComponent
   ],
   entryComponents: [
     EditDialogComponent,

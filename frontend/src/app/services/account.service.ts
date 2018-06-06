@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 import {User} from "../model/model.user";
-import {AppComponent} from "../components/application/app.component";
+import {AppComponent} from "../components/app.component";
 
 
 @Injectable()
