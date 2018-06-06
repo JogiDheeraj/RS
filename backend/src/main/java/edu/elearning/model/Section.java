@@ -8,11 +8,13 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import edu.elearning.util.CompositeKey;
+
 @Document(collection = "sections")
 public class Section extends BaseModel {
 
 	@NotNull(message = "parentId_empty")
-	private String parentId;
+	private CompositeKey parentId;
 
 	@NotNull(message = "name_empty")
 	private String name;
@@ -82,11 +84,11 @@ public class Section extends BaseModel {
 		this.content = content;
 	}
 
-	public String getParentId() {
+	public CompositeKey getParentId() {
 		return parentId;
 	}
 
-	public void setParentId(String parentId) {
+	public void setParentId(CompositeKey parentId) {
 		this.parentId = parentId;
 	}
 

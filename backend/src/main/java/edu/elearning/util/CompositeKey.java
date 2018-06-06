@@ -2,8 +2,12 @@ package edu.elearning.util;
 
 import java.io.Serializable;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.stereotype.Component;
 
+@Component
+@ConfigurationProperties("app")
 @CompoundIndex(def = "{'UUID':1, 'siteVariant':1}", name = "compound_index")
 public class CompositeKey implements Serializable {
 
@@ -36,5 +40,9 @@ public class CompositeKey implements Serializable {
 	public void setSiteVariant(String siteVariant) {
 		this.siteVariant = siteVariant;
 	}
-
+	
+	@Override
+	public String toString() {
+		return this.siteVariant + "/" + this.uuid;
+	}
 }

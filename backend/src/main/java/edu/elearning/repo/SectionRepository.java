@@ -14,8 +14,11 @@ public interface SectionRepository extends PagingAndSortingRepository<Section, C
 	Section findOneBySeoName(String seoName);
 
 	@Query("{parentId:'?0'}")
-	Page<Section> findParentId(String parentId, Pageable pageable);
+	Page<Section> findParentId(CompositeKey parentId, Pageable pageable);
 
 	@Query(value = "{parentId:'?0'}", count = true)
-	int count(String parentId);
+	int count(CompositeKey parentId);
+	
+	@Query(value="{idKey : ?0}", delete = true) 
+	void delete(CompositeKey id);
 }

@@ -13,5 +13,7 @@ public interface UserRepository extends MongoRepository<User, CompositeKey> {
 
 	@Query("{email:'?0'}")
 	User findOneByEmail(String userEmail);
-
+	
+	@Query(value="{idKey : ?0}", delete = true) 
+	void delete(CompositeKey id);
 }

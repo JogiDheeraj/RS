@@ -22,7 +22,7 @@ public class SectionService extends UUIDService {
 		sectionRepository.save(section);
 	}
 
-	public Page<Section> findParentId(String parentId, int pageIndex, int pageSize) {
+	public Page<Section> findParentId(CompositeKey parentId, int pageIndex, int pageSize) {
 		return sectionRepository.findParentId(parentId, new PageRequest(pageIndex, pageSize));
 	}
 
@@ -38,7 +38,7 @@ public class SectionService extends UUIDService {
 		return sectionRepository.findOne(sectionid);
 	}
 
-	public int count(String parentId) {
+	public int count(CompositeKey parentId) {
 		return sectionRepository.count(parentId);
 	}
 
