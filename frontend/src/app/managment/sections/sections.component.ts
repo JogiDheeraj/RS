@@ -12,7 +12,7 @@ import {PageEvent} from '@angular/material/paginator';
 })
 export class SectionsComponent implements OnInit {
 
-  displayedColumns = ['id', 'name', 'description', 'articleCount', 'options'];
+  displayedColumns = ['name', 'description', 'articleCount', 'options'];
 
   sections: Array<Section>;
   length = 0;

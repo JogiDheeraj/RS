@@ -4,10 +4,6 @@
 			<mat-card-content>
 			
 				<mat-table class="managed-table" #table [dataSource]="sections">
-					<ng-container matColumnDef="id">
-						<mat-header-cell *matHeaderCellDef>{{'account-sections.id' | translate}}</mat-header-cell>
-						<mat-cell *matCellDef='let section'>{{section.idKey.id}}</mat-cell>						
-					</ng-container>
 					
 					<ng-container matColumnDef="name">
 						<mat-header-cell *matHeaderCellDef>{{'account-sections.name' | translate}}</mat-header-cell>
@@ -27,9 +23,9 @@
 					<ng-container matColumnDef="options">
 						<mat-header-cell *matHeaderCellDef>{{'account-sections.options' | translate}}</mat-header-cell>
 						<mat-cell *matCellDef='let section'>
-							<button mat-raised-button color="warn" (click)="deleteSection(section.idKey.id)"><mat-icon>delete_forever</mat-icon></button>
-							<button mat-raised-button color="primary"><mat-icon>open_in_browser</mat-icon></button>
-						</mat-cell>						
+							<a class="warn" (click)="deleteSection(section.idKey.id)"><mat-icon>delete_forever</mat-icon></a>
+							<a class="primary"><mat-icon>open_in_browser</mat-icon></a>
+						</mat-cell>
 					</ng-container>
 					
 					<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
