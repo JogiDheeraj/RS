@@ -2,12 +2,13 @@
 	<h2 mat-dialog-title>Change section</h2>
 	<p class="error" *ngIf="error">{{'error'}}</p>
 	<mat-dialog-content >
+	
 					<fieldset [ngClass]="{'has-error': f.submitted && !name.valid}">
 						<input type="text"
 							placeholder="{{'section.name'|translate}}"
 							name="name"
 							id="name"
-							[(ngModel)]="data.name"
+							[(ngModel)]="section.name"
 							#name=ngModel
 							required />
 						<div *ngIf="f.submitted && !name.valid" class="help-block">	
@@ -19,7 +20,7 @@
 							placeholder="{{'section.seoName'|translate}}"
 							name="seoName"
 							id="seoName"
-							[(ngModel)]="data.seoName"
+							[(ngModel)]="section.seoName"
 							#seoName=ngModel
 							required />
 						<div *ngIf="f.submitted && !seoName.valid" class="help-block">		
@@ -31,7 +32,7 @@
 							placeholder="{{'section.description'|translate}}"
 							name="description"
 							id="description"
-							[(ngModel)]="data.description"
+							[(ngModel)]="section.description"
 							#description=ngModel
 							required />
 						<div *ngIf="f.submitted && !description.valid" class="help-block">		
@@ -43,7 +44,7 @@
 							placeholder="{{'section.articleCount'|translate}}"
 							name="articleCount"
 							id="articleCount"
-							[(ngModel)]="data.articleCount"
+							[(ngModel)]="section.articleCount"
 							#articleCount=ngModel
 							required />
 						<div *ngIf="f.submitted && !articleCount.valid" class="help-block">		
@@ -65,7 +66,7 @@
 </mat-dialog-content>
 <mat-dialog-actions>
 	<fieldset class="control">
-  		<button mat-raised-button type="submit" [mat-dialog-close]="data">{{'contactUs.send'|translate}}</button>
+  		<button mat-raised-button type="submit">{{'contactUs.send'|translate}}</button>
   		<!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
   		<button mat-button [mat-dialog-close]="false">Cancel</button>
   	</fieldset>

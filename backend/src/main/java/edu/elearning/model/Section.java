@@ -30,9 +30,6 @@ public class Section extends BaseModel {
 	@NotNull(message = "image_empty")
 	private String image;
 
-	@NotNull(message = "content_empty")
-	private String content;
-
 	@DBRef(lazy = true)
 	private List<Article> articles;
 
@@ -74,14 +71,6 @@ public class Section extends BaseModel {
 
 	public void setImage(String image) {
 		this.image = image;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
 	}
 
 	public CompositeKey getParentId() {

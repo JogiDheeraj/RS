@@ -54,7 +54,6 @@ export class SectionsComponent implements OnInit {
        data:new Section()
      });
      dialogRef.afterClosed().subscribe(result => {
-      this.sectionService.save(new Section());
     })
   }
   public edit_section(section: Section) {
@@ -64,7 +63,7 @@ export class SectionsComponent implements OnInit {
       data: section
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.sectionService.save(section);
+      
     })
   }
   

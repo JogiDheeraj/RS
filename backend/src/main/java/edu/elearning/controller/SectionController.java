@@ -59,7 +59,7 @@ public class SectionController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@RequestMapping(value = "", method = RequestMethod.POST)
 	public JsonResponseBody save(
 			@Valid @RequestBody Section section,
 			Errors validationResult,
