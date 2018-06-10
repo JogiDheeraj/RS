@@ -15,20 +15,19 @@ public abstract class UUIDService {
 	private HttpServletRequest request;
 
 	protected void generateId(BaseModel entity) {
-		entity.setIdKey(
-				new CompositeKey(
-					UUID.randomUUID().toString(), 
-					request.getHeader("Host")
-				));
+		entity.setIdKey(new CompositeKey(
+			UUID.randomUUID().toString(), 
+			request.getHeader("Host")
+		));
 	}
 
 	protected boolean isNew(BaseModel entity) {
-		if(
+		if (
 			entity.getIdKey() == null || 
 			entity.getIdKey().getUuid().isEmpty()
 		) {
 			return true;
-		} 
+		}
 		entity.getIdKey().setSiteVariant(request.getHeader("Host"));
 		return false;
 	}
