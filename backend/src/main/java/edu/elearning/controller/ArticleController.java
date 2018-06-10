@@ -33,7 +33,7 @@ public class ArticleController {
 	@Autowired
 	private ArticleService articleService;
 	
-	@RequestMapping(value = "", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public JsonResponseBody index(
 			@PathVariable("sectionid") CompositeKey sectionid
 	) {
@@ -77,7 +77,7 @@ public class ArticleController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST)
 	public JsonResponseBody save(
 			Principal principal,
 			@Valid @RequestBody Article article,

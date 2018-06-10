@@ -36,6 +36,7 @@
     color: #2f88d8;
 }
 
+.navbare a.active,
 .navbare a:hover{
 	border-bottom: 2px solid #f44336;
 	color: #f44336;
@@ -44,6 +45,10 @@
 .navbare mat-sidenav .btn{
 	border: none;
 	margin-bottom: 5px;
+}
+
+.navbare a.sections-link + a.sections-link{
+	margin-right: 4px;
 }
 
 .navbare mat-sidenav-content {
@@ -82,14 +87,14 @@
   flex: 1 1 auto;
 }
 
-@media only screen and (max-width: 1500px) {
-	.navbare .sections-link{
+@media only screen and (max-width: 1200px) {
+	.navbare a.sections-link{
 		display: none;
 	}
 }
 
 @media only screen and (max-width: 960px) {
-	.navbare .sections-link{
+	.navbare a.sections-link{
 		display: block;
 	}
 }

@@ -13,4 +13,7 @@ public interface ArticleRepository extends MongoRepository<Article, CompositeKey
 	
 	@Query(value = "{idKey : ?0}", delete = true) 
 	void delete(CompositeKey id);
+	
+	@Query(value = "{idKey : ?0}")
+	Article findOne(CompositeKey id);
 }

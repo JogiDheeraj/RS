@@ -28,7 +28,7 @@ public class SectionController {
 	@Autowired 
 	private SectionService sectionService;
 	
-	@RequestMapping(value = "", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public Page<Section> index(
 			@RequestParam("pageIndex") int pageIndex,
 			@RequestParam("pageSize") int pageSize,
@@ -59,7 +59,7 @@ public class SectionController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST)
 	public JsonResponseBody save(
 			@Valid @RequestBody Section section,
 			Errors validationResult,

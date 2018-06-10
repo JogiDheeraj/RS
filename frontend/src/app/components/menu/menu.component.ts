@@ -30,12 +30,13 @@ export class MenuComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.sectionService.getSections(null, null, null).subscribe(
-      result => {
+    this.sectionService.getIndexSections()
+      .subscribe(result => {
         this.sections = result["content"];
       },
-      error => this.error = error
-      );
+      error => {
+        this.error = error
+      });
   }
 
   @HostListener("window:scroll", [])
@@ -44,7 +45,7 @@ export class MenuComponent implements OnInit {
       || this.document.documentElement.scrollTop
       || this.document.body.scrollTop
       || 0;
-    if (number > 10) {
+    if (number > 100) {
       this.navIsFixed = true;
     } else if (this.navIsFixed && number < 10) {
       this.navIsFixed = false;

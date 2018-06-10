@@ -14,11 +14,11 @@ export const INITIAL_STATE: IAppState = {
 export function rootReducer(state: IAppState, action: AppAction): IAppState {
   switch (action.type) {
     case AppActions.AUTHENTICAT:
-      const newstate = Object.assign({}, state, {isAuthentecated: true, user: action.paylood})
-      console.log(newstate);
-      return newstate;
+      return Object.assign({}, state, {isAuthentecated: true, user: action.paylood});
     case AppActions.UNAUTHENTICAT:
       return Object.assign({}, state, {isAuthentecated: false, user: null});
+//    case AppActions.SETINDEXSECTIONS:
+//      return Object.assign({}, state, {indexSections: action.paylood});
   }
   return state;
 }

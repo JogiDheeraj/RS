@@ -116,4 +116,11 @@ public class Article extends BaseModel {
 		this.lastUpdater = lastUpdater;
 	}
 	
+	@Override
+	public String toString() {
+		return  " ID : " + this.getId() + "\n" +
+				" Uuid : " + this.getIdKey().getUuid() + "\n" + 
+				" Host : " + this.getIdKey().getSiteVariant() + "\n";
+	}
+	
 }

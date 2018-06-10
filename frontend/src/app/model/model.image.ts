@@ -1,5 +1,7 @@
+import { Id } from './model.id';
+
 export class Image {
-  id:string;
+  idkey: Id;
   title: string;
   url: string;
 }

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
+import {Section} from '../../model/model.section';
+import {SectionService} from '../../services/section.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  sections: Array<Section>;
+  error: string;
+
+  constructor(private sectionService: SectionService) {}
 
   ngOnInit() {
+    this.sectionService.getIndexSections()
+      .subscribe(result => {
+        this.sections = result["content"];
+      },
+      error => {
+        this.error = error
+      });
   }
 
 }
