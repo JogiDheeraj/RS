@@ -18,6 +18,8 @@ public class SectionService extends UUIDService {
 	public void save(Section section) {
 		if (isNew(section)) {
 			generateId(section);
+		} else {
+			section.setId(this.findOne(section.getIdKey()).getId());
 		}
 		sectionRepository.save(section);
 	}

@@ -39,7 +39,7 @@ import {SectionsComponent} from '../managment/sections/sections.component';
 import {SecurityComponent} from '../managment/security/security.component';
 import {SettingsComponent} from '../managment/settings/settings.component';
 import {UsersComponent} from '../managment/users/users.component';
-import {EditDialogComponent} from '../managment/edit-dialog/edit-dialog.component';
+import {SectionEditDialogComponent} from '../managment/section-edit-dialog/section-edit-dialog.component';
 import {ConfirmDialogComponent} from '../managment/confirm-dialog/confirm-dialog.component';
 
 //application Service import
@@ -104,12 +104,12 @@ export function createTranslateLoader(http: HttpClient) {
     UsersComponent,
     MyAdvComponent,
     NewAdvComponent,
-    EditDialogComponent,
+    SectionEditDialogComponent,
     ConfirmDialogComponent,
     QuikSearchComponent
   ],
   entryComponents: [
-    EditDialogComponent,
+    SectionEditDialogComponent,
     ConfirmDialogComponent
   ],
   imports: [

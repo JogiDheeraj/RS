@@ -16,4 +16,7 @@ public interface UserRepository extends MongoRepository<User, CompositeKey> {
 	
 	@Query(value = "{idKey : ?0}", delete = true) 
 	void delete(CompositeKey id);
+	
+	@Query(value = "{idKey : ?0}")
+	User findOne(CompositeKey id);
 }

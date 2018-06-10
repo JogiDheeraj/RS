@@ -1,6 +1,8 @@
 
+import {Id} from './model.id';
+
 export class Article {
-  id: string;
+  id: Id;
   title: string;
   seoName: string;
   date: number;

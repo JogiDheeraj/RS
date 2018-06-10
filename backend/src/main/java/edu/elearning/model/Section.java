@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -24,7 +25,8 @@ public class Section extends BaseModel {
 
 	@NotNull(message = "name_empty")
 	private String description;
-
+	
+	@Transient
 	private int articleCount;
 
 	@NotNull(message = "image_empty")
@@ -87,6 +89,17 @@ public class Section extends BaseModel {
 
 	public void setArticles(List<Article> articles) {
 		this.articles = articles;
+	}
+	
+	@Override
+	public String toString() {
+		return  " ID : " + this.getId() + "\n" +
+				" Uuid : " + this.getIdKey().getUuid() + "\n" + 
+				" Host : " + this.getIdKey().getSiteVariant() + "\n" + 
+				" name : " + this.getName() + "\n" + 
+				" seoName : " + this.getSeoName() + "\n" + 
+				" description : " + this.getDescription() + "\n" + 
+				" image " + this.getImage() + "\n";
 	}
 
 }

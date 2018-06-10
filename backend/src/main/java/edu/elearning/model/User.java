@@ -72,9 +72,15 @@ public class User extends BaseModel implements UserDetails {
 		authorities.add(new SimpleGrantedAuthority(role));
 		return authorities;
 	}
-
+	
+	@Override
 	public String toString() {
-		return "User [id=" + this.getIdKey() + ", username=" + username + ", password=" + password + ", role=" + role + ",]";
+		return  " ID : " + this.getId() + "\n" +
+				" Uuid : " + this.getIdKey().getUuid() + "\n" + 
+				" Host : " + this.getIdKey().getSiteVariant() + "\n" + 
+				" username : " + this.getUsername() + "\n" + 
+				" password : " + this.getPassword() + "\n" + 
+				" role : " + this.getRole() + "\n";
 	}
 
 	public String getPassword() {

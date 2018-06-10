@@ -1,17 +1,34 @@
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import 'rxjs/add/operator/map'
+import {NgRedux} from '@angular-redux/store';
+import {Observable} from 'rxjs/Observable';
+import {shareReplay} from 'rxjs/operators';
+
 
 import {Section} from '../model/model.section';
+import {IAppState} from '../model/redux.store';
+import {AppActions} from '../module/app.actions';
 
 @Injectable()
 export class SectionService {
-
+  
+  private cache$: Observable<any>;
+  
   url = '/api/sections';
   defaultPageIndex = "0";
   defaultpageSize = "10";
 
   constructor(public http: HttpClient) {}
+
+  public getIndexSections() {
+    if (!this.cache$) {
+      this.cache$ = this.getSections(null, null, null).pipe(
+        shareReplay(1)
+      );
+    }
+    
+    return this.cache$;
+  }
 
   public getSections(parentId: string, pageIndex: number, pageSize: number) {
     let params = new HttpParams();
@@ -43,7 +60,7 @@ export class SectionService {
   }
 
   public delete(id: string) {
-    return this.http.delete(this.url+ "/"+ id);
+    return this.http.delete(this.url + "/" + id);
   }
 
 }

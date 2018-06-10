@@ -1,0 +1,86 @@
+<form name="form" (ngSubmit)="f.form.valid && submitform()" #f="ngForm" novalidate >
+	<h2 mat-dialog-title>
+		{{'section-dialog.header' | translate}}
+	</h2>
+	
+	<p class="error" *ngIf="error"> {{'error'}} </p>
+	
+	<mat-dialog-content>
+	
+		<fieldset class="select-control">
+			<label for="name">
+				{{'section.parentId'|translate}}
+			</label>
+			<mat-form-field>
+				<mat-select [(value)]="section.parentId">
+					<mat-option>{{'section-dialog.none' | translate}}</mat-option>
+					<mat-option *ngFor="let sec of indexSections" value="{{sec.idKey}}">
+						{{sec.name}}
+					</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</fieldset>
+
+		<fieldset [ngClass]="{'has-error': f.submitted && !name.valid}">
+			<label for="name" *ngIf="section.name">
+				{{'section.name'|translate}}
+			</label>
+			<input type="text"
+				placeholder="{{'section.name'|translate}}"
+				name="name"
+				id="name"
+				[(ngModel)]="section.name"
+				#name=ngModel
+				required />
+			<div *ngIf="f.submitted && !name.valid" class="help-block">	
+				{{'section.NameRequire'|translate}}						
+			</div>
+		</fieldset>
+					
+		<fieldset [ngClass]="{'has-error': f.submitted && !description.valid}">
+			<label for="description" *ngIf="section.description">
+				{{'section.description'|translate}}
+			</label>
+			<input type="text"
+				placeholder="{{'section.description'|translate}}"
+				name="description"
+				id="description"
+				[(ngModel)]="section.description"
+				#description=ngModel
+				required />
+			<div *ngIf="f.submitted && !description.valid" class="help-block">		
+				{{'section.description'|translate}}						
+			</div>
+		</fieldset>
+					
+		<fieldset [ngClass]="{'has-error': f.submitted && !image.valid}">
+			<label for="image" *ngIf="section.image">
+				{{'section.image'|translate}}
+			</label>
+			<input type="text"
+				placeholder="{{'section.image'|translate}}"
+				name="image"
+				id="image"
+				[(ngModel)]="section.image"
+				#image=ngModel
+				required />
+			<div *ngIf="f.submitted && !image.valid" class="help-block">				
+				{{'section.image'|translate}}				
+			</div>
+		</fieldset>
+		
+	</mat-dialog-content>
+	<mat-dialog-actions>
+	
+		<fieldset class="control">
+	  		<button mat-raised-button type="submit">
+	  			{{'section-dialog.send'|translate}}
+	  		</button>
+	  		
+	  		<button mat-button [mat-dialog-close]="false">
+	  			{{'section-dialog.cansel'|translate}}
+	  		</button>
+	  	</fieldset>
+	  	
+	</mat-dialog-actions>
+</form>

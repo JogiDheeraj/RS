@@ -3,7 +3,7 @@
 		
 		<mat-card class="card-account-sections">
 			<mat-card-content>
-				<a class="warn" (click)="newSection()"><mat-icon>add_circle_outline</mat-icon></a>
+				<a class="warn" (click)="editSection(new Section())"><mat-icon>add_circle_outline</mat-icon></a>
 				<mat-table class="managed-table" #table [dataSource]="sections">
 					
 					<ng-container matColumnDef="name">
@@ -25,7 +25,7 @@
 						<mat-header-cell *matHeaderCellDef>{{'account-sections.options' | translate}}</mat-header-cell>
 						<mat-cell *matCellDef='let section'>
 							<a class="warn" (click)="deleteSection(section.idKey.id)"><mat-icon>delete_forever</mat-icon></a>
-							<a class="primary" (click)="edit_section(section)"><mat-icon>open_in_browser</mat-icon></a>
+							<a class="primary" (click)="editSection(section)"><mat-icon>open_in_browser</mat-icon></a>
 						</mat-cell>
 					</ng-container>
 					
@@ -35,7 +35,7 @@
 				</mat-table>
 				
 				<mat-paginator
-			  		[length]="length"
+			  		[length]="totalCount"
 			  		[pageSize]="pageSize"
 			  		[showFirstLastButtons]= "true"
 			  		[pageSizeOptions]="pageSizeOptions"

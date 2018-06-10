@@ -18,29 +18,32 @@
 		</div>
 		
 		<div class="col">
-			<ul class="list-unstyled">
-				<li><mat-icon>location_on</mat-icon>{{'footer.address'|translate}}</li>
-				<li><mat-icon>phone</mat-icon>{{'footer.mobile'|translate}}</li>
-				<li><mat-icon>phone</mat-icon>{{'footer.phone'|translate}}</li>
-			</ul>
+			<a mat-button [routerLink]="['/home']">
+				<mat-icon mat-prefix>home</mat-icon>
+				{{'footer.main'|translate}}
+			</a>
+			<a mat-button [routerLink]="['/blog']">
+				<mat-icon mat-prefix>bubble_chart</mat-icon>
+				{{'footer.blog'|translate}}
+			</a>
+		    <a mat-button [routerLink]="['/about']"> 
+		    	<mat-icon mat-prefix>info</mat-icon>
+		    	{{'footer.aboutUs'|translate}}
+		    </a>
+		    <a mat-button [routerLink]="['/contact']"> 
+		    	<mat-icon mat-prefix>contact_mail</mat-icon>
+		    	{{'footer.contactUs'|translate}}
+		    </a>
 		</div>
 
 		<div class="col">
-			<a mat-button [routerLink]="['/home']">{{'footer.main'|translate}}</a>
-			<a mat-button [routerLink]="['/blog']">{{'footer.blog'|translate}}</a>
-		    <a mat-button [routerLink]="['/about']"> {{'footer.aboutUs'|translate}}</a>
-		    <a mat-button [routerLink]="['/contact']"> {{'footer.contactUs'|translate}}</a>
+		    <a mat-button 
+		    	*ngFor="let section of sections" 
+		    	[routerLink]="['/section', section.seoName]"
+		    	routerLinkActive="active" >
+				{{section.name}}
+		    </a>
 		</div>
 
-		<div class="col">
-		    <a mat-button [routerLink]="['/section']">الحدمات السياحية</a>
-			<a mat-button [routerLink]="['/section']">الحدمات السياحية</a>
-			<a mat-button [routerLink]="['/section']">الحدمات السياحية</a>
-		    <a mat-button [routerLink]="['/section']">الحدمات السياحية</a>
-		    <a mat-button [routerLink]="['/section']">دليل الشركات</a>
-		</div>
-
-		
-	
 	</div>
 </div>

@@ -44,7 +44,6 @@ import {MatSelectModule} from '@angular/material/select';
     MatIconModule,
     MatProgressSpinnerModule,
     MatSidenavModule,
-    FlexLayoutModule,
     MatGridListModule,
     MatExpansionModule,
     MatTableModule,
