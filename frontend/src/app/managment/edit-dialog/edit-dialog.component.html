@@ -2,7 +2,12 @@
 	<h2 mat-dialog-title>Change section</h2>
 	<p class="error" *ngIf="error">{{'error'}}</p>
 	<mat-dialog-content >
-	
+					<mat-form-field>
+					  <mat-select placeholder="Parent" name="mySelect" flex>
+					  <mat-option [value]="index"></mat-option>
+                      <mat-option *ngFor="let section of sections" [value]="section.name">{{section.name}}</mat-option>
+                       </mat-select>
+					</mat-form-field>
 					<fieldset [ngClass]="{'has-error': f.submitted && !name.valid}">
 						<input type="text"
 							placeholder="{{'section.name'|translate}}"

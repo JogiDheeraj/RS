@@ -10,18 +10,22 @@ import {SectionService} from '../../services/section.service';
   styleUrls: ['./edit-dialog.component.css']
 })
 export class EditDialogComponent {
-
+  sections: Array<Section>;
   section: Section = new Section();
   error;
   
   constructor(
     public sectionService:SectionService,
     public dialogRef: MatDialogRef<EditDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Section
+    @Inject(MAT_DIALOG_DATA) public data: Section,
+    
   ) { 
+    data.parentId="index";
     this.section = data;
   }
-
+  ngOnInit() {
+this.getSections();
+  }
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -35,7 +39,7 @@ export class EditDialogComponent {
       },
       error=>{
         this.error=error;
-        console.log(error);
+        console.log(this.section);
          this.dialogRef.close();
         return false;
     });
@@ -48,6 +52,12 @@ export class EditDialogComponent {
     // if(result.state == "OK") close the dialoge
     // else error = result.errors;
     // )
+  }
+  private getSections(){
+        this.sectionService.getSections(null, 0, 10)
+      .subscribe(result => {
+        this.sections = result["content"];
+      });
   }
 
 }
