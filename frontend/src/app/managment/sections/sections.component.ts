@@ -56,6 +56,10 @@ export class SectionsComponent implements OnInit {
     });
   }
   
+  public newSection(){
+    this.editSection(new Section());
+  }
+  
   public editSection(section: Section) {
 
     const dialogRef = this.dialog.open(
