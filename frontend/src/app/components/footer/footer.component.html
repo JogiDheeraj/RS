@@ -18,6 +18,16 @@
 		</div>
 		
 		<div class="col">
+		    <a mat-button 
+		    	*ngFor="let section of sections" 
+		    	[routerLink]="['/section', section.seoName]"
+		    	routerLinkActive="active" >
+		    	<mat-icon mat-prefix>business</mat-icon>
+				{{section.name}}
+		    </a>
+		</div>
+		
+		<div class="col">
 			<a mat-button [routerLink]="['/home']">
 				<mat-icon mat-prefix>home</mat-icon>
 				{{'footer.main'|translate}}
@@ -33,15 +43,6 @@
 		    <a mat-button [routerLink]="['/contact']"> 
 		    	<mat-icon mat-prefix>contact_mail</mat-icon>
 		    	{{'footer.contactUs'|translate}}
-		    </a>
-		</div>
-
-		<div class="col">
-		    <a mat-button 
-		    	*ngFor="let section of sections" 
-		    	[routerLink]="['/section', section.seoName]"
-		    	routerLinkActive="active" >
-				{{section.name}}
 		    </a>
 		</div>
 

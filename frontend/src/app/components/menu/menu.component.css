@@ -27,28 +27,29 @@
 	z-index: 1000 !important;
 }
 
-.navbare .sidenav-content{
+.navbare .sidenav-content {
 	display: none !important;
 }
 
-.navbare a{
-	border-bottom: 2px solid #0099cc;
-    color: #2f88d8;
+.navbare a {
+	border-bottom: 2px solid #09c;
+	color: #09c;
 }
 
-.navbare a.active,
-.navbare a:hover{
+.navbare a.sections-link+a.sections-link {
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.navbare a.active, 
+.navbare a:hover {
 	border-bottom: 2px solid #f44336;
 	color: #f44336;
 }
 
-.navbare mat-sidenav .btn{
+.navbare mat-sidenav .btn {
 	border: none;
 	margin-bottom: 5px;
-}
-
-.navbare a.sections-link + a.sections-link{
-	margin-right: 4px;
 }
 
 .navbare mat-sidenav-content {
@@ -79,24 +80,33 @@
 	min-width: 40px;
 	position: absolute;
 	top: 10px;
-    left: 10px;
+	left: 10px;
 	padding: 0 5px;
 }
 
 .example-spacer {
-  flex: 1 1 auto;
+	flex: 1 1 auto;
 }
 
 @media only screen and (max-width: 1200px) {
-	.navbare a.sections-link{
+	.navbare a.sections-link {
 		display: none;
 	}
 }
 
 @media only screen and (max-width: 960px) {
-	.navbare a.sections-link{
+	.navbare a.sections-link {
 		display: block;
 	}
+	
+	.navbare a {
+		text-align: justify;
+	}
+	.navbare a.sections-link + a.sections-link {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+	
 }
 
 @media only screen and (max-width: 800px) {
@@ -106,6 +116,7 @@
 	.navbare mat-toolbar {
 		padding: 5px;
 	}
+	
 	.navbare.sticky {
 		height: 74px;
 	}
