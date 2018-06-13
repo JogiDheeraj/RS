@@ -13,4 +13,5 @@ export enum Role {
     ADMIN,
     EDITOR,
     USER,
+    GUEST
 }

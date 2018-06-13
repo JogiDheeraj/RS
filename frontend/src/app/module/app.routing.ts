@@ -1,4 +1,6 @@
+import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
+
 import {IndexComponent} from '../components/index/index.component';
 import {AboutComponent} from '../components/about/about.component';
 import {LoginComponent} from "../components/login/login.component";
@@ -14,9 +16,7 @@ import {SectionsComponent} from '../managment/sections/sections.component';
 import {SecurityComponent} from '../managment/security/security.component';
 import {SettingsComponent} from '../managment/settings/settings.component';
 import {UsersComponent} from '../managment/users/users.component';
-
-import {UrlPermission} from "../urlPermission/url.permission";
-import {NgModule} from '@angular/core';
+import {AclResolve} from '../permission/acl.resolve';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -29,22 +29,23 @@ const appRoutes: Routes = [
   {path: 'blog', component: BlogComponent},
   {path: 'section/:SeoName', component: SectionComponent},
   {
-    path: 'account', component: AccountComponent, canActivate: [UrlPermission],
+    path: 'account', component: AccountComponent, canActivate: [AclResolve],
     children: [
-      {path: 'home', component: AccountIndexComponent, canActivate: [UrlPermission]},
-      {path: 'profile', component: ProfileComponent, canActivate: [UrlPermission]},
-      {path: 'security', component: SecurityComponent, canActivate: [UrlPermission]},
+      {path: 'home', component: AccountIndexComponent, canActivate: [AclResolve]},
+      {path: 'profile', component: ProfileComponent, canActivate: [AclResolve]},
+      {path: 'security', component: SecurityComponent, canActivate: [AclResolve]},
     ]
   },
   {
-    path: 'manage', component: AccountComponent, canActivate: [UrlPermission],
+    path: 'manage', component: AccountComponent, canActivate: [AclResolve],
     children: [
-      {path: 'sections', component: SectionsComponent, canActivate: [UrlPermission]},
-      {path: 'users', component: UsersComponent, canActivate: [UrlPermission]},
-      {path: 'settings', component: SettingsComponent, canActivate: [UrlPermission]}
+      {path: 'sections', component: SectionsComponent, canActivate: [AclResolve]},
+      {path: 'users', component: UsersComponent, canActivate: [AclResolve]},
+      {path: 'settings', component: SettingsComponent, canActivate: [AclResolve]}
     ]
   },
-  {path: "**", redirectTo: 'home', pathMatch: 'full'}
+  //@todo change it with pageNotFound
+  //{path: "**", redirectTo: 'home', pathMatch: 'full'}
 ];
 
 @NgModule({

@@ -1,7 +1,7 @@
 //angular dependency import
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {Injectable, NgModule} from '@angular/core';
+import {Injectable, NgModule, OnInit} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule, HttpClient} from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
@@ -56,20 +56,17 @@ import {EqualValidatorDirective} from '../directives/equal-validator.directive';
 import {IAppState, rootReducer, INITIAL_STATE} from '../model/redux.store';
 
 //application specials import
-import {UrlPermission} from "../urlPermission/url.permission";
+import {AclResolve} from "../permission/acl.resolve";
 import {AppActions} from './app.actions';
 import {TranslatePaginatorIntl} from './translate-paginator-intl';
 import {MatPaginatorIntl} from '@angular/material/paginator';
 import {RoutingModule} from './app.routing';
 import {HttpPrivateInterceptor} from './http-private.interceptor';
-import {MatDialogModule} from '@angular/material';
-
 
 // The function responsible of loading the Translation files
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
-
 
 @NgModule({
   declarations: [
@@ -117,7 +114,6 @@ export function createTranslateLoader(http: HttpClient) {
     BrowserAnimationsModule,
     CustomMaterialModule,
     HttpClientModule,
-    MatDialogModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -135,21 +131,24 @@ export function createTranslateLoader(http: HttpClient) {
     {provide: MatPaginatorIntl, useValue: TranslatePaginatorIntl()},
     AuthService,
     AppActions,
-    UrlPermission,
     WindowsProviders,
     AccountService,
-    SectionService
+    SectionService,
+    AclResolve
   ],
   bootstrap: [AppComponent]
 })
 
 export class AppModule {
+  
   //initialize the Redux main Store Object
   constructor(
-    private auth: AuthService,
-    private ngRedux: NgRedux<IAppState>
+    private ngRedux: NgRedux<IAppState>,
+    private auth:AuthService
   ) {
     ngRedux.configureStore(rootReducer, INITIAL_STATE);
+    auth.authenticate();
   }
+
 }
 
