@@ -21,11 +21,12 @@ export class AclResolve implements CanActivate {
       if(this.can(this.auth.getCurrentUser(), route.pathFromRoot)){
         return true;
       } else {
-        this.router.navigate(['/unauthorized']);
+        this.router.navigate(['/account/unauthorized']);
       }
+    }else{
+      this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
+      return false;
     }
-
-    this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
     return false;
   }
 
