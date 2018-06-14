@@ -34,6 +34,7 @@ const appRoutes: Routes = [
       {path: 'home', component: AccountIndexComponent, canActivate: [AclResolve]},
       {path: 'profile', component: ProfileComponent, canActivate: [AclResolve]},
       {path: 'security', component: SecurityComponent, canActivate: [AclResolve]},
+      {path: 'unauthorized', component: AccountIndexComponent}
     ]
   },
   {

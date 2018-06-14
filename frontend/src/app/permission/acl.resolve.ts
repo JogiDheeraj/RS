@@ -16,25 +16,26 @@ export class AclResolve implements CanActivate {
   ) { }
 
   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const clone = Object.assign({}, route);
-    console.log(clone);
-    console.log(route.url.toString());
-
-    if (
-      this.auth.isAuthenticated() ||
-      this.can(this.auth.getCurrentUser(), route.url.toString())
-    ) {
-      //this.aclService.can('manage_content')
-      //const role: Role = this.currentUser.role;
-      return true;
+    
+    if (this.auth.isAuthenticated()) {
+      if(this.can(this.auth.getCurrentUser(), route.pathFromRoot)){
+        return true;
+      } else {
+        this.router.navigate(['/unauthorized']);
+      }
     }
 
     this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
     return false;
   }
 
-  private can(user: User, rout: string): boolean {
-    return true;
+  private can(user: User, route: Array<ActivatedRouteSnapshot>): boolean {
+    let urlString = "", sperator = "";
+    for(let i=0; i < route.length; i++){
+        urlString += sperator + route[i].url.toString();
+        sperator = "/"
+    }
+    return aclData[user.role].includes(urlString);
   }
 
 }
