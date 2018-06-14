@@ -1,15 +1,13 @@
 .mail-list {
-	display: block;
-	overflow: auto;
 	background-color: #1861A2;
 	color: #fff;
 	padding: 30px 0;
+	overflow: hidden;
 }
 
 .mail-list .mail-icon {
-	font-size: 125px;
-	height: 125px;
-	width: 125px;
+	font-size: 85px;
+    width: 85px;
 }
 
 .mail-list .mail-list-form {
@@ -31,29 +29,32 @@
 	color: #ffffff;
 }
 
-.mail-list .mail-list-form input:hover, input:focus, input:active:focus
-	{
+.mail-list .mail-list-form input:hover, 
+.mail-list .mail-list-form input:focus, 
+.mail-list .mail-list-form input:active:focus {
 	border-bottom: 1px solid #ffffff;
 }
 
-.mail-list .mail-list-form input:hover::placeholder, input:focus::placeholder,
-	input:active:focus::placeholder {
+.mail-list .mail-list-form input:hover::placeholder, 
+.mail-list .mail-list-form input:focus::placeholder,
+.mail-list .mail-list-form input:active:focus::placeholder {
 	color: #ffffff;
 }
 
 .mail-list .mail-list-form button {
 	position: absolute;
-	top: 13px;
-	left: 0px;
+	top: 8px;
+    left: -4px;
+    right: -4px;
 	font-size: 16px;
 }
 
 .mail-list .col {
-	float: right;
+	display: inline-block;
 }
 
 .mail-list .col:nth-child(1) {
-	width: 15%;
+	width: 13%;
 }
 
 .mail-list .col:nth-child(2) {
@@ -73,8 +74,11 @@
 	.mail-list .col:nth-child(1) {
 		width: 75px;
 	}
+	.mail-list h2{
+		font-size: 22px;
+	}
 	.mail-list .col:nth-child(2) {
-		width: 78%;
+		width: calc(100% - 80px);
 	}
 	.mail-list .col:nth-child(3) {
 		width: 100%;

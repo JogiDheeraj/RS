@@ -1,51 +1,45 @@
 <div class="navbare" [class.sticky]="navIsFixed">
 	<mat-toolbar>
 	  	<mat-toolbar-row ><!-- class="container" -->
-	    
-		    <span>
-		    	<img src="./assets/images/logo.png" style="height: 50px">
-		    </span>
-		    
-		    <!-- The following menu items will be hidden on both SM and XS screen sizes -->
-		    <div fxShow="true" fxHide.lt-md="true">
-		    
-				<ng-container *ngTemplateOutlet="menuItemsTemplate"> 
-				
-				</ng-container>
-			    
-			    <app-lang-selector></app-lang-selector>
-			    
-		    </div>
-		    
-		    <!-- The following menu items will be shown on both SM and XS screen sizes -->
+	    	
+	    	<!-- The following menu items will be shown on both SM and XS screen sizes -->
 		    <div fxShow="true" fxHide.gt-sm="true">
 			     <button mat-button class="open-menu-btn" 
 			      		aria-label="menu open close" (click)="sidenav.toggle()">
 			      		<mat-icon aria-hidden="true">menu</mat-icon>
 			     </button>
 			</div>
-	    
+			
+		    <span>
+		    	<img src="./assets/images/logo.png" style="height: 50px">
+		    </span>
+		    
+		    <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+		    <div fxShow="true" fxHide.lt-md="true">
+				<ng-container *ngTemplateOutlet="menuItemsTemplate"> </ng-container>
+			    <app-lang-selector></app-lang-selector>
+		    </div>
+		    
 	  	</mat-toolbar-row>
 	</mat-toolbar>
 	
 	<!-- The following menu items will be Shown on both SM and XS screen sizes -->
 	<mat-sidenav-container  fxFlexFill fxHide.gt-sm="true" >
+	
 	    <mat-sidenav #sidenav fxLayout="column">
-	    
-	    	<app-lang-selector></app-lang-selector>
 	    	
-	    	<button mat-button class="close-menu-btn" 
-	    		aria-label="menu open close" (click)="sidenav.toggle()">
-	      		<mat-icon aria-hidden="true">close</mat-icon>
-	        </button>
-	        
-	        <ng-container *ngTemplateOutlet="menuItemsTemplate"> 
-	        
-	        </ng-container>
-	        
+<!-- 	    	<button mat-button class="close-menu-btn"  -->
+<!-- 	    		aria-label="menu open close" (click)="sidenav.toggle()"> -->
+<!-- 	      		<mat-icon aria-hidden="true">close</mat-icon> -->
+<!-- 	        </button> -->
+	    	<app-lang-selector></app-lang-selector>
+	        <ng-container *ngTemplateOutlet="menuItemsTemplate"> </ng-container>
+	    
 	    </mat-sidenav>
+	    
 	    <mat-sidenav-content class="sidenav-content"></mat-sidenav-content>
 	</mat-sidenav-container>
+	
 </div>
 
 

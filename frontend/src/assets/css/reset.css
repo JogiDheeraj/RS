@@ -30,6 +30,7 @@ article, aside, details, figcaption, figure, footer, header, menu, nav,
 
 html, body {
 	height: 100%;
+    width: 100%;
 	font-family: 'cairo' !important;
 }
 

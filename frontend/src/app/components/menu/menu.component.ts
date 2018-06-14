@@ -38,7 +38,7 @@ export class MenuComponent implements OnInit {
         this.error = error
       });
   }
-
+  
   @HostListener("window:scroll", [])
   private onWindowScroll() {
     const number = this.window.pageYOffset

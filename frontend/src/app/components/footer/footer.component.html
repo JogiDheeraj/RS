@@ -1,50 +1,50 @@
 <div class="footer">
 	<div class="container">
-	
-		<div class="col">
-			<ul class="list-unstyled">
-				<li><img alt="footer logo" src="./assets/images/logo.png"></li>
-				<li>
-					<div class="footer-social"> 
-						<a href="#" target="_blank" class="fa fa-facebook"> </a>  
-						<a href="#" target="_blank" class="fa fa-twitter"> </a>  
-						<a href="#" target="_blank" class="fa fa-google-plus"> </a>  
-						<a href="#" target="_blank" class="fa fa-instagram"> </a>  
-						<a href="#" target="_blank" class="fa fa-whatsapp"> </a>  
-					</div>
-				</li>
-				<li><mat-icon>copyright</mat-icon>{{'footer.title'|translate}} </li>
-			</ul>
+		<div fxLayout="row" fxLayout.xs="column-reverse"  fxFlexFill >
+			<div class="col" fxFlex="45" fxFlex.xs="55">
+				<ul class="list-unstyled">
+					<li><img alt="footer logo" src="./assets/images/logo.png"></li>
+					<li>
+						<div class="footer-social"> 
+							<a href="#" target="_blank" class="fa fa-facebook"> </a>  
+							<a href="#" target="_blank" class="fa fa-twitter"> </a>  
+							<a href="#" target="_blank" class="fa fa-google-plus"> </a>  
+							<a href="#" target="_blank" class="fa fa-instagram"> </a>  
+							<a href="#" target="_blank" class="fa fa-whatsapp"> </a>  
+						</div>
+					</li>
+					<li><mat-icon>copyright</mat-icon>{{'footer.title'|translate}} </li>
+				</ul>
+			</div>
+			
+			<div class="col" fxFlex="30">
+			    <a mat-button 
+			    	*ngFor="let section of sections" 
+			    	[routerLink]="['/section', section.seoName]"
+			    	routerLinkActive="active" >
+			    	<mat-icon mat-prefix>business</mat-icon>
+					{{section.name}}
+			    </a>
+			</div>
+			
+			<div class="col" fxFlex="30" fxFlex.xs="15">
+				<a mat-button [routerLink]="['/home']">
+					<mat-icon mat-prefix>home</mat-icon>
+					{{'footer.main'|translate}}
+				</a>
+				<a mat-button [routerLink]="['/blog']">
+					<mat-icon mat-prefix>bubble_chart</mat-icon>
+					{{'footer.blog'|translate}}
+				</a>
+			    <a mat-button [routerLink]="['/about']"> 
+			    	<mat-icon mat-prefix>info</mat-icon>
+			    	{{'footer.aboutUs'|translate}}
+			    </a>
+			    <a mat-button [routerLink]="['/contact']"> 
+			    	<mat-icon mat-prefix>contact_mail</mat-icon>
+			    	{{'footer.contactUs'|translate}}
+			    </a>
+			</div>
 		</div>
-		
-		<div class="col">
-		    <a mat-button 
-		    	*ngFor="let section of sections" 
-		    	[routerLink]="['/section', section.seoName]"
-		    	routerLinkActive="active" >
-		    	<mat-icon mat-prefix>business</mat-icon>
-				{{section.name}}
-		    </a>
-		</div>
-		
-		<div class="col">
-			<a mat-button [routerLink]="['/home']">
-				<mat-icon mat-prefix>home</mat-icon>
-				{{'footer.main'|translate}}
-			</a>
-			<a mat-button [routerLink]="['/blog']">
-				<mat-icon mat-prefix>bubble_chart</mat-icon>
-				{{'footer.blog'|translate}}
-			</a>
-		    <a mat-button [routerLink]="['/about']"> 
-		    	<mat-icon mat-prefix>info</mat-icon>
-		    	{{'footer.aboutUs'|translate}}
-		    </a>
-		    <a mat-button [routerLink]="['/contact']"> 
-		    	<mat-icon mat-prefix>contact_mail</mat-icon>
-		    	{{'footer.contactUs'|translate}}
-		    </a>
-		</div>
-
 	</div>
 </div>

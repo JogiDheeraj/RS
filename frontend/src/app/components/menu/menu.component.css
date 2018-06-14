@@ -9,10 +9,11 @@
 	transition: all 0.5s ease-in-out;
 }
 
-.navbare .mat-drawer-transition .mat-drawer-backdrop {
-	transition-duration: .8s;
-	transition-timing-function: cubic-bezier(.25, .8, .25, 1);
-	transition-property: background-color, visibility;
+.navbare mat-sidenav {
+	width: 70%;
+	position: fixed;
+	padding: 10px;
+	z-index: 1000 !important;
 }
 
 .navbare mat-sidenav-container {
@@ -20,15 +21,14 @@
 	z-index: 10000 !important;
 }
 
-.navbare mat-sidenav {
-	width: 100%;
-	position: fixed;
-	padding: 10px;
-	z-index: 1000 !important;
+.navbare .sidenav-content {
+	overflow: -webkit-paged-x !important;
+	display: none !important;
 }
 
-.navbare .sidenav-content {
-	display: none !important;
+.navbare mat-sidenav .btn {
+	border: none;
+	margin-bottom: 5px;
 }
 
 .navbare a {
@@ -47,16 +47,6 @@
 	color: #f44336;
 }
 
-.navbare mat-sidenav .btn {
-	border: none;
-	margin-bottom: 5px;
-}
-
-.navbare mat-sidenav-content {
-	overflow: -webkit-paged-x !important;
-	display: none !important;
-}
-
 /* The sticky class is added to the slide bare with JS when it reaches its scroll position */
 .navbare.sticky {
 	height: 70px;
@@ -70,17 +60,11 @@
 	width: 40px;
 	min-width: 40px;
 	padding: 0 5px;
-	position: absolute;
-	left: 15px;
-	top: 15px;
 }
 
 .close-menu-btn {
 	width: 40px;
 	min-width: 40px;
-	position: absolute;
-	top: 10px;
-	left: 10px;
 	padding: 0 5px;
 }
 
@@ -106,7 +90,6 @@
 		margin-left: 0px;
 		margin-right: 0px;
 	}
-	
 }
 
 @media only screen and (max-width: 800px) {
@@ -116,7 +99,6 @@
 	.navbare mat-toolbar {
 		padding: 5px;
 	}
-	
 	.navbare.sticky {
 		height: 74px;
 	}

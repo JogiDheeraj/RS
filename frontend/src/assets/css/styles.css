@@ -17,8 +17,9 @@ fieldset.select-control{
 input, 
 textarea {
 	display: block;
-    height: 45px;
-    padding-top: 5px;
+    height: 30px;    
+    padding: 0px 2px;
+    padding-top: 15px;
     width: 100%;
     margin: 0 auto;
     border: none;
@@ -40,8 +41,8 @@ input::placeholder,
 textarea::placeholder {
 	-webkit-transform: translateY(0px);
 	transform: translateY(0px);
-	-webkit-transition: .5s;
-	transition: .5s;
+	-webkit-transition: .7s;
+	transition: .7s;
 	color: #09c;
 }
 
@@ -56,14 +57,14 @@ textarea:active:focus {
 }
 
 input:hover::placeholder, 
-input:focus::placeholder, 
+input:focus::placeholder,
 input:active:focus::placeholder,
 textarea:hover::placeholder,
 textarea:focus::placeholder,
 textarea:active:focus::placeholder{
 	position: relative;
-	-webkit-transform: translateY(-20px);
-	transform: translateY(-20px);
+	-webkit-transform: translateY(-25px);
+	transform: translateY(-25px);
 	color: rgb(255, 64, 129);
 }
 
@@ -121,4 +122,11 @@ a.warn{
 	color: #f44336;
 }
 
+
+.navbare .mat-drawer-backdrop {
+	transition-duration: .8s !important;
+	transition-timing-function: cubic-bezier(.25, .8, .25, 1) !important;
+	transition-property: background-color, visibility !important;
+	position: fixed !important;
+}
 

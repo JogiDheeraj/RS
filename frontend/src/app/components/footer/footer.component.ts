@@ -12,6 +12,8 @@ export class FooterComponent implements OnInit {
 
   sections: Array<Section>;
   error: string;
+  
+  formButtonXs = true;
 
   constructor(private sectionService: SectionService) {}
 
