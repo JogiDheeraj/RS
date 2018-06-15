@@ -2,6 +2,34 @@
     margin: 60px 20%;
 }
 
+.login fieldset input{
+	padding: 0px 30px;
+	padding-top: 15px;
+    padding-bottom: 1px;
+	width: calc(100% - 60px);
+}
+
+.login fieldset label{
+	padding: 0px 30px;
+}
+
+.login fieldset:before, 
+.login fieldset:after{
+	font-family: 'FontAwesome';
+    color: #09c;
+    font-size: 25px;
+    position: absolute;
+    top: 10px;
+}
+
+.login fieldset.input-username:before {
+	content: "\f007";
+}
+
+.login fieldset.input-password:before {
+	content: "\f13e";
+}
+
 @media only screen and (max-width: 800px) {
 	.login .login-card {
     	margin: 30px 5px;

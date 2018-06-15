@@ -13,6 +13,7 @@
 					</div>
 					
 					<fieldset class="input-username" [ngClass]="{'has-error': f.submitted && !username.valid}">
+						<label for="username" *ngIf="user.username">{{'register.username'|translate}} </label>
 						<input type="text"
 							placeholder="{{'login.username' | translate}}"
 							id="username" 
@@ -26,6 +27,7 @@
 					</fieldset>
 					
 					<fieldset class="input-password" [ngClass]="{'has-error': f.submitted && !password.valid}">
+						<label for="password" *ngIf="user.password">{{'register.password'|translate}} </label>
 						<input type="password"
 							placeholder="{{'login.password' | translate}}"
 							id="password" 

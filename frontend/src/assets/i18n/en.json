@@ -30,6 +30,8 @@
 		"firstName": "First name",
 		"username": "User name",
 		"password": "Password",
+		"email": "Email", 
+		"passwordConfirm": "Password Confirm",
 		"requirePassword": "Password is required",
 		"validPassword": "Password must be at least 4 letters",
 		"create": "Create",
@@ -75,6 +77,11 @@
 		"subjectRequire": "Subject is required",
 		"noteRequire":"Message is required"
 	},
+	
+	"section":{
+		"numOfArticle":"Number of articles",
+		"showArticle":"Show articles"
+	},
 	"account-menu": {
 		"home": "Home",
 		"controlMenu":"Control Meun",
@@ -85,12 +92,27 @@
 		"newAd": "New Advertisement",
 		"helo": "Hello ،  ",
 		"profile": "Profile",
-		"password": "Password",
+		"security": "Security",
 		"reboot": "Refrsh",
 		"logout": "Logout"
 	},
-	"section":{
-		"numOfArticle":"Number of articles",
-		"showArticle":"Show articles"
+	"account-sections":{
+		"id": "ID",
+		"name": "Name",
+		"description": "Description",
+		"articleCount" : "Articles Count",
+		"options": "Options"
+	},
+	"section-dialog" : {
+		"title" : "Edite Section",
+		"parentId": "Parent Section",
+		"none": "None",
+		"name": "Section Name",
+		"nameRequire": "Name is required !",
+		"description": "Description",
+		"image": "Section Image",
+		"imageRequire": "Image is required !",
+		"send": "Save",
+		"cansel": "Cancel"
 	}
 }

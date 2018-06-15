@@ -13,11 +13,12 @@
 					</div>
 					
 					<fieldset [ngClass]="{'has-error': f.submitted && !firstName.valid}">
+						<label for="firstName" *ngIf="user.firstName">{{'register.firstName'|translate}} </label>
 						<input type="text"
 							placeholder="{{'register.firstName'|translate}}" 
-							name="firstName" 
+							name="firstName"
 							id="firstName"
-							[(ngModel)]="user.firstName" 
+							[(ngModel)]="user.firstName"
 							#firstName="ngModel"
 							required />
 						<div *ngIf="f.submitted && !firstName.valid" class="help-block">
@@ -26,6 +27,7 @@
 					</fieldset>
 					
 					<fieldset [ngClass]="{'has-error': f.submitted && !username.valid}">
+						<label for="username" *ngIf="user.username">{{'register.username' | translate}}</label>
 						<input type="text"
 							placeholder="{{'register.username' | translate}}"
 							name="username" 
@@ -43,6 +45,7 @@
 					</fieldset>
 					
 					<fieldset [ngClass]="{'has-error': f.submitted && !email.valid}">
+						<label for="email" *ngIf="user.email">{{'register.email'|translate}} </label>
 						<input type="email"
 							placeholder="{{'register.email' | translate}}"
 							name="email"
@@ -59,6 +62,7 @@
 					</fieldset>
 					
 					<fieldset [ngClass]="{'has-error': f.submitted && !password.valid}">
+						<label for="password" *ngIf="user.password">{{'register.password'|translate}} </label>
 						<input type="password" 
 							placeholder="{{'register.password'|translate}}"
 							name="password" 
@@ -76,6 +80,7 @@
 					</fieldset>
 					
 					<fieldset [ngClass]="{'has-error': f.submitted && !passwordConfirm.valid}">
+						<label for="passwordConfirm" *ngIf="user.passwordConfirm">{{'register.passwordConfirm'|translate}} </label>
 						<input type="password"
 							placeholder="{{'register.passwordConfirm'|translate}}"
 							name="passwordConfirm"

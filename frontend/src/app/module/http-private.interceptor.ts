@@ -26,7 +26,8 @@ export class HttpPrivateInterceptor implements HttpInterceptor {
         } else {
           // The backend returned an unsuccessful response code.
           // The response body may contain clues as to what went wrong,
-          console.error(`Backend returned code ${err.status}, body was: ${err.error}`);
+          console.log(`Backend returned code ${err.status}, body was: `);
+          console.log(err.error);
         }
 
         // ...optionally return a default fall-back value so application can continue (pick one)

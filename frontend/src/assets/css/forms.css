@@ -14,12 +14,26 @@ fieldset.select-control{
 	padding-bottom: 0px;
 }
 
+fieldset label{
+	position: absolute;
+	top: -6px;
+	padding: 0px 2px;
+	font-family: 'cairo' !important;
+    font-size: 16px;
+    color: rgb(255, 64, 129);
+}
+
+fieldset mat-form-field{
+	display: block !important;
+}
+
 input, 
 textarea {
 	display: block;
     height: 30px;    
     padding: 0px 2px;
     padding-top: 15px;
+    padding-bottom: 1px;
     width: 100%;
     margin: 0 auto;
     border: none;
@@ -66,67 +80,5 @@ textarea:active:focus::placeholder{
 	-webkit-transform: translateY(-25px);
 	transform: translateY(-25px);
 	color: rgb(255, 64, 129);
-}
-
-fieldset:before, 
-fieldset:after{
-	font-family: 'FontAwesome';
-    color: #09c;
-    font-size: 25px;
-    position: absolute;
-    top: 10px;
-    right: 5px;
-}
-
-fieldset mat-form-field{
-	display: block !important;
-}
-
-fieldset.input-username input{
-	padding-right: 30px; 
-	width: calc(100% - 30px);
-}
-
-fieldset.input-username:before {
-	content: "\f007";
-}
-
-fieldset.input-password input{
-	padding-right: 30px; 
-	width: calc(100% - 30px);
-}
-
-fieldset.input-password:before {
-	content: "\f13e";
-}
-
-.managed-table{
-	font-family: 'cairo' !important;
-}
-
-.managed-table button{
-	width: 50px;
-}
-
-button[color="primary"]{
-	background-color: #09c !important;
-}
-
-a.primary{
-	cursor: pointer;
-	color: #09c;
-}
-
-a.warn{
-	cursor: pointer;
-	color: #f44336;
-}
-
-
-.navbare .mat-drawer-backdrop {
-	transition-duration: .8s !important;
-	transition-timing-function: cubic-bezier(.25, .8, .25, 1) !important;
-	transition-property: background-color, visibility !important;
-	position: fixed !important;
 }
 

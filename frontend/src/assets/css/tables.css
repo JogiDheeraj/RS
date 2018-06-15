@@ -1,0 +1,15 @@
+@charset "ISO-8859-1";
+
+.managed-table{
+	font-family: 'cairo' !important;
+}
+
+.managed-table button{
+	width: 50px;
+}
+
+@media only screen and (max-width: 960px) {
+	.managed-table mat-row{
+		padding: 0 5px;
+	}
+}

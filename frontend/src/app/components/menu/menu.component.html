@@ -50,7 +50,7 @@
 		{{ 'menu.home' | translate }}
 	</a>
 	        
-	<a mat-button class="sections-link" 
+	<a mat-button class="sections-link" fxShow="true" fxHide.gt-sm="true"
 		(click)="sidenav.close()" [routerLink]="['/section', section.seoName]"
 		*ngFor="let section of sections" routerLinkActive="active">
 		<mat-icon>business</mat-icon>
