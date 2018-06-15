@@ -1,1 +1,9 @@
+.section-dialog{
+    min-width: 700px;
+}
 
+@media only screen and (max-width: 400px) {
+	.section-dialog {
+		min-width: 250px;
+	}
+}

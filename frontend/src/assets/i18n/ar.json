@@ -105,6 +105,12 @@
 		"articleCount" : "عدد المقالات",
 		"options": "الخيارات"
 	},
+	"comfirm-dialog":{
+		"title": "تاكيد الحذف",
+		"message": "هل أنت متاكد من رغبتك بالحذف ؟",
+		"no": "الغاء",
+		"yes": "متابعة"
+	},
 	"section-dialog" : {
 		"title" : "تحرير القسم",
 		"parentId": "القسم الرئيسي",

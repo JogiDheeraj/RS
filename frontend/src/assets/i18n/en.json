@@ -80,7 +80,6 @@
 		"subjectRequire": "Subject is required",
 		"noteRequire":"Message is required"
 	},
-	
 	"section":{
 		"numOfArticle":"Number of articles",
 		"showArticle":"Show articles"
@@ -105,6 +104,12 @@
 		"description": "Description",
 		"articleCount" : "Articles Count",
 		"options": "Options"
+	},
+	"comfirm-dialog":{
+		"title": "Delete Comfirm",
+		"message": "Are you sour you wont to delete ?",
+		"no": "Cancel",
+		"yes": "Continue"
 	},
 	"section-dialog" : {
 		"title" : "Edite Section",

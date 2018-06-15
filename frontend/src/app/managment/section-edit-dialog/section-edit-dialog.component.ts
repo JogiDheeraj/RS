@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-
+import { DOCUMENT } from '@angular/platform-browser';
 
 import { SectionService } from '../../services/section.service';
 import { Section } from '../../model/model.section';
@@ -19,7 +19,8 @@ export class SectionEditDialogComponent implements OnInit {
   constructor(
     public sectionService: SectionService,
     public dialogRef: MatDialogRef<SectionEditDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: Section,
+    @Inject(DOCUMENT) public document: Document
   ) { }
 
   ngOnInit(): void {
@@ -28,9 +29,9 @@ export class SectionEditDialogComponent implements OnInit {
       .subscribe(result => {
         this.indexSections = result["content"];
       },
-        error => {
-          this.error = error
-        });
+      error => {
+        this.error = error
+    });
   }
 
   onNoClick(): void {

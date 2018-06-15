@@ -1,6 +1,7 @@
-<form name="form" class="section-dialog" (ngSubmit)="f.form.valid && submitform()" #f="ngForm" novalidate >
+
+<form name="form" dir="{{document.dir}}" class="section-dialog" (ngSubmit)="f.form.valid && submitform()" #f="ngForm" novalidate >
 	
-	<h2 mat-dialog-title>{{'section-dialog.title' | translate}}</h2>
+	<h3>{{'section-dialog.title' | translate}}</h3>
 	<p class="error" *ngIf="error">{{'error'}}</p>
 	
 	<mat-dialog-content>
@@ -57,8 +58,8 @@
 	<mat-dialog-actions>
 	
 		<fieldset class="control">
-	  		<button mat-raised-button type="submit">{{'section-dialog.send'|translate}}</button>
-	  		<button mat-button [mat-dialog-close]="false">{{'section-dialog.cansel'|translate}}</button>
+	  		<button mat-raised-button color="primary" type="submit">{{'section-dialog.send'|translate}}</button>
+	  		<button mat-raised-button [mat-dialog-close]="false">{{'section-dialog.cansel'|translate}}</button>
 	  	</fieldset>
 	  	
 	</mat-dialog-actions>

@@ -38,11 +38,7 @@ export class SectionsComponent implements OnInit {
   }
 
   public deleteSection(id: string) {
-    const dialogRef = this.dialog.open(
-      ConfirmDialogComponent, {
-        width: '250px',
-        height: '200px'
-      });
+    const dialogRef = this.dialog.open(ConfirmDialogComponent);
 
     dialogRef.afterClosed().subscribe(dialogresult => {
       if (dialogresult) {
@@ -61,20 +57,12 @@ export class SectionsComponent implements OnInit {
   }
 
   public editSection(section: Section) {
-
-    const dialogRef = this.dialog.open(
-      SectionEditDialogComponent, {
-        width: '700px',
-        height: '600px',
-        data: section
-      });
-
+    const dialogRef = this.dialog.open(SectionEditDialogComponent, {data: section});
     dialogRef.afterClosed().subscribe(dialogresult => {
       if (dialogresult) {
         this.reLood();
       }
     });
-
   }
 
   public changePage(pageEvent: PageEvent) {
