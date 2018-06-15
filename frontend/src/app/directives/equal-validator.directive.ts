@@ -9,10 +9,11 @@ import { Validator, AbstractControl, NG_VALIDATORS } from '@angular/forms';
 })
 
 export class EqualValidatorDirective implements Validator {
+
   constructor(
     @Attribute('appEqualValidator') public appEqualValidator: string,
-    @Attribute('reverse') public reverse: string) {
-  }
+    @Attribute('reverse') public reverse: string
+  ) { }
 
   private get isReverse() {
     if (!this.reverse) { return false; }
