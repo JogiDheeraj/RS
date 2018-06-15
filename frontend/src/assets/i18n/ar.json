@@ -9,6 +9,9 @@
 		"search": "بحث",
 		"account": "لوحة التحكم"
 	},
+	"quik-search":{
+		"search": "البحث"
+	},
 	"language-selector": {
 		"select": "اختر اللغة",
 		"ar": "العربية",

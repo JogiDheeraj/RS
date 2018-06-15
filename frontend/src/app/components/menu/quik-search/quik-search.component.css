@@ -4,27 +4,30 @@
 	overflow: visible;
 }
 
-.quik-search a.btn-search{
+.quik-search .btn-search{
 	position: absolute;
     display: inline-block;
-    width: 33px;
-    height: 26px;
-    padding-top: 8px;
-    right: calc(100% - 33px);
-    top: 4px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 20px;
     text-align: center;
     cursor: pointer;
     color: #2f88d8;
+    top: 4px;
 }
 
-.quik-search a.btn-search:hover{
+.quik-search .btn-search:hover{
 	background-color: #d7d7d7;
 }
 
 .quik-search input{
 	height: 38px;
-	padding-top: 0px; 
-	width: 350px;
+	padding: 0px 40px;
+    width: calc(100% - 80px);
 	border-bottom: 2px solid #09c;
 }
 

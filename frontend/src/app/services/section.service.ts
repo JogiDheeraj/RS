@@ -1,24 +1,24 @@
-import {HttpClient, HttpParams} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {NgRedux} from '@angular-redux/store';
-import {Observable} from 'rxjs/Observable';
-import {shareReplay} from 'rxjs/operators';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { NgRedux } from '@angular-redux/store';
+import { Observable } from 'rxjs/Observable';
+import { shareReplay } from 'rxjs/operators';
 
 
-import {Section} from '../model/model.section';
-import {IAppState} from '../model/redux.store';
-import {AppActions} from '../module/app.actions';
+import { Section } from '../model/model.section';
+import { IAppState } from '../model/redux.store';
+import { AppActions } from '../module/app.actions';
 
 @Injectable()
 export class SectionService {
-  
+
   private cache$: Observable<any>;
-  
+
   url = '/api/sections';
   defaultPageIndex = "0";
   defaultpageSize = "10";
 
-  constructor(public http: HttpClient) {}
+  constructor(public http: HttpClient) { }
 
   public getIndexSections() {
     if (!this.cache$) {
@@ -26,7 +26,7 @@ export class SectionService {
         shareReplay(1)
       );
     }
-    
+
     return this.cache$;
   }
 
@@ -37,7 +37,7 @@ export class SectionService {
     if (parentId) {
       this.url += parentId;
     }
-    return this.http.get(this.url, {params: params});
+    return this.http.get(this.url, { params: params });
   }
 
   public getSectionBySeoName(seoName: string) {
@@ -52,7 +52,7 @@ export class SectionService {
     let params = new HttpParams();
     params = params.set('pageIndex', pageIndex ? pageIndex.toString() : this.defaultPageIndex);
     params = params.append('pageSize', pageSize ? pageSize.toString() : this.defaultpageSize);
-    return this.http.get(this.url + "/" + id + '/subsectins/', {params: params});
+    return this.http.get(this.url + "/" + id + '/subsectins/', { params: params });
   }
 
   public save(section: Section) {

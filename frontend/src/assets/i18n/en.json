@@ -9,6 +9,9 @@
 		"search": "Search",
 		"account": "Control Panel"
 	},
+	"quik-search":{
+		"search": "Search"
+	},
 	"language-selector": {
 		"select": "Select Language",
 		"ar": "Arabic",

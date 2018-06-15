@@ -1,12 +1,12 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
-import {User} from '../model/model.user';
-import {Section} from '../model/model.section';
+import { User } from '../model/model.user';
+import { Section } from '../model/model.section';
 
-export class AppAction{
-  type:string;
-  paylood:any;
-}; 
+export class AppAction {
+  type: string;
+  paylood: any;
+};
 
 @Injectable()
 export class AppActions {
@@ -15,14 +15,14 @@ export class AppActions {
   static SETINDEXSECTIONS = 'SETINDEXSECTIONS';
 
   authenticat(user: any): AppAction {
-    return {type: AppActions.AUTHENTICAT , paylood: user};
+    return { type: AppActions.AUTHENTICAT, paylood: user };
   }
 
   unauthenticat(): AppAction {
-    return {type: AppActions.UNAUTHENTICAT, paylood: null};
+    return { type: AppActions.UNAUTHENTICAT, paylood: null };
   }
-  
-//  setIndexSections(sections:Array<Section>): AppAction {
-//    return {type: AppActions.SETINDEXSECTIONS, };
-//  }
+
+  //  setIndexSections(sections:Array<Section>): AppAction {
+  //    return {type: AppActions.SETINDEXSECTIONS, };
+  //  }
 }

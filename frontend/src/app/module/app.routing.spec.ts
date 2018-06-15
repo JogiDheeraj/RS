@@ -1,23 +1,25 @@
-import {Location} from "@angular/common";
-import {TestBed, fakeAsync, tick} from '@angular/core/testing';
-import {RouterTestingModule} from "@angular/router/testing";
-import {Router} from "@angular/router";
+import { Location } from "@angular/common";
+import { TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { RouterTestingModule } from "@angular/router/testing";
+import { Router } from "@angular/router";
 
-import {routing} from "./app.routing";
-import {AppComponent} from "../components/application/app.component";
-import {RegisterComponent} from '../components/register/register.component';
-import {ProfileComponent} from '../components/profile/profile.component';
-import {LoginComponent} from '../components/login/login.component';
+import { RoutingModule } from "./app.routing";
+import { RegisterComponent } from '../components/register/register.component';
+import { LoginComponent } from '../components/login/login.component';
+import { ProfileComponent } from "../managment/profile/profile.component";
+import { AppComponent } from "../components/app.component";
 
 describe('Router: App', () => {
 
   let location: Location;
   let router: Router;
   let fixture;
+  let r = new RoutingModule();
+  let appRoutes = r.getappRoutes();
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule.withRoutes(routing)],
+      imports: [RouterTestingModule.withRoutes(appRoutes)],
       declarations: [
         RegisterComponent,
         ProfileComponent,

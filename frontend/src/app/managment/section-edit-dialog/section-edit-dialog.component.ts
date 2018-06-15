@@ -1,9 +1,9 @@
-import {Component, OnInit, Inject} from '@angular/core';
-import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 
-import {SectionService} from '../../services/section.service';
-import {Section} from '../../model/model.section';
+import { SectionService } from '../../services/section.service';
+import { Section } from '../../model/model.section';
 
 @Component({
   selector: 'app-section-edit-dialog',
@@ -20,7 +20,7 @@ export class SectionEditDialogComponent implements OnInit {
     public sectionService: SectionService,
     public dialogRef: MatDialogRef<SectionEditDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.section = Object.assign({}, this.data);
@@ -28,9 +28,9 @@ export class SectionEditDialogComponent implements OnInit {
       .subscribe(result => {
         this.indexSections = result["content"];
       },
-      error => {
-        this.error = error
-      });
+        error => {
+          this.error = error
+        });
   }
 
   onNoClick(): void {
@@ -39,7 +39,7 @@ export class SectionEditDialogComponent implements OnInit {
 
   submitform() {
     if (!this.section.parentId) {
-      this.section.parentId = {id: "index"};
+      this.section.parentId = { id: "index" };
     }
     this.sectionService.save(this.section)
       .subscribe(result => {

@@ -1,8 +1,8 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {Router} from "@angular/router";
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from "@angular/router";
 
-import {User} from "../../model/model.user";
-import {AccountService} from "../../services/account.service";
+import { User } from "../../model/model.user";
+import { AccountService } from "../../services/account.service";
 
 @Component({
   selector: 'app-register',
@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
     public router: Router
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   register() {
     this.showSpinner = true;
@@ -37,5 +37,5 @@ export class RegisterComponent implements OnInit {
       }
       )
   }
-  
+
 }

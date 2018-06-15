@@ -1,12 +1,12 @@
-import {Component, HostListener, Inject, OnInit} from "@angular/core";
-import {DOCUMENT} from '@angular/platform-browser';
-import {NgRedux, select} from '@angular-redux/store';
-import {Observable} from 'rxjs/Observable';
+import { Component, HostListener, Inject, OnInit } from "@angular/core";
+import { DOCUMENT } from '@angular/platform-browser';
+import { NgRedux, select } from '@angular-redux/store';
+import { Observable } from 'rxjs/Observable';
 
-import {SectionService} from '../../services/section.service';
-import {WINDOW} from "../../services/window.service";
-import {Section} from '../../model/model.section';
-import {IAppState} from '../../model/redux.store';
+import { SectionService } from '../../services/section.service';
+import { WINDOW } from "../../services/window.service";
+import { Section } from '../../model/model.section';
+import { IAppState } from '../../model/redux.store';
 
 
 @Component({
@@ -17,7 +17,7 @@ import {IAppState} from '../../model/redux.store';
 export class MenuComponent implements OnInit {
 
   @select() readonly isAuthentecated: Observable<boolean>;
-  
+
   sections: Array<Section>;
   error: string;
   navIsFixed = false;
@@ -27,18 +27,18 @@ export class MenuComponent implements OnInit {
     @Inject(WINDOW) private window,
     private ngRedux: NgRedux<IAppState>,
     private sectionService: SectionService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.sectionService.getIndexSections()
       .subscribe(result => {
         this.sections = result["content"];
       },
-      error => {
-        this.error = error
-      });
+        error => {
+          this.error = error
+        });
   }
-  
+
   @HostListener("window:scroll", [])
   private onWindowScroll() {
     const number = this.window.pageYOffset

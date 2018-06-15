@@ -1,8 +1,8 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {Router, ActivatedRoute} from "@angular/router";
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router, ActivatedRoute } from "@angular/router";
 
-import {AuthService} from "../../services/auth.service";
-import {User} from "../../model/model.user";
+import { AuthService } from "../../services/auth.service";
+import { User } from "../../model/model.user";
 
 
 @Component({
@@ -22,12 +22,12 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
-  
+  ) { }
+
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-        this.returnUrl = params.order;
-      });
+      this.returnUrl = params.order;
+    });
   }
 
   login() {

@@ -1,5 +1,5 @@
 
-import {Id} from './model.id';
+import { Id } from './model.id';
 
 export class Article {
   id: Id;

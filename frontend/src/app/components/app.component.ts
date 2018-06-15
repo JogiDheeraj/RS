@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {Router} from '@angular/router';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
-import {AuthService} from '../services/auth.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ import {AuthService} from '../services/auth.service';
 
 export class AppComponent {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   public showPageHeader() {
     return this.router.url.includes('home')

@@ -10,8 +10,8 @@ export class User {
 }
 
 export enum Role {
-    ADMIN,
-    EDITOR,
-    USER,
-    GUEST
+  ADMIN,
+  EDITOR,
+  USER,
+  GUEST
 }

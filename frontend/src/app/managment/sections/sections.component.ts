@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
-import {PageEvent} from '@angular/material/paginator';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { PageEvent } from '@angular/material/paginator';
 
-import {SectionService} from '../../services/section.service';
-import {Section} from '../../model/model.section';
-import {SectionEditDialogComponent} from '../section-edit-dialog/section-edit-dialog.component';
-import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
+import { SectionService } from '../../services/section.service';
+import { Section } from '../../model/model.section';
+import { SectionEditDialogComponent } from '../section-edit-dialog/section-edit-dialog.component';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-sections',
@@ -21,17 +21,17 @@ export class SectionsComponent implements OnInit {
   pageSize = 10;
   pageSizeOptions = [5, 10, 25, 100];
   error: string;
-  
+
   currentParentId = null;
   currentPageIndex = 1;
   currentPageSize = 10;
-  
+
   looding = true;
-  
+
   constructor(
     private sectionService: SectionService,
     public dialog: MatDialog
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.loodPage(null, 0, 10);
@@ -40,7 +40,7 @@ export class SectionsComponent implements OnInit {
   public deleteSection(id: string) {
     const dialogRef = this.dialog.open(
       ConfirmDialogComponent, {
-        width: '250px', 
+        width: '250px',
         height: '200px'
       });
 
@@ -51,15 +51,15 @@ export class SectionsComponent implements OnInit {
             if (result['status'] === 'SUCCESS') {
               this.reLood();
             }
-        });
+          });
       }
     });
   }
-  
-  public newSection(){
+
+  public newSection() {
     this.editSection(new Section());
   }
-  
+
   public editSection(section: Section) {
 
     const dialogRef = this.dialog.open(
@@ -68,7 +68,7 @@ export class SectionsComponent implements OnInit {
         height: '600px',
         data: section
       });
-    
+
     dialogRef.afterClosed().subscribe(dialogresult => {
       if (dialogresult) {
         this.reLood();
@@ -76,13 +76,13 @@ export class SectionsComponent implements OnInit {
     });
 
   }
-  
+
   public changePage(pageEvent: PageEvent) {
     this.loodPage(null, pageEvent.pageIndex, pageEvent.pageSize);
   }
-  
-  private reLood(){
-    this.loodPage(this.currentParentId, this.currentPageIndex , this.currentPageSize);
+
+  private reLood() {
+    this.loodPage(this.currentParentId, this.currentPageIndex, this.currentPageSize);
   }
 
   private loodPage(parentId: string, pageIndex: number, pageSize: number) {

@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {Section} from '../../model/model.section';
-import {SectionService} from '../../services/section.service';
+import { Section } from '../../model/model.section';
+import { SectionService } from '../../services/section.service';
 
 @Component({
   selector: 'app-footer',
@@ -12,19 +12,19 @@ export class FooterComponent implements OnInit {
 
   sections: Array<Section>;
   error: string;
-  
+
   formButtonXs = true;
 
-  constructor(private sectionService: SectionService) {}
+  constructor(private sectionService: SectionService) { }
 
   ngOnInit() {
     this.sectionService.getIndexSections()
       .subscribe(result => {
         this.sections = result["content"];
       },
-      error => {
-        this.error = error
-      });
+        error => {
+          this.error = error
+        });
   }
 
 }

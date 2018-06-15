@@ -1,4 +1,4 @@
-import {Id} from './model.id';
+import { Id } from './model.id';
 
 export class Section {
   idKey: Id;
