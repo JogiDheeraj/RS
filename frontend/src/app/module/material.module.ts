@@ -16,6 +16,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 
+import { FancyImageUploaderModule } from 'ng2-fancy-image-uploader';
+
 @NgModule({
   imports: [
     FlexLayoutModule,
@@ -32,7 +34,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    FancyImageUploaderModule
   ],
   exports: [
     FlexLayoutModule,
@@ -49,7 +52,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    FancyImageUploaderModule
   ],
 })
 export class CustomMaterialModule { }

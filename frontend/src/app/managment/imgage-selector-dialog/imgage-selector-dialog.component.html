@@ -1,17 +1,67 @@
-
-<h3>{{'section-dialog.title' | translate}}</h3>
-<mat-dialog-content>
-	<div>
-		content
-	</div>	
-</mat-dialog-content>
-<mat-dialog-actions>
-	<fieldset class="control">
-	  	<button mat-raised-button color="primary" (click)="imageSelected()">
-	  			{{'section-dialog.send'|translate}}
-	  	</button>
-	  	<button mat-raised-button [mat-dialog-close]="false">
-	  			{{'section-dialog.cansel'|translate}}
-	  	</button>
-	</fieldset>
-</mat-dialog-actions>
+<div class="gallery">
+	<mat-dialog-content>
+		<div class="responsive">
+			
+			<fancy-image-uploader [options]="options" (onUpload)="onUpload($event)"></fancy-image-uploader>	
+			
+			<div class="image" (click)="imageSelecte()">
+			    <img src="/assets/images/1113.jpg">
+			</div>
+			
+			<div class="image" (click)="imageSelecte()">
+			    <img src="/assets/images/1113.jpg">
+			</div>
+			
+			<div class="image" (click)="imageSelecte()">
+			    <img src="/assets/images/1113.jpg">
+			</div>
+			
+			<div class="image" (click)="imageSelecte()">
+			    <img src="/assets/images/1113.jpg">
+			</div>
+			
+			<div class="image" (click)="imageSelecte()">
+			    <img src="/assets/images/1113.jpg">
+			</div>
+			
+			<div class="image" (click)="imageSelecte()">
+			    <img src="/assets/images/1113.jpg">
+			</div>
+			
+			<div class="image" (click)="imageSelecte()">
+			    <img src="/assets/images/1113.jpg">
+			</div>
+			
+			<div class="image" (click)="imageSelecte()">
+			    <img src="/assets/images/1113.jpg">
+			</div>
+			
+			<div class="image" (click)="imageSelecte()">
+			    <img src="/assets/images/1113.jpg">
+			</div>
+			
+			<div class="image" (click)="imageSelecte()">
+			    <img src="/assets/images/1113.jpg">
+			</div>
+			
+			<div class="image" (click)="imageSelecte()">
+			    <img src="/assets/images/1113.jpg">
+			</div>
+			
+			<div class="image" (click)="imageSelecte()">
+			    <img src="/assets/images/1113.jpg">
+			</div>
+			
+		</div>
+	</mat-dialog-content>
+	<mat-dialog-actions>
+		<fieldset class="control">
+		  	<button mat-raised-button color="primary" (click)="imageSelected()">
+		  			{{'section-dialog.send'|translate}}
+		  	</button>
+		  	<button mat-raised-button [mat-dialog-close]="false">
+		  			{{'section-dialog.cansel'|translate}}
+		  	</button>
+		</fieldset>
+	</mat-dialog-actions>
+</div>
