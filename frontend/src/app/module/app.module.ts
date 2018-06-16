@@ -41,6 +41,7 @@ import { SettingsComponent } from '../managment/settings/settings.component';
 import { UsersComponent } from '../managment/users/users.component';
 import { SectionEditDialogComponent } from '../managment/section-edit-dialog/section-edit-dialog.component';
 import { ConfirmDialogComponent } from '../managment/confirm-dialog/confirm-dialog.component';
+import { ImageInputComponent } from '../managment/image-input/image-input.component';
 
 //application Service import
 import { AuthService } from "../services/auth.service";
@@ -53,6 +54,7 @@ import { TimeStampPipe } from '../pipes/timeStamp';
 import { CustomMaterialModule } from "./material.module";
 //application Directives import
 import { EqualValidatorDirective } from '../directives/equal-validator.directive';
+import { ImgageSelectorDialogComponent } from '../managment/imgage-selector-dialog/imgage-selector-dialog.component';
 import { IAppState, rootReducer, INITIAL_STATE } from '../model/redux.store';
 
 //application specials import
@@ -103,11 +105,14 @@ export function createTranslateLoader(http: HttpClient) {
     NewAdvComponent,
     SectionEditDialogComponent,
     ConfirmDialogComponent,
-    QuikSearchComponent
+    ImgageSelectorDialogComponent,
+    QuikSearchComponent,
+    ImageInputComponent
   ],
   entryComponents: [
     SectionEditDialogComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    ImgageSelectorDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,17 @@
+
+<h3>{{'section-dialog.title' | translate}}</h3>
+<mat-dialog-content>
+	<div>
+		content
+	</div>	
+</mat-dialog-content>
+<mat-dialog-actions>
+	<fieldset class="control">
+	  	<button mat-raised-button color="primary" (click)="imageSelected()">
+	  			{{'section-dialog.send'|translate}}
+	  	</button>
+	  	<button mat-raised-button [mat-dialog-close]="false">
+	  			{{'section-dialog.cansel'|translate}}
+	  	</button>
+	</fieldset>
+</mat-dialog-actions>

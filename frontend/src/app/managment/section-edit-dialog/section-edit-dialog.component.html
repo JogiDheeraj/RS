@@ -1,58 +1,72 @@
 
-<form name="form" dir="{{document.dir}}" class="section-dialog" (ngSubmit)="f.form.valid && submitform()" #f="ngForm" novalidate >
+<form name="form" class="section-dialog" 
+	dir="{{document.dir}}" 
+	(ngSubmit)="f.form.valid && submitform()" 
+	#f="ngForm" 
+	novalidate >
 	
 	<h3>{{'section-dialog.title' | translate}}</h3>
 	<p class="error" *ngIf="error">{{'error'}}</p>
 	
 	<mat-dialog-content>
-	
-		<fieldset class="select-control">
-			<label for="name">{{'section-dialog.parentId'|translate}}</label>
-			<mat-form-field>
-				<mat-select [(value)]="section.parentId">
-					<mat-option>{{'section-dialog.none' | translate}}</mat-option>
-					<mat-option *ngFor="let sec of indexSections" value="{{sec.idKey}}">{{sec.name}}</mat-option>
-				</mat-select>
-			</mat-form-field>
-		</fieldset>
-
-		<fieldset [ngClass]="{'has-error': f.submitted && !name.valid}">
-			<label for="name" *ngIf="section.name">{{'section-dialog.name'|translate}}</label>
-			<input type="text"
-				placeholder="{{'section-dialog.name'|translate}}"
-				name="name"
-				id="name"
-				[(ngModel)]="section.name"
-				#name=ngModel
-				required />
-			<div *ngIf="f.submitted && !name.valid" class="help-block">	
-				{{'section-dialog.nameRequire'|translate}}						
+		
+		<div fxLayout="row" fxLayoutGap="10px" fxLayout.xs="column-reverse"  fxFlexFill >
+			<div class="col" fxFlex="60" fxFlex.xs="55">
+				<fieldset [ngClass]="{'has-error': f.submitted && !image.valid}">
+					<app-image-input [image]="section.image" (imageChange)="section.image=$event"></app-image-input>
+					<input type="hidden"
+						name="image" 
+						id="image" 
+						[(ngModel)]="section.image" 
+						#image=ngModel 
+						required />
+					<div *ngIf="f.submitted && !image.valid" class="help-block">			
+						{{'section-dialog.imageRequire'|translate}}
+					</div>
+				</fieldset>
 			</div>
-		</fieldset>
-					
-		<fieldset>
-			<label for="description" *ngIf="section.description">{{'section-dialog.description'|translate}}</label>
-			<input type="text"
-				placeholder="{{'section-dialog.description'|translate}}"
-				name="description"
-				id="description"
-				[(ngModel)]="section.description"
-				#description=ngModel />
-		</fieldset>
-					
-		<fieldset [ngClass]="{'has-error': f.submitted && !image.valid}">
-			<label for="image" *ngIf="section.image">{{'section-dialog.image'|translate}}</label>
-			<input type="text"
-				placeholder="{{'section-dialog.image'|translate}}"
-				name="image"
-				id="image"
-				[(ngModel)]="section.image"
-				#image=ngModel
-				required />
-			<div *ngIf="f.submitted && !image.valid" class="help-block">				
-				{{'section-dialog.imageRequire'|translate}}				
-			</div>
-		</fieldset>
+			<div class="col" fxFlex="40" fxFlex.xs="55"> 
+				
+				<fieldset>
+					<mat-form-field>
+						<mat-select placeholder="{{'section-dialog.parentId'|translate}}" 
+							[(value)]="section.parentId" 
+							[disabled]="true" >
+							<mat-option>{{'section-dialog.none' | translate}}</mat-option>
+							<mat-option 
+								*ngFor="let sec of indexSections" 
+								value="{{sec.idKey}}" >
+								{{sec.name}}
+							</mat-option>
+						</mat-select>
+					</mat-form-field>
+				</fieldset>
+		
+				<fieldset [ngClass]="{'has-error': f.submitted && !name.valid}">
+					<label for="name" *ngIf="section.name">{{'section-dialog.name'|translate}}</label>
+					<input type="text"
+						placeholder="{{'section-dialog.name'|translate}}"
+						name="name"
+						id="name"
+						[(ngModel)]="section.name"
+						#name=ngModel
+						required />
+					<div *ngIf="f.submitted && !name.valid" class="help-block">	
+						{{'section-dialog.nameRequire'|translate}}						
+					</div>
+				</fieldset>
+							
+				<fieldset>
+					<label for="description" *ngIf="section.description">{{'section-dialog.description'|translate}}</label>
+					<input type="text"
+						placeholder="{{'section-dialog.description'|translate}}"
+						name="description"
+						id="description"
+						[(ngModel)]="section.description"
+						#description=ngModel />
+				</fieldset>
+			</div>	
+		</div>
 		
 	</mat-dialog-content>
 	<mat-dialog-actions>

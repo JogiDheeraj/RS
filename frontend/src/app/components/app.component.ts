@@ -18,4 +18,8 @@ export class AppComponent {
       || this.router.url.includes('manage');
   }
 
+  public showMailList() {
+    return this.router.url.includes('account')
+      || this.router.url.includes('manage');
+  }
 }

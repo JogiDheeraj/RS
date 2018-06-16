@@ -2,7 +2,7 @@
 	<app-menu></app-menu>
 	<app-page-header *ngIf="!showPageHeader()"></app-page-header>
 	<router-outlet></router-outlet>
-	<app-mail-list></app-mail-list>
+	<app-mail-list *ngIf="!showMailList()"></app-mail-list>
 	<app-footer></app-footer>
 </div>
 

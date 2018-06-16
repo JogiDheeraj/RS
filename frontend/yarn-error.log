@@ -1,22 +1,22 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\khaled\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js start
+  C:\Program Files\nodejs\node.exe C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js update
 
 PATH: 
-  C:/Program Files/Java/jdk1.8.0_161/bin/../jre/bin/server;C:/Program Files/Java/jdk1.8.0_161/bin/../jre/bin;C:/Program Files/Java/jdk1.8.0_161/bin/../jre/lib/amd64;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_161\bin;C:\Program Files\nodejs\;C:\Users\khaled\AppData\Local\Microsoft\WindowsApps;C:\Users\khaled\AppData\Roaming\npm;C:\Users\khaled\Desktop;
+  C:/Program Files/Java/jre1.8.0_121/bin/server;C:/Program Files/Java/jre1.8.0_121/bin;C:/Program Files/Java/jre1.8.0_121/lib/amd64;C:\Program Files\Java\jdk1.8.0_121\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\wamp\bin\php\php7.0.10;C:\ProgramData\ComposerSetup\bin;C:\Users\weeam\Desktop\Case Study - PHP\vendor\bin;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\CodeBlocks\MinGW\bin;E:\hadoop-2.6.2\bin;E:\hadoop-2.6.2\sbin;E:\hadoop-2.6.2\share\hadoop\common\*;E:\hadoop-2.6.2\share\hadoop\hdfs;E:\hadoop-2.6.2\share\hadoop\hdfs\lib\*;E:\hadoop-2.6.2\share\hadoop\hdfs\*;E:\hadoop-2.6.2\share\hadoop\yarn\lib\*;E:\hadoop-2.6.2\share\hadoop\yarn\*;E:\hadoop-2.6.2\share\hadoop\mapreduce\lib\*;E:\hadoop-2.6.2\share\hadoop\mapreduce\*;E:\hadoop-2.6.2\share\hadoop\common\lib\*;C:\HashiCorp\Vagrant\bin;C:\Program Files\PuTTY\;C:\Program Files\Apatch\maven\bin;C:\Program Files\MongoDB\Server\3.4\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\nodejs\;;C:\WINDOWS\System32\OpenSSH\;C:\Users\weeam\AppData\Local\Microsoft\WindowsApps;C:\Users\weeam\AppData\Roaming\Composer\vendor\bin;C:\Users\weeam\AppData\Roaming\npm;;C:\Users\weeam\Desktop;
 
 Yarn version: 
   1.5.1
 
 Node version: 
-  8.11.1
+  8.9.4
 
 Platform: 
   win32 x64
 
 npm manifest: 
   {
-    "name": "elearning-frontend",
-    "version": "0.0.0",
+    "name": "frontend",
+    "version": "0.0.1",
     "license": "MIT",
     "scripts": {
       "ng": "ng",
@@ -29,6 +29,7 @@ npm manifest:
     },
     "private": true,
     "dependencies": {
+      "@angular-redux/store": "^7.1.0",
       "@angular/animations": "^5.2.9",
       "@angular/cdk": "^5.2.4",
       "@angular/common": "^5.2.0",
@@ -48,6 +49,7 @@ npm manifest:
       "hammerjs": "^2.0.8",
       "ngx-carousel": "^1.3.5",
       "npm": "^5.8.0",
+      "redux": "^3.7.0",
       "rxjs": "^5.5.6",
       "zone.js": "^0.8.19"
     },
@@ -107,6 +109,10 @@ Lockfile:
     dependencies:
       "@ngtools/json-schema" "^1.1.0"
       rxjs "^5.5.6"
+  
+  "@angular-redux/store@^7.1.0":
+    version "7.1.1"
+    resolved "https://registry.yarnpkg.com/@angular-redux/store/-/store-7.1.1.tgz#eb94e23e341b4818e55318606d0649eac2b79897"
   
   "@angular/animations@^5.2.9":
     version "5.2.9"
@@ -4556,6 +4562,10 @@ Lockfile:
     version "1.0.3"
     resolved "https://registry.yarnpkg.com/lockfile/-/lockfile-1.0.3.tgz#2638fc39a0331e9cac1a04b71799931c9c50df79"
   
+  lodash-es@^4.2.1:
+    version "4.17.10"
+    resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.10.tgz#62cd7104cdf5dd87f235a837f0ede0e8e5117e05"
+  
   lodash._arraycopy@^3.0.0:
     version "3.0.0"
     resolved "https://registry.yarnpkg.com/lodash._arraycopy/-/lodash._arraycopy-3.0.0.tgz#76e7b7c1f1fb92547374878a562ed06a3e50f6e1"
@@ -4647,6 +4657,10 @@ Lockfile:
     version "4.17.5"
     resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
   
+  lodash@^4.2.1:
+    version "4.17.10"
+    resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
+  
   log4js@^2.3.9:
     version "2.5.3"
     resolved "https://registry.yarnpkg.com/log4js/-/log4js-2.5.3.tgz#38bb7bde5e9c1c181bd75e8bc128c5cd0409caf1"
@@ -4682,7 +4696,7 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
   
-  loose-envify@^1.0.0:
+  loose-envify@^1.0.0, loose-envify@^1.1.0:
     version "1.3.1"
     resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.3.1.tgz#d1a8ad33fa9ce0e713d65fdd0ac8b748d478c848"
     dependencies:
@@ -6501,6 +6515,15 @@ Lockfile:
       redis-commands "^1.2.0"
       redis-parser "^2.6.0"
   
+  redux@^3.7.0:
+    version "3.7.2"
+    resolved "https://registry.yarnpkg.com/redux/-/redux-3.7.2.tgz#06b73123215901d25d065be342eb026bc1c8537b"
+    dependencies:
+      lodash "^4.2.1"
+      lodash-es "^4.2.1"
+      loose-envify "^1.1.0"
+      symbol-observable "^1.0.3"
+  
   reflect-metadata@^0.1.2:
     version "0.1.12"
     resolved "https://registry.yarnpkg.com/reflect-metadata/-/reflect-metadata-0.1.12.tgz#311bf0c6b63cd782f228a81abe146a2bfa9c56f2"
@@ -7629,7 +7652,7 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.0.1.tgz#8340fc4702c3122df5d22288f88283f513d3fdd4"
   
-  symbol-observable@^1.0.1:
+  symbol-observable@^1.0.1, symbol-observable@^1.0.3:
     version "1.2.0"
     resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
   
@@ -8690,17 +8713,14 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.20.tgz#a218c48db09464b19ff6fc8f0d4bb5b1046e185d"
 
 Trace: 
-  Error: Command failed.
-  Exit code: 3221225786
-  Command: C:\WINDOWS\system32\cmd.exe
-  Arguments: /d /s /c ng serve --proxy-config proxy.conf.json
-  Directory: C:\Users\khaled\workspace\elearning\frontend
-  Output:
-  
-      at ProcessTermError.MessageError (C:\Users\khaled\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
-      at new ProcessTermError (C:\Users\khaled\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:226:113)
-      at ChildProcess.<anonymous> (C:\Users\khaled\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:30281:17)
-      at emitTwo (events.js:126:13)
-      at ChildProcess.emit (events.js:214:7)
-      at maybeClose (internal/child_process.js:925:16)
-      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
+  Error: Command "update" not found.
+      at new MessageError (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
+      at C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:87307:17
+      at Generator.next (<anonymous>)
+      at step (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:98:30)
+      at C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:116:14
+      at new Promise (<anonymous>)
+      at new F (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:23451:28)
+      at C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:95:12
+      at runCommand (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:87312:22)
+      at Object.<anonymous> (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:87412:14)

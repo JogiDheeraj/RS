@@ -34,7 +34,7 @@ textarea {
     padding: 0px 2px;
     padding-top: 15px;
     padding-bottom: 1px;
-    width: 100%;
+    width: calc(100% - 4px);
     margin: 0 auto;
     border: none;
     background-color: transparent;
