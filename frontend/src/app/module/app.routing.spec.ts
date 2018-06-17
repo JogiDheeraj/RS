@@ -14,8 +14,8 @@ describe('Router: App', () => {
   let location: Location;
   let router: Router;
   let fixture;
-  let r = new RoutingModule();
-  let appRoutes = r.getappRoutes();
+  const r = new RoutingModule();
+  const appRoutes = r.getappRoutes();
 
   beforeEach(() => {
     TestBed.configureTestingModule({

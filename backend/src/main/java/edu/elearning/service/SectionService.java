@@ -21,7 +21,11 @@ public class SectionService extends UUIDService {
 		} else {
 			section.setId(this.findOne(section.getIdKey()).getId());
 		}
-		section.setSeoName(section.getName().replaceAll("[-+.^:,]","").replaceAll(" ", "_").toLowerCase());
+		section.setSeoName(section.getName()
+				.replaceAll("[-+.^:,]", "")
+				.replaceAll(" ", "_")
+				.toLowerCase()
+				);
 		sectionRepository.save(section);
 	}
 

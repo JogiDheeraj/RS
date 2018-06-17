@@ -1,6 +1,6 @@
 
 <form name="form" class="section-dialog" 
-	dir="{{document.dir}}" 
+	[dir]="document.dir" 
 	(ngSubmit)="f.form.valid && submitform()" 
 	#f="ngForm" 
 	novalidate >
