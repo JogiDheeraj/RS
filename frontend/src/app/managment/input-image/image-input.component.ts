@@ -22,7 +22,7 @@ export class ImageInputComponent {
 
     dialogRef.afterClosed().subscribe(dialogresult => {
       if (dialogresult) {
-        this.imageChange.emit(dialogresult[0]);
+        this.imageChange.emit(dialogresult);
       }
     });
     

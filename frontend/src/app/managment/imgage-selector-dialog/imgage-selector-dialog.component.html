@@ -2,17 +2,18 @@
 	<mat-dialog-content>
 		<div class="responsive">
 			
-			<app-form-upload (imageUplouded)="imageUplouded($event)" ></app-form-upload>
+			<app-form-upload class="image" (imageUplouded)="imageUplouded($event)" ></app-form-upload>
 			
-			<div class="image" *ngFor="let file of files" (click)="imageSelecte()">
-			    <img src="{{'/api/files/' + file}}" alt="{{'/api/files/'+ file}}">
+			<div class="image" *ngFor="let file of files" >
+				<mat-checkbox [checked]="checkselected(file)" color="primary"></mat-checkbox>
+			    <img src="{{'/api/files/' + file}}" alt="{{'/api/files/'+ file}}" (click)="selecteImage(file)">
 			</div>
 			
 		</div>
 	</mat-dialog-content>
 	<mat-dialog-actions>
 		<fieldset class="control">
-		  	<button mat-raised-button color="primary" (click)="imageSelected()">
+		  	<button mat-raised-button color="primary" (click)="save()">
 		  		{{'section-dialog.send'|translate}}
 		  	</button>
 		  	<button mat-raised-button [mat-dialog-close]="false">

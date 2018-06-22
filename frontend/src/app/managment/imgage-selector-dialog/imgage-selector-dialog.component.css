@@ -6,24 +6,24 @@
 	padding: 0 6px;
 }
 
-.gallery .responsive{
-	overflow-y: scroll;
-	max-height: 500px;
-}
-
-.gallery fancy-image-uploader{
-	float: left;
-	width: 23% !important;
-    height: 160px !important;
-    margin: 6px;
-}
-
 .gallery .image {
     border: 1px solid #ccc;
-    margin: 5px;
+    margin: 4px;
     float: left;
-    width: 23%;
+    width: calc(25% - 14px);
     height: 160px;
+    position: relative;
+    padding: 2px 2px;
+}
+
+.gallery .image mat-checkbox{
+	display: block;
+    background: #fff;
+    position: absolute;
+    margin: 5px;
+    width: 20px;
+    height: 19px;
+    line-height: 1;
 }
 
 .gallery .image:hover {
@@ -41,15 +41,8 @@
     	max-width: 500px;
 	}
 	
-	.gallery fancy-image-uploader{
-		float: left;
-		width: 47% !important;
-		height: 250px !important;
-	}
-	
     .gallery .image {
-        width: 47%;
-        margin: 6px;
+        width: calc(50% - 14px);
         height: 250px;
     }
 }
@@ -60,15 +53,8 @@
 		max-width: 250px;
 	}
 	
-    .gallery fancy-image-uploader{
-		float: left;
-		width: 95% !important;
-		height: 200px !important;
-	}
-	
     .gallery .image {
-        width: 95%;
-        margin: 6px;
+        width: calc(100% - 14px);
         height: 200px;
     }
 }

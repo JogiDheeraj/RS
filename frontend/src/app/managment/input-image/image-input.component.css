@@ -5,6 +5,7 @@
 	background-color: aliceblue;
 	overflow: hidden;
 	position: relative;
+	border: 1px solid #09c;
 }
 
 .image-input img {

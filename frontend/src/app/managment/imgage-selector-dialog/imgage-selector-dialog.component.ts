@@ -14,6 +14,7 @@ import { FileService } from '../../services/file.service';
 export class ImgageSelectorDialogComponent implements OnInit {
   
   files: string[];
+  selected: string;
   
   constructor(
     public dialogRef: MatDialogRef<ImgageSelectorDialogComponent>,
@@ -31,12 +32,16 @@ export class ImgageSelectorDialogComponent implements OnInit {
     this.files.unshift(event);
   }
 
-  imageSelecte() {
-    
+  selecteImage(file:string) {
+    this.selected = file;
   }
   
-  imageSelected(){
-    
+  checkselected(file:string){
+    return file === this.selected;
+  }
+  
+  save(){
+    this.dialogRef.close(this.selected);
   }
 
 }
