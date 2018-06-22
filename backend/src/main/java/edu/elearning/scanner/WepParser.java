@@ -59,7 +59,7 @@ public class WepParser {
 		}
 	}
 
-	public boolean searchForArticle(Selectors selectors) {
+	public boolean searchForDocument(Selectors selectors) {
 		
 		if (this.htmlDocument == null) {
 			System.out.println("ERROR! Call crawl() before performing analysis on the document");
@@ -68,15 +68,19 @@ public class WepParser {
 		
 		for(String proparty: selectors.getProparties()) {
 			Elements e = htmlDocument.select(selectors.getPropertySelector(proparty));
-			switch (selectors.getPropertyType(proparty)) {
-				case STRING:
-					document.put(proparty , e.html());
-					break;
-				case KEYWORDS:
-					document.put(proparty , e.html());
-				//@Todo add the rest of properties type here
-				default:
-					document.put(proparty , e.html());
+			if(e.size() > 0) {
+				switch (selectors.getPropertyType(proparty)) {
+					case STRING:
+						document.put(proparty , e.html());
+						break;
+					case KEYWORDS:
+						document.put(proparty , e.html());
+					//@Todo add the rest of properties type here
+					default:
+						document.put(proparty , e.html());
+				}
+			} else {
+				return false;
 			}
 		}
 		
@@ -87,7 +91,7 @@ public class WepParser {
 		return this.links;
 	}
 
-	public BasicDBObject getArticle() {
+	public BasicDBObject getDocument() {
 		return this.document;
 	}
 }

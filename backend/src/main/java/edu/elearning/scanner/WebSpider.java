@@ -31,9 +31,9 @@ public class WebSpider {
 			
 			if (
 				parser.crawl(currentUrl) && 
-				parser.searchForArticle(selectors)
+				parser.searchForDocument(selectors)
 			) {
-				articleFound.add(parser.getArticle());
+				articleFound.add(parser.getDocument());
 			}
 			
 			pagesVisited.add(currentUrl);
