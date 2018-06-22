@@ -2,54 +2,10 @@
 	<mat-dialog-content>
 		<div class="responsive">
 			
-			<fancy-image-uploader [options]="options" (onUpload)="onUpload($event)"></fancy-image-uploader>	
+			<app-form-upload (imageUplouded)="imageUplouded($event)" ></app-form-upload>
 			
-			<div class="image" (click)="imageSelecte()">
-			    <img src="/assets/images/1113.jpg">
-			</div>
-			
-			<div class="image" (click)="imageSelecte()">
-			    <img src="/assets/images/1113.jpg">
-			</div>
-			
-			<div class="image" (click)="imageSelecte()">
-			    <img src="/assets/images/1113.jpg">
-			</div>
-			
-			<div class="image" (click)="imageSelecte()">
-			    <img src="/assets/images/1113.jpg">
-			</div>
-			
-			<div class="image" (click)="imageSelecte()">
-			    <img src="/assets/images/1113.jpg">
-			</div>
-			
-			<div class="image" (click)="imageSelecte()">
-			    <img src="/assets/images/1113.jpg">
-			</div>
-			
-			<div class="image" (click)="imageSelecte()">
-			    <img src="/assets/images/1113.jpg">
-			</div>
-			
-			<div class="image" (click)="imageSelecte()">
-			    <img src="/assets/images/1113.jpg">
-			</div>
-			
-			<div class="image" (click)="imageSelecte()">
-			    <img src="/assets/images/1113.jpg">
-			</div>
-			
-			<div class="image" (click)="imageSelecte()">
-			    <img src="/assets/images/1113.jpg">
-			</div>
-			
-			<div class="image" (click)="imageSelecte()">
-			    <img src="/assets/images/1113.jpg">
-			</div>
-			
-			<div class="image" (click)="imageSelecte()">
-			    <img src="/assets/images/1113.jpg">
+			<div class="image" *ngFor="let file of files" (click)="imageSelecte()">
+			    <img src="{{'/api/files/' + file}}" alt="{{'/api/files/'+ file}}">
 			</div>
 			
 		</div>
@@ -57,10 +13,10 @@
 	<mat-dialog-actions>
 		<fieldset class="control">
 		  	<button mat-raised-button color="primary" (click)="imageSelected()">
-		  			{{'section-dialog.send'|translate}}
+		  		{{'section-dialog.send'|translate}}
 		  	</button>
 		  	<button mat-raised-button [mat-dialog-close]="false">
-		  			{{'section-dialog.cansel'|translate}}
+		  		{{'section-dialog.cansel'|translate}}
 		  	</button>
 		</fieldset>
 	</mat-dialog-actions>

@@ -1,0 +1,13 @@
+<div class="form-upload">
+
+	<label class="file">
+	  <input #myInput type="file" (change)="selectFile($event)">
+	</label>
+	 
+	<button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
+	
+	<div *ngIf="currentFileUpload" class="progress">
+	    <mat-progress-bar mode="buffer" [value]="progress.percentage"></mat-progress-bar>
+	</div>
+
+</div>

@@ -1,0 +1,9 @@
+<div class="image" class="image-input">
+	<img alt="" *ngIf="image" src="{{image}}" alt="{{image}}">
+	<div class="selector" (click)="changeImage()">
+		<mat-icon>add_photo_alternate</mat-icon>
+		<div *ngIf="!image">{{'input-image.select' | translate}}</div>
+		<div *ngIf="image">{{'input-image.change' | translate}}</div>
+	</div>
+</div>
+

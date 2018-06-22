@@ -15,8 +15,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
-
-import { FancyImageUploaderModule } from 'ng2-fancy-image-uploader';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   imports: [
@@ -35,7 +34,7 @@ import { FancyImageUploaderModule } from 'ng2-fancy-image-uploader';
     MatPaginatorModule,
     MatDialogModule,
     MatSelectModule,
-    FancyImageUploaderModule
+    MatProgressBarModule
   ],
   exports: [
     FlexLayoutModule,
@@ -53,7 +52,7 @@ import { FancyImageUploaderModule } from 'ng2-fancy-image-uploader';
     MatPaginatorModule,
     MatDialogModule,
     MatSelectModule,
-    FancyImageUploaderModule
+    MatProgressBarModule
   ],
 })
 export class CustomMaterialModule { }

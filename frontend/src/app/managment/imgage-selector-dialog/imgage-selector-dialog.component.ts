@@ -1,10 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DOCUMENT } from '@angular/platform-browser';
-import { FancyImageUploaderOptions, UploadedFile } from 'ng2-fancy-image-uploader';
 
 import { SectionService } from '../../services/section.service';
 import { Section } from '../../model/model.section';
+import { FileService } from '../../services/file.service';
 
 @Component({
   selector: 'app-imgage-selector-dialog',
@@ -12,31 +12,23 @@ import { Section } from '../../model/model.section';
   styleUrls: ['./imgage-selector-dialog.component.css']
 })
 export class ImgageSelectorDialogComponent implements OnInit {
-
-  options: FancyImageUploaderOptions = {
-      thumbnailHeight: 150,
-      thumbnailWidth: 150,
-      uploadUrl: '/upload',
-      allowedImageTypes: ['image/png', 'image/jpeg'],
-      maxImageSize: 500
-  };
+  
+  files: string[];
   
   constructor(
     public dialogRef: MatDialogRef<ImgageSelectorDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Section,
-    @Inject(DOCUMENT) public document: Document
+    private filesService: FileService
   ) { }
 
   ngOnInit(): void {
-    
-  }
-
-  onNoClick(): void {
-    
+      this.filesService.getFiles()
+        .subscribe( (results) => {
+          this.files = results['result'];
+      });
   }
   
-  onUpload(file: UploadedFile) {
-    console.log(file.response);
+  imageUplouded(event){
+    this.files.unshift(event);
   }
 
   imageSelecte() {
