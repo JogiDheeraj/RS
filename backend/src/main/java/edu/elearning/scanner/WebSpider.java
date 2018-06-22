@@ -1,58 +1,54 @@
 package edu.elearning.scanner;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
+import java.util.Queue;
 
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+import org.springframework.stereotype.Service;
 
-import edu.elearning.model.Article;
+import com.mongodb.BasicDBObject;
 
+@Service
 public class WebSpider {
-
-	private static final int MAX_PAGES_TO_SEARCH = 100000;
-	private Set<String> pagesVisited = new HashSet<String>();
-	private List<String> pagesToVisit = new LinkedList<String>();
-
-	Selectors selectors;
-
+	
+	
 	public void sannWebSide(String mainUrl, Selectors selectors) {
 		
-		List<Article> articleFound = new ArrayList<Article>();
+		List<String> pagesVisited = new ArrayList<String>();
+		Queue<String> pagesToVisit = new LinkedList<String>();
 		
-		while (this.pagesVisited.size() < MAX_PAGES_TO_SEARCH) {
-			String currentUrl;
-			SpiderLeg leg = new SpiderLeg();
-			if (this.pagesToVisit.isEmpty()) {
-				currentUrl = mainUrl;
-				this.pagesVisited.add(mainUrl);
-			} else {
-				currentUrl = this.nextUrl();
-			}
-			leg.crawl(currentUrl);
+		List<BasicDBObject> articleFound = new ArrayList<BasicDBObject>();
+		pagesToVisit.add(mainUrl);
+		
+		String currentUrl;
+		WepParser parser;
+		
+		while (pagesToVisit.size() > 0) {
 			
-			if (leg.searchForArticle(selectors)) {
-				articleFound.add(leg.getArticle());
+			parser = new WepParser(mainUrl);
+			currentUrl = pagesToVisit.poll();
+			
+			if (
+				parser.crawl(currentUrl) && 
+				parser.searchForArticle(selectors)
+			) {
+				articleFound.add(parser.getArticle());
 			}
 			
-			this.pagesToVisit.addAll(leg.getLinks());
+			pagesVisited.add(currentUrl);
+			
+			for(int i=0; i < parser.getLinks().size() ;i++) {
+				if(!pagesVisited.contains(parser.getLinks().get(i))) {
+					pagesToVisit.add(parser.getLinks().get(i));
+				}
+			}
 		}
-		System.out.println("\n**Done** Visited " + this.pagesVisited.size() + " web page(s)");
+		
+		System.out.println("\n**Done** Visited " + pagesVisited.size() + " web page(s)");
 	}
-
-	private String nextUrl() {
-		String nextUrl;
-		do {
-			nextUrl = this.pagesToVisit.remove(0);
-		} while (this.pagesVisited.contains(nextUrl));
-		this.pagesVisited.add(nextUrl);
-		return nextUrl;
-	}
+	
+	
 	
 }
 

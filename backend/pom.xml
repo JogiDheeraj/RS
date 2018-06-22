@@ -26,9 +26,16 @@
 			<version>${project.parent.version}</version>
 		</dependency>
 
-		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-actuator</artifactId> 
-			</dependency> <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-actuator-docs</artifactId> 
-			</dependency> -->
+		<!-- 
+		 <dependency> 
+			<groupId>org.springframework.boot</groupId> 
+			<artifactId>spring-boot-starter-actuator</artifactId> 
+		</dependency> 
+		<dependency> 
+			<groupId>org.springframework.boot</groupId> 
+			<artifactId>spring-boot-actuator-docs</artifactId> 
+		</dependency>
+		-->
 
 		<!-- This is a web application -->
 		<dependency>

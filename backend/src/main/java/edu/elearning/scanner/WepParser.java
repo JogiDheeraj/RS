@@ -11,16 +11,20 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import edu.elearning.model.Article;
+import com.mongodb.BasicDBObject;
 
-public class SpiderLeg {
+public class WepParser {
 	
 	private static final String USER_AGENT = 
 			"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1";
 	private List<String> links = new LinkedList<String>();
 	private Document htmlDocument;
+	private String mainUrl;
+	private BasicDBObject document;
 	
-	private Article article;
+	public WepParser(String mainUrl) {
+		this.mainUrl = mainUrl;
+	}
 
 	public boolean crawl(String url) {
 		try {
@@ -41,14 +45,12 @@ public class SpiderLeg {
 			Elements linksOnPage = htmlDocument.select("a[href]");
 			System.out.println("Found (" + linksOnPage.size() + ") links");
 			for (Element link : linksOnPage) {
-				
-//				if (link.attr("href").toLowerCase().contains(mainUrl.toLowerCase())
-//						|| !link.attr("href").toLowerCase().contains("http://")
-//						|| !link.attr("href").toLowerCase().contains("https://")
-//				) {
-//					this.links.add(link.absUrl("href"));
-//				}
-				this.links.add(link.absUrl("href"));
+				if (
+					!link.absUrl("href").isEmpty() &&
+					link.absUrl("href").toLowerCase().contains(mainUrl.toLowerCase())
+				) {
+					this.links.add(link.absUrl("href"));
+				}
 			}
 			
 			return true;
@@ -58,21 +60,24 @@ public class SpiderLeg {
 	}
 
 	public boolean searchForArticle(Selectors selectors) {
+		
 		if (this.htmlDocument == null) {
 			System.out.println("ERROR! Call crawl() before performing analysis on the document");
 			return false;
 		}
-		//System.out.println("Searching for the word " + searchWord + "...");
-		//String bodyText = this.htmlDocument.body().text();
-		//bodyText.toLowerCase().contains(searchWord.toLowerCase());
 		
-		String title = htmlDocument.title();
-		Elements images = htmlDocument.select("img[src~=(?i)\\.(png|jpe?g|gif)]");
-		for (Element image : images) {
-			System.out.println("\nsrc : " + image.attr("src"));
-			System.out.println("height : " + image.attr("height"));
-			System.out.println("width : " + image.attr("width"));
-			System.out.println("alt : " + image.attr("alt"));
+		for(String proparty: selectors.getProparties()) {
+			Elements e = htmlDocument.select(selectors.getPropertySelector(proparty));
+			switch (selectors.getPropertyType(proparty)) {
+				case STRING:
+					document.put(proparty , e.html());
+					break;
+				case KEYWORDS:
+					document.put(proparty , e.html());
+				//@Todo add the rest of properties type here
+				default:
+					document.put(proparty , e.html());
+			}
 		}
 		
 		return true;
@@ -82,7 +87,7 @@ public class SpiderLeg {
 		return this.links;
 	}
 
-	public Article getArticle() {
-		return this.article;
+	public BasicDBObject getArticle() {
+		return this.document;
 	}
 }
