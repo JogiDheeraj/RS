@@ -2,8 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DOCUMENT } from '@angular/platform-browser';
 
-import { SectionService } from '../../services/section.service';
-import { Section } from '../../model/model.section';
+import { SectionService } from '../../../services/section.service';
+import { Section } from '../../../model/model.section';
 
 @Component({
   selector: 'app-section-edit-dialog',

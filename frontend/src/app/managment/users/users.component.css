@@ -1,0 +1,12 @@
+.account-users .card-account-users{
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+.account-users mat-cell a{
+	display: inline-block;
+    height: 28px;
+    width: 28px;
+    text-align: center;
+    margin: 2px;
+}

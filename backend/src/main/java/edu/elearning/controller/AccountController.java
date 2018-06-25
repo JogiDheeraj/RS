@@ -1,9 +1,12 @@
 package edu.elearning.controller;
 
 import java.security.Principal;
+import java.util.Date;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,7 +24,7 @@ import edu.elearning.util.JsonResponseBody;
 @RequestMapping("/account")
 public class AccountController {
 	
-	//public static final Logger logger = LoggerFactory.getLogger(AccountController.class);
+	public static final Logger logger = LoggerFactory.getLogger(AccountController.class);
 
 	@Autowired
 	private UserService userService;
@@ -44,13 +47,14 @@ public class AccountController {
 
 		if (userService.findbyUserName(user.getUsername()) != null
 				|| userService.findbyUserEmail(user.getEmail()) != null) {
-			//logger.error("Username Already exist " + user.getUsername());
+			logger.error("Username Already exist " + user.getUsername());
 			response.setStatus(HttpResponceStatus.FAIL);
 			response.setMessage("username_exist");
 			return response;
 		}
 
 		user.setRole("USER");
+		user.setRegistrationDate(new Date());
 		userService.save(user);
 		response.setStatus(HttpResponceStatus.SUCCESS);
 		response.setMessage("username_created");

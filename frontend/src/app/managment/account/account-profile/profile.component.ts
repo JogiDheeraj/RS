@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { NgRedux, select } from '@angular-redux/store';
 import { Observable } from 'rxjs/Observable';
 
-import { User } from "../../model/model.user";
-import { IAppState } from '../../model/redux.store';
+import { User } from "../../../model/model.user";
+import { IAppState } from '../../../model/redux.store';
 
 @Component({
   selector: 'app-profile',

@@ -30,17 +30,17 @@ import { ContactComponent } from '../components/contact/contact.component';
 import { BlogComponent } from '../components/blog/blog.component';
 import { QuikSearchComponent } from '../components/menu/quik-search/quik-search.component';
 import { AccountComponent } from "../managment/account/account.component";
-import { AccountHeaderComponent } from "../managment/account-header/account-header.component";
-import { AccountIndexComponent } from "../managment/account-index/account-index.component";
-import { AccountMenuComponent } from '../managment/account-menu/account-menu.component';
-import { MyAdvComponent } from '../managment/my-adv/my-adv.component';
-import { NewAdvComponent } from '../managment/new-adv/new-adv.component';
-import { ProfileComponent } from '../managment/profile/profile.component';
-import { SectionsComponent } from '../managment/sections/sections.component';
-import { SecurityComponent } from '../managment/security/security.component';
+import { AccountHeaderComponent } from "../managment/account/account-header/account-header.component";
+import { AccountIndexComponent } from "../managment/account/account-index/account-index.component";
+import { AccountMenuComponent } from '../managment/account/account-menu/account-menu.component';
+import { MyAdvComponent } from '../managment/articles/my-adv/my-adv.component';
+import { NewAdvComponent } from '../managment/articles/new-adv/new-adv.component';
+import { ProfileComponent } from '../managment/account/account-profile/profile.component';
+import { SectionsComponent } from '../managment/section/sections/sections.component';
+import { SecurityComponent } from '../managment/account/account-security/security.component';
 import { SettingsComponent } from '../managment/settings/settings.component';
 import { UsersComponent } from '../managment/users/users.component';
-import { SectionEditDialogComponent } from '../managment/section-edit-dialog/section-edit-dialog.component';
+import { SectionEditDialogComponent } from '../managment/section/section-edit-dialog/section-edit-dialog.component';
 import { ConfirmDialogComponent } from '../managment/confirm-dialog/confirm-dialog.component';
 import { ImageInputComponent } from '../managment/input-image/image-input.component';
 import { FormUploadComponent } from '../managment/form-upload/form-upload.component';
@@ -52,6 +52,7 @@ import { AccountService } from "../services/account.service";
 import { WindowsProviders } from "../services/window.service";
 import { SectionService } from '../services/section.service';
 import { FileService } from '../services/file.service';
+import { UserService } from '../services/users.service';
 
 //application Pipes import
 import { TimeStampPipe } from '../pipes/timeStamp';
@@ -147,7 +148,8 @@ export function createTranslateLoader(http: HttpClient) {
     AccountService,
     SectionService,
     AclResolve,
-    FileService
+    FileService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

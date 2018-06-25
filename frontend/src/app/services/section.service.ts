@@ -1,13 +1,10 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { NgRedux } from '@angular-redux/store';
+
 import { Observable } from 'rxjs/Observable';
 import { shareReplay } from 'rxjs/operators';
 
-
 import { Section } from '../model/model.section';
-import { IAppState } from '../model/redux.store';
-import { AppActions } from '../module/app.actions';
 
 @Injectable()
 export class SectionService {

@@ -2,6 +2,7 @@ package edu.elearning.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 
@@ -42,6 +43,9 @@ public class User extends BaseModel implements UserDetails {
 	private String lastName;
 	
 	@Field
+	private Date registrationDate;
+	
+	@Field
 	@NotNull(message = "email_empty")
 	private String email;
 	
@@ -56,14 +60,6 @@ public class User extends BaseModel implements UserDetails {
 
 	public User() {
 
-	}
-
-	public User(String username, String password, String firstName, String lastName, String email) {
-		this.username = username;
-		this.password = password;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
 	}
 
 	@JsonIgnore
@@ -143,6 +139,14 @@ public class User extends BaseModel implements UserDetails {
 		this.accountNonExpired = accountNonExpired;
 	}
 	
+	public Date getRegistrationDate() {
+		return registrationDate;
+	}
+
+	public void setRegistrationDate(Date registrationDate) {
+		this.registrationDate = registrationDate;
+	}
+
 	public boolean isEnabled() {
 		return enabled;
 	}

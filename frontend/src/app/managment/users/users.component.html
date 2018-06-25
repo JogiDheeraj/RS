@@ -1,3 +1,54 @@
-<p>
-  users works!
-</p>
+<div class="account-users">
+	<div class="container">
+		
+		<mat-card class="card-account-users">
+			<mat-card-content>
+				<a class="warn" (click)="newUser()"><mat-icon>add_circle_outline</mat-icon></a>
+				<mat-table class="managed-table" #table [dataSource]="users">
+					
+					<ng-container matColumnDef="username">
+						<mat-header-cell *matHeaderCellDef>{{'account-users.username' | translate}}</mat-header-cell>
+						<mat-cell *matCellDef='let user'>{{user.username}}</mat-cell>						
+					</ng-container>
+					
+					<ng-container matColumnDef="email">
+						<mat-header-cell *matHeaderCellDef>{{'account-users.email' | translate}}</mat-header-cell>
+						<mat-cell *matCellDef='let user'>{{user.email}}</mat-cell>						
+					</ng-container>
+					
+					<ng-container matColumnDef="role">
+						<mat-header-cell *matHeaderCellDef>{{'account-users.role' | translate}}</mat-header-cell>
+						<mat-cell *matCellDef='let user'>{{user.role}}</mat-cell>						
+					</ng-container>
+					
+					<ng-container matColumnDef="registrationDate">
+						<mat-header-cell *matHeaderCellDef>{{'account-users.registrationDate' | translate}}</mat-header-cell>
+						<mat-cell *matCellDef='let user'>{{user.registrationDate}}</mat-cell>						
+					</ng-container>
+					
+					<ng-container matColumnDef="options">
+						<mat-header-cell *matHeaderCellDef>{{'account-users.options' | translate}}</mat-header-cell>
+						<mat-cell *matCellDef='let user'>
+							<a class="warn" (click)="deleteSection(user.idKey.id)"><mat-icon>delete_forever</mat-icon></a>
+							<a class="primary" (click)="editUser(user)"><mat-icon>open_in_browser</mat-icon></a>
+						</mat-cell>
+					</ng-container>
+					
+					<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+				    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+				    
+				</mat-table>
+				
+				<mat-paginator
+			  		[length]="totalCount"
+			  		[pageSize]="pageSize"
+			  		[showFirstLastButtons]= "true"
+			  		[pageSizeOptions]="pageSizeOptions"
+			  		(page)="changePage($event)"> 
+			  	</mat-paginator>
+				
+			</mat-card-content>
+		</mat-card>
+	</div>
+
+</div>

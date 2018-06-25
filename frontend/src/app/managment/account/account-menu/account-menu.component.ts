@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgRedux, select } from '@angular-redux/store';
 import { Observable } from 'rxjs/Observable';
 
-import { User } from '../../model/model.user';
-import { IAppState } from '../../model/redux.store';
-import { AuthService } from '../../services/auth.service';
+import { User } from '../../../model/model.user';
+import { IAppState } from '../../../model/redux.store';
+import { AuthService } from '../../../services/auth.service';
 
 
 @Component({

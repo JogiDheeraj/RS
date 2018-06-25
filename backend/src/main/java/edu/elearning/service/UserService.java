@@ -1,6 +1,8 @@
 package edu.elearning.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import edu.elearning.model.User;
@@ -27,8 +29,16 @@ public class UserService extends UUIDService {
 	public User findbyUserEmail(String userEmail) {
 		return userRepository.findOneByEmail(userEmail);
 	}
+	
+	public Page<User> findAll(String siteVariant, int pageIndex, int pageSize) {
+		return userRepository.findAll(siteVariant, new PageRequest(pageIndex, pageSize));
+	}
 
-	public User find(CompositeKey id) {
+	public User findOne(CompositeKey id) {
 		return userRepository.findOne(id);
+	}
+	
+	public void delete(CompositeKey id) {
+		userRepository.delete(id);
 	}
 }

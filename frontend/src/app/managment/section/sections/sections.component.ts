@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 
-import { SectionService } from '../../services/section.service';
-import { Section } from '../../model/model.section';
+import { SectionService } from '../../../services/section.service';
+import { Section } from '../../../model/model.section';
 import { SectionEditDialogComponent } from '../section-edit-dialog/section-edit-dialog.component';
-import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { ConfirmDialogComponent } from '../../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-sections',
