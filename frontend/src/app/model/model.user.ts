@@ -7,6 +7,8 @@ export class User {
   lastName: string;
   email: string;
   registrationDate: string;
+  accountNonLocked: boolean;
+  accountNonExpired: boolean;
   role: Role;
 }
 

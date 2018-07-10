@@ -127,11 +127,14 @@
 		"select": "Select Image",
 		"change": "Change Image"
 	},
-	"account-users":{
-		"username":"User Name",
+	"account-users": {
+		"username": "User Name",
 		"email": "Email",
 		"role": "Role",
 		"registrationDate": "Registration Date",
-		"options":"options"
+		"options": "Options",
+		"edit": "Edit Role",
+		"disactive": "Account Lock",
+		"active": "Account Unlock"
 	}
 }

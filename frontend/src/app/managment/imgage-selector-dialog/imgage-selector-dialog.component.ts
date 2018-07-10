@@ -1,10 +1,10 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { DOCUMENT } from '@angular/platform-browser';
+import {Component, OnInit, Inject} from '@angular/core';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {DOCUMENT} from '@angular/platform-browser';
 
-import { SectionService } from '../../services/section.service';
-import { Section } from '../../model/model.section';
-import { FileService } from '../../services/file.service';
+import {SectionService} from '../../services/section.service';
+import {Section} from '../../model/model.section';
+import {FileService} from '../../services/file.service';
 
 @Component({
   selector: 'app-imgage-selector-dialog',
@@ -12,35 +12,35 @@ import { FileService } from '../../services/file.service';
   styleUrls: ['./imgage-selector-dialog.component.css']
 })
 export class ImgageSelectorDialogComponent implements OnInit {
-  
+
   files: string[];
   selected: string;
-  
+
   constructor(
     public dialogRef: MatDialogRef<ImgageSelectorDialogComponent>,
     private filesService: FileService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-      this.filesService.getFiles()
-        .subscribe( (results) => {
-          this.files = results['result'];
+    this.filesService.getFiles()
+      .subscribe((results) => {
+        this.files = results['result'];
       });
   }
-  
-  imageUplouded(event){
+
+  imageUplouded(event) {
     this.files.unshift(event);
   }
 
-  selecteImage(file:string) {
+  selecteImage(file: string) {
     this.selected = file;
   }
-  
-  checkselected(file:string){
+
+  checkselected(file: string) {
     return file === this.selected;
   }
-  
-  save(){
+
+  save() {
     this.dialogRef.close(this.selected);
   }
 

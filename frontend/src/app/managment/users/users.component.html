@@ -29,8 +29,26 @@
 					<ng-container matColumnDef="options">
 						<mat-header-cell *matHeaderCellDef>{{'account-users.options' | translate}}</mat-header-cell>
 						<mat-cell *matCellDef='let user'>
-							<a class="warn" (click)="deleteSection(user.idKey.id)"><mat-icon>delete_forever</mat-icon></a>
-							<a class="primary" (click)="editUser(user)"><mat-icon>open_in_browser</mat-icon></a>
+							<a class="warn" (click)="disactive(user.idKey.id)" 
+								*ngIf="user.accountNonLocked"
+								matTooltip="{{'account-users.disactive' | translate}}"
+								matTooltipPosition="above"
+							>
+								<mat-icon>lock</mat-icon>
+							</a>
+							<a class="primary" (click)="disactive(user.idKey.id)" 
+								*ngIf="!user.accountNonLocked"
+								matTooltip="{{'account-users.active' | translate}}"
+								matTooltipPosition="above"
+							>
+								<mat-icon>lock_open</mat-icon>
+							</a>
+							<a class="primary" (click)="editUser(user)"
+								matTooltip="{{'account-users.edit' | translate}}"
+								matTooltipPosition="above"
+								>
+								<mat-icon>open_in_browser</mat-icon>
+							</a>
 						</mat-cell>
 					</ng-container>
 					

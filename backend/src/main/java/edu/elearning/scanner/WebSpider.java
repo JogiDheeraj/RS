@@ -4,17 +4,39 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.UUID;
 
-import org.springframework.stereotype.Service;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 
 import com.mongodb.BasicDBObject;
 
-@Service
-public class WebSpider {
+import edu.elearning.job.JobRunner;
+
+
+public class WebSpider extends JobRunner {
 	
+	private String mainUrl;
+	private Selectors selectors;
+
+	public WebSpider(
+			UUID jobID,
+			SimpMessagingTemplate template,
+			String mainUrl, 
+			Selectors selectors
+	) {
+		super(jobID, template);
+		this.mainUrl = mainUrl;
+		this.selectors = selectors;
+		this.sendProgress();
+	}
 	
-	public void sannWebSide(String mainUrl, Selectors selectors) {
+	@Override
+	public void run() {	
 		
+		// send WS RUNNING status for front end
+		this.state = "RUNNING";
+		this.sendProgress();
+				
 		List<String> pagesVisited = new ArrayList<String>();
 		Queue<String> pagesToVisit = new LinkedList<String>();
 		
@@ -45,10 +67,12 @@ public class WebSpider {
 			}
 		}
 		
-		System.out.println("\n**Done** Visited " + pagesVisited.size() + " web page(s)");
+		//System.out.println("\n**Done** Visited " + pagesVisited.size() + " web page(s)");
+		
+		// send WS DONE status for front end
+		this.state = "DONE";
+		this.sendProgress();
 	}
-	
-	
 	
 }
 

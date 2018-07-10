@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js update
+  C:\Program Files\nodejs\node.exe C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install stompjs
 
 PATH: 
-  C:/Program Files/Java/jre1.8.0_121/bin/server;C:/Program Files/Java/jre1.8.0_121/bin;C:/Program Files/Java/jre1.8.0_121/lib/amd64;C:\Program Files\Java\jdk1.8.0_121\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\wamp\bin\php\php7.0.10;C:\ProgramData\ComposerSetup\bin;C:\Users\weeam\Desktop\Case Study - PHP\vendor\bin;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\CodeBlocks\MinGW\bin;E:\hadoop-2.6.2\bin;E:\hadoop-2.6.2\sbin;E:\hadoop-2.6.2\share\hadoop\common\*;E:\hadoop-2.6.2\share\hadoop\hdfs;E:\hadoop-2.6.2\share\hadoop\hdfs\lib\*;E:\hadoop-2.6.2\share\hadoop\hdfs\*;E:\hadoop-2.6.2\share\hadoop\yarn\lib\*;E:\hadoop-2.6.2\share\hadoop\yarn\*;E:\hadoop-2.6.2\share\hadoop\mapreduce\lib\*;E:\hadoop-2.6.2\share\hadoop\mapreduce\*;E:\hadoop-2.6.2\share\hadoop\common\lib\*;C:\HashiCorp\Vagrant\bin;C:\Program Files\PuTTY\;C:\Program Files\Apatch\maven\bin;C:\Program Files\MongoDB\Server\3.4\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\nodejs\;;C:\WINDOWS\System32\OpenSSH\;C:\Users\weeam\AppData\Local\Microsoft\WindowsApps;C:\Users\weeam\AppData\Roaming\Composer\vendor\bin;C:\Users\weeam\AppData\Roaming\npm;;C:\Users\weeam\Desktop;
+  C:/Program Files/Java/jre1.8.0_121/bin/server;C:/Program Files/Java/jre1.8.0_121/bin;C:/Program Files/Java/jre1.8.0_121/lib/amd64;C:\Program Files\Java\jdk1.8.0_121\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\wamp\bin\php\php7.0.10;C:\ProgramData\ComposerSetup\bin;C:\Users\weeam\Desktop\Case Study - PHP\vendor\bin;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\CodeBlocks\MinGW\bin;E:\hadoop-2.6.2\bin;E:\hadoop-2.6.2\sbin;E:\hadoop-2.6.2\share\hadoop\common\*;E:\hadoop-2.6.2\share\hadoop\hdfs;E:\hadoop-2.6.2\share\hadoop\hdfs\lib\*;E:\hadoop-2.6.2\share\hadoop\hdfs\*;E:\hadoop-2.6.2\share\hadoop\yarn\lib\*;E:\hadoop-2.6.2\share\hadoop\yarn\*;E:\hadoop-2.6.2\share\hadoop\mapreduce\lib\*;E:\hadoop-2.6.2\share\hadoop\mapreduce\*;E:\hadoop-2.6.2\share\hadoop\common\lib\*;C:\Program Files\PuTTY\;C:\Program Files\Apatch\maven\bin;C:\Program Files\MongoDB\Server\3.4\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\nodejs\;;C:\WINDOWS\System32\OpenSSH\;C:\Users\weeam\AppData\Local\Microsoft\WindowsApps;C:\Users\weeam\AppData\Roaming\Composer\vendor\bin;C:\Users\weeam\AppData\Roaming\npm;;C:\Program Files\Microsoft VS Code\bin;C:\Users\weeam\Desktop;
 
 Yarn version: 
   1.5.1
@@ -38,7 +38,7 @@ npm manifest:
       "@angular/flex-layout": "^5.0.0-beta.14",
       "@angular/forms": "^5.2.0",
       "@angular/http": "^5.2.0",
-      "@angular/material": "^5.2.4",
+      "@angular/material": "5.2.4",
       "@angular/platform-browser": "^5.2.0",
       "@angular/platform-browser-dynamic": "^5.2.0",
       "@angular/router": "^5.2.0",
@@ -240,7 +240,7 @@ Lockfile:
     version "5.2.9"
     resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-5.2.9.tgz#4838bb6319c99e8f5beb08bdfb392ee9a1173766"
   
-  "@angular/material@^5.2.4":
+  "@angular/material@5.2.4":
     version "5.2.4"
     resolved "https://registry.yarnpkg.com/@angular/material/-/material-5.2.4.tgz#9e823798324283d23ea839156fac5bcb73443d55"
     dependencies:
@@ -8713,14 +8713,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.20.tgz#a218c48db09464b19ff6fc8f0d4bb5b1046e185d"
 
 Trace: 
-  Error: Command "update" not found.
+  Error: `install` has been replaced with `add` to add new dependencies. Run "yarn add stompjs" instead.
       at new MessageError (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
-      at C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:87307:17
+      at Object.<anonymous> (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:21987:13)
       at Generator.next (<anonymous>)
       at step (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:98:30)
-      at C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:116:14
-      at new Promise (<anonymous>)
-      at new F (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:23451:28)
-      at C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:95:12
-      at runCommand (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:87312:22)
-      at Object.<anonymous> (C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:87412:14)
+      at C:\Users\weeam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:109:13
+      at <anonymous>

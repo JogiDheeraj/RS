@@ -127,11 +127,14 @@
 		"select": "اختر صورة",
 		"change": "تغيرر الصورة"
 	},
-	"account-users":{
-		"username":"أسم المستخدم",
+	"account-users": {
+		"username": "أسم المستخدم",
 		"email": "البريد الالكتروني",
 		"role": "الصلاحية",
 		"registrationDate": "تاريخ التسجيل",
-		"options":"الخيارات"
+		"options": "الخيارات",
+		"edit": "تحرير الصلاحيات",
+		"disactive": "قفل الحساب",
+		"active": "فتح الحساب"
 	}
 }
