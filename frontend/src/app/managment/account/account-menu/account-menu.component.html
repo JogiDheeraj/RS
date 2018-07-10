@@ -29,49 +29,32 @@
 </div>
 
 <ng-template #accountMenuItemsTemplate>
+	
 	<button mat-button [routerLink]="['/account/home']" 
 		routerLinkActive="active">
 		{{'account-menu.home' | translate}}
 	</button>
 
 	<button mat-button [routerLink]="['/manage/users']" 
+		showforRoles="ADMIN"
 		routerLinkActive="active">
 		{{'account-menu.m-users' | translate}}
 	</button>
 
 	<button mat-button [routerLink]="['/manage/sections']" 
+		showforRoles="ADMIN"
 		routerLinkActive="active">
 		{{'account-menu.m-sections' | translate}}
 	</button>
 
-	<button mat-button [matMenuTriggerFor]="myAd">
+	<button mat-button [routerLink]="['/account/section/my']">
 		{{'account-menu.myAd' | translate}}
 	</button>
-	<mat-menu #myAd="matMenu">
-		<button mat-menu-item [routerLink]="['/account/section/my']" 
-			routerLinkActive="active">
-			العقارات
-		</button>
-		<button mat-menu-item [routerLink]="['/account/section/my']" 
-			routerLinkActive="active">الخدمات التجارية</button>
-		<button mat-menu-item [routerLink]="['/account/section/my']" 
-			routerLinkActive="active">الخدمات التعليمية</button>
-	</mat-menu>
-			  	
-	<button mat-button [matMenuTriggerFor]="newAd">
-		{{'account-menu.newAd' | translate}}
-	</button>
-	<mat-menu #newAd="matMenu">
-		<button mat-menu-item [routerLink]="['/account/section/new']" 
-			routerLinkActive="active">العقارات</button>
-		<button mat-menu-item [routerLink]="['/account/section/new']" 
-			routerLinkActive="active">الخدمات التجارية</button>
-		<button mat-menu-item [routerLink]="['/account/section/new']" 
-			routerLinkActive="active">الخدمات التعليمية</button>
-	</mat-menu>
 
-	<button mat-button [routerLink]="['/manage/settings']" 
-		routerLinkActive="active">
+	<button mat-button [routerLink]="['/manage/settings']"
+		showforRoles="ADMIN" 
+		routerLinkActive="active"
+		>
 		{{'account-menu.m-settings' | translate}}
 	</button>
 			
@@ -84,6 +67,7 @@
 			{{(user | async).lastname}}
 		</span> 
 	</button>
+	
 	<mat-menu #userMenu="matMenu">
 		<button mat-menu-item [routerLink]="['/account/profile']" 
 			routerLinkActive="active">
