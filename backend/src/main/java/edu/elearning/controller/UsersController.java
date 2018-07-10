@@ -37,15 +37,40 @@ public class UsersController {
 		return userService.findAll(request.getHeader("Host"), pageIndex, pageSize);
 	}
 	
-	
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public JsonResponseBody delete(
+	@RequestMapping(value = "/{id}/lock", method = RequestMethod.PUT)
+	public JsonResponseBody lock(
 			@PathVariable("id") CompositeKey id
-	) {
-		userService.delete(id);
+	) {	
 		JsonResponseBody response = new JsonResponseBody();
-		response.setStatus(HttpResponceStatus.SUCCESS);
-		response.setMessage("user_deleted");
+		User user = userService.findOne(id);
+		if(user != null) {
+			user.setAccountNonLocked(false);
+			userService.save(user);
+			response.setMessage("user_locked");
+			response.setStatus(HttpResponceStatus.SUCCESS);
+		} else {
+			response.setMessage("user_not_found");
+			response.setStatus(HttpResponceStatus.FAIL);
+		}
+		return response;
+	}
+	
+	
+	@RequestMapping(value = "/{id}/unlock", method = RequestMethod.PUT)
+	public JsonResponseBody unlock(
+			@PathVariable("id") CompositeKey id
+	) {	
+		JsonResponseBody response = new JsonResponseBody();
+		User user = userService.findOne(id);
+		if(user != null) {
+			user.setAccountNonLocked(true);
+			userService.save(user);
+			response.setMessage("user_unlocked");
+			response.setStatus(HttpResponceStatus.SUCCESS);
+		} else {
+			response.setMessage("user_not_found");
+			response.setStatus(HttpResponceStatus.FAIL);
+		}
 		return response;
 	}
 	
