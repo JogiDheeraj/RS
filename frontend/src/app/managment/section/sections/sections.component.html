@@ -24,8 +24,18 @@
 					<ng-container matColumnDef="options">
 						<mat-header-cell *matHeaderCellDef>{{'account-sections.options' | translate}}</mat-header-cell>
 						<mat-cell *matCellDef='let section'>
-							<a class="warn" (click)="deleteSection(section.idKey.id)"><mat-icon>delete_forever</mat-icon></a>
-							<a class="primary" (click)="editSection(section)"><mat-icon>open_in_browser</mat-icon></a>
+							<a class="warn" (click)="deleteSection(section.idKey.id)"
+								matTooltip="{{'account-sections.delete' | translate}}"
+								matTooltipPosition="above"
+							>
+								<mat-icon>delete_forever</mat-icon>
+							</a>
+							<a class="primary" (click)="editSection(section)"
+								matTooltip="{{'account-sections.edit' | translate}}"
+								matTooltipPosition="above"
+							>
+								<mat-icon>open_in_browser</mat-icon>
+							</a>
 						</mat-cell>
 					</ng-container>
 					

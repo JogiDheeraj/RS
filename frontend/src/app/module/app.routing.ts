@@ -16,6 +16,7 @@ import { SectionsComponent } from '../managment/section/sections/sections.compon
 import { SecurityComponent } from '../managment/account/account-security/security.component';
 import { SettingsComponent } from '../managment/settings/settings.component';
 import { UsersComponent } from '../managment/users/users.component';
+import { WebspiderComponent } from '../managment/webspider/webspider.component';
 import { AclResolve } from '../permission/acl.resolve';
 
 const appRoutes: Routes = [
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     children: [
       { path: 'sections', component: SectionsComponent, canActivate: [AclResolve] },
       { path: 'users', component: UsersComponent, canActivate: [AclResolve] },
-      { path: 'settings', component: SettingsComponent, canActivate: [AclResolve] }
+      { path: 'settings', component: SettingsComponent, canActivate: [AclResolve] },
+      { path: 'webspider', component: WebspiderComponent, canActivate: [AclResolve] }
     ]
   },
   //@todo change it with pageNotFound

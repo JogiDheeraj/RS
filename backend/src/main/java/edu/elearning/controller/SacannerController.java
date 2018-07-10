@@ -1,8 +1,8 @@
 package edu.elearning.controller;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import edu.elearning.job.Job;
 import edu.elearning.scanner.PropertyType;
 import edu.elearning.scanner.Selectors;
 import edu.elearning.scanner.WebSpider;
@@ -31,11 +31,11 @@ public class SacannerController {
 	@Autowired
 	private SimpMessagingTemplate template;
 	
-	private Map<UUID ,WebSpider> webspiderJobList = new HashMap<UUID, WebSpider>();
+	private Map<UUID , Job> webspiderJobList = new HashMap<UUID, Job>();
 	
 	@RequestMapping()
-	public Set<UUID> index() {
-		return webspiderJobList.keySet();
+	public Collection<Job> index() {
+		return webspiderJobList.values();
 	}
 	
 	@RequestMapping(value = "/execute/{id}", method = RequestMethod.GET)
@@ -67,7 +67,7 @@ public class SacannerController {
 	@RequestMapping(value = "/task-state")
 	@ResponseBody
 	@SubscribeMapping("initial")
-	public Map<UUID ,WebSpider> fetchStatus() {
+	public Map<UUID ,Job> fetchStatus() {
 		return this.webspiderJobList;
 	}
 	

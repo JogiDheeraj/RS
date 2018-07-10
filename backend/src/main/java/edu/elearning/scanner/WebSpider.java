@@ -1,6 +1,7 @@
 package edu.elearning.scanner;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -10,10 +11,10 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 
 import com.mongodb.BasicDBObject;
 
-import edu.elearning.job.JobRunner;
+import edu.elearning.job.Job;
 
 
-public class WebSpider extends JobRunner {
+public class WebSpider extends Job {
 	
 	private String mainUrl;
 	private Selectors selectors;
@@ -36,6 +37,7 @@ public class WebSpider extends JobRunner {
 		// send WS RUNNING status for front end
 		this.state = "RUNNING";
 		this.sendProgress();
+		this.started = new Date();
 				
 		List<String> pagesVisited = new ArrayList<String>();
 		Queue<String> pagesToVisit = new LinkedList<String>();
@@ -72,6 +74,7 @@ public class WebSpider extends JobRunner {
 		// send WS DONE status for front end
 		this.state = "DONE";
 		this.sendProgress();
+		this.ended = new Date();
 	}
 	
 }

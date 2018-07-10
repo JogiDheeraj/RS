@@ -45,6 +45,7 @@ import {ConfirmDialogComponent} from '../managment/confirm-dialog/confirm-dialog
 import {ImageInputComponent} from '../managment/input-image/image-input.component';
 import {FormUploadComponent} from '../managment/form-upload/form-upload.component';
 import {ImgageSelectorDialogComponent} from '../managment/imgage-selector-dialog/imgage-selector-dialog.component';
+import {WebspiderComponent} from '../managment/webspider/webspider.component';
 
 //application Service import
 import {AuthService} from "../services/auth.service";
@@ -53,6 +54,7 @@ import {WindowsProviders} from "../services/window.service";
 import {SectionService} from '../services/section.service';
 import {FileService} from '../services/file.service';
 import {UserService} from '../services/users.service';
+import {WebSpiderService} from '../services/webspider.service';
 
 //application Pipes import
 import {TimeStampPipe} from '../pipes/timeStamp';
@@ -63,6 +65,7 @@ import {CustomMaterialModule} from "./material.module";
 //application Directives import
 import {EqualValidatorDirective} from '../directives/equal-validator.directive';
 import {ForRolesDirective} from '../directives/is-admin.directive';
+
 import {IAppState, rootReducer, INITIAL_STATE} from '../model/redux.store';
 
 //application specials import
@@ -117,7 +120,8 @@ export function createTranslateLoader(http: HttpClient) {
     ImgageSelectorDialogComponent,
     QuikSearchComponent,
     ImageInputComponent,
-    FormUploadComponent
+    FormUploadComponent,
+    WebspiderComponent
   ],
   entryComponents: [
     SectionEditDialogComponent,
@@ -151,7 +155,8 @@ export function createTranslateLoader(http: HttpClient) {
     SectionService,
     AclResolve,
     FileService,
-    UserService
+    UserService,
+    WebSpiderService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,48 @@
+<div class="account-jobss">
+	<div class="container">
+		
+		<mat-card class="card-account-sections">
+			<mat-card-content>
+			
+				<mat-table class="managed-table" #table [dataSource]="jobs">
+					
+					<ng-container matColumnDef="jobID" sticky>
+						<mat-header-cell *matHeaderCellDef>{{'account-jobs.jobID' | translate}}</mat-header-cell>
+						<mat-cell *matCellDef='let job'>{{job.jobID}}</mat-cell>						
+					</ng-container>
+					
+					<ng-container matColumnDef="created">
+						<mat-header-cell *matHeaderCellDef>{{'account-jobs.created' | translate}}</mat-header-cell>
+						<mat-cell *matCellDef='let job'>{{job.created | timeStamp}}</mat-cell>						
+					</ng-container>
+					
+					<ng-container matColumnDef="started">
+						<mat-header-cell *matHeaderCellDef>{{'account-jobs.started' | translate}}</mat-header-cell>
+						<mat-cell *matCellDef='let job'>{{job.started | timeStamp}}</mat-cell>						
+					</ng-container>
+					
+					<ng-container matColumnDef="ended">
+						<mat-header-cell *matHeaderCellDef>{{'account-jobs.ended' | translate}}</mat-header-cell>
+						<mat-cell *matCellDef='let job'>{{job.ended | timeStamp}}</mat-cell>						
+					</ng-container>
+					
+					<ng-container matColumnDef="state">
+						<mat-header-cell *matHeaderCellDef>{{'account-jobs.state' | translate}}</mat-header-cell>
+						<mat-cell *matCellDef='let job'>{{job.state}}</mat-cell>					
+					</ng-container>
+					
+					<ng-container matColumnDef="options">
+						<mat-header-cell *matHeaderCellDef>{{'account-jobs.options' | translate}}</mat-header-cell>
+						<mat-cell *matCellDef='let job'>
+							
+						</mat-cell>
+					</ng-container>
+					
+					<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+				    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+					
+				</mat-table>
+			</mat-card-content>
+		</mat-card>
+	</div>
+</div>

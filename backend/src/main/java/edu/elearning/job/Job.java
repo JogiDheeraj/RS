@@ -1,17 +1,21 @@
 package edu.elearning.job;
 
+import java.util.Date;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 
-public abstract class JobRunner implements Runnable {
+public abstract class Job implements Runnable {
 
 	private SimpMessagingTemplate template;
 	public AtomicInteger progress = new AtomicInteger();
 	public String state = "NEW";
+	public Date created = new Date();
+	public Date started;
+	public Date ended;
 	public UUID jobID;
 
-	public JobRunner(UUID jobID, SimpMessagingTemplate template) {
+	public Job(UUID jobID, SimpMessagingTemplate template) {
 		this.template = template;
 		this.jobID = jobID;
 	}
@@ -34,4 +38,21 @@ public abstract class JobRunner implements Runnable {
 	public UUID getJobName() {
 		return jobID;
 	}
+
+	public Date getCreated() {
+		return created;
+	}
+
+	public Date getStarted() {
+		return started;
+	}
+
+	public Date getEnded() {
+		return ended;
+	}
+
+	public UUID getJobID() {
+		return jobID;
+	}
+	
 }

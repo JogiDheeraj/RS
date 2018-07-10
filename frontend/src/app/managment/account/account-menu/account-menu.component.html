@@ -36,7 +36,7 @@
 	</button>
 
 	<button mat-button [routerLink]="['/manage/users']" 
-		showforRoles="ADMIN"
+		showforRoles="ADMIN,EDITOR"
 		routerLinkActive="active">
 		{{'account-menu.m-users' | translate}}
 	</button>
@@ -46,8 +46,15 @@
 		routerLinkActive="active">
 		{{'account-menu.m-sections' | translate}}
 	</button>
+	
+	<button mat-button [routerLink]="['/manage/webspider']" 
+		showforRoles="ADMIN"
+		routerLinkActive="active">
+		{{'account-menu.m-spiders' | translate}}
+	</button>
 
-	<button mat-button [routerLink]="['/account/section/my']">
+	<button mat-button [routerLink]="['/manage/articles']"
+		showforRoles="USER">
 		{{'account-menu.myAd' | translate}}
 	</button>
 
