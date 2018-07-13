@@ -18,6 +18,7 @@ public class WebSpider extends Job {
 	
 	private String mainUrl;
 	private Selectors selectors;
+	
 
 	public WebSpider(
 			UUID jobID,
@@ -31,12 +32,14 @@ public class WebSpider extends Job {
 		this.sendProgress();
 	}
 	
+	
 	@Override
 	public void run() {	
 		
 		this.state = JobStatus.RUNNING;
-		this.sendProgress();
 		this.started = new Date();
+		this.sendProgress();
+		
 				
 		List<String> pagesVisited = new ArrayList<String>();
 		Queue<String> pagesToVisit = new LinkedList<String>();
@@ -49,34 +52,38 @@ public class WebSpider extends Job {
 		
 		while (pagesToVisit.size() > 0) {
 			
-			parser = new WepParser(mainUrl);
-			currentUrl = pagesToVisit.poll();
+			if(!this.interrupted) {
 			
-			if (parser.crawl(currentUrl)) {
+				parser = new WepParser(mainUrl);
+				currentUrl = pagesToVisit.poll();
 				
-				articleFound.add(parser.getDocument());
-				this.message = "\n**Visiting** web page at " + currentUrl;
-				this.sendProgress();
-				
-				if (parser.searchForDocument(selectors)) {
+				if (parser.crawl(currentUrl)) {
+					
 					articleFound.add(parser.getDocument());
-					this.message = "\n**Found** documnet at " + currentUrl;
+					this.message = "\n**Visiting** web page at " + currentUrl;
 					this.sendProgress();
+					
+					if (parser.searchForDocument(selectors)) {
+						articleFound.add(parser.getDocument());
+						this.message = "\n**Found** documnet at " + currentUrl;
+						this.sendProgress();
+					}
 				}
-			}
-			
-			pagesVisited.add(currentUrl);
-			
-			for (int i = 0; i < parser.getLinks().size(); i++) {
-				if (!pagesVisited.contains(parser.getLinks().get(i))) {
-					pagesToVisit.add(parser.getLinks().get(i));
+				
+				pagesVisited.add(currentUrl);
+				
+				for (int i = 0; i < parser.getLinks().size(); i++) {
+					if (!pagesVisited.contains(parser.getLinks().get(i))) {
+						pagesToVisit.add(parser.getLinks().get(i));
+					}
 				}
+			
 			}
 		}
 		
 		this.state = JobStatus.DONE;
-		this.sendProgress();
 		this.ended = new Date();
+		this.sendProgress();
 	}
 	
 }

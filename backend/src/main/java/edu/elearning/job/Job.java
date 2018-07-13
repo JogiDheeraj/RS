@@ -5,8 +5,11 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 
-public abstract class Job  implements Runnable {
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+public abstract class Job  implements Runnable {
+	
+	@JsonIgnore
 	private SimpMessagingTemplate template;
 	
 	protected AtomicInteger progress = new AtomicInteger();
@@ -16,12 +19,27 @@ public abstract class Job  implements Runnable {
 	protected Date ended;
 	protected UUID jobID;
 	protected String message = null;
+	
+	@JsonIgnore
+	protected boolean interrupted = false;
 
 	public Job(UUID jobID, SimpMessagingTemplate template) {
 		this.template = template;
 		this.jobID = jobID;
 	}
-
+	
+	public void interrupt() {
+		interrupted = true;
+		this.state = JobStatus.INTERRUPTED;
+		this.sendProgress();
+	}
+	
+	public void resum() {
+		interrupted = false;
+		this.state = JobStatus.RUNNING;
+		this.sendProgress();
+	}
+	
 	public void sendProgress() {
 		JobProgressMessage temp = new JobProgressMessage(jobID);
 		temp.setProgress(this.progress.get());
@@ -60,7 +78,5 @@ public abstract class Job  implements Runnable {
 	public UUID getJobID() {
 		return jobID;
 	}
-	
-	
 	
 }

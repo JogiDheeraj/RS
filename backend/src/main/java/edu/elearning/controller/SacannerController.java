@@ -7,12 +7,10 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.messaging.simp.annotation.SubscribeMapping;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.elearning.job.Job;
@@ -37,9 +35,19 @@ public class SacannerController {
 		return webspiderJobList.values();
 	}
 
-	@RequestMapping(value = "/{id}/execute/", method = RequestMethod.PUT)
+	@RequestMapping(value = "/{id}/start/", method = RequestMethod.PUT)
 	public void execute(@PathVariable("id") UUID id) {
 		taskExecutor.execute(webspiderJobList.get(id));
+	}
+	
+	@RequestMapping(value = "/{id}/stop/", method = RequestMethod.PUT)
+	public void stop(@PathVariable("id") UUID id) {
+		webspiderJobList.get(id).interrupt();
+	}
+	
+	@RequestMapping(value = "/{id}/resum/", method = RequestMethod.PUT)
+	public void resum(@PathVariable("id") UUID id) {
+		webspiderJobList.get(id).resum();
 	}
 
 	@RequestMapping(value = "/site1", method = RequestMethod.GET)
