@@ -3,7 +3,14 @@
 		
 		<mat-card class="card-account-sections">
 			<mat-card-content>
-				<a class="warn" (click)="newSection()"><mat-icon>add_circle_outline</mat-icon></a>
+			
+				<mat-toolbar>
+					<span class="toolbar-spacer"></span>
+					<button mat-mini-fab class="warn" (click)="newSection()">
+						<mat-icon>add_circle_outline</mat-icon>
+					</button>
+				</mat-toolbar>
+				
 				<mat-table class="managed-table" #table [dataSource]="sections">
 					
 					<ng-container matColumnDef="name">

@@ -3,7 +3,14 @@
 		
 		<mat-card class="card-account-users">
 			<mat-card-content>
-				<a class="warn" (click)="newUser()"><mat-icon>add_circle_outline</mat-icon></a>
+				
+				<mat-toolbar>
+					<span class="toolbar-spacer"></span>
+					<button mat-mini-fab (click)="newUser()">
+						<mat-icon>add_circle_outline</mat-icon>
+					</button>
+				</mat-toolbar>
+				
 				<mat-table class="managed-table" #table [dataSource]="users">
 					
 					<ng-container matColumnDef="username">

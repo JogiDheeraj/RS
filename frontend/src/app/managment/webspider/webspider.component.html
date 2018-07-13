@@ -3,14 +3,19 @@
 		
 		<mat-card class="card-account-jobss">
 			<mat-card-content>
-			
-				<button class="warn" mat-button [matMenuTriggerFor]="webSpiderMenu">
-					<mat-icon>add_circle_outline</mat-icon>
-				</button>
-				<mat-menu #webSpiderMenu="matMenu">
-					<button mat-menu-item (click)="newSpider('site1')">Spider1</button>
-					<button mat-menu-item (click)="newSpider('site2')">Spider2</button>
-				</mat-menu>
+				<mat-toolbar>
+					<span class="toolbar-spacer"></span>
+					
+					<button mat-mini-fab [matMenuTriggerFor]="webSpiderMenu">
+						<mat-icon>add_circle_outline</mat-icon>
+					</button>
+					<mat-menu #webSpiderMenu="matMenu">
+						<button mat-menu-item (click)="newSpider('site1')">Spider1</button>
+						<button mat-menu-item (click)="newSpider('site2')">Spider2</button>
+					</mat-menu>
+				</mat-toolbar>
+				
+				<br/>
 				
 				<mat-accordion>
 	  				<mat-expansion-panel 
@@ -20,44 +25,37 @@
 	  					hideToggle="true" 
 	  				>
 		    			<mat-expansion-panel-header>
-					      <mat-panel-title>
-					        {{'account-jobs.jobID' | translate}} : {{job.jobID}}
-					      </mat-panel-title>
-					      <mat-panel-description>
-					        {{'account-jobs.created' | translate}} : {{job.created | timeStamp}}
-					      </mat-panel-description>
+					      	<mat-panel-title>
+					        	{{'account-jobs.jobID' | translate}} : {{job.jobID}}
+					      	</mat-panel-title>
+					      
+					      	<button mat-button class="primary" (click)="strartJob(job.jobID)"
+								*ngIf="job.state != 'RUNNING'">
+								<mat-icon>play_arrow</mat-icon>
+							</button>
+							
+							<button mat-button class="warn" (click)="endJob(job.jobID)"
+								*ngIf="job.state == 'RUNNING'">
+								<mat-icon>stop</mat-icon>
+							</button>
 					    </mat-expansion-panel-header>
 				    	
 				    	<div>
+				    		<div> {{'account-jobs.created' | translate}} : {{job.created | timeStamp}} </div>
 				    		<div> {{'account-jobs.started' | translate}} : {{job.started | timeStamp}} </div>
 				    		<div> {{'account-jobs.ended' | translate}} : {{job.ended | timeStamp}} </div>
 				    		<div> {{'account-jobs.started' | translate}} : {{job.started | timeStamp}} </div>
-				    		<div> <h4> {{'account-jobs.state' | translate}} </h4>
+				    		<div> {{'account-jobs.state' | translate}} 
 				    			<mat-icon color="grean" *ngIf="job.state == 'DONE'">done_all</mat-icon>
 								<mat-icon color="grean" *ngIf="job.state == 'NEW'">fiber_new</mat-icon>
 								<div *ngIf="job.state == 'RUNNING'">
-									<p>{{job.message}}</p>
-									<p>{{job.progress}}</p>
-									<mat-progress-bar mode="indeterminate" ></mat-progress-bar>
+									<p> Documents :  {{job.progress}}</p>
+									<div>{{job.message}}</div>
+									<mat-progress-bar mode="buffer"></mat-progress-bar>
 								</div>
 				    		</div>
 				    	</div>
 			    	
-			    			<a class="primary" (click)="strartJob(job.jobID)"
-								*ngIf="job.state != 'RUNNING'"
-								matTooltip="{{'account-jobs.start' | translate}}"
-								matTooltipPosition="above"
-							>
-								<mat-icon>play_arrow</mat-icon>
-							</a>
-							
-							<a class="warn" (click)="endJob(job.jobID)"
-								*ngIf="job.state == 'RUNNING'"
-								matTooltip="{{'account-jobs.stop' | translate}}"
-								matTooltipPosition="above"
-							>
-								<mat-icon>stop</mat-icon>
-							</a>
 			    	</mat-expansion-panel>
 				</mat-accordion>
 			</mat-card-content>
