@@ -5,4 +5,5 @@ export class Job {
   ended: string;
   state: string;
   progress: number;
+  message: string;
 }

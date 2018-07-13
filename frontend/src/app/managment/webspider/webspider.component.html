@@ -12,43 +12,38 @@
 					<button mat-menu-item (click)="newSpider('site2')">Spider2</button>
 				</mat-menu>
 				
-				<mat-table class="managed-table" #table [dataSource]="jobs">
-					
-					<ng-container matColumnDef="jobID" sticky>
-						<mat-header-cell *matHeaderCellDef>{{'account-jobs.jobID' | translate}}</mat-header-cell>
-						<mat-cell *matCellDef='let job'>{{job.jobID}}</mat-cell>						
-					</ng-container>
-					
-					<ng-container matColumnDef="created">
-						<mat-header-cell *matHeaderCellDef>{{'account-jobs.created' | translate}}</mat-header-cell>
-						<mat-cell *matCellDef='let job'>{{job.created | timeStamp}}</mat-cell>						
-					</ng-container>
-					
-					<ng-container matColumnDef="started">
-						<mat-header-cell *matHeaderCellDef>{{'account-jobs.started' | translate}}</mat-header-cell>
-						<mat-cell *matCellDef='let job'>{{job.started | timeStamp}}</mat-cell>						
-					</ng-container>
-					
-					<ng-container matColumnDef="ended">
-						<mat-header-cell *matHeaderCellDef>{{'account-jobs.ended' | translate}}</mat-header-cell>
-						<mat-cell *matCellDef='let job'>{{job.ended | timeStamp}}</mat-cell>						
-					</ng-container>
-					
-					<ng-container matColumnDef="state">
-						<mat-header-cell *matHeaderCellDef>{{'account-jobs.state' | translate}}</mat-header-cell>
-						<mat-cell *matCellDef='let job'>
-							<mat-icon color="grean" *ngIf="job.state == 'DONE'">done_all</mat-icon>
-							<mat-icon color="grean" *ngIf="job.state == 'NEW'">fiber_new</mat-icon>
-							<mat-progress-bar mode="indeterminate" *ngIf="job.state == 'RUNNING'">
-								
-							</mat-progress-bar>
-						</mat-cell>
-					</ng-container>
-					
-					<ng-container matColumnDef="options">
-						<mat-header-cell *matHeaderCellDef>{{'account-jobs.options' | translate}}</mat-header-cell>
-						<mat-cell *matCellDef='let job'>
-							<a class="primary" (click)="strartJob(job.jobID)"
+				<mat-accordion>
+	  				<mat-expansion-panel 
+	  					*ngFor="let job of jobs; let i = index" 
+	  					[expanded]="selected === (i + 1)" 
+	  					(click)="setSelected(i + 1)" 
+	  					hideToggle="true" 
+	  				>
+		    			<mat-expansion-panel-header>
+					      <mat-panel-title>
+					        {{'account-jobs.jobID' | translate}} : {{job.jobID}}
+					      </mat-panel-title>
+					      <mat-panel-description>
+					        {{'account-jobs.created' | translate}} : {{job.created | timeStamp}}
+					      </mat-panel-description>
+					    </mat-expansion-panel-header>
+				    	
+				    	<div>
+				    		<div> {{'account-jobs.started' | translate}} : {{job.started | timeStamp}} </div>
+				    		<div> {{'account-jobs.ended' | translate}} : {{job.ended | timeStamp}} </div>
+				    		<div> {{'account-jobs.started' | translate}} : {{job.started | timeStamp}} </div>
+				    		<div> <h4> {{'account-jobs.state' | translate}} </h4>
+				    			<mat-icon color="grean" *ngIf="job.state == 'DONE'">done_all</mat-icon>
+								<mat-icon color="grean" *ngIf="job.state == 'NEW'">fiber_new</mat-icon>
+								<div *ngIf="job.state == 'RUNNING'">
+									<p>{{job.message}}</p>
+									<p>{{job.progress}}</p>
+									<mat-progress-bar mode="indeterminate" ></mat-progress-bar>
+								</div>
+				    		</div>
+				    	</div>
+			    	
+			    			<a class="primary" (click)="strartJob(job.jobID)"
 								*ngIf="job.state != 'RUNNING'"
 								matTooltip="{{'account-jobs.start' | translate}}"
 								matTooltipPosition="above"
@@ -63,13 +58,8 @@
 							>
 								<mat-icon>stop</mat-icon>
 							</a>
-						</mat-cell>
-					</ng-container>
-					
-					<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-				    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-					
-				</mat-table>
+			    	</mat-expansion-panel>
+				</mat-accordion>
 			</mat-card-content>
 		</mat-card>
 	</div>

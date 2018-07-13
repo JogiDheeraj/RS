@@ -6,17 +6,23 @@ import * as SockJS from 'sockjs-client';
 @Injectable()
 export class WebSocketService {
 
-  private stompClient;
+  private stompClient: Stomp;
+  
+  private url = "http://localhost:8080/webSocket";
 
-  initializeWebSocketConnection(serverUrl: string, calback: Function) {
-    const ws = new SockJS(serverUrl);
+  public initConnection(
+    subscripteUrl: string, 
+    calback: Function,
+    owner
+  ) {
+    const ws = new SockJS(this.url);
     this.stompClient = Stomp.over(ws);
+    this.stompClient.debug = true;
     const that = this;
     this.stompClient.connect({}, function(frame) {
-      that.stompClient.subscribe("/chat", (message) => {
+      that.stompClient.subscribe(subscripteUrl , (message) => {
         if (message.body) {
-          console.log(message.body);
-          calback(message.body);
+          calback(JSON.parse(message.body), owner);
         }
       });
     });

@@ -2,6 +2,8 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/observable';
 
+import {Job} from '../model/model.job';
+
 @Injectable()
 export class WebSpiderService {
 
@@ -9,8 +11,8 @@ export class WebSpiderService {
 
   constructor(public http: HttpClient) {}
 
-  public getAll() {
-    return this.http.get(this.url);
+  public getAll(): Observable<Job[]> {
+    return this.http.get<Job[]>(this.url);
   }
 
   public start(jobID: string) {
@@ -22,7 +24,7 @@ export class WebSpiderService {
   }
 
   public new(name: string) {
-    this.http.get(this.url + "/" + name).subscribe();
+    return this.http.get(this.url + "/" + name);
   }
 
 }

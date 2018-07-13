@@ -65,11 +65,4 @@ public class SacannerController {
 		webspiderJobList.put(id, spider);
 	}
 
-	@RequestMapping(value = "/task-state")
-	@ResponseBody
-	@SubscribeMapping("initial")
-	public Map<UUID, Job> fetchStatus() {
-		return this.webspiderJobList;
-	}
-
 }

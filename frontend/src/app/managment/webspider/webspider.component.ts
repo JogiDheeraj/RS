@@ -6,6 +6,7 @@ import {WebSocketService} from '../../services/websocket.service';
 import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
 
 import {Job} from '../../model/model.job';
+import { forEachChild } from 'typescript';
 
 @Component({
   selector: 'app-webspider',
@@ -14,9 +15,11 @@ import {Job} from '../../model/model.job';
 })
 export class WebspiderComponent implements OnInit {
 
-  displayedColumns = ['jobID', 'created', 'started', 'ended', 'state', 'options'];
+  selected: number;
 
-  jobs;
+  jobs: Array<Job>;
+  
+  jobsData: Array<Job>;
 
   constructor(
     public webspiderService: WebSpiderService,
@@ -26,10 +29,11 @@ export class WebspiderComponent implements OnInit {
 
   ngOnInit() {
     this.pullSpiders();
-    this.webSocketService.initializeWebSocketConnection(
-      "http://localhost:8080/ws", 
-      this.changeStatus
-    )
+    this.webSocketService.initConnection(
+      "/task/task-state",
+      this.changeStatus,
+      this
+    );
   }
 
   public endJob(jobID: string) {
@@ -44,8 +48,21 @@ export class WebspiderComponent implements OnInit {
     });
   }
   
-  private changeStatus(message: Job) {
-    console.log(message);
+  private changeStatus(message: Job, owner: WebspiderComponent) {
+    for (let i = 0; i < owner.jobsData.length; i++) {
+      owner.jobsData[i] = 
+        message.jobID === owner.jobsData[i].jobID  
+        ? message 
+        : owner.jobsData[i];
+    }
+  }
+  
+  setSelected(index: number) {
+    if(this.selected === index){
+      this.selected = null;
+    } else {
+      this.selected = index;
+    }
   }
 
   public strartJob(jobID: string) {
@@ -54,14 +71,17 @@ export class WebspiderComponent implements OnInit {
 
   public newSpider(name: string) {
     console.log(name)
-    this.webspiderService.new(name);
-    this.pullSpiders();
+    this.webspiderService.new(name)
+      .subscribe(result => {
+        this.pullSpiders();
+      });
   }
 
   private pullSpiders() {
     this.webspiderService.getAll()
       .subscribe(results => {
         this.jobs = results;
+        this.jobsData = results;
       });
   }
 }

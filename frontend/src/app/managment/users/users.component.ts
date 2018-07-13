@@ -51,11 +51,11 @@ export class UsersComponent implements OnInit {
     });
   }
   
-  public newSection() {
-    this.editSection(new User());
+  public newUser() {
+    this.editUser(new User());
   }
 
-  public editSection(user: User) {
+  public editUser(user: User) {
 //    const dialogRef = this.dialog.open(SectionEditDialogComponent, {data: section});
 //    dialogRef.afterClosed().subscribe(dialogresult => {
 //      if (dialogresult) {

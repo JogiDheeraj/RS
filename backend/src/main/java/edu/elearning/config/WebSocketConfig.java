@@ -20,16 +20,16 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 		executor.setQueueCapacity(25);
 		return executor;
 	}
+	
+	@Override
+	public void registerStompEndpoints(StompEndpointRegistry stompEndpointRegistry) {
+		stompEndpointRegistry.addEndpoint("/webSocket").setAllowedOrigins("*").withSockJS();
+	}
 
 	@Override
 	public void configureMessageBroker(MessageBrokerRegistry registry) {
 		registry.enableSimpleBroker("/task");
 		registry.setApplicationDestinationPrefixes("/ws");
-	}
-
-	@Override
-	public void registerStompEndpoints(StompEndpointRegistry stompEndpointRegistry) {
-		stompEndpointRegistry.addEndpoint("/task-state").setAllowedOrigins("*").withSockJS();
 	}
 
 }

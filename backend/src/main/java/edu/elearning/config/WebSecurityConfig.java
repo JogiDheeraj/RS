@@ -67,6 +67,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 					"/login",
 					"/logout",
 					"/register",
+					"/webSocket",
 					//backend URLs
 					restApiBasePath + "/account/login",
 					restApiBasePath + "/account/register",
