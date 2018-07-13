@@ -43,7 +43,7 @@ public class UsersController {
 	) {	
 		JsonResponseBody response = new JsonResponseBody();
 		User user = userService.findOne(id);
-		if(user != null) {
+		if (user != null) {
 			user.setAccountNonLocked(false);
 			userService.save(user);
 			response.setMessage("user_locked");
@@ -62,7 +62,7 @@ public class UsersController {
 	) {	
 		JsonResponseBody response = new JsonResponseBody();
 		User user = userService.findOne(id);
-		if(user != null) {
+		if (user != null) {
 			user.setAccountNonLocked(true);
 			userService.save(user);
 			response.setMessage("user_unlocked");

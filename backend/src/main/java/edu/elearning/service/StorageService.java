@@ -56,9 +56,8 @@ public class StorageService {
 			throw new RuntimeException("FAIL!");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			new RuntimeException("FAIL!");
+			throw new RuntimeException("FAIL!");
 		}
-		return null;
 	}
 
 	public void deleteAll() {

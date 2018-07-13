@@ -90,6 +90,7 @@
 		"m-users": "Users & Permissions",
 		"m-sections": "Sections",
 		"m-settings": "Settings",
+		"m-spiders": "Web-Spiders",
 		"myAd": "My Advertisements",
 		"newAd": "New Advertisement",
 		"helo": "Hello ،  ",
@@ -105,7 +106,7 @@
 		"articleCount": "Articles Count",
 		"options": "Options"
 	},
-	"comfirm-dialog": {
+	"confirm-dialog": {
 		"title": "Delete Comfirm",
 		"message": "Are you sour you wont to delete ?",
 		"no": "Cancel",
@@ -136,5 +137,16 @@
 		"edit": "Edit Role",
 		"disactive": "Account Lock",
 		"active": "Account Unlock"
+	},
+	"account-jobs":{
+		"jobID": "ID",
+		"created": "Creation Date",
+		"started": "Start Time",
+		"ended": "End Time",
+		"state": "State",
+		"options": "Options",
+		"start": "Run",
+		"stop": "Stop",
+		"stopConfirmM": "Are you sour that you want to stop this process?"
 	}
 }

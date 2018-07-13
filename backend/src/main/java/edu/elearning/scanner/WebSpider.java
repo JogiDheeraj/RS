@@ -12,7 +12,7 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import com.mongodb.BasicDBObject;
 
 import edu.elearning.job.Job;
-
+import edu.elearning.job.JobStatus;
 
 public class WebSpider extends Job {
 	
@@ -34,8 +34,7 @@ public class WebSpider extends Job {
 	@Override
 	public void run() {	
 		
-		// send WS RUNNING status for front end
-		this.state = "RUNNING";
+		this.state = JobStatus.RUNNING;
 		this.sendProgress();
 		this.started = new Date();
 				
@@ -53,26 +52,29 @@ public class WebSpider extends Job {
 			parser = new WepParser(mainUrl);
 			currentUrl = pagesToVisit.poll();
 			
-			if (
-				parser.crawl(currentUrl) && 
-				parser.searchForDocument(selectors)
-			) {
+			if (parser.crawl(currentUrl)) {
+				
 				articleFound.add(parser.getDocument());
+				this.message = "\n**Visiting** web page at " + currentUrl;
+				this.sendProgress();
+				
+				if (parser.searchForDocument(selectors)) {
+					articleFound.add(parser.getDocument());
+					this.message = "\n**Found** documnet at " + currentUrl;
+					this.sendProgress();
+				}
 			}
 			
 			pagesVisited.add(currentUrl);
 			
-			for(int i=0; i < parser.getLinks().size() ;i++) {
-				if(!pagesVisited.contains(parser.getLinks().get(i))) {
+			for (int i = 0; i < parser.getLinks().size(); i++) {
+				if (!pagesVisited.contains(parser.getLinks().get(i))) {
 					pagesToVisit.add(parser.getLinks().get(i));
 				}
 			}
 		}
 		
-		//System.out.println("\n**Done** Visited " + pagesVisited.size() + " web page(s)");
-		
-		// send WS DONE status for front end
-		this.state = "DONE";
+		this.state = JobStatus.DONE;
 		this.sendProgress();
 		this.ended = new Date();
 	}

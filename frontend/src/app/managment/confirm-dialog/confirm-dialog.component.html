@@ -1,10 +1,12 @@
 <div [dir]="document.dir">
-  <h3>{{'comfirm-dialog.title'|translate}}</h3>
-  <mat-dialog-content class="content">{{'comfirm-dialog.message'|translate}}</mat-dialog-content>
+  <h3>{{'confirm-dialog.title'|translate}}</h3>
+  <mat-dialog-content class="content">
+  	{{data | translate}}
+  </mat-dialog-content>
   <mat-dialog-actions>
     <fieldset class="control">
-      <button mat-raised-button [mat-dialog-close]="false">{{'comfirm-dialog.no'|translate}}</button>
-      <button mat-raised-button color="warn" [mat-dialog-close]="true">{{'comfirm-dialog.yes'|translate}}</button>
+      <button mat-raised-button [mat-dialog-close]="false">{{'confirm-dialog.no'|translate}}</button>
+      <button mat-raised-button color="warn" [mat-dialog-close]="true">{{'confirm-dialog.yes'|translate}}</button>
     </fieldset>
   </mat-dialog-actions>
 </div>

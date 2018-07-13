@@ -11,7 +11,7 @@ import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
-    
+
 	@Bean
 	public ThreadPoolTaskExecutor taskExecutor() {
 		ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
@@ -20,17 +20,16 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 		executor.setQueueCapacity(25);
 		return executor;
 	}
-	
+
 	@Override
-    public void configureMessageBroker(MessageBrokerRegistry registry)
-    {
-        registry.enableSimpleBroker("/task");
-        registry.setApplicationDestinationPrefixes("/ws");
-    }
-	
+	public void configureMessageBroker(MessageBrokerRegistry registry) {
+		registry.enableSimpleBroker("/task");
+		registry.setApplicationDestinationPrefixes("/ws");
+	}
+
 	@Override
-    public void registerStompEndpoints(StompEndpointRegistry stompEndpointRegistry) {
-        stompEndpointRegistry.addEndpoint("/task-state").withSockJS();
-    }
-    
+	public void registerStompEndpoints(StompEndpointRegistry stompEndpointRegistry) {
+		stompEndpointRegistry.addEndpoint("/task-state").setAllowedOrigins("*").withSockJS();
+	}
+
 }

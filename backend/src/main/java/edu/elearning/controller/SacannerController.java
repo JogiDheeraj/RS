@@ -20,55 +20,56 @@ import edu.elearning.scanner.PropertyType;
 import edu.elearning.scanner.Selectors;
 import edu.elearning.scanner.WebSpider;
 
-
 @RestController
 @RequestMapping("/scanners")
 public class SacannerController {
-	
+
 	@Autowired
 	private ThreadPoolTaskExecutor taskExecutor;
 
 	@Autowired
 	private SimpMessagingTemplate template;
-	
-	private Map<UUID , Job> webspiderJobList = new HashMap<UUID, Job>();
-	
+
+	private Map<UUID, Job> webspiderJobList = new HashMap<UUID, Job>();
+
 	@RequestMapping()
 	public Collection<Job> index() {
 		return webspiderJobList.values();
 	}
-	
-	@RequestMapping(value = "/execute/{id}", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/{id}/execute/", method = RequestMethod.PUT)
 	public void execute(@PathVariable("id") UUID id) {
 		taskExecutor.execute(webspiderJobList.get(id));
 	}
-	
+
 	@RequestMapping(value = "/site1", method = RequestMethod.GET)
 	public void side1() {
+		System.out.println("called spider1");
 		Selectors s = new Selectors();
-		s.addSelector("title", PropertyType.STRING , "h1[itemprop='name']");
-		s.addSelector("",  PropertyType.STRING, "");
-		s.addSelector("",  PropertyType.STRING, "");
-		s.addSelector("",  PropertyType.STRING, "");
+		s.addSelector("title", PropertyType.STRING, "h1[itemprop='name']");
+		s.addSelector("", PropertyType.STRING, "");
+		s.addSelector("", PropertyType.STRING, "");
+		s.addSelector("", PropertyType.STRING, "");
 		UUID id = UUID.randomUUID();
 		WebSpider spider = new WebSpider(id, template, "http://wibside1.com/", s);
 		webspiderJobList.put(id, spider);
 	}
-	
+
 	@RequestMapping(value = "/site2", method = RequestMethod.GET)
 	public void side2() {
+		System.out.println("called spider2");
 		Selectors s = new Selectors();
-		s.addSelector("title",  PropertyType.STRING , "h1[itemprop='name']");
+		s.addSelector("title", PropertyType.STRING, "h1[itemprop='name']");
 		UUID id = UUID.randomUUID();
 		WebSpider spider = new WebSpider(id, template, "http://pd4ml.com/", s);
 		webspiderJobList.put(id, spider);
 	}
-	
+
 	@RequestMapping(value = "/task-state")
 	@ResponseBody
 	@SubscribeMapping("initial")
-	public Map<UUID ,Job> fetchStatus() {
+	public Map<UUID, Job> fetchStatus() {
 		return this.webspiderJobList;
 	}
-	
+
 }

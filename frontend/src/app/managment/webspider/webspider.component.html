@@ -1,9 +1,17 @@
 <div class="account-jobss">
 	<div class="container">
 		
-		<mat-card class="card-account-sections">
+		<mat-card class="card-account-jobss">
 			<mat-card-content>
 			
+				<button class="warn" mat-button [matMenuTriggerFor]="webSpiderMenu">
+					<mat-icon>add_circle_outline</mat-icon>
+				</button>
+				<mat-menu #webSpiderMenu="matMenu">
+					<button mat-menu-item (click)="newSpider('site1')">Spider1</button>
+					<button mat-menu-item (click)="newSpider('site2')">Spider2</button>
+				</mat-menu>
+				
 				<mat-table class="managed-table" #table [dataSource]="jobs">
 					
 					<ng-container matColumnDef="jobID" sticky>
@@ -28,13 +36,33 @@
 					
 					<ng-container matColumnDef="state">
 						<mat-header-cell *matHeaderCellDef>{{'account-jobs.state' | translate}}</mat-header-cell>
-						<mat-cell *matCellDef='let job'>{{job.state}}</mat-cell>					
+						<mat-cell *matCellDef='let job'>
+							<mat-icon color="grean" *ngIf="job.state == 'DONE'">done_all</mat-icon>
+							<mat-icon color="grean" *ngIf="job.state == 'NEW'">fiber_new</mat-icon>
+							<mat-progress-bar mode="indeterminate" *ngIf="job.state == 'RUNNING'">
+								
+							</mat-progress-bar>
+						</mat-cell>
 					</ng-container>
 					
 					<ng-container matColumnDef="options">
 						<mat-header-cell *matHeaderCellDef>{{'account-jobs.options' | translate}}</mat-header-cell>
 						<mat-cell *matCellDef='let job'>
+							<a class="primary" (click)="strartJob(job.jobID)"
+								*ngIf="job.state != 'RUNNING'"
+								matTooltip="{{'account-jobs.start' | translate}}"
+								matTooltipPosition="above"
+							>
+								<mat-icon>play_arrow</mat-icon>
+							</a>
 							
+							<a class="warn" (click)="endJob(job.jobID)"
+								*ngIf="job.state == 'RUNNING'"
+								matTooltip="{{'account-jobs.stop' | translate}}"
+								matTooltipPosition="above"
+							>
+								<mat-icon>stop</mat-icon>
+							</a>
 						</mat-cell>
 					</ng-container>
 					

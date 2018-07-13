@@ -25,7 +25,7 @@ export class ForRolesDirective implements OnInit, OnDestroy {
     
     this.sub = this.ngRedux.subscribe(() => { 
       const user = this.ngRedux.getState().user;
-      if(roles.includes(user.role)) {
+      if(user && roles.includes(user.role)) {
         this.renderer.setElementStyle(
             this.el.nativeElement, 
             'display', 'block'

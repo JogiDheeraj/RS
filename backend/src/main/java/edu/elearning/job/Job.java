@@ -5,15 +5,17 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 
-public abstract class Job implements Runnable {
+public abstract class Job  implements Runnable {
 
 	private SimpMessagingTemplate template;
-	public AtomicInteger progress = new AtomicInteger();
-	public String state = "NEW";
-	public Date created = new Date();
-	public Date started;
-	public Date ended;
-	public UUID jobID;
+	
+	protected AtomicInteger progress = new AtomicInteger();
+	protected JobStatus state = JobStatus.NEW;
+	protected Date created = new Date();
+	protected Date started;
+	protected Date ended;
+	protected UUID jobID;
+	protected String message = null;
 
 	public Job(UUID jobID, SimpMessagingTemplate template) {
 		this.template = template;
@@ -22,16 +24,20 @@ public abstract class Job implements Runnable {
 
 	public void sendProgress() {
 		JobProgressMessage temp = new JobProgressMessage(jobID);
-		temp.setProgress(progress.get());
-		temp.setState(state);
-		template.convertAndSend("/simulation/sim-status", temp);
+		temp.setProgress(this.progress.get());
+		temp.setState(this.state);
+		temp.setCreated(this.created);
+		temp.setEnded(this.ended);
+		temp.setStarted(this.started);
+		temp.setMessage(this.message);
+		template.convertAndSend("/task/task-state", temp);
 	}
 
 	public int getProgress() {
 		return progress.get();
 	}
 
-	public String getState() {
+	public JobStatus getState() {
 		return state;
 	}
 
@@ -54,5 +60,7 @@ public abstract class Job implements Runnable {
 	public UUID getJobID() {
 		return jobID;
 	}
+	
+	
 	
 }

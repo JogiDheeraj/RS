@@ -55,6 +55,7 @@ import {SectionService} from '../services/section.service';
 import {FileService} from '../services/file.service';
 import {UserService} from '../services/users.service';
 import {WebSpiderService} from '../services/webspider.service';
+import {WebSocketService} from '../services/websocket.service';
 
 //application Pipes import
 import {TimeStampPipe} from '../pipes/timeStamp';
@@ -156,7 +157,8 @@ export function createTranslateLoader(http: HttpClient) {
     AclResolve,
     FileService,
     UserService,
-    WebSpiderService
+    WebSpiderService,
+    WebSocketService
   ],
   bootstrap: [AppComponent]
 })

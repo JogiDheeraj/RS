@@ -1,0 +1,12 @@
+.account-jobss .card-account-jobss{
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+.account-jobss mat-cell a{
+	display: inline-block;
+    height: 28px;
+    width: 28px;
+    text-align: center;
+    margin: 2px;
+}
