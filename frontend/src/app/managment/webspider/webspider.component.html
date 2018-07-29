@@ -29,17 +29,22 @@
 					        	{{'account-jobs.jobID' | translate}} : {{job.jobID}}
 					      	</mat-panel-title>
 					      
-					      	<button mat-button class="primary" (click)="startJob(job.jobID)"
-								*ngIf="job.state == 'NEW' || job.state == 'DONE'">
-								<mat-icon>replay</mat-icon>
+					      	<button mat-button color="primary" (click)="startJob(job.jobID)"
+								*ngIf="job.state == 'NEW'">
+								<mat-icon>play_arrow</mat-icon>
 							</button>
 							
-							<button mat-button class="warn" (click)="stopJob(job.jobID)"
+							<button mat-button color="accent" (click)="startJob(job.jobID)"
+								*ngIf="job.state == 'DONE'">
+								<mat-icon>repeat</mat-icon>
+							</button>
+							
+							<button mat-button (click)="stopJob(job.jobID)"
 								*ngIf="job.state == 'RUNNING'">
 								<mat-icon>pause_presentation</mat-icon>
 							</button>
 							
-							<button mat-button class="warn" (click)="resumJob(job.jobID)"
+							<button mat-button color="warn" (click)="resumJob(job.jobID)"
 								*ngIf="job.state == 'INTERRUPTED'">
 								<mat-icon>play_circle_outline</mat-icon>
 							</button>

@@ -16,15 +16,15 @@ export class WebSpiderService {
   }
 
   public start(jobID: string) {
-    this.http.put(this.url + "/" + jobID + "/start/", "").subscribe();
+    this.http.put(this.url + "/" + jobID + "/start", "").subscribe();
   }
 
   public stop(jobID: string) {
-    this.http.put(this.url + "/" + jobID + "/stop/", "").subscribe();
+    this.http.put(this.url + "/" + jobID + "/stop", "").subscribe();
   }
   
   public resum(jobID: string) {
-    this.http.put(this.url + "/" + jobID + "/resum/", "").subscribe();
+    this.http.put(this.url + "/" + jobID + "/resum", "").subscribe();
   }
 
   public new(name: string) {

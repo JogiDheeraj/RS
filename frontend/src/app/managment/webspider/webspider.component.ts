@@ -6,7 +6,6 @@ import {WebSocketService} from '../../services/websocket.service';
 import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
 
 import {Job} from '../../model/model.job';
-import {forEachChild} from 'typescript';
 
 @Component({
   selector: 'app-webspider',

@@ -2,9 +2,11 @@ package edu.elearning.scanner;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Set;
 import java.util.UUID;
 
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -18,7 +20,6 @@ public class WebSpider extends Job {
 	
 	private String mainUrl;
 	private Selectors selectors;
-	
 
 	public WebSpider(
 			UUID jobID,
@@ -32,7 +33,6 @@ public class WebSpider extends Job {
 		this.sendProgress();
 	}
 	
-	
 	@Override
 	public void run() {	
 		
@@ -40,25 +40,22 @@ public class WebSpider extends Job {
 		this.started = new Date();
 		this.sendProgress();
 		
-				
-		List<String> pagesVisited = new ArrayList<String>();
+		Set<String> visitedPages = new LinkedHashSet<String>();
 		Queue<String> pagesToVisit = new LinkedList<String>();
-		
 		List<BasicDBObject> articleFound = new ArrayList<BasicDBObject>();
-		pagesToVisit.add(mainUrl);
 		
+		WepParser parser = new WepParser(mainUrl);
+		pagesToVisit.add(mainUrl.trim());
 		String currentUrl;
-		WepParser parser;
 		
 		while (pagesToVisit.size() > 0) {
-			
 			if(!this.interrupted) {
-			
-				parser = new WepParser(mainUrl);
+				
 				currentUrl = pagesToVisit.poll();
+				visitedPages.add(currentUrl.trim());
+				System.out.println("Visiting (" + currentUrl + ")");
 				
 				if (parser.crawl(currentUrl)) {
-					
 					articleFound.add(parser.getDocument());
 					this.message = "\n**Visiting** web page at " + currentUrl;
 					this.sendProgress();
@@ -70,14 +67,15 @@ public class WebSpider extends Job {
 					}
 				}
 				
-				pagesVisited.add(currentUrl);
-				
-				for (int i = 0; i < parser.getLinks().size(); i++) {
-					if (!pagesVisited.contains(parser.getLinks().get(i))) {
-						pagesToVisit.add(parser.getLinks().get(i));
+				for (String link : parser.getLinks()) {
+					if (
+						!visitedPages.contains(link)
+						&& !pagesToVisit.contains(link)
+					) {
+						System.out.println("Add (" + link + ")");
+						pagesToVisit.add(link);
 					}
 				}
-			
 			}
 		}
 		

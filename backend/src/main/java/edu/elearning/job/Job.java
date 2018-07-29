@@ -7,7 +7,7 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public abstract class Job  implements Runnable {
+public abstract class Job implements Runnable {
 	
 	@JsonIgnore
 	private SimpMessagingTemplate template;

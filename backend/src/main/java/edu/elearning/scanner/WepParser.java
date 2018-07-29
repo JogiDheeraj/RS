@@ -3,8 +3,8 @@ package edu.elearning.scanner;
 import org.jsoup.Jsoup;
 
 import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import org.jsoup.Connection;
 import org.jsoup.nodes.Document;
@@ -17,7 +17,7 @@ public class WepParser {
 
 	private static final String USER_AGENT = 
 			"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1";
-	private List<String> links = new LinkedList<String>();
+	private Set<String> links;
 	private Document htmlDocument;
 	private String mainUrl;
 	private BasicDBObject document;
@@ -28,26 +28,27 @@ public class WepParser {
 
 	public boolean crawl(String url) {
 		try {
-
-			Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
-			Document htmlDocument = connection.get();
-			this.htmlDocument = htmlDocument;
-
-			if (connection.response().statusCode() == 200) {
-				System.out.println("\n**Visiting** Received web page at " + url);
-			}
-
-			if (!connection.response().contentType().contains("text/html")) {
-				System.out.println("**Failure** Retrieved something other than HTML");
+			Connection connection = Jsoup.connect(url).userAgent(USER_AGENT); 
+			htmlDocument = connection.get();
+			
+			if (
+				connection.response().statusCode() != 200 ||
+				!connection.response().contentType().contains("text/html")
+			) {
 				return false;
 			}
 
 			Elements linksOnPage = htmlDocument.select("a[href]");
-			System.out.println("Found (" + linksOnPage.size() + ") links");
+			links = new LinkedHashSet<String>();
+			
 			for (Element link : linksOnPage) {
-				if (!link.absUrl("href").isEmpty()
-						&& link.absUrl("href").toLowerCase().contains(mainUrl.toLowerCase())) {
-					this.links.add(link.absUrl("href"));
+				if (
+					!link.absUrl("href").isEmpty()
+					&& link.absUrl("href").toLowerCase().contains(mainUrl.toLowerCase())
+					&& !links.contains(link.absUrl("href").trim())
+				) {
+					this.links.add(link.absUrl("href").trim());
+					System.out.println("Found (" + link.absUrl("href").trim() + ")");
 				}
 			}
 
@@ -59,7 +60,7 @@ public class WepParser {
 
 	public boolean searchForDocument(Selectors selectors) {
 
-		if (this.htmlDocument == null) {
+		if (htmlDocument == null) {
 			System.out.println("ERROR! Call crawl() before performing analysis on the document");
 			return false;
 		}
@@ -85,7 +86,7 @@ public class WepParser {
 		return true;
 	}
 
-	public List<String> getLinks() {
+	public Set<String> getLinks() {
 		return this.links;
 	}
 
