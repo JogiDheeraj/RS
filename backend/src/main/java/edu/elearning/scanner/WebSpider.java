@@ -53,7 +53,7 @@ public class WebSpider extends Job {
 		pagesToVisit.add(mainUrl.trim());
 		String currentUrl;
 		
-		while (pagesToVisit.size() > 0) {
+		while (pagesToVisit.size() > 0 && !this.stopped) {
 			if (!this.interrupted) { 
 				
 				currentUrl = pagesToVisit.poll();

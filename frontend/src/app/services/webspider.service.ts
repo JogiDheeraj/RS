@@ -23,8 +23,16 @@ export class WebSpiderService {
     this.http.put(this.url + "/" + jobID + "/stop", "").subscribe();
   }
   
+  public interrupt(jobID: string) {
+    this.http.put(this.url + "/" + jobID + "/interrupt", "").subscribe();
+  }
+  
   public resum(jobID: string) {
     this.http.put(this.url + "/" + jobID + "/resum", "").subscribe();
+  }
+  
+  public delete(jobID: string) {
+    return this.http.delete(this.url + "/" + jobID + "/delete");
   }
 
   public new(name: string) {

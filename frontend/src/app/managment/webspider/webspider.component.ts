@@ -7,6 +7,7 @@ import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component
 
 import {Job} from '../../model/model.job';
 
+
 @Component({
   selector: 'app-webspider',
   templateUrl: './webspider.component.html',
@@ -14,11 +15,9 @@ import {Job} from '../../model/model.job';
 })
 export class WebspiderComponent implements OnInit {
 
-  selected: number;
-
-  jobs: Array<Job>;
-
-  jobsData: Array<Job>;
+  public selected: number;
+  public jobs: Array<Job>;
+  private jobsData: Array<Job>;
 
   constructor(
     public webspiderService: WebSpiderService,
@@ -43,7 +42,7 @@ export class WebspiderComponent implements OnInit {
           : owner.jobsData[i];
     }
   }
-  
+
   private pullSpiders() {
     this.webspiderService.getAll()
       .subscribe(results => {
@@ -63,6 +62,10 @@ export class WebspiderComponent implements OnInit {
   public startJob(jobID: string) {
     this.webspiderService.start(jobID);
   }
+  
+  public interruptJob(jobID: string) {
+    this.webspiderService.interrupt(jobID);
+  }
 
   public stopJob(jobID: string) {
     const dialogRef = this.dialog.open(
@@ -78,6 +81,24 @@ export class WebspiderComponent implements OnInit {
 
   public resumJob(jobID: string) {
     this.webspiderService.resum(jobID);
+  }
+  
+  public deleteJob(jobID: string) {
+    
+    const dialogRef = this.dialog.open(
+      ConfirmDialogComponent,
+      {data: 'account-jobs.stopConfirmM'}
+    );
+    dialogRef.afterClosed().subscribe(dialogresult => {
+      if (dialogresult) {
+        this.webspiderService.delete(jobID)
+        .subscribe(result => {
+          console.log("remove");
+          this.pullSpiders();
+        })
+      }
+    });
+    
   }
 
   public newSpider(name: string) {

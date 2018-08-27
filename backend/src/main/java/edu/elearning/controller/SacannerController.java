@@ -43,17 +43,28 @@ public class SacannerController {
 	
 	@RequestMapping(value = "/{id}/stop", method = RequestMethod.PUT)
 	public void stop(@PathVariable("id") UUID id) {
-		webspiderJobList.get(id).interrupt();
+		webspiderJobList.get(id).stop();
 	}
 	
 	@RequestMapping(value = "/{id}/resum", method = RequestMethod.PUT)
 	public void resum(@PathVariable("id") UUID id) {
 		webspiderJobList.get(id).resum();
 	}
+	
+	@RequestMapping(value = "/{id}/interrupt", method = RequestMethod.PUT)
+	public void interrupt(@PathVariable("id") UUID id) {
+		webspiderJobList.get(id).interrupt();
+	}
+	
+	@RequestMapping(value = "/{id}/delete", method = RequestMethod.DELETE)
+	public void delete(@PathVariable("id") UUID id) {
+		Job job = webspiderJobList.get(id);
+		job.stop();
+		webspiderJobList.remove(id);
+	}
 
 	@RequestMapping(value = "/site1", method = RequestMethod.GET)
 	public void side1() {
-		
 		Selectors s = new Selectors();
 		s.addSelector("title", PropertyType.STRING, "h1[itemprop='name']");
 		s.addSelector("", PropertyType.STRING, "");
@@ -67,7 +78,6 @@ public class SacannerController {
 
 	@RequestMapping(value = "/site2", method = RequestMethod.GET)
 	public void side2() {
-		
 		Selectors s = new Selectors();
 		s.addSelector("title", PropertyType.STRING, "h1[itemprop='name']");
 		UUID id = UUID.randomUUID();

@@ -29,25 +29,52 @@
 					        	{{'account-jobs.jobID' | translate}} : {{job.jobID}}
 					      	</mat-panel-title>
 					      
-					      	<button mat-button color="primary" (click)="startJob(job.jobID)"
+					      	<a  class="primary" 
+					      		matTooltip="{{'account-jobs.start' | translate}}"
+								matTooltipPosition="above"
+					      		(click)="startJob(job.jobID)"
 								*ngIf="job.state == 'NEW'">
 								<mat-icon>play_arrow</mat-icon>
-							</button>
+							</a>
 							
-							<button mat-button color="accent" (click)="startJob(job.jobID)"
+							<a  class="accent"
+								matTooltip="{{'account-jobs.restart' | translate}}"
+								matTooltipPosition="above" 
+								(click)="startJob(job.jobID)"
 								*ngIf="job.state == 'DONE'">
 								<mat-icon>repeat</mat-icon>
-							</button>
+							</a>
 							
-							<button mat-button (click)="stopJob(job.jobID)"
+							<a  matTooltip="{{'account-jobs.pouse' | translate}}"
+								matTooltipPosition="above"
+								(click)="interruptJob(job.jobID)"
 								*ngIf="job.state == 'RUNNING'">
 								<mat-icon>pause_presentation</mat-icon>
-							</button>
+							</a>
 							
-							<button mat-button color="warn" (click)="resumJob(job.jobID)"
+							<a 	class="warn" 
+								matTooltip="{{'account-jobs.stop' | translate}}"
+								matTooltipPosition="above"
+								(click)="stopJob(job.jobID)"
+								*ngIf="job.state == 'RUNNING' || job.state == 'INTERRUPTED'">
+								<mat-icon>stop</mat-icon>
+							</a>
+							
+							<a 	class="primary"
+								matTooltip="{{'account-jobs.resum' | translate}}"
+								matTooltipPosition="above"
+								(click)="resumJob(job.jobID)"
 								*ngIf="job.state == 'INTERRUPTED'">
 								<mat-icon>play_circle_outline</mat-icon>
-							</button>
+							</a>
+							
+							<a 	class="warn"
+								matTooltip="{{'account-jobs.delete' | translate}}"
+								matTooltipPosition="above" 
+								(click)="deleteJob(job.jobID)"
+								*ngIf="job.state != 'RUNNING'">
+								<mat-icon>delete</mat-icon>
+							</a>
 					    </mat-expansion-panel-header>
 				    	
 				    	<div>

@@ -22,6 +22,9 @@ public abstract class Job implements Runnable {
 	
 	@JsonIgnore
 	protected boolean interrupted = false;
+	
+	@JsonIgnore
+	protected boolean stopped = false; 
 
 	public Job(UUID jobID, SimpMessagingTemplate template) {
 		this.template = template;
@@ -37,6 +40,12 @@ public abstract class Job implements Runnable {
 	public void resum() {
 		interrupted = false;
 		this.state = JobStatus.RUNNING;
+		this.sendProgress();
+	}
+	
+	public void stop() {
+		stopped = true;
+		this.state = JobStatus.NEW;
 		this.sendProgress();
 	}
 	

@@ -4,5 +4,5 @@ public enum JobStatus {
 	NEW,
 	INTERRUPTED,
 	RUNNING,
-	DONE
+	DONE,
 }
