@@ -21,7 +21,7 @@ import edu.elearning.job.JobStatus;
 
 public class WebSpider extends Job {
 	
-	private static Logger LOGGER = LogManager.getLogger(WepParser.class);
+	private static Logger lOGGER = LogManager.getLogger(WepParser.class);
 	
 	private String mainUrl;
 	private Selectors selectors;
@@ -54,11 +54,11 @@ public class WebSpider extends Job {
 		String currentUrl;
 		
 		while (pagesToVisit.size() > 0) {
-			if(!this.interrupted) {
+			if (!this.interrupted) { 
 				
 				currentUrl = pagesToVisit.poll();
 				visitedPages.add(currentUrl.trim());
-				LOGGER.info("Visiting (" + currentUrl + ")");
+				lOGGER.info("Visiting (" + currentUrl + ")");
 				
 				if (parser.crawl(currentUrl)) {
 					articleFound.add(parser.getDocument());
@@ -77,7 +77,7 @@ public class WebSpider extends Job {
 						!visitedPages.contains(link)
 						&& !pagesToVisit.contains(link)
 					) {
-						LOGGER.info("Add (" + link + ")");
+						lOGGER.info("Add (" + link + ")");
 						pagesToVisit.add(link);
 					}
 				}

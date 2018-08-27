@@ -18,7 +18,7 @@ import com.mongodb.BasicDBObject;
 
 public class WepParser {
 	
-	private static Logger LOGGER = LogManager.getLogger(WepParser.class);
+	private static Logger lOGGER = LogManager.getLogger(WepParser.class);
 
 	private static final String USER_AGENT = 
 			"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1";
@@ -53,13 +53,13 @@ public class WepParser {
 					&& !links.contains(link.absUrl("href").trim())
 				) {
 					this.links.add(link.absUrl("href").trim());
-					LOGGER.info("Found (" + link.absUrl("href").trim() + ")");
+					lOGGER.info("Found (" + link.absUrl("href").trim() + ")");
 				}
 			}
 
 			return true;
 		} catch (IOException ioe) {
-			LOGGER.warn(ioe.getMessage(), ioe);
+			lOGGER.warn(ioe.getMessage(), ioe);
 			return false;
 		}
 	}
@@ -67,7 +67,7 @@ public class WepParser {
 	public boolean searchForDocument(Selectors selectors) {
 
 		if (htmlDocument == null) {
-			LOGGER.warn("ERROR! Call crawl() before performing analysis on the document");
+			lOGGER.warn("ERROR! Call crawl() before performing analysis on the document");
 			return false;
 		}
 
