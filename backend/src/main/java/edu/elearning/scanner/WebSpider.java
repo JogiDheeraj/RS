@@ -1,5 +1,8 @@
 package edu.elearning.scanner;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashSet;
@@ -17,6 +20,8 @@ import edu.elearning.job.Job;
 import edu.elearning.job.JobStatus;
 
 public class WebSpider extends Job {
+	
+	private static Logger LOGGER = LogManager.getLogger(WepParser.class);
 	
 	private String mainUrl;
 	private Selectors selectors;
@@ -53,7 +58,7 @@ public class WebSpider extends Job {
 				
 				currentUrl = pagesToVisit.poll();
 				visitedPages.add(currentUrl.trim());
-				System.out.println("Visiting (" + currentUrl + ")");
+				LOGGER.info("Visiting (" + currentUrl + ")");
 				
 				if (parser.crawl(currentUrl)) {
 					articleFound.add(parser.getDocument());
@@ -72,7 +77,7 @@ public class WebSpider extends Job {
 						!visitedPages.contains(link)
 						&& !pagesToVisit.contains(link)
 					) {
-						System.out.println("Add (" + link + ")");
+						LOGGER.info("Add (" + link + ")");
 						pagesToVisit.add(link);
 					}
 				}

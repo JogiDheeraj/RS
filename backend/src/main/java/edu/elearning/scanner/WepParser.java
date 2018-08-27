@@ -2,6 +2,9 @@ package edu.elearning.scanner;
 
 import org.jsoup.Jsoup;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -14,6 +17,8 @@ import org.jsoup.select.Elements;
 import com.mongodb.BasicDBObject;
 
 public class WepParser {
+	
+	private static Logger LOGGER = LogManager.getLogger(WepParser.class);
 
 	private static final String USER_AGENT = 
 			"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1";
@@ -48,12 +53,13 @@ public class WepParser {
 					&& !links.contains(link.absUrl("href").trim())
 				) {
 					this.links.add(link.absUrl("href").trim());
-					System.out.println("Found (" + link.absUrl("href").trim() + ")");
+					LOGGER.info("Found (" + link.absUrl("href").trim() + ")");
 				}
 			}
 
 			return true;
 		} catch (IOException ioe) {
+			LOGGER.warn(ioe.getMessage(), ioe);
 			return false;
 		}
 	}
@@ -61,7 +67,7 @@ public class WepParser {
 	public boolean searchForDocument(Selectors selectors) {
 
 		if (htmlDocument == null) {
-			System.out.println("ERROR! Call crawl() before performing analysis on the document");
+			LOGGER.warn("ERROR! Call crawl() before performing analysis on the document");
 			return false;
 		}
 
